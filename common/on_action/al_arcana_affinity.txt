@@ -1,0 +1,21 @@
+﻿on_birth_child = {
+	on_actions = {
+		on_birth_child_magic
+	}
+}
+
+on_birth_child_magic = {
+	# arcane_legacy_1: "Improves chances of being born with slightly better mana affinity"
+	#
+	# arcane_legacy_4: "Improves chances of being born with greater mana affinity"
+	effect = {
+		give_base_arcana_affinity = yes
+	}
+}
+populate_arcana_affinity = {
+	effect = {
+		every_living_character = {
+			give_base_arcana_affinity_game_start_effect = yes
+		}
+	}
+}

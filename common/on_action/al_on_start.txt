@@ -1,0 +1,50 @@
+﻿on_game_start_after_lobby = {
+	on_actions = { 
+		populate_arcana_affinity
+		al_religion_setup
+		al_welcome_message
+		mage_tower_setup
+	}
+}
+al_religion_setup = {
+	effect = {
+		every_religion_global = {
+			every_faith = {
+				add_doctrine = doctrine_magecraft_mythical
+			}
+		}
+	}
+}
+al_welcome_message = {
+	effect = {
+		every_player = {
+			trigger_event = magecraft.1000
+		}
+	}
+}
+mage_tower_setup = {
+	effect = {
+		set_local_variable = {
+			name = ruined_mage_tower_amount
+			value = 0
+		}
+		every_empire = {
+			random_de_jure_county = {
+				random_county_province = {
+					limit = { has_special_building = no }
+					add_special_building = ruined_mage_tower
+					change_local_variable = {
+						name = ruined_mage_tower_amount
+						add = 1
+					}
+				}
+			}
+		}
+		if = { limit = { local_var:ruined_mage_tower_amount < 5 }
+			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
+			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
+			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
+			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
+		}
+	}
+}

@@ -1,0 +1,194 @@
+﻿yearly_global_pulse = {
+	on_actions = {
+		yearly_arcana_pulse
+	}
+}
+yearly_arcana_pulse = {
+	effect = {
+		every_living_character = {
+			limit = { 
+				# OR = { # OLD IDEA
+				# 	highest_held_title_tier > tier_barony
+				# 	has_character_flag = al_arcana_system_override
+				# }
+				has_trait = mage
+			}
+			set_variable = {
+				name = arcana_gen_months_left
+				value = 12
+			}
+			trigger_event = { on_action = monthly_arcana_gen }
+		}
+	}
+}
+
+set_up_remaining_arcana_gen_for_year = {
+	effect = {
+		set_variable = {
+			name = arcana_gen_months_left
+			value = {
+				value = 13 				
+				subtract = current_month
+			}
+		}
+		trigger_event = { on_action = monthly_arcana_gen }
+	}
+}
+
+monthly_arcana_gen = {
+	trigger = {
+		has_variable = arcana_gen_months_left
+		var:arcana_gen_months_left > 0
+	}
+
+	on_actions = {
+		delay = { months = 1 }
+		monthly_arcana_gen
+	}
+
+	effect = {
+		monthly_arcana_change = yes
+		
+		change_variable = {
+			name = arcana_gen_months_left
+			subtract = 1
+		}
+	}
+}
+arcana_depleted = {
+	effect = {
+		if = { limit = { has_character_modifier = ritual_improve_intellect_minor } remove_character_modifier = ritual_improve_intellect_minor }
+		if = { limit = { has_character_modifier = ritual_improve_intellect_normal } remove_character_modifier = ritual_improve_intellect_normal }
+		if = { limit = { has_character_modifier = ritual_improve_intellect_major } remove_character_modifier = ritual_improve_intellect_major }
+		if = { limit = { has_character_modifier = ritual_improve_intellect_supreme } remove_character_modifier = ritual_improve_intellect_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_improve_body_health_minor } remove_character_modifier = ritual_improve_body_health_minor }
+		if = { limit = { has_character_modifier = ritual_improve_body_health_normal } remove_character_modifier = ritual_improve_body_health_normal }
+		if = { limit = { has_character_modifier = ritual_improve_body_health_major } remove_character_modifier = ritual_improve_body_health_major }
+		if = { limit = { has_character_modifier = ritual_improve_body_health_supreme } remove_character_modifier = ritual_improve_body_health_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_improve_fertility_minor } remove_character_modifier = ritual_improve_fertility_minor }
+		if = { limit = { has_character_modifier = ritual_improve_fertility_normal } remove_character_modifier = ritual_improve_fertility_normal }
+		if = { limit = { has_character_modifier = ritual_improve_fertility_major } remove_character_modifier = ritual_improve_fertility_major }
+		if = { limit = { has_character_modifier = ritual_improve_fertility_supreme } remove_character_modifier = ritual_improve_fertility_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_improve_body_prowess_minor } remove_character_modifier = ritual_improve_body_prowess_minor }
+		if = { limit = { has_character_modifier = ritual_improve_body_prowess_normal } remove_character_modifier = ritual_improve_body_prowess_normal }
+		if = { limit = { has_character_modifier = ritual_improve_body_prowess_major } remove_character_modifier = ritual_improve_body_prowess_major }
+		if = { limit = { has_character_modifier = ritual_improve_body_prowess_supreme } remove_character_modifier = ritual_improve_body_prowess_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_accelerate_minor } remove_character_modifier = ritual_accelerate_minor }
+		if = { limit = { has_character_modifier = ritual_accelerate_normal } remove_character_modifier = ritual_accelerate_normal }
+		if = { limit = { has_character_modifier = ritual_accelerate_major } remove_character_modifier = ritual_accelerate_major }
+		if = { limit = { has_character_modifier = ritual_accelerate_supreme } remove_character_modifier = ritual_accelerate_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_accelerate_army_minor } remove_character_modifier = ritual_accelerate_army_minor }
+		if = { limit = { has_character_modifier = ritual_accelerate_army_normal } remove_character_modifier = ritual_accelerate_army_normal }
+		if = { limit = { has_character_modifier = ritual_accelerate_army_major } remove_character_modifier = ritual_accelerate_army_major }
+		if = { limit = { has_character_modifier = ritual_accelerate_army_supreme } remove_character_modifier = ritual_accelerate_army_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_improve_army_bodies_minor } remove_character_modifier = ritual_improve_army_bodies_minor }
+		if = { limit = { has_character_modifier = ritual_improve_army_bodies_normal } remove_character_modifier = ritual_improve_army_bodies_normal }
+		if = { limit = { has_character_modifier = ritual_improve_army_bodies_major } remove_character_modifier = ritual_improve_army_bodies_major }
+		if = { limit = { has_character_modifier = ritual_improve_army_bodies_supreme } remove_character_modifier = ritual_improve_army_bodies_supreme }
+		
+		if = { limit = { has_character_modifier = ritual_telekinesis_minor } remove_character_modifier = ritual_telekinesis_minor }
+		if = { limit = { has_character_modifier = ritual_telekinesis_normal } remove_character_modifier = ritual_telekinesis_normal }
+		if = { limit = { has_character_modifier = ritual_telekinesis_major } remove_character_modifier = ritual_telekinesis_major }
+		if = { limit = { has_character_modifier = ritual_telekinesis_supreme } remove_character_modifier = ritual_telekinesis_supreme }
+
+		if = { limit = { has_character_modifier = ritual_pyrokineis_minor } remove_character_modifier = ritual_pyrokineis_minor }
+		if = { limit = { has_character_modifier = ritual_pyrokineis_normal } remove_character_modifier = ritual_pyrokineis_normal }
+		if = { limit = { has_character_modifier = ritual_pyrokineis_major } remove_character_modifier = ritual_pyrokineis_major }
+		if = { limit = { has_character_modifier = ritual_pyrokineis_supreme } remove_character_modifier = ritual_pyrokineis_supreme }
+
+		if = { limit = { has_character_modifier = ritual_immortality_modifier } death = { death_reason = death_natural_causes } }
+	}
+}
+open_magecraft_window = {
+	effect = {
+		####################### NOVICE #######################
+		if = { limit = { has_perk = al_arcane_mastery_novice_spell } 
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_wound }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_heal }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_metal_into_gold }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_calm }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_anger }
+		}
+		if = { limit = { has_perk = al_arcane_mastery_novice_ritual } 
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_improve_fertility }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_telekinesis }
+		}
+		####################### ADEPT #######################
+		if = { limit = { has_perk = al_arcane_mastery_adept_spell } 
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_cure }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_domination }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_inflict_illness }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_devastate_land }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_change_genetics_beauty }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_change_genetics_physique }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_bad_vibes }
+		}
+		if = { limit = { has_perk = al_arcane_mastery_adept_ritual } 
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_improve_body_prowess }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_accelerate }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_improve_body_health }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_pyrokineis }
+		}
+		####################### MASTER #######################
+		if = { limit = { has_perk = al_arcane_mastery_master_spell } 
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_create_gold }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_overcharge_mind }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_overcharge_body }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_change_topography }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_change_genetics_intellect }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_purify_physique }
+			add_to_variable_list = { name = spell_tab_list target = flag:spell_fix_flesh }
+		}
+		if = { limit = { has_perk = al_arcane_mastery_master_ritual } 
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_accelerate_army }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_improve_intellect }
+		}
+		if = { limit = { has_perk = al_arcane_mastery_master_rewrite_spell } 
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_change_genetics_beauty }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_change_genetics_physique }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_change_genetics_intellect }
+		}
+		####################### ARCHMAGE #######################
+		if = { limit = { has_perk = al_arcane_mastery_archmage_spell } 
+		}
+		if = { limit = { has_perk = al_arcane_mastery_archmage_ritual } 
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_improve_army_bodies }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_immortality }
+		}
+		if = { limit = { has_perk = al_arcane_mastery_archmage_rewrite_spell } 
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_spawn_meteorite }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_genetic_perfection }
+			#add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_become_magical_vampire }
+		}
+		####################### GODLY #######################
+		if = { limit = { has_perk = al_arcane_mastery_godly_spell } 
+		}
+		if = { limit = { has_perk = al_arcane_mastery_godly_ritual } 
+		}
+		if = { limit = { has_perk = al_arcane_mastery_godly_rewrite_spell } 
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_apocalipse }
+		}
+		
+
+		####################### SUPREME #######################
+		if = { limit = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_apotheosis } }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_apotheosis }
+		}
+		if = { limit = {  is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_utopia }  }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_utopia }
+		}
+		if = { limit = {  is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_armagedon }  }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_armagedon }
+		}
+		if = { limit = {  is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_genesis }  }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_genesis }
+		}
+
+	}
+}

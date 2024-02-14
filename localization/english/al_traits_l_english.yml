@@ -1,0 +1,48 @@
+﻿l_english:
+ trait_mage:0 "Mage"
+ trait_mage_desc:0 "[mage|E], a person who can sense arcana in the air and, with some effort, move it and use it as fuel for ordinary processes such as combustion and the like, or use it to rewrite reality"
+ trait_mage_character_desc:0 "[mage|E] [ROOT.GetCharacter.GetFirstNameNoTooltip], can can sense arcana in the air and, with some effort, move it and use it as fuel for ordinary processes such as combustion and the like, or use it to rewrite reality"
+ trait_track_mage_legacy:0 "Mage Legacy"
+ trait_track_mage_legacy_desc:0 "How much world view this character as great mage, Has nothing with real strenght of them"
+
+ TRAIT_FLAG_DESC_arcana_affinity_add_2: "[arcana_affinity|E]: @arcana_affinity_icon!#P +2#!"
+
+ al_magecraft_feared: "Everybody Fears"
+
+ trait_genetic_perfection:0 "Genetic Perfection"
+ trait_genetic_perfection_desc:0 "This character's genome was improved"
+ trait_genetic_perfection_character_desc:0 "[ROOT.GetCharacter.GetFirstName]'s genome was change succesfuly making them high Human"
+ trait_track_genetic_perfection_track:0 "Percentange of genome changed"
+ trait_track_genetic_perfection_track_desc:0 "How much of genome was changed. Or how much this character is high human "
+
+ trait_magical_vampire:0 "#R Magical Vampire#!"
+ trait_magical_vampire_desc:0 "This character by rewriting reality become #R magical vampire#!"
+ trait_magical_vampire_character_desc:0 "[ROOT.GetCharacter.GetFirstName] become #R magical vampire#! by rewriting reality"
+ trait_track_magical_vampire:0 "Hunger"
+ trait_track_magical_vampire_desc:0 "Hunger Level"
+ TRAIT_FLAG_DESC_magical_vampire_hunger: "Each month hunger will drop by 1\nhunger can be gain by killing any other character #weak (50 - their's age)#!"
+ TRAIT_FLAG_DESC_magical_vampire_immortality: "#g This character cannot die by any means #!.BUT when character was supposed to die hunger will decrease by 25, When hunger dropes to 0 character#R  WILL die#!"
+
+ trait_al_god:0 "#G Magical God#!"
+ trait_al_god_desc:0 "#G This character's body is emboiment of their's soul and is compoesed fully by arcana#!"
+ trait_al_god_character_desc:0 "[ROOT.GetCharacter.GetFirstName]'s body is emboiment of their's soul and is compoesed fully by arcana"
+ TRAIT_FLAG_DESC_arcana_affinity_add_100: "[arcana_affinity|E]: @arcana_affinity_icon!#P +100#!"
+ TRAIT_FLAG_DESC_al_god_children: "#weak Cannot have children through normal means. Only way to have child is to use 'Genesis' Rewrite spell found through research #!"
+
+ trait_al_ancient:0 "#B The Ancient#!"
+ trait_al_ancient_desc:0 "This character is ancient mage of old era. Theirs power exels everyone before and after their's birth. If there is god somewhere this character is the closes to be one. But this character is only a legend... or is he?"
+
+
+ trait_al_golem:0 "Golem"
+ trait_al_golem_desc:0 "This character animated rock without mind. Very often golems are camouflage by spells and rituals to hide their identity"
+ trait_al_golem_character_desc:0 "[ROOT.GetCharacter.GetFirstName] is animated rock without mind. Very often golems are camouflage by spells and rituals to hide their identity"
+
+ trait_al_homunculus:0 "Homunculus"
+ trait_al_homunculus_desc:0 "This character is human created by arcane means. If Homunculus is of poor quality they cannot have children..."
+ trait_al_homunculus_character_desc:0 "[ROOT.GetCharacter.GetFirstName] is human created by arcane means. If Homunculus is of poor quality they cannot have children..."
+
+ trait_al_perfect_human:0 "Perfect Human"
+ trait_al_perfect_human_desc:0 "Perfect Humans are species of highly improved human to point where they cannot be call just human."
+ trait_al_perfect_human_character_desc:0 "[ROOT.GetCharacter.GetFirstName] is animated rock without mind. Very often golems are camouflage by spells and rituals to hide their identity"
+
+ al_nick_the_ancient:0 "The Ancient"

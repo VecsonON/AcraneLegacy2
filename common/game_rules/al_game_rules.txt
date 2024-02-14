@@ -1,0 +1,58 @@
+﻿PC_magic_level = {
+	default = PC_magic_level_decision
+
+	PC_magic_level_decision = {}
+
+	PC_magic_level_0 = { # Mundane
+	}
+	
+	PC_magic_level_1 = { # Sub-magical
+	}
+	
+	PC_magic_level_2 = { # Magical
+	}
+	
+	PC_magic_level_3 = { # Sub-magical
+	}	
+	
+	PC_magic_level_4 = { # Transcendent
+	}	
+	
+	PC_magic_level_5 = { # Demigod
+	}	
+	
+
+	PC_magic_level_random = {} # Random
+}
+
+NPC_magic_chance = { # Percantage of NPC that will have 
+	default = NPC_magic_chance_001
+	NPC_magic_chance_0 = {}
+	NPC_magic_chance_0001 = {}
+	
+	NPC_magic_chance_001 = {}
+	
+	NPC_magic_chance_01 = {}
+	
+	NPC_magic_chance_05 = {}
+	
+	NPC_magic_chance_1 = {}
+}
+
+NPC_magic_level = { #How high is highest game start mana affinity
+	default = NPC_magic_level_random
+
+	NPC_magic_level_random = {}
+	
+	NPC_magic_level_0 = {}
+	
+	NPC_magic_level_1 = {}
+	
+	NPC_magic_level_2 = {}
+	
+	NPC_magic_level_3 = {}	
+	
+	NPC_magic_level_4 = {}
+	
+	NPC_magic_level_5 = {}	
+}

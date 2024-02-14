@@ -1,0 +1,66 @@
+﻿# Idea from witchcraft. 
+al_arcana_affinity_bonus_t = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+al_artifact_arcana_monthly_gain_bonus_t = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+al_arcana_arcana_max_bonus_t = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+al_arcana_magecraft_cost_bonus_t = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}
+al_arcana_ancient_magicus_learning_t = {
+	color = { 220 45 120 }
+	travel_danger_color = hsv { 0.16 0.7 0.8 }
+	travel_danger_score = drylands_danger_value
+	
+	province_modifier = {
+		supply_limit_mult = 0
+		development_growth_factor = -0.05
+		travel_danger = drylands_danger_value
+	}
+	
+	audio_parameter = 1.0
+}

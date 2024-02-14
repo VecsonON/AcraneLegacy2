@@ -1,0 +1,64 @@
+﻿arcana_affinity_level = { #Localisation levels for arcana affinity
+	type = character
+
+	text = {
+		localization_key = arcana_affinity_level_god
+		trigger = { arcana_affinity > demigod_arcana_affinity_level }
+	}
+	text = {
+		localization_key = arcana_affinity_level_demigod
+		trigger = { arcana_affinity > transcendent_affinity_level }
+	}
+	text = {
+		localization_key = arcana_affinity_level_transcendent
+		trigger = { arcana_affinity > sub_transcendent_affinity_level }
+	}
+	text = {
+		localization_key = arcana_affinity_level_sub_transcendent
+		trigger = { arcana_affinity > magical_arcana_affinity_level }
+	}
+	text = {
+		localization_key = arcana_affinity_level_magical
+		trigger = { arcana_affinity > sub_magical_arcana_affinity_level }
+	}
+	text = {
+		localization_key = arcana_affinity_level_sub_magical
+		trigger = { arcana_affinity > mundane_arcana_affinity_level }
+	}
+
+	text = {
+		localization_key = arcana_affinity_level_mundane
+	}
+
+
+}
+arcana_cost_discount_perks = {
+	type = character
+	text = {
+		localization_key = arcana_cost_discount_perks_all
+		trigger = { has_perk = al_arcane_mastery_godly_arcane_studies }
+	}
+	text = {
+		localization_key = arcana_cost_discount_perks_4
+		trigger = { has_perk = al_arcane_mastery_archmage_arcane_studies }
+	}
+	text = {
+		localization_key = arcana_cost_discount_perks_3
+		trigger = { has_perk = al_arcane_mastery_master_arcane_studies }
+	}
+	text = {
+		localization_key = arcana_cost_discount_perks_2
+		trigger = { has_perk = al_arcane_mastery_adept_arcane_studies }
+	}
+	text = {
+		localization_key = arcana_cost_discount_perks_1
+		trigger = { has_perk = al_arcane_mastery_novice_arcane_studies }
+	}
+}
+artifact_spell_loc = {
+	type = artifact # FOR NOW MADE THIS WAY. LATER I WILL FIND WAY TO DO IT BETTER
+	text = { localization_key = artifact_spell_loc_has_apotheosis trigger = { has_variable = spell var:spell = flag:rewrite_spell_apotheosis } }
+	text = { localization_key = artifact_spell_loc_has_armagedon trigger = { has_variable = spell var:spell = flag:rewrite_spell_armagedon } }
+	text = { localization_key = artifact_spell_loc_has_genesis trigger = { has_variable = spell var:spell = flag:rewrite_spell_genesis } }
+	text = { localization_key = artifact_spell_loc_has_utopia trigger = { has_variable = spell var:spell = flag:rewrite_spell_utopia } }
+}

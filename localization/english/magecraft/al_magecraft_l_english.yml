@@ -1,0 +1,47 @@
+﻿l_english:
+ arcana_add_loc: "Gain @acrana_icon!#P $VALUE$ [arcana|E]#!"
+ arcana_remove_loc: "Lose @acrana_icon!#N $VALUE$ [arcana|E]#!"
+ arcana_remove_xp_gain_loc: "Gain $VALUE$ [arcane_mastery_lifestyle|E] XP"
+ have_arcana_trigger: "Has @acrana_icon!#N $VALUE$ [arcana|E]#!"
+
+ have_arcana_trigger_loc: "You #P DO#! have @acrana_icon!$VALUE$ [arcana|E]#!"
+ NOT_have_arcana_trigger_loc: "You do #N NOT#! have @acrana_icon!$VALUE$ [arcana|E]#!"
+
+ target_caster_same: "You must cast this spell on yourself"
+
+ casting_rewriting_spell: "Casting [rewriting_spell|E]"
+ casting_rewriting_spell_desc: "This character's focus is fully into castting [rewriting_spell|E]. \n\nif you ever reach 0 [arcana|E] with this modifier, #N Casting will fail\n#weak Depending on #color_gray [rewriting_spell]#!, #weak loss of#! #color_gray [arcana]#! #weak per month will differ#!"
+
+ MAGIC_TITLE: "Magecraft"
+
+ MAGECRAFT_INFO: "Magecraft Details"
+ MAGECRAFT_LIST: "Magecraft List"
+
+ SPELL_TAB: "#E Spells#!"
+ CHOOSE_SPELL_TAB: "Show available #E [Concept('spell','Spells')]#!"
+ REWRITE_SPELL_TAB: "#E Rewriting Spells#!"
+ CHOOSE_REWRITE_SPELL_TAB: "Show available #E [Concept('rewriting_spell','Rewriting Spells')]#!"
+ RITUAL_TAB: "#E Rituals#!"
+ CHOOSE_RITUAL_TAB: "Show available #E [Concept('ritual','Rituals')]#!"
+
+ after_casting: "\nAfter Casting is Done:"
+
+ al_hurt: "Hurt"
+ al_helped: "Helped"
+
+ execute_loc: "Cast"
+
+ target_loc: "Target"
+ caster_loc: "Caster"
+
+ target_caster_same_loc: "Target and Caster must be in the same location"
+
+ spell_create_animals_name: "Create Animals"
+ spell_create_animals_level_0_loc: "Minor"
+
+ work_in_progress:"Work In Progress"
+
+
+#AUTHORS
+ spell_author_vytarrus: "#weak Spell Idea Created by Vytarrus#!"
+ spell_author_tene: "#weak Spell Idea Created by Tene#!"

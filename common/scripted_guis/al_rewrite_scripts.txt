@@ -1,0 +1,698 @@
+﻿#rewrite_spell_change_genetics_beauty
+rewrite_spell_change_genetics_beauty_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_3 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_3 }
+		if = { limit = { exists = flag:rewrite_spell_change_genetics_beauty } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_change_genetics_beauty_script = {
+	effect = {
+		show_as_tooltip = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+		}
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = beauty_bad rank = 3 } } }
+			
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_bad_3_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_bad_3 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_bad_3_time }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = beauty_bad rank = 2 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_bad_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_bad_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_bad_2_time }
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = beauty_bad rank = 1 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_bad_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_bad_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_bad_1_time }
+		}
+		if = { limit = { scope:setting = flag:level_0 }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_level_0 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_level_0_time }
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = beauty_good rank = 1 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_good_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_good_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_good_1_time }
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = beauty_good rank = 2 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_good_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_good_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_good_2_time }
+		}
+		if = { limit = { scope:setting = flag:good_3 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = beauty_good rank = 3 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_beauty_good_3_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_beauty_good_3 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_beauty_good_3_time }
+		}
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		trigger_if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { NOT = { has_trait = beauty_bad_3 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { NOT = { has_trait = beauty_bad_2 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { NOT = { has_trait = beauty_bad_2 } }
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { NOT = { has_trait = beauty_good_1 } }
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { NOT = { has_trait = beauty_good_2 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { has_trait = beauty_good_3 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+	}
+}
+#rewrite_spell_change_genetics_physique
+rewrite_spell_change_genetics_physique_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_3 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_3 }
+		if = { limit = { exists = flag:rewrite_spell_change_genetics_physique } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_change_genetics_physique_script = {
+	effect = {
+		show_as_tooltip = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+		}
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = physique_bad rank = 3 } } }
+			
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_bad_3_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_bad_3 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_bad_3_time }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = physique_bad rank = 2 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_bad_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_bad_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_bad_2_time }
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = physique_bad rank = 1 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_bad_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_bad_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_bad_1_time }
+		}
+		if = { limit = { scope:setting = flag:level_0 }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_level_0 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_level_0_time }
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = physique_good rank = 1 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_good_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_good_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_good_1_time }
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = physique_good rank = 2 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_good_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_good_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_good_2_time }
+		}
+		if = { limit = { scope:setting = flag:good_3 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = physique_good rank = 3 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_physique_good_3_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_physique_good_3 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_physique_good_3_time }
+		}
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		trigger_if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { NOT = { has_trait = physique_bad_3 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { NOT = { has_trait = physique_bad_2 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { NOT = { has_trait = physique_bad_2 } }
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { NOT = { has_trait = physique_good_1 } }
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { NOT = { has_trait = physique_good_2 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { has_trait = physique_good_3 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+	}
+}
+#rewrite_spell_change_genetics_intellect
+rewrite_spell_change_genetics_intellect_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_3 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_3 }
+		if = { limit = { exists = flag:rewrite_spell_change_genetics_intellect } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_change_genetics_intellect_script = {
+	effect = {
+		show_as_tooltip = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+		}
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = intellect_bad rank = 3 } } }
+			
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_bad_3_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_intellect_bad_3 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_bad_3_time }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = intellect_bad rank = 2 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_bad_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_intellect_bad_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_bad_2_time }
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = intellect_bad rank = 1 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_bad_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_intellect_bad_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_bad_1_time }
+		}
+		if = { limit = { scope:setting = flag:level_0 }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_intellect_level_0 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_level_0_time }
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = intellect_good rank = 1 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_good_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_intellect_good_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_good_1_time }
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = intellect_good rank = 2 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_good_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_change_genetics_intellect_good_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_good_2_time }
+		}
+		if = { limit = { scope:setting = flag:good_3 } 
+			scope:target = { show_as_tooltip = { set_trait_rank = { trait = intellect_good rank = 3 } } }
+
+			set_variable = { name = rewriting_cost  value = rewrite_spell_change_genetics_intellect_good_3_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_genetics_change_intellect_good_3 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_change_genetics_intellect_good_3_time }
+		}
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		trigger_if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { NOT = { has_trait = intellect_bad_3 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { NOT = { has_trait = intellect_bad_2 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { NOT = { has_trait = intellect_bad_2 } }
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { NOT = { has_trait = intellect_good_1 } }
+			has_perk = al_arcane_mastery_master_rewrite_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { NOT = { has_trait = intellect_good_2 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { has_trait = intellect_good_3 } }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+	}
+}
+#rewrite_spell_apocalipse
+rewrite_spell_apocalipse_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:rewrite_spell_apocalipse } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_apocalipse_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		show_as_tooltip = {
+			scope:target = {
+				every_sub_realm_county = {
+					add_county_modifier = {
+						modifier = apocalipse_modifier
+						years = 20
+					}
+					change_development_level = -100
+				}
+				death = { death_reason = death_brutally_despatched  }
+			}
+		}
+		set_variable = { name = rewriting_cost  value = rewrite_spell_apocalipse_level_0_time_cost }
+		set_variable = { name = rewriting_name  value = flag:rewrite_spell_apocalipse_level_0 }
+		trigger_event = { id = magecraft.0001   months = rewrite_spell_apocalipse_level_0_time }
+
+
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		has_perk = al_arcane_mastery_godly_rewrite_spell
+	}
+}
+#rewrite_spell_spawn_meteorite
+rewrite_spell_spawn_meteorite_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		if = { limit = { exists = flag:rewrite_spell_spawn_meteorite } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_spawn_meteorite_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		custom_tooltip = { text = rewrite_spell_spawn_meteorite_info }
+		set_variable = { name = rewriting_target  value = root.location.county }
+		custom_description_no_bullet = { text = after_casting }
+		if = { limit = { scope:setting = flag:level_0 }
+			show_as_tooltip = {
+				location.county = {
+					add_county_modifier = {
+						modifier = minor_meteorite
+						years = 10
+					}
+					change_development_level = -5
+				}
+			}
+			set_variable = { name = rewriting_cost  value = rewrite_spell_spawn_meteorite_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_spawn_meteorite_level_0 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_spawn_meteorite_level_0_time }
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			show_as_tooltip = {
+				location.county = {
+					add_county_modifier = {
+						modifier = meteorite
+						years = 15
+					}
+					change_development_level = -10
+				}
+			}
+			set_variable = { name = rewriting_cost  value = rewrite_spell_spawn_meteorite_level_1_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_spawn_meteorite_level_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_spawn_meteorite_level_1_time }
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			show_as_tooltip = {
+				location.county = {
+					add_county_modifier = {
+						modifier = major_meteorite
+						years = 20
+					}
+					change_development_level = -20
+				}
+			}
+			set_variable = { name = rewriting_cost  value = rewrite_spell_spawn_meteorite_level_2_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_spawn_meteorite_level_2 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_spawn_meteorite_level_2_time }
+		}
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		trigger_if = { limit = { scope:setting = flag:level_0 }
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+		trigger_else = { 
+			has_perk = al_arcane_mastery_godly_rewrite_spell
+		}
+	}
+}
+#rewrite_spell_genetic_perfection
+rewrite_spell_genetic_perfection_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:rewrite_spell_genetic_perfection } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_genetic_perfection_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		show_as_tooltip = {
+			scope:target = {
+				if = { limit = { NOT = { has_trait = genetic_perfection } } add_trait = genetic_perfection }
+				else = { add_trait_xp = { trait = genetic_perfection value = 25 } }
+			}
+		}
+		set_variable = { name = rewriting_cost  value = rewrite_spell_genetic_perfection_level_0_time_cost }
+		set_variable = { name = rewriting_name  value = flag:rewrite_spell_genetic_perfection_level_0 }
+		trigger_event = { id = magecraft.0001   months = rewrite_spell_genetic_perfection_level_0_time }
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		trigger_if = { limit = { scope:target = { has_trait = genetic_perfection has_trait_xp = { trait = genetic_perfection track = genetic_perfection_track value >= 50 } } }
+			has_perk = al_arcane_mastery_godly_rewrite_spell
+		}
+		trigger_else = { 
+			has_perk = al_arcane_mastery_archmage_rewrite_spell
+		}
+	}
+}
+#rewrite_spell_genesis
+rewrite_spell_genesis_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } 
+		if = { limit = { exists = flag:rewrite_spell_genesis } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_genesis_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		if = { limit = { scope:setting = flag:level_0 } 
+			show_as_tooltip = {
+				scope:target = {
+					add_trait = al_perfect_human
+				}
+			}
+			set_variable = { name = rewriting_cost  value = rewrite_spell_genesis_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_genesis_level_0 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_genesis_level_0_time }
+		}else = {
+			show_as_tooltip = {
+				custom_tooltip = "al_create_child"
+			}
+			set_variable = { name = rewriting_cost  value = rewrite_spell_genesis_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_genesis_level_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_genesis_level_0_time }
+		}
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		has_perk = al_arcane_mastery_godly_rewrite_spell
+	}
+}
+#rewrite_spell_apotheosis
+rewrite_spell_apotheosis_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		if = { limit = { exists = flag:rewrite_spell_apotheosis } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_apotheosis_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		if = { limit = { scope:setting = flag:level_0 } 
+			show_as_tooltip = {
+				random_list = {
+					1 = {
+						show_chance = no
+						desc = rewrite_spell_apotheosis.WorldGod.succes
+						death = {
+							death_reason = death_disappearance
+						}
+					}
+					1 = {
+						show_chance = no
+						desc = rewrite_spell_apotheosis.WorldGod.failure
+						death = {
+							death_reason = death_disappearance
+						}
+						house = { add_house_modifier = apotheosis_house_modifier }
+					}
+				}
+			}
+			set_variable = { name = rewriting_cost  value = rewrite_spell_apotheosis_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_apotheosis_level_0 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_apotheosis_level_0_time }
+		}
+		else = {
+			show_as_tooltip = {
+				remove_trait = intellect_good_1
+				remove_trait = intellect_good_2
+				remove_trait = intellect_good_3
+				remove_trait = intellect_bad_1
+				remove_trait = intellect_bad_2
+				remove_trait = intellect_bad_3
+
+				remove_trait = beauty_good_1
+				remove_trait = beauty_good_2
+				remove_trait = beauty_good_3
+				remove_trait = beauty_bad_1
+				remove_trait = beauty_bad_2
+				remove_trait = beauty_bad_3
+
+				remove_trait = physique_good_1
+				remove_trait = physique_good_2
+				remove_trait = physique_good_3
+				remove_trait = physique_bad_1
+				remove_trait = physique_bad_2
+				remove_trait = physique_bad_3
+
+				remove_trait = blind
+				remove_trait = incapable
+				remove_trait = infirm
+				remove_trait = one_legged
+				remove_trait = genetic_perfection
+
+				remove_trait = al_perfect_human
+
+				add_trait = al_god    
+				add_prestige = 10000
+			}
+				
+			
+			set_variable = { name = rewriting_cost  value = rewrite_spell_apotheosis_level_0_time_cost }
+			set_variable = { name = rewriting_name  value = flag:rewrite_spell_apotheosis_level_1 }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_apotheosis_level_0_time }
+		}
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		trigger_if = { limit = { scope:setting = flag:level_0 }  
+			custom_tooltip = {
+                text = "there_is_already_world_god"
+				NOT = { has_global_variable = al_new_god_already }
+            }
+		}
+		trigger_else = {
+			NOT = { has_trait = al_god }
+		}
+		scope:target = ROOT
+		has_perk = al_arcane_mastery_godly_rewrite_spell
+	}
+}
+#rewrite_spell_utopia
+# rewrite_spell_utopia_select = {
+# 	effect = {
+# 		clear_variable_list = magecraft_settings
+# 		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+# 		if = { limit = { exists = flag:rewrite_spell_utopia } } # TO DELETE CONSOLE SPAM...
+# 	}
+# }
+# rewrite_spell_utopia_script = {
+# 	effect = {
+# 		add_character_modifier = {
+# 			modifier = casting_rewriting_spell 
+# 		}
+# 		set_variable = { name = rewriting_target  value = scope:target }
+# 		custom_description_no_bullet = { text = after_casting }
+# 		show_as_tooltip = {
+# 			custom_tooltip = "post_utopia_mechanic"
+# 			custom_tooltip = "post_utopia_mechanic_realm"
+# 			custom_tooltip = "post_utopia_mechanic_other_realm"
+# 		}
+# 		set_variable = { name = rewriting_cost  value = rewrite_spell_utopia_level_0_time_cost }
+# 		set_variable = { name = rewriting_name  value = flag:rewrite_spell_utopia_level_0 }
+# 		trigger_event = { id = magecraft.0001   months = rewrite_spell_utopia_level_0_time }
+# 	}
+# 	is_valid  = {
+# 		NOT = { has_character_modifier = casting_rewriting_spell }
+# 		has_perk = al_arcane_mastery_godly_rewrite_spell
+# 	}
+# }
+# #rewrite_spell_become_magical_vampire
+# rewrite_spell_become_magical_vampire_select = {
+# 	effect = {
+# 		clear_variable_list = magecraft_settings
+# 		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+# 		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+# 	}
+# }
+# rewrite_spell_become_magical_vampire_script = {
+# 	effect = {
+# 		add_character_modifier = {
+# 			modifier = casting_rewriting_spell 
+# 		}
+# 		set_variable = { name = rewriting_target  value = scope:target }
+# 		custom_description_no_bullet = { text = after_casting }
+# 		if = { limit = { scope:setting = flag:level_0 } 
+# 			show_as_tooltip = {
+# 				scope:target = {
+# 					add_trait = magical_vampire
+# 					add_trait_xp = { trait = magical_vampire value = 100 }
+# 				}
+# 			}
+# 			set_variable = { name = rewriting_cost  value = rewrite_spell_become_magical_vampire_level_0_time_cost }
+# 			set_variable = { name = rewriting_name  value = flag:rewrite_spell_become_magical_vampire_level_0 }
+# 			trigger_event = { id = magecraft.0001   months = rewrite_spell_become_magical_vampire_level_0_time }
+# 		}
+# 		else = {
+# 			show_as_tooltip = {
+# 				scope:target = {
+# 					random_list = {
+# 						50 = {
+# 							remove_trait = magical_vampire
+# 						}
+# 						50 = {
+# 							add_stress = 200
+# 							add_trait_xp = { trait = magical_vampire value = -25}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			set_variable = { name = rewriting_cost  value = rewrite_spell_become_magical_vampire_level_1_time_cost }
+# 			set_variable = { name = rewriting_name  value = flag:rewrite_spell_become_magical_vampire_level_1 }
+# 			trigger_event = { id = magecraft.0001   months = rewrite_spell_become_magical_vampire_level_1_time }
+# 		}
+# 	}
+# 	is_valid  = {
+# 		NOT = { has_character_modifier = casting_rewriting_spell }
+# 		scope:target = { NOT = { has_trait = genetic_perfection } }
+# 		trigger_if = { limit = { scope:setting = flag:level_0 }
+# 			has_perk = al_arcane_mastery_archmage_rewrite_spell
+# 			scope:target = {
+# 				NOT = { has_trait = magical_vampire }
+# 			}
+# 		}
+# 		trigger_else = { 
+# 			has_perk = al_arcane_mastery_godly_rewrite_spell
+# 			scope:target = {
+# 				has_trait = magical_vampire
+# 			}
+# 		}
+# 		scope:target = ROOT
+# 	}
+# }

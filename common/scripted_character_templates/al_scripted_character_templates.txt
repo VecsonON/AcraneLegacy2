@@ -1,0 +1,79 @@
+﻿mage = {
+	age = { 20 70 }
+	gender_female_chance = 50
+	dynasty = none
+
+	# random_traits_list = {
+	# 	education_arcana_1 = { weight = { base = 50 } }
+	# 	education_arcana_2 = { weight = { base = 25 } }
+	# 	education_arcana_3 = { weight = { base = 15 } }
+	# 	education_arcana_4 = { weight = { base = 10 } }
+	# 	education_arcana_5 = { weight = { base = 5 } }
+	# }
+	random_traits_list = {
+		count = { 0 1 }
+		scholar = {}
+		theologian = {}
+		chaste = {}
+		diligent = {}
+		patient = {}
+		humble = {}
+		shy = {}
+		content = {}
+		cynical = {}
+		lazy = {}
+	}
+	random_traits = yes	
+	martial = {
+		min_template_low_skill
+		max_template_medium_skill
+	}
+	stewardship = {
+		min_template_low_skill
+		max_template_medium_skill
+	}
+	diplomacy = {
+		min_template_low_skill
+		max_template_medium_skill
+	}
+	intrigue = {
+		min_template_low_skill
+		max_template_medium_skill
+	}
+	learning = {
+		min_template_low_skill
+		max_template_high_skill
+	}
+	after_creation = {
+		give_base_arcana_affinity = yes
+		al_become_mage = yes
+		change_variable = {
+			name = base_arcana_affinity
+			add = 10
+		}
+	}
+}
+al_golem_template = {
+	age = { 20 70 }
+	gender_female_chance = 50
+	dynasty = none
+
+	trait = al_golem
+	martial = 0
+	stewardship = 0
+	diplomacy = 0
+	intrigue = 0
+	learning = 0
+}
+al_god_child_template = {
+	age = 0
+	gender_female_chance = 50
+	dynasty = none
+
+	trait = al_perfect_human
+	martial = 0
+	stewardship = 0
+	diplomacy = 0
+	intrigue = 0
+	learning = 0
+}

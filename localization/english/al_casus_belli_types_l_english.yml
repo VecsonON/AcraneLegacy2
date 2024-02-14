@@ -1,0 +1,5 @@
+﻿l_english:
+ al_godly_invasion_war:0 "Godly Invasion"
+ AL_GODLY_INVASION_CB_NAME:1 "Invade [kingdom|E]"
+ AL_GODLY_INVASION_WAR_NAME:2 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjective] Invasion of [TITLE.GetBaseName]"
+ AL_GODLY_INVASION_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"

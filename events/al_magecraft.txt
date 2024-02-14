@@ -1,0 +1,1177 @@
+﻿namespace = magecraft
+magecraft.0001 = {
+	type = character_event
+	title = magecraft.0001.title
+	desc = magecraft.0001.desc
+	theme = secret
+
+	trigger = {
+		NOT = {
+			has_character_flag = rewrite_cancel
+		}
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_bad_3 }
+
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+			set_trait_rank = { trait = beauty_bad rank = 3 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_bad_2 }
+		
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+			set_trait_rank = { trait = beauty_bad rank = 2 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_bad_1 }
+		
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+			set_trait_rank = { trait = beauty_bad rank = 1 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_level_0 }
+		
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_good_1 }
+		
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+			set_trait_rank = { trait = beauty_good rank = 1 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_good_2 }
+		
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+			set_trait_rank = { trait = beauty_good rank = 2 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_beauty_good_3 }
+		
+		var:rewriting_target = {
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+			set_trait_rank = { trait = beauty_good rank = 3 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_bad_3 }
+
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+			set_trait_rank = { trait = physique_bad rank = 3 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_bad_2 }
+		
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+			set_trait_rank = { trait = physique_bad rank = 2 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_bad_1 }
+		
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+			set_trait_rank = { trait = physique_bad rank = 1 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_level_0 }
+		
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_good_1 }
+		
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+			set_trait_rank = { trait = physique_good rank = 1 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_good_2 }
+		
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+			set_trait_rank = { trait = physique_good rank = 2 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_physique_good_3 }
+		
+		var:rewriting_target = {
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+			set_trait_rank = { trait = physique_good rank = 3 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_intellect_bad_3 }
+
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+			set_trait_rank = { trait = intellect_bad rank = 3 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_intellect_bad_2 }
+		
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+			set_trait_rank = { trait = intellect_bad rank = 2 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_intellect_bad_1 }
+		
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+			set_trait_rank = { trait = intellect_bad rank = 1 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_intellect_level_0 }
+		
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_intellect_good_1 }
+		
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+			set_trait_rank = { trait = intellect_good rank = 1 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_change_genetics_intellect_good_2 }
+		
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+			set_trait_rank = { trait = intellect_good rank = 2 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_genetics_change_intellect_good_3 }
+		
+		var:rewriting_target = {
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+			set_trait_rank = { trait = intellect_good rank = 3 }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_apocalipse_level_0 }
+		
+		var:rewriting_target = {
+			every_sub_realm_county = {
+				add_county_modifier = {
+					modifier = apocalipse_modifier
+					years = 20
+				}
+				change_development_level = -100
+			}
+			death = { death_reason = death_brutally_despatched  }
+		}
+		add_dread = 200
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_spawn_meteorite_level_0 }
+		
+		var:rewriting_target = {
+			add_county_modifier = {
+				modifier = minor_meteorite
+				years = 10
+			}
+			change_development_level = -5
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_spawn_meteorite_level_1 }
+		
+		var:rewriting_target = {
+			add_county_modifier = {
+				modifier = meteorite
+				years = 15
+			}
+			change_development_level = -10
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_spawn_meteorite_level_2 }
+		
+		var:rewriting_target = {
+			add_county_modifier = {
+				modifier = major_meteorite
+				years = 20
+			}
+			change_development_level = -20
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_genetic_perfection_level_0 }
+		
+		var:rewriting_target = {
+			if = { limit = { NOT = { has_trait = genetic_perfection } } add_trait = genetic_perfection }
+			else = { add_trait_xp = { trait = genetic_perfection value = 25 } }
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_apotheosis_level_0 }
+		
+		trigger_event = { id = magecraft.0111 }
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_apotheosis_level_1 }
+		
+		remove_trait = intellect_good_1
+		remove_trait = intellect_good_2
+		remove_trait = intellect_good_3
+		remove_trait = intellect_bad_1
+		remove_trait = intellect_bad_2
+		remove_trait = intellect_bad_3
+
+		remove_trait = beauty_good_1
+		remove_trait = beauty_good_2
+		remove_trait = beauty_good_3
+		remove_trait = beauty_bad_1
+		remove_trait = beauty_bad_2
+		remove_trait = beauty_bad_3
+
+		remove_trait = physique_good_1
+		remove_trait = physique_good_2
+		remove_trait = physique_good_3
+		remove_trait = physique_bad_1
+		remove_trait = physique_bad_2
+		remove_trait = physique_bad_3
+
+		remove_trait = blind
+		remove_trait = incapable
+		remove_trait = infirm
+		remove_trait = one_legged
+		remove_trait = genetic_perfection
+
+		remove_trait = al_perfect_human
+
+		add_trait = al_god    
+		add_prestige = 10000
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_genesis_level_0 }
+		
+		var:rewriting_target = {
+			add_trait = al_perfect_human
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_genesis_level_1 }
+		hidden_effect = {
+			create_character = {
+				template = al_god_child_template
+				location = root.location
+				faith = root.faith
+				culture = root.culture
+				save_scope_as = god_child
+			}
+			trigger_event = magecraft.0120
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	# TODO:
+	# option = {
+	# 	name = magecraft.0001.a
+	# 	trigger = { var:rewriting_name = flag:rewrite_spell_utopia_level_0 }
+		
+	# 	var:rewriting_target = {
+	# 		custom_tooltip = {
+	# 			text = "post_utopia_mechanic"
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = "post_utopia_mechanic_realm"
+	# 			every_realm_province = {
+	# 				add_province_modifier = utopia_province_modifier
+	# 				remove_province_modifier = non_utopia_province_modifier
+	# 			}
+	# 			every_sub_realm_county = {
+	# 				add_county_modifier = utopia_county_modifier
+	# 				remove_county_modifier = non_utopia_county_modifier
+	# 				change_development_level = -10
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = "post_utopia_mechanic_other_realm"
+	# 			every_county = {
+	# 				limit = { NOT = { has_province_modifier = utopia_county_modifier } add_province_modifier = non_utopia_county_modifier }
+	# 			}
+	# 		}
+	# 	}
+	# 	remove_variable = rewriting_cost
+	# 	remove_variable = rewriting_name
+	# 	remove_variable = rewriting_target
+	# 	remove_character_modifier = casting_rewriting_spell
+	# }
+	# option = {
+	# 	name = magecraft.0001.a
+	# 	trigger = { var:rewriting_name = flag:rewrite_spell_become_magical_vampire_level_0 }
+		
+	# 	var:rewriting_target = {
+	# 		add_trait = magical_vampire
+	# 		add_trait_xp = { trait = magical_vampire value = 100 }
+	# 	}
+	# 	remove_variable = rewriting_cost
+	# 	remove_variable = rewriting_name
+	# 	remove_variable = rewriting_target
+	# 	remove_character_modifier = casting_rewriting_spell
+	# }
+	# option = {
+	# 	name = magecraft.0001.a
+	# 	trigger = { var:rewriting_name = flag:rewrite_spell_become_magical_vampire_level_1 }
+		
+	# 	var:rewriting_target = {
+	# 		random_list = {
+	# 			50 = {
+	# 				remove_trait = magical_vampire
+	# 			}
+	# 			50 = {
+	# 				add_stress = 200
+	# 				add_trait_xp = { trait = magical_vampire value = -25}
+	# 			}
+	# 		}
+	# 	}
+	# 	remove_variable = rewriting_cost
+	# 	remove_variable = rewriting_name
+	# 	remove_variable = rewriting_target
+	# 	remove_character_modifier = casting_rewriting_spell
+	# }
+	on_trigger_fail = {
+		remove_character_flag = rewrite_cancel
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+}
+magecraft.0002 = {
+	type = character_event
+	title = magecraft.0002.title
+	desc = magecraft.0002.desc
+	theme = secret
+	option = {
+		name = magecraft.0002.a
+		remove_character_flag = rewrite_cancel
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+}
+# magecraft.0003 = {
+	# 	type = character_event
+	# 	title = magecraft.0003.title
+	# 	desc = magecraft.0003.desc
+	# 	theme = secret
+	# 	immediate = {
+	# 		create_character = {
+	# 			template = teacher_mage
+	# 			location = root.capital_province
+	# 			faith = root.faith
+	# 			culture = root.culture
+	# 			save_scope_as = teacher_mage
+	# 		}
+	# 		scope:teacher_mage = {
+	# 			al_become_mage = yes
+	# 		}
+	# 	}
+	# 	left_portrait = root
+	# 	right_portrait = scope:teacher_mage
+	# 	option = {
+	# 		name = magecraft.0003.a
+	# 		add_courtier = scope:teacher_mage
+	# 		scope:teacher_mage = {
+	# 			add_character_modifier = teacher_mage
+	# 		}
+	# 		remove_short_term_gold = 50
+	# 	}
+	# 	option = {
+	# 		name = magecraft.0003.b
+	# 		hidden_effect = {
+	# 			scope:teacher_mage ={
+	# 				death = {
+	# 					death_reason = death_vanished
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
+magecraft.0011 = {
+	type = character_event
+	title = magecraft.0011.title
+	desc = magecraft.0011.desc
+	theme = secret
+	option = {
+		name = magecraft.0011.a
+		scope:scheme = {
+			end_scheme = yes
+		}
+		al_become_mage = yes
+		ai_chance = { base = 100 }
+	}
+}
+magecraft.0012 = {
+	type = character_event
+	title = magecraft.0012.title
+	desc = magecraft.0012.desc
+	theme = secret
+	option = {
+		name = magecraft.0012.a
+		scope:scheme = {
+			end_scheme = yes
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+magecraft.0111 = {
+	type = character_event
+	title = magecraft.0111.title
+	desc = magecraft.0111.desc
+	theme = secret
+	option = {
+		name = magecraft.0111.a
+        skill = learning
+        trigger = {
+            learning > 30
+        }
+        custom_tooltip = {
+            text = "apotheosis_good_idea"
+        }
+        death = {
+            death_reason = death_disappearance
+        }
+        house = { add_house_modifier = apotheosis_house_modifier }
+        set_global_variable = { name = al_new_god_already value = yes }
+        
+	}
+    option = {
+		name = magecraft.0111.a
+        trigger = {
+            learning < 30
+        }
+        show_as_unavailable = {
+            learning > 30
+        }
+        custom_tooltip = {
+            text = "apotheosis_bad_idea"
+        }
+        death = {
+            death_reason = death_disappearance
+        }
+	}
+}
+magecraft.0120 = {
+	type = character_event
+	title = magecraft.0120.title
+	desc = magecraft.0120.desc
+	theme = secret
+	left_portrait = root
+	right_portrait = scope:god_child
+
+	widgets = {
+		widget = {
+			gui = "event_window_widget_name_child"
+			container = "dynamic_birth_name"
+			controller = name_character
+			setup_scope = { scope:god_child = { save_scope_as = name_character_target } }
+		}
+	}
+	option = {
+		name = magecraft.0120.a
+        if = { limit = { is_male = yes } scope:god_child = { set_father = root } }
+		else = { scope:god_child = { set_mother = root } }
+	}
+	option = {
+		name = magecraft.0120.b
+		scope:god_child = { death = { death_reason = death_vanished } }
+	}
+}
+magecraft.0101 = {
+	type = character_event
+	title = magecraft.0101.title
+	desc = magecraft.0101.desc
+	theme = secret
+	option = { # Aks for gold
+		name = magecraft.0101.a
+		add_gold = 500
+	}
+	option = { # Aks for Prestige
+		name = magecraft.0101.b
+		add_prestige = 5000
+	}
+	option = { # Aks for Piety
+		name = magecraft.0101.c
+		add_piety = 5000
+	}
+	option = { # Aks for Health
+		name = magecraft.0101.d
+		add_character_modifier = {
+			modifier = apotheosis_ask_health
+			years = 20
+		}
+	}
+	option = { # Aks for Fertility
+		name = magecraft.0101.e
+		add_character_modifier = {
+			modifier = apotheosis_ask_fertility
+			years = 20
+		}
+	}
+	option = { # Aks for Intelect
+		name = magecraft.0101.f
+		add_character_modifier = {
+			modifier = apotheosis_ask_intelect
+			years = 20
+		}
+	}
+}
+
+magecraft.1000 = {
+	type = character_event
+	title = magecraft.1000.title
+	desc = magecraft.1000.desc
+	theme = secret
+	immediate = {
+		clear_global_variable_list = Arcane_legacy_start_type
+		trigger_event = {
+			id = magecraft.3000
+			years = 25
+		}
+	}
+	option = {
+		name = magecraft.1000.a
+		add_to_global_variable_list = {
+			name = Arcane_legacy_start_type
+			target = flag:Novice_Mage
+		}
+		if = { limit = { exists = flag:Novice_Mage } } # TO DELETE CONSOLE SPAM...
+		root.capital_province = {
+			add_special_building = ruined_mage_tower
+		}
+		al_become_mage = yes
+		custom_tooltip = "info_about_magecraft_ai"
+		custom_tooltip = "info_about_magecraft_player"
+		trigger_event = {
+			id = magecraft.3000
+			years = 10
+		}
+
+	}
+	option = {
+		name = magecraft.1000.b
+		add_to_global_variable_list = {
+			name = Arcane_legacy_start_type
+			target = flag:Mystical_Explorer
+		}
+		if = { limit = { exists = flag:Mystical_Explorer } } # TO DELETE CONSOLE SPAM...
+		custom_tooltip = "unlock_great_search_decision"
+		custom_tooltip = "info_about_magecraft_ai"
+		custom_tooltip = "info_about_magecraft_player"
+	}
+	option = {
+		name = magecraft.1000.c
+		add_to_global_variable_list = {
+			name = Arcane_legacy_start_type
+			target = flag:Casual_Human
+		}
+		if = { limit = { exists = flag:Casual_Human } } # TO DELETE CONSOLE SPAM...
+		custom_tooltip = "info_about_magecraft_ai"
+
+	}
+}
+magecraft.2000 = {
+	type = character_event
+	title = magecraft.2000.title
+	desc = magecraft.2000.desc
+	theme = secret
+
+	option = {
+		name = magecraft.2000.a
+		current_travel_plan = {
+			delay_travel_plan = { years = 9999 }
+		}
+		trigger_event = magecraft.2001
+	}
+	option = {
+		name = magecraft.2000.b
+		current_travel_plan ?= {
+			resume_travel_plan = yes
+		}
+	}
+}
+magecraft.2001 = {
+	type = character_event
+	title = magecraft.2001.title
+	desc = magecraft.2001.desc
+	theme = secret
+
+	option = {
+		name = magecraft.2001.a
+		trigger_event = magecraft.2002
+	}
+	option = {
+		name = magecraft.2001.b
+		current_travel_plan = {
+			resume_travel_plan = yes
+		}
+	}
+}
+magecraft.2002 = {
+	type = character_event
+	title = magecraft.2002.title
+	desc = magecraft.2002.desc
+	theme = secret
+	immediate = {
+		add_trait = wounded_2
+	}
+	option = {
+		name = magecraft.2002.a
+		trigger_event = magecraft.2003
+	}
+	option = {
+		name = magecraft.2002.b
+		current_travel_plan = {
+			resume_travel_plan = yes
+		}
+	}
+}
+magecraft.2003 = {
+	type = character_event
+	title = magecraft.2003.title
+	desc = magecraft.2003.desc
+	theme = secret
+	immediate = {
+		add_character_modifier = arcane_legacy_modifier
+	}
+	option = {
+		name = magecraft.2003.a
+		trigger_event = magecraft.2004
+	}
+	option = {
+		name = magecraft.2003.b
+		current_travel_plan = {
+			resume_travel_plan = yes
+		}
+	}
+}
+magecraft.2004 = {
+	type = character_event
+	title = magecraft.2004.title
+	desc = magecraft.2004.desc
+	theme = secret
+	
+	option = {
+		name = magecraft.2004.a
+		add_internal_flag = dangerous
+		duel = {
+			skill = martial
+			value = 15
+			25 = { 
+				desc = magecraft.2004.a.succes
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				add_character_modifier = great_arcane_loot
+			
+			}
+			50 = { 
+				desc = magecraft.2004.a.partial.succes
+				compare_modifier = {
+					value = {
+						value = scope:duel_value
+						multiply = -0.5
+					}
+				}
+				add_character_modifier = arcane_loot
+				increase_wounds_effect = { REASON = fight }
+			}
+			25 = { 
+				desc = magecraft.2004.a.failiure
+				compare_modifier = {
+					value = {
+						value = scope:duel_value
+						multiply = -1
+					}
+				}
+				death = {
+					death_reason = death_duel
+				}
+
+			}
+		}
+		trigger_event = magecraft.2005
+	}
+	option = {
+		name = magecraft.2004.b
+		add_internal_flag = dangerous
+		duel = {
+			skill = martial
+			value = 5
+			25 = { 
+				desc = magecraft.2004.a.succes
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				add_character_modifier = arcane_loot
+			
+			}
+			50 = { 
+				desc = magecraft.2004.a.partial.succes
+				compare_modifier = {
+					value = {
+						value = scope:duel_value
+						multiply = -0.5
+					}
+				}
+				add_character_modifier = small_arcane_loot
+				increase_wounds_effect = { REASON = fight }
+			}
+			25 = { 
+				desc = magecraft.2004.a.failiure
+				compare_modifier = {
+					value = {
+						value = scope:duel_value
+						multiply = -1
+					}
+				}
+				death = {
+					death_reason = death_duel
+				}
+
+			}
+		}
+		trigger_event = magecraft.2005
+	}
+	option = {
+		name = magecraft.2004.c
+		add_character_modifier = small_arcane_loot
+		duel = {
+			skill = martial
+			value = 5
+			50 = { 
+				desc = magecraft.2004.a.succes
+				compare_modifier = {
+					value = scope:duel_value
+				}			
+			}
+			35 = { 
+				desc = magecraft.2004.a.partial.succes
+				compare_modifier = {
+					value = {
+						value = scope:duel_value
+						multiply = -1
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+			}
+		}
+		trigger_event = magecraft.2005
+	}
+}
+magecraft.2005 = {
+	type = character_event
+	title = magecraft.2005.title
+	desc = magecraft.2005.desc
+	theme = secret
+	option = {
+		name = magecraft.2005.a
+		current_travel_plan = {
+			resume_travel_plan = yes
+		}
+		trigger_event = {
+			id = magecraft.3000
+			years = 10
+		}
+	}
+}
+magecraft.3000 = {
+	type = character_event
+	title = magecraft.3000.title
+	desc = magecraft.3000.desc
+	theme = secret
+	trigger = {
+		NOT = { has_global_variable = magecraft_resurgance }
+	}
+	option = {
+		name = magecraft.3000.a
+		set_global_variable = {
+			name = magecraft_resurgance
+			value = yes
+		}
+		custom_tooltip = "magecraft_resurgance_ai"
+		custom_tooltip = "magecraft_resurgance_player"
+		custom_tooltip = "magecraft_resurgance_lifestyle"
+		custom_tooltip = "magecraft_resurgance_faith"
+		hidden_effect = {
+			every_religion_global = {
+				every_faith = {
+					remove_doctrine = doctrine_magecraft_mythical
+					add_doctrine = doctrine_magecraft_popular_fear
+				}
+			}
+		}
+		trigger_event = {
+			id = magecraft.4000
+			years = 10
+		}
+	}
+}
+magecraft.3001 = {
+	type = character_event
+	title = magecraft.3001.title
+	desc = magecraft.3001.desc
+	theme = secret
+	trigger = {
+		has_global_variable = magecraft_resurgance
+	}
+	immediate = {
+		create_character = {
+			template = mage
+			location = root.capital_province
+			faith = root.faith
+			culture = root.culture
+			save_scope_as = mage
+		}
+	}
+	left_portrait = root
+	right_portrait = scope:mage
+	option = {
+		name = magecraft.3001.a
+		add_courtier = scope:mage
+		remove_short_term_gold = tiny_gold_max_value
+		scope:mage = {
+			add_character_modifier = teacher_mage
+		}
+	}
+	option = {
+		name = magecraft.3001.b
+		hidden_effect = {
+			scope:mage = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+		}
+	}
+}
+magecraft.4000 ={
+	type = character_event
+	title = magecraft.4000.title
+	desc = magecraft.4000.desc
+	theme = secret
+	option = {
+		name = magecraft.4000.a
+		custom_tooltip = "magecraft_resurgance_accept_faith"
+		# trigger_event = { White inquisition
+		# 	id = magecraft.5000
+		# 	years = 10
+		# }
+		hidden_effect = {
+			every_religion_global = {
+				every_faith = {
+					limit = { has_doctrine = doctrine_witchcraft_crime  }
+					remove_doctrine = doctrine_magecraft_popular_fear
+					add_doctrine = doctrine_magecraft_crime
+				}
+				every_faith = {
+					limit = { has_doctrine = doctrine_witchcraft_shunned  }
+					remove_doctrine = doctrine_magecraft_popular_fear
+					add_doctrine = doctrine_magecraft_crime
+				}
+				every_faith = {
+					limit = { has_doctrine = doctrine_witchcraft_accepted  }
+					remove_doctrine = doctrine_magecraft_popular_fear
+					add_doctrine = doctrine_magecraft_shunned
+				}
+				every_faith = {
+					limit = { has_doctrine = doctrine_witchcraft_virtuous  }
+					remove_doctrine = doctrine_magecraft_popular_fear
+					add_doctrine = doctrine_magecraft_accepted
+				}
+			}
+		}
+	}
+}

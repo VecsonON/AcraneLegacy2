@@ -1,0 +1,13 @@
+﻿al_mage_tower_searching_events = {
+	random_events = {
+		100 = al_activities_events.0001
+		100 = al_activities_events.0002
+		100 = al_activities_events.0003
+		100 = al_activities_events.0004
+		100 = al_activities_events.0005
+		100 = al_activities_events.0006 # 0002 Alt
+		50 = al_activities_events.0007 
+		10 = al_activities_events.0008 # Ultra rare
+		# 10 = al_activities_events.0009 # Ultra rare
+	}
+}

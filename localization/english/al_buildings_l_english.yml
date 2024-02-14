@@ -1,0 +1,24 @@
+﻿l_english:
+ building_type_ruined_mage_tower: "Mage Tower"
+ building_ruined_mage_tower: "Mage Tower: Ruined"
+ building_ruined_mage_tower_desc: "The Mage Tower, a towering bastion of arcane wisdom and mystic energies, stands as a testament to the enduring legacy of Magecraft. This ancient structure, forged by the hands of mages long forgotten, serves as both a refuge and a forge for those seeking to unravel the mysteries of the arcane. Now only wrack of old self"
+
+ building_type_basic_mage_tower: "Mage Tower"
+ building_basic_mage_tower: "Mage Tower: Architectural Marvel"
+ building_basic_mage_tower_desc: "Architectural Marvel: The Mage Tower is a marvel of magical architecture, adorned with intricate symbols and arcane glyphs that resonate with the very essence of magic. Its spiraling spires reach toward the heavens, their heights a reflection of the profound knowledge contained within."
+ 
+ building_type_mage_tower: "Mage Tower"
+ building_mage_tower: "Mage Tower: Arcane Laboratories"
+ building_mage_tower_desc: "Arcane Laboratories: Chambers dedicated to arcane experimentation and research dot the labyrinthine corridors of the Mage Tower. Mages, both novice and adept, engage in the delicate art of spellcraft, weaving intricate enchantments and pushing the boundaries of magical understanding."
+ mage_tower_effect_desc: "If held as capital provide:\n#P Unlock#! Decision 'Go to arcane laboratories', where you can convert gold to [arcane_mastery_lifestyle|E] Expirince"
+
+ building_type_advance_mage_tower: "Mage Tower"
+ building_advance_mage_tower: "Mage Tower: Mystical Nexus"
+ building_advance_mage_tower_desc: "Mystical Nexus: At the heart of the tower lies a mystical nexus, a focal point where the energies of the arcane converge. It is here that mages commune with the very essence of magic, drawing upon its power to amplify their spells and delve into the deepest recesses of mystical knowledge."
+ advance_mage_tower_effect_desc: "If held as capital provide:\n[arcana_affinity|E]: @arcana_affinity_icon!#P +2#!\n#P Unlock#! Decision 'Go to Mysthical Nexus', to get temporary [GetModifier('huge_arcane_affinity_boost').GetName]"
+ al_arcane_nexus_building_flag_check: "To upgrade you must discover Arcane Nexus"
+
+ building_type_super_mage_tower: "Mage Tower"
+ building_super_mage_tower: "Mage Tower: Mage Mystic Atmosphere"
+ building_super_mage_tower_desc: "Mage Mystic Atmosphere: As one ascends through the tower's levels, the atmosphere becomes charged with mystical energy. Whispers of arcane knowledge echo through the corridors, and the air itself seems to shimmer with the latent potential of undiscovered magical wonders."
+ super_mage_tower_effect_desc: "If held as capital provide:\n[arcana_affinity|E]: @arcana_affinity_icon!#P +4#!\n[arcana|E] per month: @acrana_icon!#P +5#!\n#P Unlock#! Decision 'Use mage tower's atmosphere', to get temporary [GetModifier('huge_arcane_month_boost').GetName]"

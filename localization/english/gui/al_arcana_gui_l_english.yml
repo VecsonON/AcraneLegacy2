@@ -1,0 +1,21 @@
+﻿l_english:
+ ARCANA_CURRENT:0 "[arcana|E]: [Character.MakeScope.Var('arcana').GetValue|V0]/#underline [Character.MakeScope.ScriptValue('arcana_maximum')|V0]#!"
+ ARCANA_MAX_TOOLTIP: "[Character.MakeScope.GetScriptValueDesc('arcana_maximum')|0]"
+ ARCANA_GAIN:0 "Gain:"
+ ARCANA_LOSS:0 "Upkeep:"
+ ARCANA_CHANGE:0 "Change:"
+ ARCANA_GAIN_TOOLTIP: "[Character.MakeScope.GetScriptValueDesc('arcana_regen')|0]"
+ ARCANA_LOSS_TOOLTIP: "[Character.MakeScope.GetScriptValueDesc('arcana_upkeep')|0]"
+
+ ARCANA_AFFINITY_TOOLTIP: "[arcana_affinity|E] [Character.MakeScope.ScriptValue('arcana_affinity')|V0] #weak;italic ([CharacterWindow.GetCharacter.Custom('arcana_affinity_level')])#! \n[Character.MakeScope.GetScriptValueDesc('arcana_affinity')|0]\n\n#color_gray;bold;italic Effects:#!\n[arcana|E]: @acrana_icon!#P +[Character.MakeScope.ScriptValue('arcana_affinity_divided')]#!/month #weak;italic ([arcana_affinity|E]/10)\n[arcana|E] Maximum: @acrana_icon!#P +[Character.MakeScope.ScriptValue('arcana_maximum')] #weak;italic ([arcana_affinity|E]*10)"
+
+ arcana_affinity_level_mundane: "#color_dark_gray Mundane#!"
+ arcana_affinity_level_sub_magical: "#color_light_blue Sub-Magical#!"
+ arcana_affinity_level_magical: "#color_light_blue;bold Magical#!"
+ arcana_affinity_level_sub_transcendent: "#color_light_red Sub-Transcendent#!"
+ arcana_affinity_level_transcendent: "#color_light_red;bold Transcendent#!"
+ arcana_affinity_level_demigod: "#color_yellow Demigod#!"
+ arcana_affinity_level_god: "#color_yellow;bold Godly#!"
+
+ arcana_gain: "#underline [Character.MakeScope.ScriptValue('arcana_regen')|+=2]"
+ arcana_loss: "#underline [Character.MakeScope.ScriptValue('arcana_upkeep')|-=2]"

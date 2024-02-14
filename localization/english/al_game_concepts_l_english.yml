@@ -1,0 +1,53 @@
+﻿l_english: 
+ game_concept_magecraft: "Magecraft"
+ game_concept_magecraft_desc: "Magecraft is a mystical discipline that delves into the secrets of [arcana|E], the fundamental essence that underlies reality. Practitioners of Magecraft, known as #E [mage]s#!, seek to understand and harness this arcane force to alter the fabric of existence itself. Magecraft encompasses a variety of techniques and practices, each aimed at manipulating the inner and outer flows of [arcana|E]."
+
+ game_concept_arcana: "Arcana"
+ game_concept_arcana_desc: "Arcana is the underlying force that binds the universe together, an ethereal energy that exists in both the inner and outer realms. It is an elusive essence that manifests in various forms, carrying the potential for both creation and transformation. Mages, in the pursuit of Magecraft, sought to harness and manipulate this potent force to shape reality according to their will.\n\nMethods of manipulating Reality through Arcana are: [spell|E], [ritual|E] and [rewriting_spell] \n\n Arcana is divided into two distinct yet interconnected aspects: [inner_arcana|E]and [outer_arcana|E]."
+
+ game_concept_inner_arcana: "Inner Arcana"
+ game_concept_inner_arcana_desc: "The Inner Arcana is the reservoir of mystical energy within every living being. It is the personal wellspring of magical potential that varies from individual to individual. Mages tap into their Inner Arcana to access the raw, personal energy required for casting spells and manipulating reality."
+
+ game_concept_outer_arcana: "Outer Arcana"
+ game_concept_outer_arcana_desc: "In contrast, the [outer_arcana|E] is the ambient magical energy that flows throughout the environment. It is the collective force that envelops the world. Mages draw upon the [outer_arcana|E] to supplement their inner reserves, amplifying their magical abilities and accessing greater power."
+
+ game_concept_arcane_mastery: "Arcane Studies"
+ game_concept_arcane_mastery_desc: "Arcane Mastery represents the goal of a mage's journey into the depths of magical understanding, where the adept transcends the realms of basic spellcasting and delves into the very essence of Arcana. A mage specializing in Arcane Mastery, known as an Arcane Master, achieves a profound connection with the mystical forces that shape reality."
+
+ game_concept_arcane_studies: "Arcane Studies"
+ game_concept_arcane_studies_desc: "Arcane Studies is the foundational pursuit that beckons aspiring mages into the rich tapestry of magical knowledge. This skill represents a mage's dedication to unraveling the secrets hidden within the ancient tomes, cryptic scrolls, and mystical treatises that compose the vast library of Arcane Studies."
+
+ game_concept_spell_casting: "Spell Casting"
+ game_concept_spell_casting_desc: "Spell Casting is the cornerstone of a [mage|E]'s proficiency, representing their ability to manipulate the fundamental forces of [arcana|E] and wield magic with purpose and finesse. Mages who specialize in Spell Casting channel their [inner_arcana|E], weaving enchantments that can range from the subtle to the spectacular."
+
+ game_concept_ritual_creating: "Ritual Creating"
+ game_concept_ritual_creating_desc: "Ritual Creating is a mastery that transcends the immediacy of spellcasting, delving into the profound art of orchestrating mystical ceremonies and symbolic practices. "
+
+ game_concept_worldweaving: "Worldweaving"
+ game_concept_worldweaving_desc: "Worldweaving is the pinnacle of arcane mastery, an art that transcends conventional spellcasting and delves into the profound ability to rewrite the very fabric of reality. Mages who specialize in Worldweaving are known as Worldweavers, individuals whose command over Arcana allows them to reshape the world according to their desires."
+
+ game_concept_arcana_regen: "Monthly Arcana Regeneration"
+ game_concept_arcana_regen_desc: "[arcana_regen|E] is the amount of Arcana acquired each month. The amount varies from person to person and depends on their arcana affinity and training"
+
+ game_concept_arcana_upkeep: "Monthly Arcana Upkeep"
+ game_concept_arcana_upkeep_desc: "[arcana_upkeep|E] is the amount of [arcana|E] lost for the purpose of holding a [ritual|E] or [rewriting_spell|E]"
+
+ game_concept_arcana_affinity: "Arcana Afinity"
+ game_concept_arcana_affinity_desc: "Arcana Afinity is an innate skill and ability that can be trained and increased in many ways. The main factor in Arcana Afinity is the amount of [arcana|E] in the body and how many [arcana|E] can be controlled at once"
+
+ game_concept_mage: "Mage"
+ game_concept_mage_desc: "A mage is an individual who has dedicated their life to the study and mastery of magic, a force that exists beyond the comprehension of ordinary beings. Mages are characterized by their ability to manipulate Arcana, the fundamental essence of magic that flows through the fabric of reality.\n\n Key Features of a Mage:\n - [arcane_studies|E]\n - [spell_casting|E]\n - [ritual_creating|E]\n - [worldweaving|E]"
+
+ game_concept_spell: "Spell"
+ game_concept_spell_desc: "Spells are the primary means through which mages utilize Arcana. By channeling their Inner Arcana and tapping into the Outer Arcana, mages cast spells to manipulate the physical world. These spells exploit the fundamental laws of nature, bending reality to the mage's desire. Spells are versatile tools, ranging from simple enchantments to complex feats of magical prowess."
+
+ game_concept_rewriting_spell: "Rewriting Spell"
+ game_concept_rewriting_spell_desc: "The Rewriting Spell represents a pinnacle of Arcana manipulation. Mages who have mastered this technique can transcend the limitations of physical laws. Instead of merely bending them, they rewrite the very fabric of reality, reshaping the world according to their intentions. The Rewriting Spell requires a profound understanding of Arcana and an unparalleled mastery of Magecraft."
+
+ game_concept_ritual: "Ritual"
+ game_concept_ritual_desc: "Special circles carved into raw materials serve as conduits for the manipulation of Arcana. By pushing their inner energy through these intricate patterns, mages create rituals that evoke sustained magical effects. These rituals can be thought of as a constant, harmonious application of spells, enabling the mage to achieve more enduring changes to reality."
+
+ game_concept_al_discount_why: "Why Discounts aren't acurate?"
+ game_concept_al_discount_why_desc: "In ck3 modifier's localizaction is constant and is loaded at start of game. So when I added discounts to upkeep of ritual, I just cannot update values in modifiers causing discrepancy\n\nTo check real upkeep of ritual you must check in that little GUI next to your character :D #weak (Soo... no looking on not-your rituals...)"
+
+ al_Ancient_name: "Ancient"

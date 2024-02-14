@@ -1,0 +1,67 @@
+﻿doctrine_magecraft = {
+	group = "crimes"
+	
+	doctrine_magecraft_mythical = {
+        piety_cost = {
+			value = faith_doctrine_cost_high
+		}
+		parameters = {
+			magecraft_mythical = yes
+		}
+	}
+	doctrine_magecraft_popular_fear = {
+        piety_cost = {
+			value = faith_doctrine_cost_high
+		}
+		parameters = {
+			magecraft_popular_fear = yes
+		}
+	}
+
+    doctrine_magecraft_crime = {
+        piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = doctrine_magecraft_crime }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_magecraft_accepted }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+		}
+		parameters = {
+			magecraft_illegal = yes
+		}
+	}
+	
+    doctrine_magecraft_shunned = {
+        piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = doctrine_magecraft_shunned }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+		}
+		parameters = {
+			magecraft_shunned = yes
+		}
+	}
+	
+    doctrine_magecraft_accepted = {
+		piety_cost = {
+			value = faith_doctrine_cost_low
+			if = {
+				limit = { has_doctrine = doctrine_magecraft_accepted }
+				multiply = faith_unchanged_doctrine_cost_mult
+			}
+			else_if = {
+				limit = { has_doctrine = doctrine_magecraft_crime }
+				multiply = faith_changed_doctrine_cost_mult_two_step
+			}
+		}
+		parameters = {
+			magecraft_accepted = yes
+		}
+	}
+}

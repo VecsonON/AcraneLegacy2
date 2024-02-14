@@ -1,0 +1,26 @@
+﻿have_arcana = {
+	custom_description = {
+		text = "have_arcana_trigger"
+		value = $arcana$
+		var:arcana >= $arcana$
+	}
+}
+have_inspiration_to_research = {
+	custom_tooltip = {
+		text = "have_inspiration_to_research_trigger"
+		has_variable = al_arcane_inspiration
+	}
+}
+have_arcane_book = {
+	save_temporary_scope_as = Aholder
+	custom_tooltip = {
+		text = "have_arcane_book_artifact_tooltip"
+		any_character_artifact = {
+			has_variable = spell
+			save_temporary_scope_as = AArtifact
+			scope:Aholder = {
+				NOT = { is_target_in_variable_list = { name = done_arcane_research target = scope:AArtifact.var:spell } }
+			}
+		}
+	}
+}

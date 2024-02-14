@@ -1,0 +1,75 @@
+﻿al_artifact_arcana_affinity_gain_1_modifier = { al_arcana_affinity_bonus_t_advantage = 1 }
+al_artifact_arcana_affinity_gain_2_modifier = { al_arcana_affinity_bonus_t_advantage = 2 }
+al_artifact_arcana_affinity_gain_3_modifier = { al_arcana_affinity_bonus_t_advantage = 3 }
+al_artifact_arcana_affinity_gain_4_modifier = { al_arcana_affinity_bonus_t_advantage = 4 }
+al_artifact_arcana_affinity_gain_5_modifier = { al_arcana_affinity_bonus_t_advantage = 5 }
+al_artifact_arcana_affinity_gain_6_modifier = { al_arcana_affinity_bonus_t_advantage = 6 }
+al_artifact_arcana_affinity_gain_7_modifier = { al_arcana_affinity_bonus_t_advantage = 7 }
+al_artifact_arcana_affinity_gain_8_modifier = { al_arcana_affinity_bonus_t_advantage = 8 }
+al_artifact_arcana_affinity_gain_9_modifier = { al_arcana_affinity_bonus_t_advantage = 9 }
+al_artifact_arcana_affinity_gain_10_modifier = { al_arcana_affinity_bonus_t_advantage = 10 }
+
+al_artifact_arcana_monthly_gain_0_1_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 0.1 }
+al_artifact_arcana_monthly_gain_0_2_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 0.2 }
+al_artifact_arcana_monthly_gain_0_4_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 0.4 }
+al_artifact_arcana_monthly_gain_0_6_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 0.6 }
+al_artifact_arcana_monthly_gain_0_8_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 0.8 }
+al_artifact_arcana_monthly_gain_1_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 1 }
+al_artifact_arcana_monthly_gain_1_1_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 1.1 }
+al_artifact_arcana_monthly_gain_1_2_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 1.2 }
+al_artifact_arcana_monthly_gain_1_4_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 1.4 }
+al_artifact_arcana_monthly_gain_1_6_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 1.6 }
+al_artifact_arcana_monthly_gain_1_8_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 1.8 }
+al_artifact_arcana_monthly_gain_2_modifier = { al_artifact_arcana_monthly_gain_bonus_t_advantage = 2 }
+
+al_artifact_arcana_max_gain_10_modifier = { al_arcana_arcana_max_bonus_t_advantage = 10 }
+al_artifact_arcana_max_gain_20_modifier = { al_arcana_arcana_max_bonus_t_advantage = 20 }
+al_artifact_arcana_max_gain_30_modifier = { al_arcana_arcana_max_bonus_t_advantage = 30 }
+al_artifact_arcana_max_gain_40_modifier = { al_arcana_arcana_max_bonus_t_advantage = 40 }
+al_artifact_arcana_max_gain_50_modifier = { al_arcana_arcana_max_bonus_t_advantage = 50 }
+al_artifact_arcana_max_gain_60_modifier = { al_arcana_arcana_max_bonus_t_advantage = 60 }
+al_artifact_arcana_max_gain_70_modifier = { al_arcana_arcana_max_bonus_t_advantage = 70 }
+al_artifact_arcana_max_gain_80_modifier = { al_arcana_arcana_max_bonus_t_advantage = 80 }
+al_artifact_arcana_max_gain_90_modifier = { al_arcana_arcana_max_bonus_t_advantage = 90 }
+al_artifact_arcana_max_gain_100_modifier = { al_arcana_arcana_max_bonus_t_advantage = 100 }
+al_artifact_arcana_max_gain_125_modifier = { al_arcana_arcana_max_bonus_t_advantage = 125 }
+al_artifact_arcana_max_gain_150_modifier = { al_arcana_arcana_max_bonus_t_advantage = 150 }
+al_artifact_arcana_max_gain_175_modifier = { al_arcana_arcana_max_bonus_t_advantage = 176 }
+al_artifact_arcana_max_gain_200_modifier = { al_arcana_arcana_max_bonus_t_advantage = 200 }
+
+
+al_artifact_magecraft_cost_5_percent_modifier = { al_arcana_magecraft_cost_bonus_t_advantage = -5 }
+al_artifact_magecraft_cost_10_percent_modifier = { al_arcana_magecraft_cost_bonus_t_advantage = -10 }
+al_artifact_magecraft_cost_15_percent_modifier = { al_arcana_magecraft_cost_bonus_t_advantage = -15 }
+al_artifact_magecraft_cost_20_percent_modifier = { al_arcana_magecraft_cost_bonus_t_advantage = -20 }
+al_artifact_magecraft_cost_25_percent_modifier = { al_arcana_magecraft_cost_bonus_t_advantage = -25 }
+al_artifact_magecraft_cost_30_percent_modifier = { al_arcana_magecraft_cost_bonus_t_advantage = -30 }
+
+
+al_ancient_tome_modifier = {
+    learning = 4
+    monthly_lifestyle_xp_gain_mult = 0.2
+}
+al_rare_ancient_tome_modifier = {
+    learning = 6
+    monthly_lifestyle_xp_gain_mult = 0.4
+}
+al_great_ancient_tome_modifier = {
+    learning = 8
+    monthly_lifestyle_xp_gain_mult = 0.8
+}
+
+al_artifact_arhons_staff_modifier = {
+    learning = 10
+    monthly_prestige_gain_mult = 0.5
+    health = 1
+}
+al_artifact_arhons_amulet_modifier = {
+    monthly_prestige_gain_mult = 0.25
+    health = 5
+    life_expectancy = 50
+}
+al_artifact_urah_tome_modifier = {
+    learning = 20
+    monthly_lifestyle_xp_gain_mult = 1.5
+}

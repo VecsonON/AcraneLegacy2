@@ -1,0 +1,223 @@
+﻿#########################################################
+################## FROM ANCIENT MAGIC ###################
+#########################################################
+give_base_arcana_affinity = { #effect used for inheriting arcana affinity
+	set_local_variable  = {
+		name = temp_base_arcana_affinity_value
+		value = 0
+	}
+	
+	if = { #Checks if arcana affinity should be inherited
+		limit = {
+			OR = {
+				AND = {
+					exists = mother
+					mother = { is_alive = yes has_variable = base_arcana_affinity }
+				}
+				AND = {
+					exists = real_father
+					real_father = { is_alive = yes has_variable = base_arcana_affinity }
+				}
+			}
+		}
+		if = { #Checks if Fathers and mothers affinity is set
+			limit = {
+				mother_base_affinity > 0
+				father_base_affinity > 0
+			}
+			#Duel to determine from whom should the affinity be inherited from	
+			duel = {
+				value = mother_base_affinity #mothers arcana affinity
+				
+				50 = { #Mothers affinity wins
+					compare_modifier = {
+						value = scope:duel_value
+					}
+					
+					change_local_variable = { 
+						name = temp_base_arcana_affinity_value 
+						add = scope:duel_value
+					}
+					
+					max = 99
+					min = 1
+				}
+				
+				50 = { #Fathers affinity wins
+					compare_modifier = {
+						value = father_base_affinity
+					}
+					
+					change_local_variable = { 
+						name = temp_base_arcana_affinity_value 
+						add = father_base_affinity
+					}
+				
+					max = 99
+					min = 1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				mother_base_affinity > 0
+			}
+			change_local_variable = { 
+				name = temp_base_arcana_affinity_value 
+				add = mother_base_affinity
+			}
+		}
+		else_if = {
+			limit = {
+				father_base_affinity > 0
+			}
+			change_local_variable = { 
+				name = temp_base_arcana_affinity_value 
+				add = father_base_affinity
+			}
+		}
+	}
+	else = { # Affinity given based on rules if noparents with magical affinity
+		random_list = { # Based on ammount of AIs that should have highest affinity
+			1 = {
+				modifier = {
+					add = AI_game_rule_not_high_arcana_affinity_chance
+				}
+				change_local_variable = { #Add averange level
+					name = temp_base_arcana_affinity_value 
+					add = {
+						value = AI_game_rule_magic_level 
+						divide = 5
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					add = AI_game_rule_high_arcana_affinity_chance
+				}
+				change_local_variable = { 
+					name = temp_base_arcana_affinity_value 
+					add = AI_game_rule_magic_level
+				}
+			}
+		}
+		random_list = { 
+			10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 0 } } # 0 affinity
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 1 } } # 1
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 2 } } # 2
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 3 } } # 3
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 4 } } # 4
+			9 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 5 } } # 5
+			1 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 6 } }
+		}
+	}
+	
+	random_list = { #Gives small chance of increasing/decreasing arcana affinity
+		60 = {} #nothing happens
+		15 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 1 } } # Increases by 1
+		10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 2 } } # Increases by 2
+		10 = { change_local_variable = { name = temp_base_arcana_affinity_value subtract = 1 } } # Decreases by 1
+		5 = { change_local_variable = { name = temp_base_arcana_affinity_value subtract = 2 } } # Decreases by 2
+	}
+
+	
+	set_variable = {
+		name = base_arcana_affinity
+		value = {
+			value = local_var:temp_base_arcana_affinity_value
+			min = 0
+			max = 50
+		}
+	}
+}
+
+give_base_arcana_affinity_game_start_effect = { #Only called on game start
+	set_local_variable  = {
+		name = temp_base_arcana_affinity_value
+		value = 0
+	}
+	
+	if = { #Based on rules that give player arcana affinity
+		limit = {
+			is_ai = no
+		}
+		
+		change_local_variable = {
+			name = temp_base_arcana_affinity_value
+			add = PLAYER_game_rule_arcana_affinity_level 
+		}
+		
+		random_list = {
+			10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 1 } } # 1
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 2 } } # 2
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 3 } } # 3
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 4 } } # 4
+			10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 5 } } # 5
+		}
+		
+	}
+	else = { # Based on rules for an AI
+		random_list = { # Based on ammount of AIs that should have highest affinity
+			1 = {
+				modifier = {
+					add = AI_game_rule_not_high_arcana_affinity_chance
+				}
+				change_local_variable = { #Add averange level
+					name = temp_base_arcana_affinity_value 
+					add = {
+						value = AI_game_rule_magic_level 
+						divide = 5
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					add = AI_game_rule_high_arcana_affinity_chance
+				}
+				change_local_variable = { 
+					name = temp_base_arcana_affinity_value 
+					add = AI_game_rule_magic_level 
+				}
+			}
+		}	
+		random_list = {
+			10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 0 } } # 0 affinity
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 1 } } # 1
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 2 } } # 2
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 3 } } # 3
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 4 } } # 4
+			10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 5 } } # 5
+		}
+	}
+	if = { limit = { exists = dynasty dynasty = { has_dynasty_perk = magecraft_legacy_2 } } 
+		random_list = {
+			10 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 3 } } # 3
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 5 } } # 5
+			20 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 7 } } # 7
+			25 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 9 } } # 9
+			25 = { change_local_variable = { name = temp_base_arcana_affinity_value add = 11 } } # 11
+		}
+	}
+	set_variable = {
+		name = base_arcana_affinity
+		value = {
+			value = local_var:temp_base_arcana_affinity_value
+			min = 0
+			max = 50
+		}
+	}
+}
+#########################################################
+###################### By VecsonON ######################
+#########################################################
+
+add_born_arcana_affinity = {
+	custom_description = {
+		text = "add_born_arcana_affinity_desc"
+		value = $VALUE$
+		change_variable = {
+			name = base_arcana_affinity
+			add = $VALUE$
+		}
+	}
+}

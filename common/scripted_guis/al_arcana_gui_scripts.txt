@@ -1,0 +1,31 @@
+﻿show_arcana = {
+	is_valid = {
+		has_trait = mage
+	}
+}
+arcana_affinity_mundane = { is_valid = { 
+	arcana_affinity <= mundane_arcana_affinity_level 
+} }
+arcana_affinity_sub_magical = { is_valid = { 
+	arcana_affinity > mundane_arcana_affinity_level 
+	arcana_affinity <= sub_magical_arcana_affinity_level 
+} }
+arcana_affinity_magical = { is_valid = { 
+	arcana_affinity > sub_magical_arcana_affinity_level
+	arcana_affinity <= magical_arcana_affinity_level 
+} }
+arcana_affinity_sub_transcendent = { is_valid = { 
+	arcana_affinity > magical_arcana_affinity_level 
+	arcana_affinity <= sub_transcendent_affinity_level 
+} }
+arcana_affinity_transcendent = { is_valid = { 
+	arcana_affinity > sub_transcendent_affinity_level 
+	arcana_affinity <= transcendent_affinity_level 
+} }
+arcana_affinity_demigod = { is_valid = { 
+	arcana_affinity > transcendent_affinity_level
+	arcana_affinity <= demigod_arcana_affinity_level 
+} }
+arcana_affinity_god = { is_valid = { 
+	arcana_affinity >= demigod_arcana_affinity_level  
+} }

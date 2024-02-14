@@ -1,0 +1,196 @@
+﻿create_mage_tower = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	desc = create_mage_tower_desc
+
+	is_shown = {
+		has_trait = mage
+		capital_province = { NOT = { has_building_with_flag = magetower } }
+	}
+
+	is_valid = {
+		has_perk = al_arcane_mastery_master
+		capital_province = { NOT = { has_special_building = yes } }
+	}
+	
+	effect = {
+		root.capital_province = { add_special_building = basic_mage_tower }
+	}	
+
+	cost = {
+		gold = 1500
+	}
+    ai_check_interval = 24
+	ai_will_do = { base = 20 }
+}
+toggle_mage_tower_main_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	desc = toggle_mage_tower_main_decision_desc
+	
+	is_shown = {
+		capital_province = { has_building_with_flag = arcane_marvel }
+	}
+	
+	effect = {
+        if = { limit = { NOT = { has_character_modifier = mage_tower_main } } add_character_modifier = mage_tower_main }
+        else = { remove_character_modifier = mage_tower_main }
+	}	
+
+    ai_check_interval = 0
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+go_to_arcane_laboratories_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	desc = go_to_arcane_laboratories_decision_desc
+	
+	is_shown = {
+		capital_province = { has_building_with_flag = arcane_lab }
+	}
+	widget = {
+		gui = "decision_view_widget_generic_multichoice_with_effects"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "CHOOSE_ARCANE_LAB_COST"
+		show_from_start = yes
+		
+		### Minor
+		item = {
+			value = minor_arcane_lab_cost
+			current_description = minor_arcane_lab_cost_desc
+			localization = minor_arcane_lab_cost_name
+			icon = "gfx/interface/icons/icon_domain.dds"
+			ai_chance = {
+				value = 3
+			}
+		}
+		### Medium
+		item = {
+			value = medium_arcane_lab_cost
+			current_description = medium_arcane_lab_cost_desc
+			localization = medium_arcane_lab_cost_name
+			icon = "gfx/interface/icons/icon_domain.dds"
+			ai_chance = {
+				value = 2
+			}
+		}
+        ### Major
+		item = {
+			value = major_arcane_lab_cost
+			current_description = major_arcane_lab_cost_desc
+			localization = major_arcane_lab_cost_name
+			icon = "gfx/interface/icons/icon_domain.dds"
+			ai_chance = {
+				value = 1
+			}
+		}
+        ### Massive
+		item = {
+			value = massive_arcane_lab_cost
+			current_description = massive_arcane_lab_cost_desc
+			localization = massive_arcane_lab_cost_name
+			icon = "gfx/interface/icons/icon_domain.dds"
+			ai_chance = {
+				value = 1
+			}
+		}
+        ### Monumental
+		item = {
+			value = monumental_arcane_lab_cost
+			current_description = monumental_arcane_lab_cost_desc
+			localization = monumental_arcane_lab_cost_name
+			icon = "gfx/interface/icons/icon_domain.dds"
+			ai_chance = {
+				value = 1
+			}
+		}
+	}
+    is_valid = {
+        has_character_modifier = mage_tower_main
+        trigger_if = { limit = { scope:minor_arcane_lab_cost = yes  } 
+            reserved_gold >= minor_gold_max_value
+        }
+        trigger_else_if = { limit = { scope:medium_arcane_lab_cost = yes  } 
+            reserved_gold >= medium_gold_max_value
+        }
+		trigger_else_if = { limit = { scope:major_arcane_lab_cost = yes  } 
+            reserved_gold >= major_gold_max_value
+        }
+        trigger_else_if = { limit = { scope:massive_arcane_lab_cost = yes  } 
+            reserved_gold >= massive_gold_max_value
+        }
+        trigger_else = { 
+            reserved_gold >= monumental_gold_max_value
+        }
+    }
+	effect = {
+        if = { limit = { scope:minor_arcane_lab_cost = yes  } 
+            remove_short_term_gold = minor_gold_max_value
+            add_arcane_mastery_lifestyle_xp = 300
+        }
+        else_if = { limit = { scope:medium_arcane_lab_cost = yes  } 
+            remove_short_term_gold = medium_gold_max_value
+            add_arcane_mastery_lifestyle_xp = 600
+        }
+        else_if = { limit = { scope:major_arcane_lab_cost = yes  } 
+            remove_short_term_gold = major_gold_max_value
+            add_arcane_mastery_lifestyle_xp = 1000
+        }
+         else_if = { limit = { scope:massive_arcane_lab_cost = yes  } 
+            remove_short_term_gold = massive_gold_max_value
+            add_arcane_mastery_lifestyle_xp = 1500
+        }
+        else_if = { limit = { scope:monumental_arcane_lab_cost = yes  } 
+            remove_short_term_gold = monumental_gold_max_value
+            add_arcane_mastery_lifestyle_xp = 3000
+        }
+	}	
+    cooldown = { years = 1 }
+    ai_check_interval = 0
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+go_to_mysthical_nexus_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	desc = go_to_mysthical_nexus_decision_desc
+	
+	is_shown = {
+		capital_province = { has_building_with_flag = arcane_nexus }
+	}
+	is_valid = {
+        has_character_modifier = mage_tower_main
+        NOT = { has_character_modifier = huge_arcane_affinity_boost }
+    }
+	effect = {
+        add_character_modifier = {
+            modifier = huge_arcane_affinity_boost
+            years = 5
+        }
+        add_stress = 50
+	}	
+
+    ai_check_interval = 0
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}
+use_mage_towers_atmosphere_decision = {
+    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	desc = use_mage_towers_atmosphere_decision_desc
+	
+	is_shown = {
+		capital_province = { has_building_with_flag = arcane_atmo }
+	}
+	is_valid = {
+        has_character_modifier = mage_tower_main
+        NOT = { has_character_modifier = huge_arcane_month_boost }
+    }
+	effect = {
+        add_character_modifier = {
+            modifier = huge_arcane_month_boost
+            years = 5
+        }
+        add_stress = 50
+	}	
+
+    ai_check_interval = 0
+	ai_potential = { always = no }
+	ai_will_do = { base = 0 }
+}

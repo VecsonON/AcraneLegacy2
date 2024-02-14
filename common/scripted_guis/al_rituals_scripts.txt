@@ -1,0 +1,627 @@
+﻿#ritual_improve_intellect
+ritual_improve_intellect_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_improve_intellect } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_improve_intellect_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_improve_intellect_minor } remove_character_modifier = ritual_improve_intellect_minor }
+			if = { limit = { has_character_modifier = ritual_improve_intellect_normal } remove_character_modifier = ritual_improve_intellect_normal }
+			if = { limit = { has_character_modifier = ritual_improve_intellect_major } remove_character_modifier = ritual_improve_intellect_major }
+			if = { limit = { has_character_modifier = ritual_improve_intellect_supreme } remove_character_modifier = ritual_improve_intellect_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_improve_intellect_minor }
+			custom_tooltip  = "ritual_improve_intellect_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_improve_intellect_normal }
+			
+			custom_tooltip  = "ritual_improve_intellect_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_intellect_major  }
+			
+			custom_tooltip  = "ritual_improve_intellect_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_intellect_supreme }
+			
+			custom_tooltip  = "ritual_improve_intellect_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear } }
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_improve_intellect_minor }
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_improve_intellect_minor }
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_improve_intellect_normal } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_improve_intellect_major } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else = { 
+			NOT = { has_character_modifier = ritual_improve_intellect_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+	}
+}
+#ritual_improve_body_health
+ritual_improve_body_health_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_improve_body_health } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_improve_body_health_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_improve_body_health_minor } remove_character_modifier = ritual_improve_body_health_minor }
+			if = { limit = { has_character_modifier = ritual_improve_body_health_normal } remove_character_modifier = ritual_improve_body_health_normal }
+			if = { limit = { has_character_modifier = ritual_improve_body_health_major } remove_character_modifier = ritual_improve_body_health_major }
+			if = { limit = { has_character_modifier = ritual_improve_body_health_supreme } remove_character_modifier = ritual_improve_body_health_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_improve_body_health_minor }
+			custom_tooltip  = "ritual_improve_body_health_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_improve_body_health_normal }
+			
+			custom_tooltip  = "ritual_improve_body_health_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_body_health_major  }
+			
+			custom_tooltip  = "ritual_improve_body_health_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_body_health_supreme }
+			
+			custom_tooltip  = "ritual_improve_body_health_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_improve_body_health_minor } 
+			has_perk = al_arcane_mastery_adept_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_improve_body_health_normal } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_improve_body_health_major } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else = { 
+			NOT = { has_character_modifier = ritual_improve_body_health_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+	}
+}
+#ritual_improve_fertility
+ritual_improve_fertility_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_improve_fertility } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_improve_fertility_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_improve_fertility_minor } remove_character_modifier = ritual_improve_fertility_minor }
+			if = { limit = { has_character_modifier = ritual_improve_fertility_normal } remove_character_modifier = ritual_improve_fertility_normal }
+			if = { limit = { has_character_modifier = ritual_improve_fertility_major } remove_character_modifier = ritual_improve_fertility_major }
+			if = { limit = { has_character_modifier = ritual_improve_fertility_supreme } remove_character_modifier = ritual_improve_fertility_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_improve_fertility_minor }
+			custom_tooltip  = "ritual_improve_fertility_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_improve_fertility_normal }
+			
+			custom_tooltip  = "ritual_improve_fertility_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_fertility_major  }
+			
+			custom_tooltip  = "ritual_improve_fertility_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_fertility_supreme }
+			
+			custom_tooltip  = "ritual_improve_fertility_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_improve_fertility_minor }
+			has_perk = al_arcane_mastery_novice_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_improve_fertility_normal } 
+			has_perk = al_arcane_mastery_adept_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_improve_fertility_major } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else = {
+			NOT = { has_character_modifier = ritual_improve_fertility_supreme } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+	}
+}
+#ritual_improve_body_prowess
+ritual_improve_body_prowess_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_improve_body_prowess } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_improve_body_prowess_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_improve_body_prowess_minor } remove_character_modifier = ritual_improve_body_prowess_minor }
+			if = { limit = { has_character_modifier = ritual_improve_body_prowess_normal } remove_character_modifier = ritual_improve_body_prowess_normal }
+			if = { limit = { has_character_modifier = ritual_improve_body_prowess_major } remove_character_modifier = ritual_improve_body_prowess_major }
+			if = { limit = { has_character_modifier = ritual_improve_body_prowess_supreme } remove_character_modifier = ritual_improve_body_prowess_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_improve_body_prowess_minor }
+			custom_tooltip  = "ritual_improve_body_prowess_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_improve_body_prowess_normal }
+			
+			custom_tooltip  = "ritual_improve_body_prowess_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_body_prowess_major  }
+			
+			custom_tooltip  = "ritual_improve_body_prowess_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_body_prowess_supreme }
+			
+			custom_tooltip  = "ritual_improve_body_prowess_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_improve_body_prowess_minor }
+			has_perk = al_arcane_mastery_adept_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_improve_body_prowess_normal } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_improve_body_prowess_major } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else = { 
+			NOT = { has_character_modifier = ritual_improve_body_prowess_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+	}
+}
+#ritual_accelerate
+ritual_accelerate_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_accelerate } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_accelerate_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_accelerate_minor } remove_character_modifier = ritual_accelerate_minor }
+			if = { limit = { has_character_modifier = ritual_accelerate_normal } remove_character_modifier = ritual_accelerate_normal }
+			if = { limit = { has_character_modifier = ritual_accelerate_major } remove_character_modifier = ritual_accelerate_major }
+			if = { limit = { has_character_modifier = ritual_accelerate_supreme } remove_character_modifier = ritual_accelerate_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_accelerate_minor }
+			custom_tooltip  = "ritual_accelerate_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_accelerate_normal }
+			
+			custom_tooltip  = "ritual_accelerate_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_accelerate_major  }
+			
+			custom_tooltip  = "ritual_accelerate_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_accelerate_supreme }
+			
+			custom_tooltip  = "ritual_accelerate_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_accelerate_minor }
+			has_perk = al_arcane_mastery_adept_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_accelerate_normal } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_accelerate_major } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else = { 
+			NOT = { has_character_modifier = ritual_accelerate_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+	}
+}
+#ritual_accelerate_army
+ritual_accelerate_army_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_accelerate_army } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_accelerate_army_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_accelerate_army_minor } remove_character_modifier = ritual_accelerate_army_minor }
+			if = { limit = { has_character_modifier = ritual_accelerate_army_normal } remove_character_modifier = ritual_accelerate_army_normal }
+			if = { limit = { has_character_modifier = ritual_accelerate_army_major } remove_character_modifier = ritual_accelerate_army_major }
+			if = { limit = { has_character_modifier = ritual_accelerate_army_supreme } remove_character_modifier = ritual_accelerate_army_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_accelerate_army_minor }
+			custom_tooltip  = "ritual_accelerate_army_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_accelerate_army_normal }
+			
+			custom_tooltip  = "ritual_accelerate_army_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_accelerate_army_major  }
+			
+			custom_tooltip  = "ritual_accelerate_army_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_accelerate_army_supreme }
+			
+			custom_tooltip  = "ritual_accelerate_army_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_accelerate_army_minor }
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_accelerate_army_normal } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_accelerate_army_major } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else = {
+			NOT = { has_character_modifier = ritual_accelerate_army_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+	}
+}
+#ritual_improve_army_bodies
+ritual_improve_army_bodies_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_improve_army_bodies } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_improve_army_bodies_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_improve_army_bodies_minor } remove_character_modifier = ritual_improve_army_bodies_minor }
+			if = { limit = { has_character_modifier = ritual_improve_army_bodies_normal } remove_character_modifier = ritual_improve_army_bodies_normal }
+			if = { limit = { has_character_modifier = ritual_improve_army_bodies_major } remove_character_modifier = ritual_improve_army_bodies_major }
+			if = { limit = { has_character_modifier = ritual_improve_army_bodies_supreme } remove_character_modifier = ritual_improve_army_bodies_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_improve_army_bodies_minor }
+			custom_tooltip  = "ritual_improve_army_bodies_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_improve_army_bodies_normal }
+			
+			custom_tooltip  = "ritual_improve_army_bodies_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_army_bodies_major  }
+			
+			custom_tooltip  = "ritual_improve_army_bodies_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_improve_army_bodies_supreme }
+			
+			custom_tooltip  = "ritual_improve_army_bodies_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT 
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_improve_army_bodies_minor }
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_improve_army_bodies_normal } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_improve_army_bodies_major } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+		trigger_else= {
+			NOT = { has_character_modifier = ritual_improve_army_bodies_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		}
+	}
+}
+#ritual_telekinesis
+ritual_telekinesis_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_telekinesis } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_telekinesis_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_telekinesis_minor } remove_character_modifier = ritual_telekinesis_minor }
+			if = { limit = { has_character_modifier = ritual_telekinesis_normal } remove_character_modifier = ritual_telekinesis_normal }
+			if = { limit = { has_character_modifier = ritual_telekinesis_major } remove_character_modifier = ritual_telekinesis_major }
+			if = { limit = { has_character_modifier = ritual_telekinesis_supreme } remove_character_modifier = ritual_telekinesis_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_telekinesis_minor }
+			custom_tooltip  = "ritual_telekinesis_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_telekinesis_normal }
+			
+			custom_tooltip  = "ritual_telekinesis_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_telekinesis_major  }
+			
+			custom_tooltip  = "ritual_telekinesis_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_telekinesis_supreme }
+			
+			custom_tooltip  = "ritual_telekinesis_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_telekinesis_minor }
+			has_perk = al_arcane_mastery_novice_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_telekinesis_normal } 
+			has_perk = al_arcane_mastery_adept_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_telekinesis_major } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else= {
+			NOT = { has_character_modifier = ritual_telekinesis_supreme } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		} 
+	}
+}
+#ritual_immortality
+ritual_immortality_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:ritual_immortality } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_immortality_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_immortality_modifier }
+			custom_tooltip  = "ritual_immortality_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 	
+			hidden_effect = { remove_character_modifier = ritual_immortality_modifier }		
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else = { 
+			NOT = { has_character_modifier = ritual_immortality_modifier }
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+	}
+}
+#ritual_pyrokineis
+ritual_pyrokineis_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # Normal
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # MAJOR
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # SUPREME
+		if = { limit = { exists = flag:ritual_pyrokineis } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_pyrokineis_script = {
+	effect = {
+		hidden_effect = {
+			if = { limit = { has_character_modifier = ritual_pyrokineis_minor } remove_character_modifier = ritual_pyrokineis_minor }
+			if = { limit = { has_character_modifier = ritual_pyrokineis_normal } remove_character_modifier = ritual_pyrokineis_normal }
+			if = { limit = { has_character_modifier = ritual_pyrokineis_major } remove_character_modifier = ritual_pyrokineis_major }
+			if = { limit = { has_character_modifier = ritual_pyrokineis_supreme } remove_character_modifier = ritual_pyrokineis_supreme }
+		}
+		
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_pyrokineis_minor }
+			custom_tooltip  = "ritual_pyrokineis_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			hidden_effect = { add_character_modifier = ritual_pyrokineis_normal }
+			
+			custom_tooltip  = "ritual_pyrokineis_level_1_tooltip"
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			hidden_effect = {  add_character_modifier = ritual_pyrokineis_major  }
+			
+			custom_tooltip  = "ritual_pyrokineis_level_2_tooltip"
+		}
+		
+		if = { limit = { scope:setting = flag:level_3 } 
+			hidden_effect = {  add_character_modifier = ritual_pyrokineis_supreme }
+			
+			custom_tooltip  = "ritual_pyrokineis_level_3_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 			
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT
+		trigger_if = { limit = { scope:setting = flag:clear }}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_character_modifier = ritual_pyrokineis_minor }
+			has_perk = al_arcane_mastery_adept_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_character_modifier = ritual_pyrokineis_normal } 
+			has_perk = al_arcane_mastery_master_ritual
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			NOT = { has_character_modifier = ritual_pyrokineis_major } 
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+		trigger_else= {
+			NOT = { has_character_modifier = ritual_pyrokineis_supreme } 
+			has_perk = al_arcane_mastery_godly_ritual
+		} 
+	}
+}

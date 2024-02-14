@@ -1,0 +1,10 @@
+﻿suggestion = {
+
+}
+influance = {
+	strong = yes
+}
+pupet = {
+	strong = yes
+    perpetual = yes
+}

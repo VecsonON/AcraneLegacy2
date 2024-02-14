@@ -1,0 +1,66 @@
+﻿magecraft = {
+	texture = "gfx/AL/al_spell.dds"
+}
+arcana = {
+	texture = "gfx/AL/ArcanaIcon.dds"
+}
+inner_arcana = {
+	parent = arcana
+	texture = "gfx/AL/ArcanaIcon.dds"
+}
+outer_arcana = {
+	parent = arcana
+	texture = "gfx/AL/ArcanaIcon.dds"
+}
+
+arcane_mastery = {
+	parent = magecraft
+	texture = "gfx/AL/al_spell.dds"
+}
+arcane_studies = {
+	parent = arcane_mastery
+	texture = "gfx/AL/ArcanaIcon.dds"
+}
+spell_casting = {
+	parent = arcane_mastery
+	texture = "gfx/AL/al_spell.dds"
+}
+ritual_creating = {
+	parent = arcane_mastery
+	texture = "gfx/AL/al_ritual.dds"
+}
+worldweaving = {
+	parent = arcane_mastery
+	texture = "gfx/AL/al_rewriting_spell.dds"
+}
+arcana_regen = {
+
+}
+arcana_upkeep = {
+
+}
+arcana_affinity = {
+	texture = "gfx/AL/ArcanaAffinityIcon.dds"
+}
+mage = {
+	texture = "gfx/interface/icons/traits/mage.dds"
+}
+spell = {
+	texture = "gfx/AL/al_spell.dds"
+
+}
+rewriting_spell = {
+	texture = "gfx/AL/al_rewriting_spell.dds"
+
+}
+ritual = {
+	texture = "gfx/AL/al_ritual.dds"
+}
+arcane_mastery_lifestyle = {
+	parent = lifestyle
+	texture = "gfx/AL/al_spell.dds"
+}
+
+al_discount_why = {
+	
+}

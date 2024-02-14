@@ -1,0 +1,61 @@
+﻿magecraft_legacy_1 = { # +5 Arcana Affinity
+	legacy = magecraft_legacy_track
+
+    ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				OR = {
+					has_trait = mage
+				}
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				can_start_new_legacy_track_trigger = no
+			}
+			multiply = 0
+		}
+	}
+
+	effect = { custom_description_no_bullet = { text = magecraft_legacy_1_desc } }
+    can_be_picked = {
+        has_perk = al_arcane_mastery_novice
+    }
+
+}
+magecraft_legacy_2 = { # Better Arcana for children
+	legacy = magecraft_legacy_track
+
+	effect = { custom_description_no_bullet = { text = magecraft_legacy_2_desc } }
+	can_be_picked = {
+        has_perk = al_arcane_mastery_adept
+    }
+}
+magecraft_legacy_3 = { # +25% Lifestyle Gain
+	legacy = magecraft_legacy_track
+
+	character_modifier = {
+		monthly_lifestyle_xp_gain_mult = 0.25
+	}
+	can_be_picked = {
+        has_perk = al_arcane_mastery_master
+    }
+}
+magecraft_legacy_4 = { # -20% Arcana cost for spells and rewrite spells
+	legacy = magecraft_legacy_track
+
+	effect = { custom_description_no_bullet = { text = magecraft_legacy_4_desc } }
+	can_be_picked = {
+        has_perk = al_arcane_mastery_archmage
+    }
+}
+magecraft_legacy_5 = { # -25% Arcana cost for rituals
+	legacy = magecraft_legacy_track
+
+	effect = { custom_description_no_bullet = { text = magecraft_legacy_5_desc } }
+	can_be_picked = {
+        has_perk = al_arcane_mastery_godly
+    }
+}

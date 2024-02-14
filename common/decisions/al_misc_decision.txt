@@ -1,0 +1,351 @@
+﻿gain_potential_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	
+	major = yes
+
+	ai_check_interval = 0
+	
+	is_shown = {
+		has_game_rule = PC_magic_level_decision
+		NOT = { has_character_flag = chosen_potential }
+		NOT = { has_global_variable = magecraft_resurgance }
+	}
+	
+	desc = gain_potential_decision_desc
+	
+	effect = {
+		trigger_event = al_gain_potential_events.0001
+	}	
+
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+great_search_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	desc = great_search_decision_desc
+	major = yes
+	ai_check_interval = 12
+	is_shown = {
+		is_target_in_global_variable_list = {
+			name = Arcane_legacy_start_type
+			target = flag:Mystical_Explorer
+		}
+		NOT = { has_trait = mage }
+		NOT = {
+			has_global_variable = magecraft_resurgance
+		}
+	}
+	is_valid = {
+		
+	}
+	
+	effect = {
+		custom_tooltip = great_search_decision_effect
+		save_temporary_scope_as = temp_char
+		ordered_province = {
+			limit = { has_building = ruined_mage_tower }
+			order_by = {
+				value = "squared_distance(scope:temp_char.capital_province)"
+				multiply = -1
+			}
+			position = 0
+			save_temporary_scope_as = temp_province
+		}
+		start_travel_plan = {
+			destination = scope:temp_province
+			on_arrival_event = magecraft.2000
+		}
+	}	
+
+	cost = {
+		gold = major_gold_max_value
+	}
+	ai_will_do = {
+		base = 20
+	}
+}
+al_become_mage_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	desc = al_become_mage_decision_desc
+	major = yes
+	ai_check_interval = 0
+	is_shown = {
+		NOT = { has_trait = mage }
+		OR = {
+			has_character_modifier = arcane_legacy_modifier
+			capital_province = { has_building_with_flag = magetower }
+		}
+	}
+	
+	effect = {
+		al_become_mage = yes
+		if = { limit = { has_character_modifier = great_arcane_loot } add_arcane_mastery_lifestyle_xp = 10000 }
+		if = { limit = { has_character_modifier = arcane_loot } add_arcane_mastery_lifestyle_xp = 5000 }
+		if = { limit = { has_character_modifier = small_arcane_loot } add_arcane_mastery_lifestyle_xp = 2500 }
+		if = { limit = { has_character_modifier = arcane_legacy_modifier } remove_character_modifier = arcane_legacy_modifier }
+		trigger_event = {
+			id = magecraft.3000
+			years = 10
+		}
+	}	
+
+	ai_will_do = {
+		base = 20
+	}
+}
+recruit_mage = {
+	picture = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	
+	ai_check_interval = 0
+	
+	is_shown = {
+		has_global_variable = magecraft_resurgance
+	}
+	desc = recruit_mage_desc
+	
+	effect = {
+		trigger_event = magecraft.3001
+	}	
+	cost = {
+		gold = medium_gold_min_value
+		piety = {
+			value = 0
+			if = { limit = { exists = faith faith = { has_doctrine_parameter = magecraft_illegal } } add = 500 }
+			if = { limit = { exists = faith faith = { has_doctrine_parameter = magecraft_shunned } } add = 250 }
+		}
+	}
+	cooldown = { years = 5 }
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+# WHY ARE YOU DON'T SHOWING? | FIXED :D
+al_improve_magecraft_view = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	
+	major = yes
+
+	ai_check_interval = 0
+	
+	is_shown = {
+		faith = {	
+			NOT = { has_doctrine = doctrine_magecraft_accepted }	
+			NOT = { has_doctrine = doctrine_magecraft_mythical }	
+			NOT = { has_doctrine = doctrine_magecraft_popular_fear }	
+		}
+	}
+	is_valid = {
+		faith = { trigger_if = { limit = { exists = religious_head } religious_head = { opinion = { target = ROOT value > 50 } } } }
+		
+		piety_level >= 5
+	}
+	cost = {
+		piety = 5000
+	}
+	desc = al_improve_magecraft_view_desc
+	
+	effect = {
+		faith = {
+			if = { limit = { has_doctrine = doctrine_magecraft_crime } remove_doctrine = doctrine_magecraft_crime add_doctrine = doctrine_magecraft_shunned }
+			else_if = { limit = { has_doctrine = doctrine_magecraft_shunned } remove_doctrine = doctrine_magecraft_shunned add_doctrine = doctrine_magecraft_accepted }
+		}
+		add_piety_level = -1
+	}	
+
+	ai_potential = {
+		always = no
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}
+
+#1.3
+
+al_research = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	desc = al_research_decision_desc
+	major = yes
+
+	
+	ai_check_interval = 0
+	is_shown = {
+		has_trait = mage
+		NOT = { has_variable = research_spell }
+	}
+	is_valid = {
+		OR = {
+			have_inspiration_to_research = yes
+			AND = {
+				have_arcane_book = yes
+				knows_language = ancient_magicus
+			}
+		}
+	}
+	effect = {
+		trigger_event = al_research_events.0001
+	}
+	cooldown = { years = 1 }
+}
+al_learn_ancient_magicus = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	desc = al_learn_ancient_magicus_decision_desc
+	major = yes
+
+	
+	ai_check_interval = 0
+	is_shown = {
+		NOT = { knows_language = ancient_magicus }
+		OR = {
+			has_character_modifier = al_unreadable_magical_experiments
+			has_character_modifier = al_unreadable_magical_papers
+		}
+	}
+	effect = {
+		add_stress = 50
+		duel ={
+            skill = learning 
+            value = 20
+            10 = {
+				desc = al_activities_events.0025.a.succes
+				compare_modifier = { value = scope:duel_value }
+				modifier = {
+					add = 10
+					has_character_modifier = al_unreadable_magical_experiments
+				}
+				modifier = {
+					add = 5
+					has_character_modifier = al_unreadable_magical_papers
+				}
+                learn_language = ancient_magicus
+
+				if = { limit = { has_character_modifier = al_unreadable_magical_experiments } remove_character_modifier = al_unreadable_magical_experiments add_character_modifier = { modifier = al_readable_magical_experiments years = 10 } }
+				if = { limit = { has_character_modifier = al_unreadable_magical_papers } remove_character_modifier = al_unreadable_magical_papers add_character_modifier = { modifier = al_readable_magical_papers years = 10 } }
+			}
+            25 = { 
+				desc = al_activities_events.0025.a.fail
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+			}
+        }
+	}
+}
+gain_arcane_inspiraction = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	desc = gain_arcane_inspiraction_desc
+
+	
+	ai_check_interval = 0
+	is_shown = {
+		has_trait = mage
+		has_perk = al_arcane_mastery_archmage
+	}
+	is_valid = {
+		NOT = { have_inspiration_to_research = yes }
+	}
+	effect = {
+		trigger_event = al_research_events.2000
+	}
+	cooldown = { years = 10 }
+}
+
+ask_world_god_for_help = {
+	picture = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
+	desc = ask_world_god_for_help_desc
+	ai_check_interval = 0
+	is_shown = {
+		house = {
+			has_house_modifier = apotheosis_house_modifier
+		}
+	}
+	effect = {
+		trigger_event = magecraft.0101
+	}
+	cooldown = { years = 10 }
+}
+create_arcane_artifact = {
+	picture = "gfx/interface/illustrations/decisions/decision_smith.dds"
+	desc = create_arcane_artifact_desc
+	
+	ai_check_interval = 0
+	is_shown = {
+		has_trait = mage
+	}
+	is_valid = {
+		has_perk = al_arcane_mastery_novice_arcane_studies
+	}
+	widget = {
+		gui = "create_arcane_artifact_widget"
+
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "create_arcane_artifact_second_button"
+		show_from_start = yes
+
+		item = { # Staff
+			value = create_arcane_artifact_staff
+			current_description = create_arcane_artifact_staff_desc
+			localization = create_arcane_artifact_staff_name
+			icon = "gfx/AL/ArcanaIcon.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = { # Arcane Battery
+			value = create_arcane_artifact_arcane_battery
+			current_description = create_arcane_artifact_arcane_battery_desc
+			localization = create_arcane_artifact_arcane_battery_name
+			icon = "gfx/AL/ArcanaIcon.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = { # Arcane amplifier
+			value = create_arcane_artifact_arcane_amplifier
+			current_description = create_arcane_artifact_arcane_amplifier_desc
+			localization = create_arcane_artifact_arcane_amplifier_name
+			icon = "gfx/AL/ArcanaIcon.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = { # Arcane Collector
+			value = create_arcane_artifact_arcane_collector
+			current_description = create_arcane_artifact_arcane_collector_desc
+			localization = create_arcane_artifact_arcane_collector_name
+			icon = "gfx/AL/ArcanaIcon.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = {
+			text = "create_arcane_artifact"
+			 if = { limit = { scope:create_arcane_artifact_staff = yes }
+				create_arcane_artifact_staff_effect = yes
+			}
+			else_if = { limit = { scope:create_arcane_artifact_arcane_battery = yes }
+				create_arcane_artifact_arcane_battery_effect = yes
+			}
+			else_if = { limit = { scope:create_arcane_artifact_arcane_amplifier = yes }
+				create_arcane_artifact_arcane_amplifier_effect = yes
+			}
+			else_if = { limit = { scope:create_arcane_artifact_arcane_collector = yes }
+				create_arcane_artifact_arcane_collector_effect = yes
+			}
+		}
+	}
+	cost = {
+		gold = massive_gold_max_value
+	}
+	cooldown = { years = 5 }
+}

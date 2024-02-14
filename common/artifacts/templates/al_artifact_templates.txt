@@ -1,0 +1,24 @@
+﻿al_tomes = {
+    can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+		knows_language = ancient_magicus
+	}
+	ai_score = {
+		value = 100
+	}
+}
+al_magecraft_artifact = {
+    can_equip = {
+		always = yes
+	}
+	can_benefit = {
+		is_capable_adult = yes
+		has_trait = mage
+	}
+	ai_score = {
+		value = 100
+	}
+}

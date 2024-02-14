@@ -1,0 +1,212 @@
+﻿mage_arcana_bonus = 2
+
+mundane_arcana_affinity_level = 5
+sub_magical_arcana_affinity_level = 15
+magical_arcana_affinity_level = 20
+sub_transcendent_affinity_level = 30
+transcendent_affinity_level = 40
+demigod_arcana_affinity_level = 60
+
+
+arcana = {
+	value = 0
+	if = {
+		limit = { has_variable = arcana }
+		value = var:arcana
+	}
+}
+arcana_affinity_base = {
+	value = 0
+	if = {
+		limit = { has_variable = base_arcana_affinity }
+		value = var:base_arcana_affinity
+	}
+	max = 50
+	round = yes
+}
+arcana_affinity_artifacts = {
+	value = 0 
+	every_equipped_character_artifact = {
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_1_modifier } add = { value = 1 desc = al_artifact_arcana_affinity_gain_1_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_2_modifier } add = { value = 2 desc = al_artifact_arcana_affinity_gain_2_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_3_modifier } add = { value = 3 desc = al_artifact_arcana_affinity_gain_3_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_4_modifier } add = { value = 4 desc = al_artifact_arcana_affinity_gain_4_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_5_modifier } add = { value = 5 desc = al_artifact_arcana_affinity_gain_5_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_6_modifier } add = { value = 6 desc = al_artifact_arcana_affinity_gain_6_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_7_modifier } add = { value = 7 desc = al_artifact_arcana_affinity_gain_7_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_8_modifier } add = { value = 8 desc = al_artifact_arcana_affinity_gain_8_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_9_modifier } add = { value = 9 desc = al_artifact_arcana_affinity_gain_9_modifier_value_desc format = "affinity_gain_artifact_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_affinity_gain_10_modifier } add = { value = 10 desc = al_artifact_arcana_affinity_gain_10_modifier_value_desc format = "affinity_gain_artifact_format" } }
+	}
+}
+arcana_affinity = {
+	value = { value = arcana_affinity_base desc = arcana_affinity_base_desc format = "affinity_gain_format" }
+	if = { limit = { has_trait = mage } add = { value = mage_arcana_bonus desc = mage_arcana_bonus_desc format = "affinity_gain_format" } }
+	if = { limit = { has_trait = al_god } add = { value = 100 desc = al_god_value_desc format = "affinity_gain_format" } }
+	if = { limit = { has_focus = arcane_mastery_focus } add = { value = 2 desc = arcane_mastery_focus_value_desc format = "affinity_gain_format" } }
+
+	if = { limit = { has_perk = al_arcane_mastery_novice } add = { value = 2 desc = al_arcane_mastery_novice_desc format = "affinity_gain_format" } }
+	if = { limit = { has_perk = al_arcane_mastery_adept } add = { value = 2 desc = al_arcane_mastery_adept_desc format = "affinity_gain_format" } }
+	if = { limit = { has_perk = al_arcane_mastery_master } add = { value = 2 desc = al_arcane_mastery_master_desc format = "affinity_gain_format" } }
+	if = { limit = { has_perk = al_arcane_mastery_archmage } add = { value = 2 desc = al_arcane_mastery_archmage_desc format = "affinity_gain_format" } }
+	if = { limit = { has_perk = al_arcane_mastery_godly } add = { value = 2 desc = al_arcane_mastery_godly_desc format = "affinity_gain_format" } }
+	if = { limit = { exists = capital_province } 
+		if = { limit = { root.capital_province = { has_building = advance_mage_tower } } add = { value = 2 desc = advance_mage_tower_desc format = "affinity_gain_format" } }
+		if = { limit = { root.capital_province = { has_building = super_mage_tower } } add = { value = 4 desc = super_mage_tower_desc format = "affinity_gain_format" } }
+	}
+
+	if = { limit = { has_character_modifier = huge_arcane_affinity_boost } add = { value = 8 desc = huge_arcane_affinity_boost_val_desc format = "affinity_gain_format" } }
+
+	if = { limit = { has_character_modifier = al_experiment_arcana_5 } add = { value = 5 desc = al_experiment_arcana_5_value_desc format = "affinity_gain_format" } }
+	if = { limit = { has_character_modifier = al_experiment_arcana_4 } add = { value = 4 desc = al_experiment_arcana_4_value_desc format = "affinity_gain_format" } }
+	if = { limit = { has_character_modifier = al_experiment_arcana_3 } add = { value = 3 desc = al_experiment_arcana_3_value_desc format = "affinity_gain_format" } }
+	if = { limit = { has_character_modifier = al_experiment_arcana_2 } add = { value = 2 desc = al_experiment_arcana_2_value_desc format = "affinity_gain_format" } }
+	if = { limit = { has_character_modifier = al_experiment_arcana_1 } add = { value = 1 desc = al_experiment_arcana_1_value_desc format = "affinity_gain_format" } }
+	if = { limit = { exists = dynasty dynasty = { has_dynasty_perk = magecraft_legacy_1 } } add = { value = 5 desc = magecraft_legacy_1_value_desc format = "affinity_gain_format" } }
+	if = { limit = { exists = house house = { has_house_modifier = apotheosis_house_modifier } } add = { value = 35 desc = apotheosis_house_modifier_value_desc format = "affinity_gain_format" } }
+	
+	if = { limit = { NOT = { arcana_affinity_artifacts = 0 } } add = { value = arcana_affinity_artifacts desc = arcana_affinity_artifacts_value_desc format = "affinity_gain_format" } }
+}
+arcana_affinity_divided = {
+	value = {
+		value = arcana_affinity
+		divide = 10
+	}
+}
+arcana_maximum_artifacts = {
+	value = 0
+	every_equipped_character_artifact = {
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_10_modifier } add = { value = 10 desc = al_artifact_arcana_max_gain_10_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_20_modifier } add = { value = 20 desc = al_artifact_arcana_max_gain_20_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_30_modifier } add = { value = 30 desc = al_artifact_arcana_max_gain_30_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_40_modifier } add = { value = 40 desc = al_artifact_arcana_max_gain_40_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_50_modifier } add = { value = 50 desc = al_artifact_arcana_max_gain_50_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_60_modifier } add = { value = 60 desc = al_artifact_arcana_max_gain_60_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_70_modifier } add = { value = 70 desc = al_artifact_arcana_max_gain_70_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_80_modifier } add = { value = 80 desc = al_artifact_arcana_max_gain_80_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_90_modifier } add = { value = 90 desc = al_artifact_arcana_max_gain_90_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_100_modifier } add = { value = 100 desc = al_artifact_arcana_max_gain_100_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_125_modifier } add = { value = 125 desc = al_artifact_arcana_max_gain_125_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_150_modifier } add = { value = 150 desc = al_artifact_arcana_max_gain_150_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_175_modifier } add = { value = 175 desc = al_artifact_arcana_max_gain_175_modifier_value_desc format = "arcana_max_gain_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_max_gain_200_modifier } add = { value = 200 desc = al_artifact_arcana_max_gain_200_modifier_value_desc format = "arcana_max_gain_format" } }
+	}
+}
+arcana_maximum = {
+	value = { value = arcana_affinity multiply = 10 desc = arcana_affinity_desc format = "affinity_gain_format" }
+	if = { limit = { NOT = { arcana_maximum_artifacts = 0 } } add = { value = arcana_maximum_artifacts desc = arcana_maximum_artifacts_value_desc format = "affinity_gain_format" } }
+
+}
+arcana_regen_artifact = {
+	value = 0 
+	every_equipped_character_artifact = {
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_0_1_modifier } add = { value = 0.1 desc = al_artifact_arcana_monthly_gain_0_1_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_0_2_modifier } add = { value = 0.2 desc = al_artifact_arcana_monthly_gain_0_2_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_0_4_modifier } add = { value = 0.4 desc = al_artifact_arcana_monthly_gain_0_4_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } add = { value = 0.6 desc = al_artifact_arcana_monthly_gain_0_6_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_0_8_modifier } add = { value = 0.8 desc = al_artifact_arcana_monthly_gain_0_8_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_1_modifier } add = { value = 1 desc = al_artifact_arcana_monthly_gain_1_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_1_1_modifier } add = { value = 1.1 desc = al_artifact_arcana_monthly_gain_1_1_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_1_2_modifier } add = { value = 1.2 desc = al_artifact_arcana_monthly_gain_1_2_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_1_4_modifier } add = { value = 1.4 desc = al_artifact_arcana_monthly_gain_1_4_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_1_6_modifier } add = { value = 1.6 desc = al_artifact_arcana_monthly_gain_1_6_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_1_8_modifier } add = { value = 1.8 desc = al_artifact_arcana_monthly_gain_1_8_modifier_value_desc format = "magecraft_regen_format" } }
+		if = { limit = { has_artifact_modifier = al_artifact_arcana_monthly_gain_2_modifier } add = { value = 2 desc = al_artifact_arcana_monthly_gain_2_modifier_value_desc format = "magecraft_regen_format" } }
+	}
+}
+arcana_regen = {
+	value = { 
+		value = arcana_affinity 
+		divide = 10
+		desc = arcana_affinity_regen_desc
+		format = "magecraft_regen_format"
+	}
+	if = { limit = { exists = capital_province } 
+		if = { limit = { root.capital_province = { has_building = super_mage_tower } } add = { value = 5 desc = super_mage_tower_desc format = "magecraft_regen_format" } }
+	}
+	if = { limit = { has_character_modifier = huge_arcane_month_boost } add = { value = 5 desc = huge_arcane_month_boost_val_desc format = "magecraft_regen_format" }  }
+
+	if = { limit = { NOT = { arcana_regen_artifact = 0 } } add = { value = arcana_regen_artifact desc = arcana_regen_artifact_value_desc format = "affinity_gain_format" } }
+}
+arcana_upkeep = {
+	value = 0
+	if = { limit = { has_character_modifier = casting_rewriting_spell } add = { value = var:rewriting_cost desc = casting_rewriting_spell_cost_desc format = "magecraft_upkeep_format" } }
+	
+	# if = { limit = { has_character_modifier = ritual_-name-_minor } add = { value = ritual_-name-_level_0_time_cost desc = ritual_-name-_level_0_cost_desc } }
+	# if = { limit = { has_character_modifier = ritual_-name-_normal } add = { value = ritual_-name-_level_1_time_cost desc = ritual_-name-_level_1_cost_desc } }
+	# if = { limit = { has_character_modifier = ritual_-name-_major } add = { value = ritual_-name-_level_2_time_cost desc = ritual_-name-_level_2_cost_desc } }
+	# if = { limit = { has_character_modifier = ritual_-name-_supreme } add = { value = ritual_-name-_level_3_time_cost desc = ritual_-name-_level_3_cost_desc } }
+	
+	if = { limit = { has_character_modifier = ritual_improve_intellect_minor } add = { value = ritual_improve_intellect_level_0_time_cost desc = ritual_improve_intellect_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_intellect_normal } add = { value = ritual_improve_intellect_level_1_time_cost desc = ritual_improve_intellect_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_intellect_major } add = { value = ritual_improve_intellect_level_2_time_cost desc = ritual_improve_intellect_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_intellect_supreme } add = { value = ritual_improve_intellect_level_3_time_cost desc = ritual_improve_intellect_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_improve_body_health_minor } add = { value = ritual_improve_body_health_level_0_time_cost desc = ritual_improve_body_health_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_body_health_normal } add = { value = ritual_improve_body_health_level_1_time_cost desc = ritual_improve_body_health_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_body_health_major } add = { value = ritual_improve_body_health_level_2_time_cost desc = ritual_improve_body_health_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_body_health_supreme } add = { value = ritual_improve_body_health_level_3_time_cost desc = ritual_improve_body_health_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_improve_fertility_minor } add = { value = ritual_improve_fertility_level_0_time_cost desc = ritual_improve_fertility_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_fertility_normal } add = { value = ritual_improve_fertility_level_1_time_cost desc = ritual_improve_fertility_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_fertility_major } add = { value = ritual_improve_fertility_level_2_time_cost desc = ritual_improve_fertility_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_fertility_supreme } add = { value = ritual_improve_fertility_level_3_time_cost desc = ritual_improve_fertility_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_improve_body_prowess_minor } add = { value = ritual_improve_body_prowess_level_0_time_cost desc = ritual_improve_body_prowess_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_body_prowess_normal } add = { value = ritual_improve_body_prowess_level_1_time_cost desc = ritual_improve_body_prowess_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_body_prowess_major } add = { value = ritual_improve_body_prowess_level_2_time_cost desc = ritual_improve_body_prowess_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_body_prowess_supreme } add = { value = ritual_improve_body_prowess_level_3_time_cost desc = ritual_improve_body_prowess_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_accelerate_minor } add = { value = ritual_accelerate_level_0_time_cost desc = ritual_accelerate_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_accelerate_normal } add = { value = ritual_accelerate_level_1_time_cost desc = ritual_accelerate_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_accelerate_major } add = { value = ritual_accelerate_level_2_time_cost desc = ritual_accelerate_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_accelerate_supreme } add = { value = ritual_accelerate_level_3_time_cost desc = ritual_accelerate_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_accelerate_army_minor } add = { value = ritual_accelerate_army_level_0_time_cost desc = ritual_accelerate_army_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_accelerate_army_normal } add = { value = ritual_accelerate_army_level_1_time_cost desc = ritual_accelerate_army_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_accelerate_army_major } add = { value = ritual_accelerate_army_level_2_time_cost desc = ritual_accelerate_army_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_accelerate_army_supreme } add = { value = ritual_accelerate_army_level_3_time_cost desc = ritual_accelerate_army_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_improve_army_bodies_minor } add = { value = ritual_improve_army_bodies_level_0_time_cost desc = ritual_improve_army_bodies_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_army_bodies_normal } add = { value = ritual_improve_army_bodies_level_1_time_cost desc = ritual_improve_army_bodies_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_army_bodies_major } add = { value = ritual_improve_army_bodies_level_2_time_cost desc = ritual_improve_army_bodies_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_improve_army_bodies_supreme } add = { value = ritual_improve_army_bodies_level_3_time_cost desc = ritual_improve_army_bodies_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_telekinesis_minor } add = { value = ritual_telekinesis_level_0_time_cost desc = ritual_telekinesis_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_telekinesis_normal } add = { value = ritual_telekinesis_level_1_time_cost desc = ritual_telekinesis_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_telekinesis_major } add = { value = ritual_telekinesis_level_2_time_cost desc = ritual_telekinesis_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_telekinesis_supreme } add = { value = ritual_telekinesis_level_3_time_cost desc = ritual_telekinesis_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_immortality_modifier } add = { value = ritual_immortality_level_0_time_cost desc = ritual_immortality_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_pyrokineis_minor } add = { value = ritual_pyrokineis_level_0_time_cost desc = ritual_pyrokineis_level_0_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_pyrokineis_normal } add = { value = ritual_pyrokineis_level_1_time_cost desc = ritual_pyrokineis_level_1_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_pyrokineis_major } add = { value = ritual_pyrokineis_level_2_time_cost desc = ritual_pyrokineis_level_2_cost_desc format = "magecraft_upkeep_format" } }
+	if = { limit = { has_character_modifier = ritual_pyrokineis_supreme } add = { value = ritual_pyrokineis_level_3_time_cost desc = ritual_pyrokineis_level_3_cost_desc format = "magecraft_upkeep_format" } }
+}
+arcana_change = {
+	value = arcana_regen
+	subtract = arcana_upkeep
+}
+
+mother_base_affinity = { #Script Value used in calculation of ones base arcana affinity
+	value = 0
+	if = {
+		limit = {
+			exists = mother
+			mother = { is_alive = yes has_variable = base_arcana_affinity }
+		}
+		add = mother.arcana_affinity_base
+	}
+}
+father_base_affinity = {
+	value = 0
+	if = {
+		limit = {
+			exists = father
+			father = { is_alive = yes has_variable = base_arcana_affinity }
+		}
+		add = father.arcana_affinity_base
+
+	}
+}

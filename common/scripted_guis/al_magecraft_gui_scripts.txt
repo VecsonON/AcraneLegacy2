@@ -1,0 +1,13 @@
+﻿is_magecraft_window = {
+	scope = character
+	is_valid  = {
+		var:show_spells ?= 1
+	}
+	effect = {
+		remove_variable = show_spells
+		clear_variable_list = spell_tab_list
+		clear_variable_list = rewrite_spell_tab_list
+		clear_variable_list = ritual_tab_list
+		clear_variable_list = magecraft_settings
+	}
+}

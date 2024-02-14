@@ -1,0 +1,66 @@
+﻿namespace = al_gain_potential_events
+al_gain_potential_events.0001 = {
+	type = character_event
+	desc = al_gain_potential_events.0001.desc
+	theme = secret
+	immediate = {
+		if = {
+			limit = { NOT = { has_variable = base_arcana_affinity } }
+			set_variable = {
+				name = base_arcana_affinity
+				value = 0
+			}
+		}
+		if = {
+			limit = { var:base_arcana_affinity > 50}
+			set_variable = {
+				name = base_arcana_affinity
+				value = 50
+			}
+		}
+	}
+	option = {
+		name = al_gain_potential_events.0001.a
+		
+		set_variable = {
+			name = base_arcana_affinity
+			value = 0
+		}
+		trigger_event = al_gain_potential_events.0001
+	}
+	
+	option = {
+		name = al_gain_potential_events.0001.b
+		
+		change_variable = {
+			name = base_arcana_affinity
+			add = 1
+		}
+		trigger_event = al_gain_potential_events.0001
+	}
+	
+	option = {
+		name = al_gain_potential_events.0001.c
+		
+		change_variable = {
+			name = base_arcana_affinity
+			add = 5
+		}
+		trigger_event = al_gain_potential_events.0001
+	}
+	
+	option = {
+		name = al_gain_potential_events.0001.d
+		
+		change_variable = {
+			name = base_arcana_affinity
+			add = 10
+		}
+		trigger_event = al_gain_potential_events.0001
+	}
+	
+	option = {
+		name = al_gain_potential_events.0001.e
+		add_character_flag = chosen_potential
+	}
+}

@@ -1,0 +1,430 @@
+﻿magecraft_gui_interaction = {
+	icon = arcana
+	interface_priority = 1
+
+	category = interaction_category_friendly
+	common_interaction = yes
+	desc = magecraft_gui_interaction_desc
+	is_shown = {
+		scope:actor = {
+			has_trait = mage
+		}
+	}
+
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				set_variable = {
+					name = spell_target
+					value = scope:recipient
+				}
+				if = { limit = { exists = var:spell_target } } # TO DELETE CONSOLE SPAM...
+				effect_open_magic_window = yes
+				
+			}
+		}
+	}
+
+	auto_accept = yes
+}
+
+request_magecraft_teaching_interaction = {
+	icon = arcana
+	category = interaction_category_friendly
+	desc = request_magecraft_teaching_interaction_desc
+	is_shown = {
+		scope:recipient = { has_trait = mage}
+		scope:actor = { NOT = { has_trait = mage } }
+	}
+	send_options_exclusive = no
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			can_start_scheme = {
+				type = magecraft_learn_scheme
+				target = scope:recipient
+			}
+		}
+	}
+	send_option = {
+		is_valid = {
+			exists = scope:recipient
+			scope:actor = { has_usable_hook = scope:recipient }
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = { scope:actor = { has_usable_hook = scope:recipient } }
+	scheme = magecraft_learn_scheme
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = request_magecraft_teaching_interaction_accept_toast
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+					start_scheme = { type = magecraft_learn_scheme target = scope:recipient }
+				}
+			}
+		}
+		scope:actor = { add_stress = 50 }
+		scope:recipient = { add_stress = 50 }
+	}
+	on_decline = {
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = request_magecraft_teaching_interaction_decline_toast
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+				}
+			}
+		}
+	}
+	ai_accept = {
+		base = -50
+		
+		opinion_modifier = { # Opinion Factor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 1
+			desc = AI_OPINION_REASON
+		}
+		modifier = {
+			scope:recipient = { has_character_modifier = teacher_mage }
+			add = 1000
+			desc = HIRED_MAGE
+		}
+		modifier = { # Say no to rivals
+			add = -25
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+			desc = "ACTOR_RIVAL_TO_ME_REASON"
+		}
+		modifier = { # Say no to nemesis
+			add = -50
+			scope:recipient = {
+				has_relation_nemesis = scope:actor
+			}
+			desc = "ACTOR_NEMESIS_TO_ME_REASON"
+		}
+
+		modifier = { # Use hook
+			scope:hook = yes
+			add = 50
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = { # Same language
+			add = 5
+			desc = speaks_same_language_interaction_reason
+			trigger = {
+				scope:actor = {
+					knows_language_of_culture = scope:recipient.culture
+				}
+			}
+		}
+		modifier = { # You're my friend :)
+			add = 10
+			desc = youre_my_friend_tt
+			has_relation_friend = scope:actor
+		}
+		modifier = { # Shared Court Language (non-spoken)
+			add = 10
+			desc = foreign_realm_court_language_non_spoken_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_royal_court = yes
+					NOT = { knows_court_language_of = this }
+				}
+				NOT = {
+					scope:actor.top_liege = scope:recipient.top_liege
+				}
+				OR = {
+					AND = {
+						scope:recipient = {
+							has_royal_court = yes
+						}
+						scope:actor = { # You share Court Language
+							has_same_court_language = scope:recipient
+						}
+					}
+					
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege does
+						is_independent_ruler = no
+						has_royal_court = no
+						liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						exists = liege.liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+				}
+			}
+		}
+		modifier = { # Shared Court Language (spoken)
+			add = 20
+			desc = foreign_realm_court_language_spoken_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_royal_court = yes
+					knows_court_language_of = this
+				}
+				NOT = {
+					scope:actor.top_liege = scope:recipient.top_liege
+				}
+				OR = {
+					AND = {
+						scope:recipient = {
+							has_royal_court = yes
+						}
+						scope:actor = { # You share Court Language
+							has_same_court_language = scope:recipient
+						}
+					}
+					
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege does
+						is_independent_ruler = no
+						has_royal_court = no
+						liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						exists = liege.liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+				}
+			}
+		}
+	}
+	ai_max_reply_days = 5
+	ai_min_reply_days = 1
+
+}
+magecraft_teaching_interaction = {
+	icon = arcana
+	category = interaction_category_friendly
+	desc = magecraft_teaching_interaction_desc
+	is_shown = {
+		scope:actor = { has_trait = mage }
+		scope:recipient = { NOT = { has_trait = mage is_scheming_against = { target = scope:actor type = magecraft_learn_scheme } } }
+	}
+	is_valid = {
+		scope:actor = { has_trait = mage }
+		scope:recipient = { NOT = { has_trait = mage } }
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			can_start_scheme = {
+				type = magecraft_learn_scheme
+				target = scope:recipient
+			}
+		}
+	}
+	scheme = magecraft_learn_scheme
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = magecraft_teaching_interaction_accept_toast
+					left_icon = scope:recipient					
+					right_icon = scope:actor
+					scope:recipient = {
+						start_scheme = { type = magecraft_learn_scheme target = scope:actor }
+					}
+					
+				}
+			}
+		}
+		scope:actor = { add_stress = 50 }
+		scope:recipient = { add_stress = 50 custom_tooltip = "magecraft_teaching_interaction_recipient" }
+	}
+	on_decline = {
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = magecraft_teaching_interaction_decline_toast
+					left_icon = scope:recipient					
+					right_icon = scope:actor
+				}
+			}
+		}
+	}
+	ai_accept = {
+		base = 25
+
+		modifier = { # Say no to rivals
+			add = -25
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+			desc = "ACTOR_RIVAL_TO_ME_REASON"
+		}
+		modifier = { # Say no to nemesis
+			add = -50
+			scope:recipient = {
+				has_relation_nemesis = scope:actor
+			}
+			desc = "ACTOR_NEMESIS_TO_ME_REASON"
+		}
+		modifier = {
+			scope:recipient = {
+				has_trait = zealous
+				faith = {
+					has_doctrine_parameter = magecraft_illegal
+				}
+			}
+			add = -1000
+			desc = "MAGE_IS_CRIMINAL_ZEALOUS_REASON"
+		}
+		modifier = {
+			scope:recipient = {
+				has_trait = zealous
+				faith = {
+					has_doctrine_parameter = magecraft_shunned
+				}
+			}
+			add = -100
+			desc = "MAGE_IS_SHUNNED_ZEALOUS_REASON"
+		}
+		modifier = {
+			add = 1000
+			scope:recipient = {
+				is_heir_of = scope:actor
+			}
+			desc = "I_AM_HEIR_OF_ACTOR_REASON"
+		}
+
+	}
+}
+show_arcana_affinity = {
+	icon = arcana
+	category = interaction_category_diplomacy
+	desc = show_arcana_affinity_desc
+	auto_accept = yes
+	common_interaction = yes
+	is_shown = {
+		scope:actor = { has_trait = mage }
+	}
+}
+teach_arcane_understanding_interaction = {
+	icon = arcana
+	category = interaction_category_friendly
+	desc = teach_arcane_understanding_interaction_desc
+	auto_accept = yes
+	common_interaction = yes
+	is_shown = {
+		scope:actor = { has_trait = mage }
+		scope:recipient = { has_trait = mage }
+		NOT = { scope:actor = scope:recipient }
+	}
+	on_accept = {
+		scope:actor = { add_stress = 75 add_arcane_mastery_lifestyle_xp = 100 }
+		scope:recipient = { add_stress = 25 add_arcane_mastery_lifestyle_xp = 750 }
+	}
+	cooldown = { years = 5 }
+}

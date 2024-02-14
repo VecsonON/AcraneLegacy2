@@ -1,0 +1,9 @@
+﻿arcane_mastery_lifestyle = {
+
+	is_valid = {
+		has_trait = mage
+	}
+		
+	xp_per_level = 1500
+	base_xp_gain = 25		
+}

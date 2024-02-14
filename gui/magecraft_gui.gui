@@ -1,0 +1,481 @@
+﻿window = {
+	name = "window_magecraft"
+	size = { 1222 900 }
+	layer = middle
+	layoutpolicy_horizontal = expanding
+	layoutpolicy_vertical = expanding
+
+	position = { 620 100 }
+
+	using = Window_Movable
+	using = Window_Background
+	using = Window_Decoration_Spike
+
+	visible = "[And(And(And(And(Not(IsPauseMenuShown),IsDefaultGUIMode),GetPlayer.IsValid),IsMapMode('realms')),GetScriptedGui('is_magecraft_window').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+
+	state = {
+		name = _show
+	}
+
+	state = {
+		name = _hide
+		on_start = "[GetVariableSystem.Clear('selected_magecraft')]"
+		on_start = "[GetVariableSystem.Clear('selected_magecraft_setting')]"
+	}
+	vbox = {
+		visible = "[GetScriptedGui('is_magecraft_window').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		using = Window_Margins
+		spacing = 5
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "header_text"
+			{
+				raw_text = "MAGIC_TITLE"
+			}
+
+			blockoverride "button_close"
+			{
+				onclick = "[GetScriptedGui('is_magecraft_window').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+			}
+		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			spacing = 9
+			# background = {
+			# 	texture = "gfx/interface/illustrations/event_scenes/study.dds"
+			# 	fittype = end
+			# 	alpha = 0.4
+
+			# 	modify_texture = {
+			# 		texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+			# 		blend_mode = alphamultiply
+			# 	}
+
+			# 	modify_texture = {
+			# 		texture = "gfx/interface/component_masks/mask_vignette.dds"
+			# 		blend_mode = alphamultiply
+			# 		alpha = 0.4
+			# 	}
+			# }
+			vbox = {
+				name = "magecraft_info"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				background = {
+					using = Background_Area
+				}
+				
+				vbox = {					
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+					
+					text_label_center = {
+						layoutpolicy_horizontal = expanding
+						align = center|nobaseline
+						text = "MAGECRAFT_INFO"
+						margin = { 0 2 }
+					}
+					# text_single  = {
+					# 	layoutpolicy_horizontal = expanding
+					# 	align = center|nobaseline
+					# 	text = "SPELL"
+					# 	using = Font_Size_Medium
+	
+					# 	background = {
+					# 		using = Background_Area
+					# 		margin = { 0 10 }
+					# 		margin_bottom = 7
+					# 	}
+					# }
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						margin = { -200 5}
+						background = {
+							using = Background_Area
+						}
+						hbox = {
+							portrait_head_small = {
+								datacontext = "[GetPlayer]"
+								name = "caster_portrait"
+								blockoverride "opinion_box" {}
+								blockoverride "status_icons" {}
+							}
+							text_single = {
+								text = "[Localize('caster_loc')]"
+							}	
+						}
+						hbox = {
+							text_single = {
+								text = "[Localize('target_loc')]"
+							}
+							portrait_head_small = {
+								name = "target_portrait"
+								datacontext = "[GetPlayer.MakeScope.GetVariable('spell_target').GetCharacter]"
+		
+								blockoverride "portrait_button" {}
+							}
+							
+						}
+					}
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+					}
+				}
+				
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					vbox = {
+						visible = "[GetVariableSystem.Exists('selected_magecraft')]"
+						layoutpolicy_horizontal = expanding 
+						layoutpolicy_vertical = expanding
+						scrollbox = {
+							layoutpolicy_horizontal = expanding 
+							layoutpolicy_vertical = expanding
+							blockoverride "scrollbox_content"
+							{	
+								text_multi = {
+									name = "accept_effects_info"
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									margin = { 5 0 }
+									autoresize = yes
+									max_width = 700
+									text = "[GetScriptedGui(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_script')).BuildTooltip(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', GetPlayer.MakeScope.GetVariable('spell_target').GetCharacter.MakeScope).AddScope('setting', MakeScopeFlag(GetVariableSystem.Get('selected_magecraft_setting'))).End)]"
+								}
+		
+								block "extra_content" {}
+							}
+						}
+					}
+				
+				}
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 90 0}
+
+					hbox = {
+						visible = "[GetVariableSystem.Exists('selected_magecraft')]"
+						margin = { 0 10}
+						layoutpolicy_horizontal = expanding
+						vbox = {
+							visible = "[GetVariableSystem.HasValue('selected_tab','spell')]"
+							icon = {
+								texture = "gfx/AL/ArcanaIcon.dds"
+								size = { 50 50 }
+
+							}
+							divider_light = {
+								layoutpolicy_horizontal = expanding
+							}
+							hbox = {
+								text_single = {
+									raw_text = "Arcana Cost: "
+								}
+								text_single = {
+									raw_text = "  #E;bold;underline [GetPlayer.MakeScope.ScriptValue(Concatenate(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),GetVariableSystem.Get('selected_magecraft_setting')),'_cost'))]"
+									tooltip = arcana_cost_tooltip
+								}
+							}
+						}
+						hbox = {
+							visible = "[Not(GetVariableSystem.HasValue('selected_tab','spell'))]"
+							vbox = {
+								visible = "[GetVariableSystem.HasValue('selected_tab','rewrite_spell')]"
+								icon = {
+									texture = "gfx/interface/icons/icon_time.dds"
+									size = { 50 50 }
+								}
+								divider_light = {
+									layoutpolicy_horizontal = expanding
+								}
+								hbox = {
+									text_single = {
+										raw_text = "Casting Time:"
+									}
+									text_single = {
+										raw_text = " #E;bold [GetPlayer.MakeScope.ScriptValue(Concatenate(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),GetVariableSystem.Get('selected_magecraft_setting')),'_time'))] "
+								
+									}
+									text_single = {
+										raw_text = " Months"
+									}
+								}
+								
+							}
+							spacer = { visible = "[GetVariableSystem.HasValue('selected_tab','rewrite_spell')]" size = { 50 0}}
+							vbox = {
+								hbox = {
+									icon = {
+										texture = "gfx/AL/ArcanaIcon.dds"
+										
+										size = { 50 50 }
+										icon = {
+											position = { 25 25}
+											texture = "gfx/interface/icons/icon_time.dds"
+											size = { 25 25 }
+										}
+									}
+									
+								}
+								divider_light = {
+									layoutpolicy_horizontal = expanding
+								}
+								hbox = {
+									text_single = {
+										raw_text = "Arcana cost per Month:"
+									}
+									
+									text_single = {
+										raw_text = "  #E;bold;underline [GetPlayer.MakeScope.ScriptValue(Concatenate(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),GetVariableSystem.Get('selected_magecraft_setting')),'_time_cost'))]"
+										tooltip = arcana_cost_per_month_tooltip
+									}
+								}
+							}
+						}
+					}
+					vbox= {
+						hbox = { # I just leave it as is. There ins't very much that can be demanded as copied...
+							visible = "[DataModelHasItems(GetPlayer.MakeScope.GetList('magecraft_settings'))]"						
+							dropdown_menu_standard = { 
+								blockoverride "dropdown_properties"
+								{
+									datamodel = "[GetPlayer.MakeScope.GetList('magecraft_settings')]" #if these fail, can have sys var of selection and check for it changing in the active item section
+									onselectionchanged = "[PdxGuiWidget.FindChild('active_setting').TriggerAnimation('select_setting')]" # in active_item. set var to string
+			
+									#selectedindex = "[BattleSummaryWindow.GetSoldiersSortIndex]" #uses CVector2i. no go
+								}
+								blockoverride "dropdown_active_item_properties"
+								{		
+									name = "active_setting"
+									text = "[Localize(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),Concatenate(GetVariableSystem.Get('selected_magecraft_setting'),'_loc')))]"
+									state = {
+										name = "select_setting"
+										on_start = "[GetVariableSystem.Set('selected_magecraft_setting', Scope.GetFlagName )]"
+									}
+								}
+								blockoverride "dropdown_item_properties"
+								{
+									text = "[Localize(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),Concatenate(Scope.GetFlagName,'_loc')))]"
+								}
+								blockoverride "dropdown_list_properties"
+								{
+									position = { 5 -2 }
+									widgetanchor = bottom
+								}
+							}
+						}
+						
+
+						spacer = { size = { 40 0 } }
+						button_standard = {
+							datacontext = "[GetVariableSystem]"
+							#enabled = "[GetVariableSystem.Exists('current_spell_selected')]"
+							enabled = "[GetScriptedGui(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_script')).IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', GetPlayer.MakeScope.GetVariable('spell_target').GetCharacter.MakeScope).AddScope('setting', MakeScopeFlag(GetVariableSystem.Get('selected_magecraft_setting'))).End)]"
+							tooltip = "[GetScriptedGui(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_script')).IsValidTooltip(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', GetPlayer.MakeScope.GetVariable('spell_target').GetCharacter.MakeScope).AddScope('setting', MakeScopeFlag(GetVariableSystem.Get('selected_magecraft_setting'))).End)]"
+							onclick = "[GetScriptedGui(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_script')).Execute(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('target', GetPlayer.MakeScope.GetVariable('spell_target').GetCharacter.MakeScope).AddScope('setting', MakeScopeFlag(GetVariableSystem.Get('selected_magecraft_setting'))).End)]"
+							text = "[Localize('execute_loc')]"
+						}
+					}
+					
+				}
+			}
+			vbox = {
+				name = "magecraft_list"
+				layoutpolicy_vertical = expanding
+				background = {
+					using = Background_Area
+				}
+				margin = { 12 5 }
+				text_label_center = {
+					layoutpolicy_horizontal = expanding
+					align = center|nobaseline
+					text = "MAGECRAFT_LIST"
+					margin = { 0 2 }
+					max_width = 440
+				}
+				hbox = {
+					name = "magecraft_tabs"
+					margin_top = 10
+					margin_left = -6
+					button_tab = {
+						size = { 125 40 }
+			
+						tooltip = CHOOSE_SPELL_TAB
+						onclick = "[GetVariableSystem.Set( 'magic_tab', 'spell' )]"
+						using = tooltip_above
+			
+						hbox = {
+							margin = { 10 0 }
+			
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								align = center
+								text = "SPELL_TAB"
+							}
+						}
+					}
+					button_tab = {
+						size = { 125 40 }
+			
+						tooltip = CHOOSE_REWRITE_SPELL_TAB
+						onclick = "[GetVariableSystem.Set( 'magic_tab', 'rewrite_spell' )]"
+						using = tooltip_above
+			
+						hbox = {
+							margin = { 10 0 }
+			
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								align = center
+								text = "REWRITE_SPELL_TAB"
+							}
+						}
+					}
+					button_tab = {
+						size = { 125 40 }
+			
+						tooltip = CHOOSE_RITUAL_TAB
+						onclick = "[GetVariableSystem.Set( 'magic_tab', 'ritual' )]"
+						using = tooltip_above
+			
+						hbox = {
+							margin = { 10 0 }
+			
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								align = center
+								text = "RITUAL_TAB"
+							}
+						}
+					}
+					
+					
+				}
+				scrollbox = {
+					layoutpolicy_vertical = expanding
+					layoutpolicy_horizontal = expanding
+					blockoverride "scrollbox_content" {
+						vbox = {
+							name = "spell_list"
+							datamodel = "[GetPlayer.MakeScope.GetList(Concatenate(GetVariableSystem.Get('magic_tab'),'_tab_list'))]"
+							layoutpolicy_horizontal = expanding
+							spacing = 10
+
+							item = {
+								
+								widget = {									
+									size = { 330 65 }
+									
+									button_standard_clean = {
+										size = { 100% 100% }
+										
+										onclick = "[GetVariableSystem.Set('selected_magecraft',Scope.GetFlagName)]"
+										onclick = "[GetScriptedGui(Concatenate(Scope.GetFlagName,'_select')).Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('target', GetPlayer.MakeScope.GetVariable('spell_target').GetCharacter.MakeScope).End)]"
+										onclick = "[GetVariableSystem.Set('selected_tab', GetVariableSystem.Get('magic_tab'))]"
+										onclick = "[GetVariableSystem.Set('selected_magecraft_setting', 'level_0')]"
+
+										hbox = {
+											hbox = {
+												icon = {
+													visible = "[GetVariableSystem.HasValue('magic_tab','spell')]"
+													size = { 30 30 }
+													tooltip = "[spell|E]"
+													texture = "gfx/interface/icons/lifestyles_perks/al_spell.dds"
+												}
+												icon = {
+													visible = "[GetVariableSystem.HasValue('magic_tab','ritual')]"
+													size = { 30 30 }
+													tooltip = "[ritual|E]"
+									
+													texture = "gfx/interface/icons/lifestyles_perks/al_ritual.dds"
+												}
+												icon = {
+													visible = "[GetVariableSystem.HasValue('magic_tab','rewrite_spell')]"
+													size = { 30 30 }
+													tooltip = "[rewriting_spell|E]"
+									
+													texture = "gfx/interface/icons/lifestyles_perks/al_rewriting_spell.dds"
+												}
+											}
+											
+											divider_light = {
+												layoutpolicy_vertical = expanding
+											}
+											hbox = {
+												layoutpolicy_horizontal = expanding
+												text_single = {
+													text = "[Localize(Concatenate(Scope.GetFlagName,'_name'))]"
+													max_width = 180
+												}
+											}
+											divider_light = {
+												layoutpolicy_vertical = expanding
+											}
+											hbox = {
+												visible = "[GetVariableSystem.HasValue('magic_tab','spell')]"
+												layoutpolicy_horizontal = expanding
+												hbox = {
+													text_single = {
+														raw_text = "#underline [GetPlayer.MakeScope.ScriptValue(Concatenate(Scope.GetFlagName,'_level_0_cost'))]"
+														tooltip = arcana_cost_tooltip_small
+													}
+													icon = {
+														texture = "gfx/AL/ArcanaIcon.dds"
+														size = { 25 25 }
+													}
+												}
+												
+												margin = { 5 5 }
+												max_width = 80
+												min_width = 80
+											}
+											vbox = {
+												margin = { 5 5 }
+												visible = "[Not(GetVariableSystem.HasValue('magic_tab','spell'))]"
+												layoutpolicy_horizontal = expanding
+												layoutpolicy_vertical = expanding
+												max_width = 80
+												min_width = 80
+												hbox = {
+													text_single = {
+														raw_text = "#underline [GetPlayer.MakeScope.ScriptValue(Concatenate(Scope.GetFlagName,'_level_0_time_cost'))|2]"
+														tooltip = arcana_cost_per_month_tooltip_small
+													}
+													icon = {
+														texture = "gfx/AL/ArcanaIcon.dds"
+														size = { 25 25 }
+														icon = {
+															position = { 12 12}
+															texture = "gfx/interface/icons/icon_time.dds"
+															size = { 12 12 }
+														}
+													}
+												}
+												hbox = {
+													visible = "[GetVariableSystem.HasValue('magic_tab','rewrite_spell')]"
+													text_single = {
+														raw_text = "[GetPlayer.MakeScope.ScriptValue(Concatenate(Scope.GetFlagName,'_level_0_time'))] Months"
+														#raw_text = "10"
+													}
+													icon = {
+														texture = "gfx/interface/icons/icon_time.dds"
+														size = { 25 25 }
+													}
+												}
+											}
+											
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

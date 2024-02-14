@@ -1,0 +1,18 @@
+﻿texticon = {
+	icon = acrana_icon
+	iconsize = {
+		texture = "gfx/AL/ArcanaIcon.dds"	
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}
+texticon = {
+	icon = arcana_affinity_icon
+	iconsize = {
+		texture = "gfx/AL/ArcanaAffinityIcon.dds"	
+		size = { 25 25 }
+		offset = { 0 6 }
+		fontsize = 16
+	}
+}

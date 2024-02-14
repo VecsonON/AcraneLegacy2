@@ -1,0 +1,139 @@
+﻿ruined_mage_tower = {
+	construction_time = 1
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	next_building = basic_mage_tower
+	type = special
+	flag = magetower
+}
+basic_mage_tower = {
+	construction_time = 1520
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	can_construct = {
+		scope:holder = {
+			has_perk = al_arcane_mastery_adept
+		}
+	}
+	is_enabled = {
+		scope:holder = { 
+			has_trait = mage
+		}
+	}
+	character_modifier = {
+		monthly_prestige = 2
+	}
+	county_modifier = {
+		monthly_county_control_change_factor = 0.2
+		development_growth_factor = 0.1
+		development_growth = 0.15
+	}
+	cost = {
+		gold = 500
+	}
+	next_building = mage_tower
+	type = special
+	flag = magetower
+	flag = arcane_marvel
+}
+mage_tower = {
+	construction_time = 1520
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	can_construct = {
+		scope:holder = {
+			has_perk = al_arcane_mastery_master
+		}
+	}
+	is_enabled = {
+		scope:holder = { 
+			has_trait = mage
+		}
+	}
+	character_modifier = {
+		monthly_prestige = 4
+		monthly_lifestyle_xp_gain_mult = 0.2
+	}
+	county_modifier = {
+		monthly_county_control_change_factor = 0.4
+		development_growth_factor = 0.2
+		development_growth = 0.3
+	}
+	cost = {
+		gold = 800
+	}
+	next_building = advance_mage_tower
+	type = special
+	flag = magetower
+	flag = arcane_marvel
+	flag = arcane_lab
+}
+advance_mage_tower = {
+	construction_time = 1520
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	can_construct = {
+		scope:holder = {
+			has_perk = al_arcane_mastery_archmage
+			custom_tooltip = {
+				text = "al_arcane_nexus_building_flag_check"
+				has_variable = al_arcane_nexus_building_flag
+			}
+		}
+	}
+	cost = { 
+		gold = 1200
+		
+	}
+	is_enabled = {
+		scope:holder = { 
+			has_trait = mage
+		}
+	}
+	character_modifier = {
+		monthly_prestige = 6
+		monthly_lifestyle_xp_gain_mult = 0.4
+	}
+	effect_desc = advance_mage_tower_effect_desc
+	county_modifier = {
+		monthly_county_control_change_factor = 0.8
+		development_growth_factor = 0.4
+		development_growth = 0.6
+	}
+	next_building = super_mage_tower
+	type = special
+	flag = magetower
+	flag = arcane_marvel
+	flag = arcane_lab
+	flag = arcane_nexus
+}
+super_mage_tower = {
+	construction_time = 1520
+	type_icon = "icon_structure_iron_pillar_of_dhar.dds"
+	can_construct = {
+		scope:holder = {
+			has_perk = al_arcane_mastery_godly
+		}
+	}
+	cost = {
+		gold = 1500
+	}
+	is_enabled = {
+		scope:holder = { 
+			has_trait = mage
+		}
+	}
+	effect_desc = super_mage_tower_effect_desc
+	character_modifier = {
+		monthly_prestige = 8
+		monthly_lifestyle_xp_gain_mult = 0.8
+	}
+	
+	county_modifier = {
+		monthly_county_control_change_factor = 1
+		development_growth_factor = 0.8
+		development_growth = 1
+	}
+	type = special
+	flag = magetower
+	flag = arcane_marvel
+	flag = arcane_lab
+	flag = arcane_nexus
+	flag = arcane_atmo
+}

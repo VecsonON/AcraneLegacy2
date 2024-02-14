@@ -1,0 +1,21 @@
+﻿l_english:
+ al_mage_tower_searching: "Mage tower searching"
+ al_mage_tower_searching_desc: "Go search ruins of mage tower all around of world"
+ al_mage_tower_searching_host_desc: "$BULLET_WITH_TAB$@artifact_icon!Arcane Artifacts\n$BULLET_WITH_TAB$@gold_icon!Gold\n$BULLET_WITH_TAB$@acrana_icon!Discover Long forgoten arcane knowladge"
+
+ great_search_intent: "Mage Tower Searching" 
+ great_search_intent_desc: "Mage Tower Searching"
+
+ al_mage_tower_searching_time: "Searching Time"
+ al_mage_tower_searching_province_desc: "In this province is mage tower"
+ al_mage_tower_searching_destination_selection: "You can sellect province with ruined mage tower"
+ al_mage_tower_searching_guest_desc: " "
+ al_mage_tower_searching_conclusion_desc: "Complete Search"
+ al_mage_tower_searching_litlle: "Short Time"
+ al_mage_tower_searching_litlle_desc: "Searching will last 1 Month"
+ al_mage_tower_searching_time_mid: "Normal Time"
+ al_mage_tower_searching_time_mid_desc: "Searching will last 2 Months"
+ al_mage_tower_searching_time_huge: "Long Time" 
+ al_mage_tower_searching_time_huge_desc: "Searching will last 3 Months"
+
+ TRAVEL_NAME_FOR_al_mage_tower_searching: "Your travel to ruined mage tower"

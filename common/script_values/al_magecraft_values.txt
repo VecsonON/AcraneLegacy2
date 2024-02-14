@@ -1,0 +1,1360 @@
+﻿# God, please forgive me, I have sinned
+# OR
+# Dear peers... Please don't burn me at the stake for my code.
+# IF YOU DIDN'T CATCH JOKE, PLEASE FOR THE SAKE OF GOD DON'T LOOK HERE
+al_lifestyle_discount = {
+    value = 0
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } add = 0.05 }
+    if = { limit = { has_perk = al_arcane_mastery_adept_arcane_studies } add = 0.05 }
+    if = { limit = { has_perk = al_arcane_mastery_master_arcane_studies } add = 0.05 }
+    if = { limit = { has_perk = al_arcane_mastery_archmage_arcane_studies } add = 0.05 }
+    if = { limit = { has_perk = al_arcane_mastery_godly_arcane_studies } add = 0.1 }
+}
+al_artifacts_discount = {
+    value = 0
+    every_equipped_character_artifact = {
+		if = { limit = { has_artifact_modifier = al_artifact_magecraft_cost_5_percent_modifier } add = 0.05 }
+		if = { limit = { has_artifact_modifier = al_artifact_magecraft_cost_10_percent_modifier } add = 0.1 }
+		if = { limit = { has_artifact_modifier = al_artifact_magecraft_cost_15_percent_modifier } add = 0.15 }
+		if = { limit = { has_artifact_modifier = al_artifact_magecraft_cost_20_percent_modifier } add = 0.2 }
+		if = { limit = { has_artifact_modifier = al_artifact_magecraft_cost_25_percent_modifier } add = 0.25 }
+		if = { limit = { has_artifact_modifier = al_artifact_magecraft_cost_30_percent_modifier } add = 0.3 }
+    }
+}
+al_artifacts_discount_show = {
+    value = { value = al_artifacts_discount multiply = 100 }
+}
+# SPELLS
+spell_wound_level_0_cost_b = 20
+spell_wound_level_0_cost = {
+    value = { value = spell_wound_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_wound_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_wound_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_wound_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_wound_level_1_cost_b = 40
+spell_wound_level_1_cost = {
+    value = { value = spell_wound_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_wound_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_wound_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_wound_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_wound_level_2_cost_b = 60
+spell_wound_level_2_cost = {
+    value = { value = spell_wound_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_wound_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_wound_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_wound_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_heal_level_0_cost_b = 20
+spell_heal_level_0_cost = {
+    value = { value = spell_heal_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_heal_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_heal_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_heal_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_heal_level_1_cost_b = 30
+spell_heal_level_1_cost = {
+    value = { value = spell_heal_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_heal_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_heal_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_heal_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_heal_level_2_cost_b = 40
+spell_heal_level_2_cost = {
+    value = { value = spell_heal_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_heal_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_heal_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_heal_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_inflict_illness_level_0_cost_b = 40
+spell_inflict_illness_level_0_cost = {
+    value = { value = spell_inflict_illness_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_inflict_illness_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_inflict_illness_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_inflict_illness_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_inflict_illness_level_1_cost_b = 60
+spell_inflict_illness_level_1_cost = {
+    value = { value = spell_inflict_illness_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_inflict_illness_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_inflict_illness_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_inflict_illness_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_inflict_illness_level_2_cost_b = 80
+spell_inflict_illness_level_2_cost = {
+    value = { value = spell_inflict_illness_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_inflict_illness_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_inflict_illness_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_inflict_illness_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_cure_level_0_cost_b = 100
+spell_cure_level_0_cost = {
+    value = { value = spell_cure_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_cure_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_cure_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_cure_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_change_genetics_beauty_bad_3_cost_b = 200
+spell_change_genetics_beauty_bad_3_cost = {
+    value = { value = spell_change_genetics_beauty_bad_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_bad_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_bad_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_bad_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_beauty_bad_2_cost_b = 175
+spell_change_genetics_beauty_bad_2_cost = {
+    value = { value = spell_change_genetics_beauty_bad_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_bad_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_bad_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_bad_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_beauty_bad_1_cost_b = 150
+spell_change_genetics_beauty_bad_1_cost = {
+    value = { value = spell_change_genetics_beauty_bad_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_bad_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_bad_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_bad_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_beauty_level_0_cost_b = 125
+spell_change_genetics_beauty_level_0_cost = {
+    value = { value = spell_change_genetics_beauty_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_beauty_good_1_cost_b = 150
+spell_change_genetics_beauty_good_1_cost = {
+    value = { value = spell_change_genetics_beauty_good_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_good_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_good_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_good_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_beauty_good_2_cost_b = 175
+spell_change_genetics_beauty_good_2_cost = {
+    value = { value = spell_change_genetics_beauty_good_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_good_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_good_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_good_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_beauty_good_3_cost_b = 200
+spell_change_genetics_beauty_good_3_cost = {
+    value = { value = spell_change_genetics_beauty_good_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_beauty_good_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_beauty_good_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_beauty_good_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_change_genetics_physique_bad_3_cost_b = 200
+spell_change_genetics_physique_bad_3_cost = {
+    value = { value = spell_change_genetics_physique_bad_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_bad_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_bad_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_bad_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_physique_bad_2_cost_b = 175
+spell_change_genetics_physique_bad_2_cost = {
+    value = { value = spell_change_genetics_beauty_good_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_bad_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_bad_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_bad_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_physique_bad_1_cost_b = 150
+spell_change_genetics_physique_bad_1_cost = {
+    value = { value = spell_change_genetics_physique_bad_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_bad_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_bad_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_bad_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_physique_level_0_cost_b = 125
+spell_change_genetics_physique_level_0_cost = {
+    value = { value = spell_change_genetics_physique_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_physique_good_1_cost_b = 150
+spell_change_genetics_physique_good_1_cost = {
+    value = { value = spell_change_genetics_physique_good_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_good_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_good_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_good_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_physique_good_2_cost_b = 175
+spell_change_genetics_physique_good_2_cost = {
+    value = { value = spell_change_genetics_physique_good_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_good_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_good_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_good_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_physique_good_3_cost_b = 200
+spell_change_genetics_physique_good_3_cost = {
+    value = { value = spell_change_genetics_physique_good_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_physique_good_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_physique_good_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_physique_good_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_change_genetics_intellect_bad_3_cost_b = 250
+spell_change_genetics_intellect_bad_3_cost = {
+    value = { value = spell_change_genetics_intellect_bad_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_bad_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_bad_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_bad_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_intellect_bad_2_cost_b = 200
+spell_change_genetics_intellect_bad_2_cost = {
+    value = { value = spell_change_genetics_intellect_bad_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_bad_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_bad_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_bad_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_intellect_bad_1_cost_b = 175
+spell_change_genetics_intellect_bad_1_cost = {
+    value = { value = spell_change_genetics_intellect_bad_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_bad_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_bad_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_bad_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_intellect_level_0_cost_b = 150
+spell_change_genetics_intellect_level_0_cost = {
+    value = { value = spell_change_genetics_intellect_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_intellect_good_1_cost_b = 175
+spell_change_genetics_intellect_good_1_cost = {
+    value = { value = spell_change_genetics_intellect_good_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_good_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_good_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_good_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_intellect_good_2_cost_b = 250
+spell_change_genetics_intellect_good_2_cost = {
+    value = { value = spell_change_genetics_intellect_good_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_good_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_good_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_good_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_genetics_intellect_good_3_cost_b = 250
+spell_change_genetics_intellect_good_3_cost = {
+    value = { value = spell_change_genetics_intellect_good_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_genetics_intellect_good_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_genetics_intellect_good_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_genetics_intellect_good_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_change_topography_bad_2_cost_b = 175
+spell_change_topography_bad_2_cost = {
+    value = { value = spell_change_topography_bad_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_topography_bad_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_topography_bad_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_topography_bad_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_topography_bad_1_cost_b = 150
+spell_change_topography_bad_1_cost = {
+    value = { value = spell_change_topography_bad_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_topography_bad_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_topography_bad_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_topography_bad_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_topography_level_0_cost_b = 125
+spell_change_topography_level_0_cost = {
+    value = { value = spell_change_topography_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_topography_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_topography_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_topography_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_topography_good_1_cost_b = 150
+spell_change_topography_good_1_cost = {
+    value = { value = spell_change_topography_good_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_topography_good_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_topography_good_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_topography_good_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_change_topography_good_2_cost_b = 175
+spell_change_topography_good_2_cost = {
+    value = { value = spell_change_topography_good_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_change_topography_good_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_change_topography_good_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_change_topography_good_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_metal_into_gold_level_0_cost_b = 40
+spell_metal_into_gold_level_0_cost = {
+    value = { value = spell_metal_into_gold_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_metal_into_gold_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_metal_into_gold_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_metal_into_gold_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_metal_into_gold_level_1_cost_b = 60
+spell_metal_into_gold_level_1_cost = {
+    value = { value = spell_metal_into_gold_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_metal_into_gold_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_metal_into_gold_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_metal_into_gold_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_metal_into_gold_level_2_cost_b = 80
+spell_metal_into_gold_level_2_cost = {
+    value = { value = spell_metal_into_gold_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_metal_into_gold_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_metal_into_gold_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_metal_into_gold_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_create_gold_level_0_cost_b = 80
+spell_create_gold_level_0_cost = {
+    value = { value = spell_create_gold_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_create_gold_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_create_gold_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_create_gold_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_create_gold_level_1_cost_b = 100
+spell_create_gold_level_1_cost = {
+    value = { value = spell_create_gold_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_create_gold_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_create_gold_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_create_gold_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_create_gold_level_2_cost_b = 120
+spell_create_gold_level_2_cost = {
+    value = { value = spell_create_gold_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_create_gold_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_create_gold_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_create_gold_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_devastate_land_level_0_cost_b = 125
+spell_devastate_land_level_0_cost = {
+    value = { value = spell_devastate_land_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_devastate_land_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_devastate_land_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_devastate_land_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_devastate_land_level_1_cost_b = 175
+spell_devastate_land_level_1_cost = {
+    value = { value = spell_devastate_land_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_devastate_land_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_devastate_land_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_devastate_land_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_devastate_land_level_2_cost_b = 225
+spell_devastate_land_level_2_cost = {
+    value = { value = spell_devastate_land_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_devastate_land_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_devastate_land_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_devastate_land_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_domination_level_0_cost_b = 75
+spell_domination_level_0_cost = {
+    value = { value = spell_domination_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_domination_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_domination_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_domination_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_domination_level_1_cost_b = 125
+spell_domination_level_1_cost = {
+    value = { value = spell_domination_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_domination_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_domination_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_domination_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_domination_level_2_cost_b = 150
+spell_domination_level_2_cost = {
+    value = { value = spell_domination_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_domination_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_domination_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_domination_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_calm_level_0_cost_b = 25
+spell_calm_level_0_cost = {
+    value = { value = spell_calm_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_calm_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_calm_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_calm_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_calm_level_1_cost_b = 50
+spell_calm_level_1_cost = {
+    value = { value = spell_calm_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_calm_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_calm_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_calm_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_calm_level_2_cost_b = 100
+spell_calm_level_2_cost = {
+    value = { value = spell_calm_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_calm_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_calm_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_calm_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_anger_level_0_cost_b = 25
+spell_anger_level_0_cost = {
+    value = { value = spell_anger_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_anger_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_anger_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_anger_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_anger_level_1_cost_b = 50
+spell_anger_level_1_cost = {
+    value = { value = spell_anger_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_anger_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_anger_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_anger_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_anger_level_2_cost_b = 100
+spell_anger_level_2_cost = {
+    value = { value = spell_anger_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_anger_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_anger_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_anger_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_overcharge_mind_level_0_cost_b = 50
+spell_overcharge_mind_level_0_cost = {
+    value = { value = spell_overcharge_mind_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_overcharge_mind_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_overcharge_mind_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_overcharge_mind_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_overcharge_mind_level_1_cost_b = 100
+spell_overcharge_mind_level_1_cost = {
+    value = { value = spell_overcharge_mind_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_overcharge_mind_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_overcharge_mind_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_overcharge_mind_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_overcharge_mind_level_2_cost_b = 150
+spell_overcharge_mind_level_2_cost = {
+    value = { value = spell_overcharge_mind_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_overcharge_mind_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_overcharge_mind_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_overcharge_mind_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_overcharge_body_level_0_cost_b = 50
+spell_overcharge_body_level_0_cost = {
+    value = { value = spell_overcharge_body_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_overcharge_body_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_overcharge_body_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_overcharge_body_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_overcharge_body_level_1_cost_b = 100
+spell_overcharge_body_level_1_cost = {
+    value = { value = spell_overcharge_body_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_overcharge_body_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_overcharge_body_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_overcharge_body_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_overcharge_body_level_2_cost_b = 150
+spell_overcharge_body_level_2_cost = {
+    value = { value = spell_overcharge_body_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_overcharge_body_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_overcharge_body_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_overcharge_body_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_bad_vibes_level_0_cost_b = 35
+spell_bad_vibes_level_0_cost = {
+    value = { value = spell_bad_vibes_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_bad_vibes_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_bad_vibes_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_bad_vibes_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_bad_vibes_level_1_cost_b = 50
+spell_bad_vibes_level_1_cost = {
+    value = { value = spell_bad_vibes_level_1_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_bad_vibes_level_1_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_bad_vibes_level_1_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_bad_vibes_level_1_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_bad_vibes_level_2_cost_b = 65
+spell_bad_vibes_level_2_cost = {
+    value = { value = spell_bad_vibes_level_2_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_bad_vibes_level_2_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_bad_vibes_level_2_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_bad_vibes_level_2_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_bad_vibes_level_3_cost_b = 80
+spell_bad_vibes_level_3_cost = {
+    value = { value = spell_bad_vibes_level_3_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_bad_vibes_level_3_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_bad_vibes_level_3_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_bad_vibes_level_3_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+spell_purify_physique_level_0_cost_b = 160
+spell_purify_physique_level_0_cost = {
+    value = { value = spell_purify_physique_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_clubfooted_setting_cost_b = 160
+spell_purify_physique_clubfooted_setting_cost = {
+    value = { value = spell_purify_physique_clubfooted_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_clubfooted_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_clubfooted_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_clubfooted_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_hunchbacked_setting_cost_b = 160
+spell_purify_physique_hunchbacked_setting_cost = {
+    value = { value = spell_purify_physique_hunchbacked_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_hunchbacked_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_hunchbacked_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_hunchbacked_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_lisping_setting_cost_b = 160
+spell_purify_physique_lisping_setting_cost = {
+    value = { value = spell_purify_physique_lisping_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_lisping_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_lisping_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_lisping_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_stuttering_setting_cost_b = 160
+spell_purify_physique_stuttering_setting_cost = {
+    value = { value = spell_purify_physique_stuttering_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_stuttering_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_stuttering_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_stuttering_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_inbred_setting_cost_b = 160
+spell_purify_physique_inbred_setting_cost = {
+    value = { value = spell_purify_physique_inbred_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_inbred_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_inbred_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_inbred_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_weak_setting_cost_b = 160
+spell_purify_physique_weak_setting_cost = {
+    value = { value = spell_purify_physique_weak_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_weak_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_weak_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_weak_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_dull_setting_cost_b = 160
+spell_purify_physique_dull_setting_cost = {
+    value = { value = spell_purify_physique_dull_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_dull_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_dull_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_dull_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_impotent_setting_cost_b = 160
+spell_purify_physique_impotent_setting_cost = {
+    value = { value = spell_purify_physique_impotent_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_impotent_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_impotent_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_impotent_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_spindly_setting_cost_b = 160
+spell_purify_physique_spindly_setting_cost = {
+    value = { value = spell_purify_physique_spindly_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_spindly_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_spindly_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_spindly_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_purify_physique_scaly_setting_cost_b = 160
+spell_purify_physique_scaly_setting_cost = {
+    value = { value = spell_purify_physique_scaly_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_purify_physique_scaly_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_purify_physique_scaly_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_purify_physique_scaly_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+
+spell_fix_flesh_level_0_cost_b = 120
+spell_fix_flesh_level_0_cost = {
+    value = { value = spell_fix_flesh_level_0_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_level_0_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_level_0_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_level_0_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_blind_setting_cost_b = 120
+spell_fix_flesh_blind_setting_cost = {
+    value = { value = spell_fix_flesh_blind_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_blind_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_blind_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_blind_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_eunuch_setting_cost_b = 120
+spell_fix_flesh_eunuch_setting_cost = {
+    value = { value = spell_fix_flesh_eunuch_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_eunuch_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_eunuch_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_eunuch_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_scarred_setting_cost_b = 120
+spell_fix_flesh_scarred_setting_cost = {
+    value = { value = spell_fix_flesh_scarred_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_scarred_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_scarred_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_scarred_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_disfigured_setting_cost_b = 120
+spell_fix_flesh_disfigured_setting_cost = {
+    value = { value = spell_fix_flesh_disfigured_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_disfigured_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_disfigured_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_disfigured_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_one_legged_setting_cost_b = 120
+spell_fix_flesh_one_legged_setting_cost = {
+    value = { value = spell_fix_flesh_one_legged_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_one_legged_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_one_legged_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_one_legged_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_one_eyed_setting_cost_b = 120
+spell_fix_flesh_one_eyed_setting_cost = {
+    value = { value = spell_fix_flesh_one_eyed_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_one_eyed_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_one_eyed_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_one_eyed_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+spell_fix_flesh_maimed_setting_cost_b = 120
+spell_fix_flesh_maimed_setting_cost = {
+    value = { value = spell_fix_flesh_maimed_setting_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = spell_fix_flesh_maimed_setting_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = spell_fix_flesh_maimed_setting_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = spell_fix_flesh_maimed_setting_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+#RITUALS
+
+ritual_improve_intellect_clear_time_cost_b = 0
+ritual_improve_intellect_clear_time_cost = {
+    value = { value = ritual_improve_intellect_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_improve_intellect_level_0_time_cost_b = 0.3
+ritual_improve_intellect_level_0_time_cost = {
+    value = { value = ritual_improve_intellect_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_intellect_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_intellect_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_intellect_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_intellect_level_1_time_cost_b = 0.5
+ritual_improve_intellect_level_1_time_cost = {
+    value = { value = ritual_improve_intellect_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_intellect_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_intellect_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_intellect_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_intellect_level_2_time_cost_b = 0.7
+ritual_improve_intellect_level_2_time_cost = {
+    value = { value = ritual_improve_intellect_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_intellect_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_intellect_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_intellect_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_intellect_level_3_time_cost_b = 0.9
+ritual_improve_intellect_level_3_time_cost = {
+    value = { value = ritual_improve_intellect_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_intellect_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_intellect_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_intellect_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_improve_body_health_clear_time_cost_b = 0
+ritual_improve_body_health_clear_time_cost = {
+    value = { value = ritual_improve_body_health_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_improve_body_health_level_0_time_cost_b = 0.4
+ritual_improve_body_health_level_0_time_cost = {
+    value = { value = ritual_improve_body_health_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_health_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_health_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_health_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_body_health_level_1_time_cost_b = 0.6
+ritual_improve_body_health_level_1_time_cost = {
+    value = { value = ritual_improve_body_health_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_health_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_health_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_health_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_body_health_level_2_time_cost_b = 0.8
+ritual_improve_body_health_level_2_time_cost = {
+    value = { value = ritual_improve_body_health_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_health_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_health_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_health_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_body_health_level_3_time_cost_b = 1
+ritual_improve_body_health_level_3_time_cost = {
+    value = { value = ritual_improve_body_health_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_health_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_health_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_health_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_improve_fertility_clear_time_cost_b = 0
+ritual_improve_fertility_clear_time_cost = {
+    value = { value = ritual_improve_fertility_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_improve_fertility_level_0_time_cost_b = 0.1
+ritual_improve_fertility_level_0_time_cost = {
+    value = { value = ritual_improve_fertility_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_fertility_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_fertility_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_fertility_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_fertility_level_1_time_cost_b = 0.2
+ritual_improve_fertility_level_1_time_cost = {
+    value = { value = ritual_improve_fertility_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_fertility_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_fertility_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_fertility_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_fertility_level_2_time_cost_b = 0.3
+ritual_improve_fertility_level_2_time_cost = {
+    value = { value = ritual_improve_fertility_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_fertility_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_fertility_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_fertility_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_fertility_level_3_time_cost_b = 0.4
+ritual_improve_fertility_level_3_time_cost = {
+    value = { value = ritual_improve_fertility_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_fertility_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_fertility_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_fertility_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_improve_body_prowess_clear_time_cost_b = 0
+ritual_improve_body_prowess_clear_time_cost = {
+    value = { value = ritual_improve_body_prowess_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_improve_body_prowess_level_0_time_cost_b = 0.1
+ritual_improve_body_prowess_level_0_time_cost = {
+    value = { value = ritual_improve_body_prowess_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_prowess_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_prowess_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_prowess_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_body_prowess_level_1_time_cost_b = 0.2
+ritual_improve_body_prowess_level_1_time_cost = {
+    value = { value = ritual_improve_body_prowess_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_prowess_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_prowess_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_prowess_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_body_prowess_level_2_time_cost_b = 0.3
+ritual_improve_body_prowess_level_2_time_cost = {
+    value = { value = ritual_improve_body_prowess_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_prowess_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_prowess_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_prowess_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_body_prowess_level_3_time_cost_b = 0.4
+ritual_improve_body_prowess_level_3_time_cost = {
+    value = { value = ritual_improve_body_prowess_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_body_prowess_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_body_prowess_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_body_prowess_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_accelerate_clear_time_cost_b = 0
+ritual_accelerate_clear_time_cost = {
+    value = { value = ritual_accelerate_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_accelerate_level_0_time_cost_b = 0.1
+ritual_accelerate_level_0_time_cost = {
+    value = { value = ritual_accelerate_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_accelerate_level_1_time_cost_b = 0.2
+ritual_accelerate_level_1_time_cost = {
+    value = { value = ritual_accelerate_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_accelerate_level_2_time_cost_b = 0.3
+ritual_accelerate_level_2_time_cost = {
+    value = { value = ritual_accelerate_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_accelerate_level_3_time_cost_b = 0.4
+ritual_accelerate_level_3_time_cost = {
+    value = { value = ritual_accelerate_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_accelerate_army_clear_time_cost_b = 0
+ritual_accelerate_army_clear_time_cost = {
+    value = { value = ritual_accelerate_army_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_accelerate_army_level_0_time_cost_b = 0.2
+ritual_accelerate_army_level_0_time_cost = {
+    value = { value = ritual_accelerate_army_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_army_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_army_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_army_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_accelerate_army_level_1_time_cost_b = 0.4
+ritual_accelerate_army_level_1_time_cost = {
+    value = { value = ritual_accelerate_army_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_army_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_army_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_army_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_accelerate_army_level_2_time_cost_b = 0.6
+ritual_accelerate_army_level_2_time_cost = {
+    value = { value = ritual_accelerate_army_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_army_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_army_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_army_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_accelerate_army_level_3_time_cost_b = 0.8
+ritual_accelerate_army_level_3_time_cost = {
+    value = { value = ritual_accelerate_army_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_accelerate_army_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_accelerate_army_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_accelerate_army_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_improve_army_bodies_clear_time_cost_b = 0
+ritual_improve_army_bodies_clear_time_cost = {
+    value = { value = ritual_improve_army_bodies_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_improve_army_bodies_level_0_time_cost_b = 0.3
+ritual_improve_army_bodies_level_0_time_cost = {
+    value = { value = ritual_improve_army_bodies_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_army_bodies_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_army_bodies_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_army_bodies_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_army_bodies_level_1_time_cost_b = 0.5
+ritual_improve_army_bodies_level_1_time_cost = {
+    value = { value = ritual_improve_army_bodies_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_army_bodies_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_army_bodies_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_army_bodies_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_army_bodies_level_2_time_cost_b = 0.7
+ritual_improve_army_bodies_level_2_time_cost = {
+    value = { value = ritual_improve_army_bodies_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_army_bodies_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_army_bodies_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_army_bodies_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_improve_army_bodies_level_3_time_cost_b = 0.9
+ritual_improve_army_bodies_level_3_time_cost = {
+    value = { value = ritual_improve_army_bodies_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_improve_army_bodies_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_improve_army_bodies_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_improve_army_bodies_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_telekinesis_clear_time_cost_b = 0
+ritual_telekinesis_clear_time_cost = {
+    value = { value = ritual_telekinesis_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_telekinesis_level_0_time_cost_b = 0.1
+ritual_telekinesis_level_0_time_cost = {
+    value = { value = ritual_telekinesis_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_telekinesis_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_telekinesis_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_telekinesis_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_telekinesis_level_1_time_cost_b = 0.3
+ritual_telekinesis_level_1_time_cost = {
+    value = { value = ritual_telekinesis_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_telekinesis_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_telekinesis_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_telekinesis_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_telekinesis_level_2_time_cost_b = 0.4
+ritual_telekinesis_level_2_time_cost = {
+    value = { value = ritual_telekinesis_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_telekinesis_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_telekinesis_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_telekinesis_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_telekinesis_level_3_time_cost_b = 0.6
+ritual_telekinesis_level_3_time_cost = {
+    value = { value = ritual_telekinesis_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_telekinesis_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_telekinesis_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_telekinesis_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_immortality_clear_time_cost_b = 0
+ritual_immortality_clear_time_cost = {
+    value = { value = ritual_immortality_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_immortality_level_0_time_cost_b = 3
+ritual_immortality_level_0_time_cost = {
+    value = { value = ritual_immortality_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_immortality_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_immortality_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_immortality_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+ritual_pyrokineis_clear_time_cost_b = 0
+ritual_pyrokineis_clear_time_cost = {
+    value = { value = ritual_pyrokineis_clear_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+}
+ritual_pyrokineis_level_0_time_cost_b = 0.3
+ritual_pyrokineis_level_0_time_cost = {
+    value = { value = ritual_pyrokineis_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_pyrokineis_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_pyrokineis_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_pyrokineis_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_pyrokineis_level_1_time_cost_b = 0.5
+ritual_pyrokineis_level_1_time_cost = {
+    value = { value = ritual_pyrokineis_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_pyrokineis_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_pyrokineis_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_pyrokineis_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_pyrokineis_level_2_time_cost_b = 0.75
+ritual_pyrokineis_level_2_time_cost = {
+    value = { value = ritual_pyrokineis_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_pyrokineis_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_pyrokineis_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_pyrokineis_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+ritual_pyrokineis_level_3_time_cost_b = 1
+ritual_pyrokineis_level_3_time_cost = {
+    value = { value = ritual_pyrokineis_level_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_pyrokineis_level_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_pyrokineis_level_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_pyrokineis_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
+
+# REWRITE SPELLS
+rewrite_spell_change_genetics_beauty_bad_3_time_cost_b = 2.2
+rewrite_spell_change_genetics_beauty_bad_3_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_bad_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_bad_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_bad_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_bad_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_bad_2_time_cost_b = 2
+rewrite_spell_change_genetics_beauty_bad_2_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_bad_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_bad_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_bad_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_bad_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_bad_1_time_cost_b = 1.8
+rewrite_spell_change_genetics_beauty_bad_1_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_bad_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_bad_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_bad_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_bad_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_level_0_time_cost_b = 1.6
+rewrite_spell_change_genetics_beauty_level_0_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_good_1_time_cost_b = 1.8
+rewrite_spell_change_genetics_beauty_good_1_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_good_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_good_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_good_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_good_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_good_2_time_cost_b = 2
+rewrite_spell_change_genetics_beauty_good_2_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_good_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_good_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_good_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_good_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_good_3_time_cost_b = 2.2
+rewrite_spell_change_genetics_beauty_good_3_time_cost = {
+    value = { value = rewrite_spell_change_genetics_beauty_good_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_beauty_good_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_beauty_good_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_beauty_good_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_beauty_bad_3_time = 24
+rewrite_spell_change_genetics_beauty_bad_2_time = 20
+rewrite_spell_change_genetics_beauty_bad_1_time = 16
+rewrite_spell_change_genetics_beauty_level_0_time = 12
+rewrite_spell_change_genetics_beauty_good_1_time = 16
+rewrite_spell_change_genetics_beauty_good_2_time = 20
+rewrite_spell_change_genetics_beauty_good_3_time = 24
+
+rewrite_spell_change_genetics_physique_bad_3_time_cost_b = 2.2
+rewrite_spell_change_genetics_physique_bad_3_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_bad_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_bad_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_bad_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_bad_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_bad_2_time_cost_b = 2
+rewrite_spell_change_genetics_physique_bad_2_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_bad_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_bad_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_bad_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_bad_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_bad_1_time_cost_b = 1.8
+rewrite_spell_change_genetics_physique_bad_1_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_bad_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_bad_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_bad_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_bad_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_level_0_time_cost_b = 1.6
+rewrite_spell_change_genetics_physique_level_0_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_good_1_time_cost_b = 1.8
+rewrite_spell_change_genetics_physique_good_1_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_good_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_good_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_good_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_good_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_good_2_time_cost_b = 2
+rewrite_spell_change_genetics_physique_good_2_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_good_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_good_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_good_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_good_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_good_3_time_cost_b = 2.2
+rewrite_spell_change_genetics_physique_good_3_time_cost = {
+    value = { value = rewrite_spell_change_genetics_physique_good_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_physique_good_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_physique_good_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_physique_good_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_physique_bad_3_time = 24
+rewrite_spell_change_genetics_physique_bad_2_time = 20
+rewrite_spell_change_genetics_physique_bad_1_time = 16
+rewrite_spell_change_genetics_physique_level_0_time = 12
+rewrite_spell_change_genetics_physique_good_1_time = 16
+rewrite_spell_change_genetics_physique_good_2_time = 20
+rewrite_spell_change_genetics_physique_good_3_time = 24
+
+rewrite_spell_change_genetics_intellect_bad_3_time_cost_b = 2.5
+rewrite_spell_change_genetics_intellect_bad_3_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_bad_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_bad_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_bad_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_bad_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_bad_2_time_cost_b = 2.2
+rewrite_spell_change_genetics_intellect_bad_2_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_bad_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_bad_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_bad_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_bad_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_bad_1_time_cost_b = 2
+rewrite_spell_change_genetics_intellect_bad_1_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_bad_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_bad_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_bad_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_bad_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_level_0_time_cost_b = 1.8
+rewrite_spell_change_genetics_intellect_level_0_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_good_1_time_cost_b = 2
+rewrite_spell_change_genetics_intellect_good_1_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_good_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_good_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_good_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_good_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_good_2_time_cost_b = 2.2
+rewrite_spell_change_genetics_intellect_good_2_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_good_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_good_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_good_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_good_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_good_3_time_cost_b = 2.5
+rewrite_spell_change_genetics_intellect_good_3_time_cost = {
+    value = { value = rewrite_spell_change_genetics_intellect_good_3_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_change_genetics_intellect_good_3_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_change_genetics_intellect_good_3_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_change_genetics_intellect_good_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_change_genetics_intellect_bad_3_time = 24
+rewrite_spell_change_genetics_intellect_bad_2_time = 20
+rewrite_spell_change_genetics_intellect_bad_1_time = 16
+rewrite_spell_change_genetics_intellect_level_0_time = 12
+rewrite_spell_change_genetics_intellect_good_1_time = 16
+rewrite_spell_change_genetics_intellect_good_2_time = 20
+rewrite_spell_change_genetics_intellect_good_3_time = 24
+
+rewrite_spell_apocalipse_level_0_time_cost_b = 10
+rewrite_spell_apocalipse_level_0_time_cost = {
+    value = { value = rewrite_spell_apocalipse_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_apocalipse_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_apocalipse_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_apocalipse_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_apocalipse_level_0_time = 60
+
+rewrite_spell_spawn_meteorite_level_0_time_cost_b = 1.8
+rewrite_spell_spawn_meteorite_level_0_time_cost = {
+    value = { value = rewrite_spell_spawn_meteorite_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_spawn_meteorite_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_spawn_meteorite_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_spawn_meteorite_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_spawn_meteorite_level_1_time_cost_b = 2
+rewrite_spell_spawn_meteorite_level_1_time_cost = {
+    value = { value = rewrite_spell_spawn_meteorite_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_spawn_meteorite_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_spawn_meteorite_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_spawn_meteorite_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_spawn_meteorite_level_2_time_cost_b = 2.2
+rewrite_spell_spawn_meteorite_level_2_time_cost = {
+    value = { value = rewrite_spell_spawn_meteorite_level_2_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_spawn_meteorite_level_2_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_spawn_meteorite_level_2_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_spawn_meteorite_level_2_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_spawn_meteorite_level_0_time = 12
+rewrite_spell_spawn_meteorite_level_1_time = 16
+rewrite_spell_spawn_meteorite_level_2_time = 20
+
+rewrite_spell_genetic_perfection_level_0_time_cost_b = 15
+rewrite_spell_genetic_perfection_level_0_time_cost = {
+    value = { value = rewrite_spell_genetic_perfection_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_genetic_perfection_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_genetic_perfection_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_genetic_perfection_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_genetic_perfection_level_0_time = 24
+
+rewrite_spell_become_magical_vampire_level_0_time_cost_b = 5
+rewrite_spell_become_magical_vampire_level_0_time_cost = {
+    value = { value = rewrite_spell_become_magical_vampire_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_become_magical_vampire_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_become_magical_vampire_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_become_magical_vampire_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_become_magical_vampire_level_1_time_cost_b = 5
+rewrite_spell_become_magical_vampire_level_1_time_cost = {
+    value = { value = rewrite_spell_become_magical_vampire_level_1_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_become_magical_vampire_level_1_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_become_magical_vampire_level_1_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_become_magical_vampire_level_1_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_become_magical_vampire_level_0_time = 24
+rewrite_spell_become_magical_vampire_level_1_time = 24
+
+rewrite_spell_apocalipse_level_0_time_cost_b = 10
+rewrite_spell_apocalipse_level_0_time_cost = {
+    value = { value = rewrite_spell_apocalipse_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_apocalipse_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_apocalipse_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_apocalipse_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+rewrite_spell_genesis_level_0_time = 12
+
+rewrite_spell_genesis_level_0_time_cost_b = 10
+rewrite_spell_genesis_level_0_time_cost = {
+    value = { value = rewrite_spell_genesis_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_genesis_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_genesis_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_genesis_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+rewrite_spell_apotheosis_level_0_time = 60
+
+rewrite_spell_apotheosis_level_0_time_cost_b = 12
+rewrite_spell_apotheosis_level_0_time_cost = {
+    value = { value = rewrite_spell_apotheosis_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_apotheosis_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_apotheosis_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_apotheosis_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+rewrite_spell_genesis_level_0_time = 60
+
+rewrite_spell_genesis_level_0_time_cost_b = 20
+rewrite_spell_genesis_level_0_time_cost = {
+    value = { value = rewrite_spell_genesis_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_genesis_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_genesis_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_genesis_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+

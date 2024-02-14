@@ -1,0 +1,27 @@
+﻿al_hurt = {
+	opinion = -25
+    imprisonment_reason = yes
+    revoke_title_reason = yes
+    banish_reason = yes
+    execute_reason = yes
+	
+    monthly_change = 0.05
+    decaying = yes
+    max = 200
+    stacking = yes
+}
+al_helped = {
+    opinion = 25
+    monthly_change = 0.05
+    decaying = yes
+    max = 200
+    stacking = yes
+}
+al_master = {
+    opinion = 200
+    
+}
+al_magecraft_feared = {
+	opinion = -15
+    banish_reason = yes
+}

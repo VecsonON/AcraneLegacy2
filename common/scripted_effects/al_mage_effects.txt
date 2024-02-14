@@ -1,0 +1,6 @@
+﻿al_become_mage = {
+	add_trait = mage
+	trigger_event = { on_action = set_up_remaining_arcana_gen_for_year }
+	set_variable = setting # DELETE CONSOLE SPAM
+	if = { limit = { has_variable = setting } }
+}

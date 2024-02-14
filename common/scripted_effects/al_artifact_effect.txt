@@ -1,0 +1,795 @@
+﻿create_common_arcane_artifact = {
+    hidden_effect = {
+		character:AL_ancient = {
+			random_list = {
+				5 = { # Small Arcane Battery
+					create_artifact = {	
+						name = al_artifact_small_arcane_battery
+						description = al_artifact_small_arcane_battery_description
+						visuals = brooch
+						type = miscellaneous
+						modifier = al_artifact_arcana_max_gain_20_modifier
+						wealth = 10
+						quality = 10
+						save_scope_as = al_artifact_found
+					}
+				}
+				4 = { # Enchanted Branslet
+					create_artifact = {	
+						name = al_artifact_enchanted_branslet
+						description = al_artifact_enchanted_branslet_description
+						visuals = brooch
+						type = miscellaneous
+						modifier = al_artifact_arcana_affinity_gain_2_modifier
+						template = al_magecraft_artifact
+						wealth = 10
+						quality = 10
+						save_scope_as = al_artifact_found
+					}
+				}
+				2 = { # Common Staff
+					create_artifact = {	
+						name = al_artifact_common_staff
+						description = al_artifact_common_staff_description
+						visuals = spear 
+						type = spear 
+						modifier = al_artifact_magecraft_cost_5_percent_modifier
+						template = al_magecraft_artifact
+						wealth = 20
+						quality = 20
+						save_scope_as = al_artifact_found
+					}
+				}
+				3 = { # Small Arcane Collector
+					create_artifact = {	
+						name = al_artifact_small_arcane_collector
+						description = al_artifact_small_arcane_collector_description
+						visuals = pocket_goblet 
+						type = miscellaneous 
+						modifier = al_artifact_arcana_monthly_gain_0_4_modifier
+						template = al_magecraft_artifact
+						wealth = 15
+						quality = 15
+						save_scope_as = al_artifact_found
+					}
+				}
+			}
+		}
+    }
+}
+create_uncommon_arcane_artifact = {
+    hidden_effect = {
+		character:AL_ancient = {
+			random_list = {
+				5 = { # Arcane Battery
+					create_artifact = {	
+						name = al_artifact_arcane_battery
+						description = al_artifact_arcane_battery_description
+						visuals = brooch
+						type = miscellaneous
+						modifier = al_artifact_arcana_max_gain_50_modifier
+						wealth = 100
+						quality = 100
+						save_scope_as = al_artifact_found
+					}
+				}
+				4 = { # Enchanted Medallion
+					create_artifact = {	
+						name = al_artifact_enchanted_medallion
+						description = al_artifact_enchanted_medallion_description
+						visuals = medallion
+						type = miscellaneous
+						modifier = al_artifact_arcana_affinity_gain_4_modifier
+						template = al_magecraft_artifact
+						wealth = 100
+						quality = 100
+						save_scope_as = al_artifact_found
+					}
+				}
+				2 = { # Arcane Staff
+					create_artifact = {	
+						name = al_artifact_arcane_staff
+						description = al_artifact_arcane_staff_description
+						visuals = spear 
+						type = spear 
+						modifier = al_artifact_magecraft_cost_10_percent_modifier
+						template = al_magecraft_artifact
+						wealth = 200
+						quality = 200
+						save_scope_as = al_artifact_found
+					}
+				}
+				3 = { # Arcane Collector
+					create_artifact = {	
+						name = al_artifact_arcane_collector
+						description = al_artifact_arcane_collector_description
+						visuals = pocket_goblet 
+						type = miscellaneous 
+						modifier = al_artifact_arcana_monthly_gain_0_8_modifier
+						template = al_magecraft_artifact
+						wealth = 150
+						quality = 150
+						save_scope_as = al_artifact_found
+					}
+				}
+			}
+		}
+    }
+}
+create_rare_arcane_artifact = {
+    hidden_effect = {
+		character:AL_ancient = {
+			random_list = {
+				5 = { # Huge Arcane Battery
+					create_artifact = {	
+						name = al_artifact_huge_arcane_battery
+						description = al_artifact_huge_arcane_battery_description
+						visuals = brooch
+						type = miscellaneous
+						modifier = al_artifact_arcana_max_gain_100_modifier
+						wealth = 300
+						quality = 300
+						save_scope_as = al_artifact_found
+					}
+				}
+				4 = { # Enchanted Ring
+					create_artifact = {	
+						name = al_artifact_enchanted_ring
+						description = al_artifact_enchanted_ring_description
+						visuals = ring
+						type = miscellaneous
+						modifier = al_artifact_arcana_affinity_gain_8_modifier
+						template = al_magecraft_artifact
+						wealth = 300
+						quality = 300
+						save_scope_as = al_artifact_found
+					}
+				}
+				2 = { # Greater Arcane Staff
+					create_artifact = {	
+						name = al_artifact_greater_arcane_staff
+						description = al_artifact_greater_arcane_staff_description
+						visuals = spear 
+						type = spear 
+						modifier = al_artifact_magecraft_cost_20_percent_modifier
+						template = al_magecraft_artifact
+						wealth = 700
+						quality = 700
+						save_scope_as = al_artifact_found
+					}
+				}
+				3 = { # Great Arcane Collector
+					create_artifact = {	
+						name = al_artifact_great_arcane_collector
+						description = al_artifact_great_arcane_collector_description
+						visuals = pocket_goblet 
+						type = miscellaneous 
+						modifier = al_artifact_arcana_monthly_gain_1_2_modifier
+						template = al_magecraft_artifact
+						wealth = 650
+						quality = 650
+						save_scope_as = al_artifact_found
+					}
+				}
+			}
+		}
+    }
+}
+create_ancient_tome = {
+	hidden_effect = {
+		character:AL_ancient = {
+			random_list = {
+				50 = { # Ancient Tome
+					create_artifact = {	
+						name = al_ancient_tome
+						description = al_ancient_tome_description
+						visuals = pocket_book
+						type = miscellaneous
+						modifier = al_ancient_tome_modifier
+						template = al_tomes
+						wealth = 120
+						quality = 120
+						save_scope_as = al_artifact_found
+					}
+					scope:al_artifact_found = {
+						set_up_artifact_spell = yes
+						save_scope_as = arcane_artifact
+						set_artifact_description = al_ancient_tome_description
+					}
+				}
+				10 = { # Rare Ancient Tome
+					create_artifact = {	
+						name = al_rare_ancient_tome
+						description = al_rare_ancient_tome_description
+						visuals = pocket_book
+						type = miscellaneous
+						modifier = al_rare_ancient_tome_modifier
+						template = al_tomes
+						wealth = 400
+						quality = 400
+						save_scope_as = al_artifact_found
+					}
+					scope:al_artifact_found = {
+						set_up_artifact_spell = yes
+						save_scope_as = arcane_artifact
+						set_artifact_description = al_rare_ancient_tome_description
+					}
+				}
+				1 = { # Great Ancient Tome
+					create_artifact = {	
+						name = al_great_ancient_tome
+						description = al_great_ancient_tome_description
+						visuals = pocket_book 
+						type = miscellaneous 
+						modifier = al_great_ancient_tome_modifier
+						template = al_tomes
+						wealth = 750
+						quality = 750
+						save_scope_as = al_artifact_found
+					}
+					scope:al_artifact_found = {
+						set_up_artifact_spell = yes
+						save_scope_as = arcane_artifact
+						set_artifact_description = al_great_ancient_tome_description
+					}
+				}
+			}
+		}
+		
+    }
+}
+create_random_arcane_artifact = {
+	hidden_effect = {
+		random_list = {
+			80 = {
+				create_common_arcane_artifact = yes
+			}
+			15 = {
+				create_uncommon_arcane_artifact = yes
+			}
+			5 = {
+				create_rare_arcane_artifact = yes
+			}
+		}
+	}
+}
+create_random_arcane_artifact_better = {
+	hidden_effect = {
+		random_list = {
+			50 = {
+				create_common_arcane_artifact = yes
+			}
+			40 = {
+				create_uncommon_arcane_artifact = yes
+			}
+			10 = {
+				create_rare_arcane_artifact = yes
+			}
+		}
+	}
+}
+create_random_arcane_artifact_super = {
+	hidden_effect = {
+		random_list = {
+			10 = {
+				create_common_arcane_artifact = yes
+			}
+			50 = {
+				create_uncommon_arcane_artifact = yes
+			}
+			40 = {
+				create_rare_arcane_artifact = yes
+			}
+		}
+	}
+}
+create_arhons_staff_artifact = {
+	character:AL_ancient = {
+		create_artifact = {	
+			name = al_artifact_arhons_staff
+			description = al_artifact_arhons_staff
+			visuals = spear
+			type = spear
+			modifier = al_artifact_arhons_staff_modifier
+			wealth = 2500
+			quality = 2500
+			save_scope_as = al_artifact_arhons_staff
+		}
+		scope:al_artifact_arhons_staff = {
+			add_artifact_modifier = al_artifact_magecraft_cost_30_percent_modifier
+			add_artifact_modifier = al_artifact_arcana_affinity_gain_10_modifier
+			add_artifact_modifier = al_artifact_arcana_max_gain_200_modifier
+		}
+	}
+}
+create_arhons_amulet_artifact = {
+	character:AL_ancient = {
+		create_artifact = {	
+			name = al_artifact_arhons_amulet
+			description = al_artifact_arhons_amulet
+			visuals = spear
+			type = spear
+			modifier = al_artifact_arhons_amulet_modifier
+			wealth = 2000
+			quality = 2000
+			save_scope_as = al_artifact_arhons_amulet
+		}
+		scope:al_artifact_arhons_amulet = {
+			add_artifact_modifier = al_artifact_arcana_affinity_gain_10_modifier
+			add_artifact_modifier = al_artifact_arcana_max_gain_200_modifier
+			add_artifact_modifier = al_artifact_arcana_monthly_gain_2_modifier
+		}
+	}
+}
+create_urah_tome_artifact = {
+	character:AL_ancient = {
+		create_artifact = {	
+			name = al_artifact_urah_tome
+			description = al_artifact_urah_tome
+			visuals = pocket_book
+			type = miscellaneous
+			modifier = al_artifact_urah_tome_modifier
+			wealth = 2500
+			quality = 2500
+			save_scope_as = al_artifact_urah_tome
+		}
+		scope:al_artifact_urah_tome = {
+			add_artifact_modifier = al_artifact_arcana_affinity_gain_10_modifier
+		}
+	}
+}
+set_up_artifact_spell = {
+	random_list = {
+		25 = { set_variable = { name = spell value = flag:rewrite_spell_apotheosis } set_artifact_name = al_ancient_tome }
+		#25 = { set_variable = { name = spell value = flag:rewrite_spell_utopia } } TODO:
+		#25 = { set_variable = { name = spell value = flag:rewrite_spell_armagedon } }
+		25 = { set_variable = { name = spell value = flag:rewrite_spell_genesis } }
+		100 = {  }
+	}
+}
+
+create_arcane_artifact_staff_effect = {
+	if = { limit = { has_perk = al_arcane_mastery_godly_arcane_studies }
+		create_artifact = {	
+			name = al_artifact_custom_staff
+			description = al_artifact_custom_staff_description
+			visuals = spear 
+			type = spear 
+			template = al_magecraft_artifact
+			modifier = al_artifact_magecraft_cost_25_percent_modifier
+			wealth = 200
+			quality = 200
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 50 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_1_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_8_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 40 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_8_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_4_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_archmage_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_staff
+			description = al_artifact_custom_staff_description
+			visuals = spear 
+			type = spear 
+			template = al_magecraft_artifact
+			modifier = al_artifact_magecraft_cost_20_percent_modifier
+			wealth = 130
+			quality = 130
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 30 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_4_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_2_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 20 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_4_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_2_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_1_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_master_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_staff
+			description = al_artifact_custom_staff_description
+			visuals = spear 
+			type = spear 
+			template = al_magecraft_artifact
+			modifier = al_artifact_magecraft_cost_15_percent_modifier
+			wealth = 75
+			quality = 75
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_adept_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_staff
+			description = al_artifact_custom_staff_description
+			visuals = spear 
+			type = spear 
+			template = al_magecraft_artifact
+			modifier = al_artifact_magecraft_cost_10_percent_modifier
+			wealth = 50
+			quality = 50
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else = {
+		create_artifact = {	
+			name = al_artifact_custom_staff
+			description = al_artifact_custom_staff_description
+			visuals = spear 
+			type = spear 
+			template = al_magecraft_artifact
+			modifier = al_artifact_magecraft_cost_5_percent_modifier
+			wealth = 25
+			quality = 25
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+}
+create_arcane_artifact_arcane_battery_effect = {
+	if = { limit = { has_perk = al_arcane_mastery_godly_arcane_studies }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_battery
+			description = al_artifact_custom_arcane_battery_description
+			visuals = brooch 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_max_gain_150_modifier
+			wealth = 200
+			quality = 200
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 75 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_175_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_125_modifier } }
+				85 = {}
+			}
+		}
+		if = { limit = { learning > 50 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_90_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_80_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_70_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 40 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_80_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_70_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_50_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_archmage_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_battery
+			description = al_artifact_custom_arcane_battery_description
+			visuals = brooch 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_max_gain_100_modifier
+			wealth = 130
+			quality = 130
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 30 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_70_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_50_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_40_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 20 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_50_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_40_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_max_gain_30_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_master_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_battery
+			description = al_artifact_custom_arcane_battery_description
+			visuals = brooch 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_max_gain_60_modifier
+			wealth = 75
+			quality = 75
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_adept_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_battery
+			description = al_artifact_custom_arcane_battery_description
+			visuals = brooch 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_max_gain_40_modifier
+			wealth = 50
+			quality = 50
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_novice_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_battery
+			description = al_artifact_custom_arcane_battery_description
+			visuals = brooch 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_max_gain_20_modifier
+			wealth = 25
+			quality = 25
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else = {
+		create_artifact = {	
+			name = al_artifact_custom_arcane_battery
+			description = al_artifact_custom_arcane_battery_description
+			visuals = brooch 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_max_gain_10_modifier
+			wealth = 10
+			quality = 10
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+}
+create_arcane_artifact_arcane_amplifier_effect = {
+
+	if = { limit = { has_perk = al_arcane_mastery_godly_arcane_studies }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_amplifier
+			description = al_artifact_custom_arcane_amplifier_description
+			visuals = ring 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_affinity_gain_9_modifier
+			wealth = 200
+			quality = 200
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 50 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_6_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_5_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_4_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 40 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_5_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_4_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_3_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_archmage_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_amplifier
+			description = al_artifact_custom_arcane_amplifier_description
+			visuals = ring 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_affinity_gain_7_modifier
+			wealth = 130
+			quality = 130
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 30 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_4_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_3_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_2_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 20 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_3_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_2_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_affinity_gain_1_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_master_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_amplifier
+			description = al_artifact_custom_arcane_amplifier_description
+			visuals = ring 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_affinity_gain_5_modifier
+			wealth = 75
+			quality = 75
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_adept_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_amplifier
+			description = al_artifact_custom_arcane_amplifier_description
+			visuals = ring 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_affinity_gain_3_modifier
+			wealth = 50
+			quality = 50
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_novice_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_amplifier
+			description = al_artifact_custom_arcane_amplifier_description
+			visuals = ring 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_affinity_gain_2_modifier
+			wealth = 25
+			quality = 25
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else = {
+		create_artifact = {	
+			name = al_artifact_custom_arcane_amplifier
+			description = al_artifact_custom_arcane_amplifier_description
+			visuals = ring 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_affinity_gain_1_modifier
+			wealth = 10
+			quality = 10
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+}
+create_arcane_artifact_arcane_collector_effect = {
+	if = { limit = { has_perk = al_arcane_mastery_godly_arcane_studies }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_collector
+			description = al_artifact_custom_arcane_collector_description
+			visuals = pocket_goblet 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_monthly_gain_1_8_modifier
+			wealth = 200
+			quality = 200
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 50 }
+			random_list = {
+				1 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_1_6_modifier } }
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_1_2_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_1_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_8_modifier } }
+				69 = {}
+			}
+		}
+		if = { limit = { learning > 40 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_1_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_8_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_archmage_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_collector
+			description = al_artifact_custom_arcane_collector_description
+			visuals = pocket_goblet 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_monthly_gain_1_4_modifier
+			wealth = 130
+			quality = 130
+			save_scope_as = al_created_arcane_artifact
+		}
+		if = { limit = { learning > 30 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_8_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_4_modifier } }
+				70 = {}
+			}
+		}
+		if = { limit = { learning > 20 }
+			random_list = {
+				5 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_6_modifier } }
+				10 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_4_modifier } }
+				15 = { scope:al_created_arcane_artifact = { add_artifact_modifier = al_artifact_arcana_monthly_gain_0_2_modifier } }
+				70 = {}
+			}
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_master_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_collector
+			description = al_artifact_custom_arcane_collector_description
+			visuals = pocket_goblet 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_monthly_gain_1_1_modifier
+			wealth = 75
+			quality = 75
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_adept_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_collector
+			description = al_artifact_custom_arcane_collector_description
+			visuals = pocket_goblet 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_monthly_gain_0_6_modifier
+			wealth = 50
+			quality = 100
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else_if = { limit = { ROOT = { has_perk = al_arcane_mastery_novice_arcane_studies }  }
+		create_artifact = {	
+			name = al_artifact_custom_arcane_collector
+			description = al_artifact_custom_arcane_collector_description
+			visuals = pocket_goblet 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_monthly_gain_0_2_modifier
+			wealth = 25
+			quality = 25
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+	else = {
+		create_artifact = {	
+			name = al_artifact_custom_arcane_collector
+			description = al_artifact_custom_arcane_collector_description
+			visuals = pocket_goblet 
+			type = miscellaneous 
+			template = al_magecraft_artifact
+			modifier = al_artifact_arcana_monthly_gain_0_1_modifier
+			wealth = 10
+			quality = 10
+			save_scope_as = al_created_arcane_artifact
+		}
+	}
+
+}

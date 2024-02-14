@@ -1,0 +1,2 @@
+﻿gui/arcana_gui.gui = arcana_gui
+gui/magecraft_gui.gui = window_magecraft

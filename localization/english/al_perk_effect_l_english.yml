@@ -1,0 +1,7 @@
+﻿l_english:
+ need_2_perk_points:0 "#X This [perk|E] cost #!#R;bold 2 #!#X [perk|E] points!#!"
+ need_3_perk_points:0 "#X This [perk|E] cost #!#R;bold 3 #!#X [perk|E] points!#!"
+ need_4_perk_points:0 "#X This [perk|E] cost #!#R;bold 4 #!#X [perk|E] points!#!"
+
+ add_5_percent_discount: "#P -5%#! [Concept('arcana','#E Arcana Cost')] of spells and rewrite spells\n#P -5%#! [Concept('arcana','#E Arcana Upkeep')] of Rituals"
+ add_10_percent_discount: "#P -10%#! [Concept('arcana','#E Arcana Cost')] of spells and rewrite spells\n#P -10%#! [Concept('arcana','#E Arcana Upkeep')] of Rituals"

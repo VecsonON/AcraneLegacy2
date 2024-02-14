@@ -1,0 +1,30 @@
+﻿l_english:
+ arcane_mastery_lifestyle_name: "Arcane Mastery"
+ arcane_mastery_lifestyle_desc: "The Arcane Mastery skill tree delves into the profound understanding of the underlying principles of Arcana, the mystical force that governs reality. Mages who specialize in Arcane Mastery seek to unravel the deepest mysteries of magic, gaining unparalleled insights and unlocking potent abilities."
+
+ game_concept_arcane_mastery_lifestyle: "Arcane Mastery"
+ game_concept_arcane_mastery_lifestyle_desc: "The Arcane Mastery skill tree delves into the profound understanding of the underlying principles of Arcana, the mystical force that governs reality. Mages who specialize in Arcane Mastery seek to unravel the deepest mysteries of magic, gaining unparalleled insights and unlocking potent abilities."
+
+
+ arcane_mastery_name: "Arcane Mastery"
+
+
+ arcane_mastery_focus: "Arcane Mastery Focus"
+ arcane_mastery_focus_effect_desc: "Focus on Arcane Mastery\n[arcana_affinity|E]: #P +2#!"
+
+ rewrite_spell_change_genetics_perk_name: "[rewriting_spell|E]: Change genetics"
+
+
+ GAINS_ARCANE_MASTERY_LIFESTYLE_XP:1 "Gains $VALUE|V0$ [arcane_mastery_lifestyle|E] Experience"
+ GAINED_ARCANE_MASTERY_LIFESTYLE_XP:1 "Gained $VALUE|V0$ [arcane_mastery_lifestyle|E] Experience"
+ I_GAIN_ARCANE_MASTERY_LIFESTYLE_XP:1 "You gain $VALUE|V0$ [arcane_mastery_lifestyle|E] Experience"
+ I_GAINED_ARCANE_MASTERY_LIFESTYLE_XP:1 "You gained $VALUE|V0$ [arcane_mastery_lifestyle|E] Experience"
+ TARGET_GAINS_ARCANE_MASTERY_LIFESTYLE_XP:1 "[CHARACTER.GetShortUIName] gains $VALUE|V0$ [arcane_mastery_lifestyle|E] Experience"
+ TARGET_GAINED_ARCANE_MASTERY_LIFESTYLE_XP:1 "[CHARACTER.GetShortUIName] gained $VALUE|V0$ [arcane_mastery_lifestyle|E] Experience"
+
+ GAINS_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "Gains $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ GAINED_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "Gained $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ I_GAIN_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "You gain $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ I_GAINED_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "You gained $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ TARGET_GAINS_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "[CHARACTER.GetShortUIName] gains $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ TARGET_GAINED_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "[CHARACTER.GetShortUIName] gained $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"

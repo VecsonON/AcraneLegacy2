@@ -1,0 +1,1456 @@
+﻿#spell_wound
+spell_wound_select = { # ADD SETTINGS TO MAGECRAFT
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		
+		if = { limit = { exists = flag:spell_wound } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_wound_script = { # EXECUTE, CHECK VALIDITY OF MAGECRAFT
+	effect = {
+		if = { limit = { always = no } save_scope_as = setting }# TO DELETE CONSOLE SPAM...
+		if = { limit = { scope:setting = flag:level_0 }
+			scope:target = {
+				add_trait = wounded_1
+			}
+			remove_arcana = { VALUE = spell_wound_level_0_cost }
+		}
+		else_if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = {
+				add_trait = wounded_2
+			}
+			remove_arcana = { VALUE = spell_wound_level_1_cost }
+		}
+		else_if = { limit = { scope:setting = flag:level_2 } 
+			scope:target = {
+				add_trait = wounded_3
+			}
+			remove_arcana = { VALUE = spell_wound_level_2_cost }
+		}
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_hurt target = prev } } }
+	}
+	is_valid  = {
+		trigger_if = { limit = { scope:setting = flag:level_0 }
+			scope:target = {
+				NOT = { has_trait = wounded_1 }
+				NOT = { has_trait = wounded_2 }
+				NOT = { has_trait = wounded_3 }
+			}
+			have_arcana = { arcana = spell_wound_level_0_cost }
+			has_perk = al_arcane_mastery_novice_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = {
+				NOT = { has_trait = wounded_2 }
+				NOT = { has_trait = wounded_3 }
+			}
+			have_arcana = { arcana = spell_wound_level_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else = {
+			scope:target = { 
+				NOT = { has_trait = wounded_2 }
+			}
+			have_arcana = { arcana = spell_wound_level_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+	}
+}
+#spell_heal
+spell_heal_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		if = { limit = { exists = flag:spell_heal } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_heal_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 }
+			scope:target = {
+				if = { limit = { has_trait = wounded_1 } remove_trait = wounded_1 }
+				if = { limit = { has_trait = wounded_2 } remove_trait = wounded_2 add_trait = wounded_1 }
+				if = { limit = { has_trait = wounded_3 } remove_trait = wounded_3 add_trait = wounded_2 }
+			}
+			remove_arcana = { VALUE = spell_heal_level_0_cost }
+		}
+		else_if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = {
+				if = { limit = { has_trait = wounded_1 } remove_trait = wounded_1 }
+				if = { limit = { has_trait = wounded_2 } remove_trait = wounded_2  }
+				if = { limit = { has_trait = wounded_3 } remove_trait = wounded_3 add_trait = wounded_1 }
+			}
+			remove_arcana = { VALUE = spell_heal_level_1_cost }
+		}
+		else_if = { limit = { scope:setting = flag:level_2 } 
+			scope:target = {
+				if = { limit = { has_trait = wounded_1 } remove_trait = wounded_1 }
+				if = { limit = { has_trait = wounded_2 } remove_trait = wounded_2 }
+				if = { limit = { has_trait = wounded_3 } remove_trait = wounded_3 }
+			}
+			remove_arcana = { VALUE = spell_heal_level_2_cost }
+		}
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = "spell_heal_level_tooltip"
+			scope:target = {
+				OR = {
+					has_trait = wounded_1
+					has_trait = wounded_2
+					has_trait = wounded_3
+				}
+			}
+		}
+		trigger_if = { limit = { scope:setting = flag:level_0 }
+			have_arcana = { arcana = spell_heal_level_0_cost }
+			has_perk = al_arcane_mastery_novice_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			have_arcana = { arcana = spell_heal_level_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_heal_level_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+	}
+}
+#spell_inflict_illness
+spell_inflict_illness_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		if = { limit = { exists = flag:spell_inflict_illness } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_inflict_illness_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 }
+			scope:target = {
+				add_trait = ill
+			}
+			remove_arcana = { VALUE = spell_inflict_illness_level_0_cost }
+		}
+		else_if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = {
+				random_list = {
+					25 = {
+						modifier = {
+							has_trait = pneumonic
+							add = -25
+						}
+						if = { limit = { has_trait = ill } remove_trait = ill }
+						add_trait = pneumonic 
+					}
+					25 = {
+						modifier = {
+							has_trait = great_pox
+							add = -25
+						}
+						add_trait = great_pox 
+					}
+					25 = {
+						modifier = {
+							has_trait = leper
+							add = -25
+						}
+						add_trait = leper  
+					}
+					25 = {
+						modifier = {
+							has_trait = gout_ridden
+							add = -25
+						}
+						add_trait = gout_ridden  
+					}
+				}
+			}
+			remove_arcana = { VALUE = spell_inflict_illness_level_1_cost }
+		}
+		else_if = { limit = { scope:setting = flag:level_2 } 
+			scope:target = {
+				random_list = {
+					25 = {
+						modifier = {
+							has_trait = cancer
+							add = -25
+						}
+						add_trait = cancer  
+					}
+					25 = {
+						modifier = {
+							has_trait = typhus
+							add = -25
+						}
+						add_trait = typhus  
+					}
+					25 = {
+						modifier = {
+							has_trait = bubonic_plague
+							add = -25
+						}
+						add_trait = bubonic_plague   
+					}
+				}
+			}
+			remove_arcana = { VALUE = spell_inflict_illness_level_2_cost }
+		}
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_hurt target = prev } } }
+	}
+	is_valid = {
+		trigger_if = { limit = { scope:setting = flag:level_0 }
+			scope:target = { NOT = { has_trait = ill } }
+			have_arcana = { arcana = spell_inflict_illness_level_0_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = { NOT = { AND = { custom_tooltip = { text="spell_inflict_illness_has_all_4_ill" has_trait = pneumonic has_trait = great_pox has_trait = leper has_trait = gout_ridden } } } }
+			have_arcana = { arcana = spell_inflict_illness_level_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { AND = { custom_tooltip = { text="spell_inflict_illness_has_all_3_ill" has_trait = cancer has_trait = typhus has_trait = bubonic_plague } } } }
+			have_arcana = { arcana = spell_inflict_illness_level_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		custom_tooltip = {
+			text = "target_caster_same_loc"
+			scope:target.location = root.location
+		}
+	}
+}
+#spell_cure
+spell_cure_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:spell_cure } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_cure_script = {
+	effect = {
+		scope:target = {
+			random_list = {
+				25 = {
+					modifier = {
+						NOT = { has_trait = lunatic_1  }
+						add = -25
+					}
+					remove_trait = lunatic_1   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = possessed_1  }
+						add = -25
+					}
+					remove_trait = possessed_1   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = ill  }
+						add = -25
+					}
+					remove_trait = ill   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = pneumonic  }
+						add = -25
+					}
+					remove_trait = pneumonic   
+				}
+
+				25 = {
+					modifier = {
+						NOT = { has_trait = great_pox  }
+						add = -25
+					}
+					remove_trait = great_pox   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = early_great_pox  }
+						add = -25
+					}
+					remove_trait = early_great_pox  
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = lovers_pox  }
+						add = -25
+					}
+					remove_trait = lovers_pox   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = leper  }
+						add = -25
+					}
+					remove_trait = leper   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = infirm  }
+						add = -25
+					}
+					remove_trait = infirm   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = incapable  }
+						add = -25
+					}
+					remove_trait = incapable   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = gout_ridden  }
+						add = -25
+					}
+					remove_trait = gout_ridden   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = consumption  }
+						add = -25
+					}
+					remove_trait = consumption   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = cancer }
+						add = -25
+					}
+					remove_trait = cancer  
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = typhus  }
+						add = -25
+					}
+					remove_trait = typhus   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = bubonic_plague  }
+						add = -25
+					}
+					remove_trait = bubonic_plague   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = smallpox  }
+						add = -25
+					}
+					remove_trait = smallpox   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = sickly  }
+						add = -25
+					}
+					remove_trait = sickly   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = wheezing  }
+						add = -25
+					}
+					remove_trait = wheezing   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = bleeder  }
+						add = -25
+					}
+					remove_trait = bleeder   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = infertile  }
+						add = -25
+					}
+					remove_trait = infertile   
+				}
+			}
+			if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+			remove_arcana = { VALUE = spell_cure_level_0_cost }
+		}
+	}
+	is_valid = {
+		scope:target = { 
+			custom_tooltip = { text="spell_cure_has_any_illnes" 
+				OR = {
+					has_trait = lunatic_1
+					has_trait = possessed_1
+					has_trait = ill
+					has_trait = great_pox
+					has_trait = early_great_pox
+					has_trait = lovers_pox
+					has_trait = leper
+					has_trait = infirm
+					has_trait = incapable
+					has_trait = gout_ridden
+					has_trait = consumption
+					has_trait = cancer
+					has_trait = typhus
+					has_trait = bubonic_plague
+					has_trait = smallpox
+					has_trait = sickly
+					has_trait = wheezing
+					has_trait = bleeder
+					has_trait = infertile
+				}
+			} 	
+		}
+		custom_tooltip = {
+			text = "target_caster_same_loc"
+			scope:target.location = root.location
+		}
+		have_arcana = { arcana = spell_cure_level_0_cost }
+		has_perk = al_arcane_mastery_adept_spell
+	}
+}
+#spell_change_genetics_beauty
+spell_change_genetics_beauty_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_3 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_3 }
+		if = { limit = { exists = flag:spell_change_genetics_beauty } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_change_genetics_beauty_script = {
+	effect = {
+		scope:target = {
+			add_character_modifier = { modifier = recent_genetic_change years = 2 }
+			remove_trait = beauty_good_1
+			remove_trait = beauty_good_2
+			remove_trait = beauty_good_3
+			remove_trait = beauty_bad_1
+			remove_trait = beauty_bad_2
+			remove_trait = beauty_bad_3
+		}
+		if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { set_trait_rank = { trait = beauty_bad rank = 3 } add_stress = 300 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_bad_3_cost }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { set_trait_rank = { trait = beauty_bad rank = 2 } add_stress = 250 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_bad_2_cost }
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { set_trait_rank = { trait = beauty_bad rank = 1 } add_stress = 200 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_bad_1_cost }
+		}
+		if = { limit = { scope:setting = flag:level_0 } 
+			scope:target = { add_stress = 150 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_level_0_cost }
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { set_trait_rank = { trait = beauty_good rank = 1 } add_stress = 200 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_good_1_cost }
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { set_trait_rank = { trait = beauty_good rank = 2 } add_stress = 250 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_good_2_cost }
+		}
+		if = { limit = { scope:setting = flag:good_3 } 
+			scope:target = { set_trait_rank = { trait = beauty_good rank = 3 } add_stress = 300 } 
+			remove_arcana = { VALUE = spell_change_genetics_beauty_good_3_cost }
+		}
+	}
+	is_valid = {
+		trigger_if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { NOT = { has_trait = beauty_bad_3 } }
+			have_arcana = { arcana = spell_change_genetics_beauty_bad_3_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { NOT = { has_trait = beauty_bad_2 } }
+			have_arcana = { arcana = spell_change_genetics_beauty_bad_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { NOT = { has_trait = beauty_bad_2 } }
+			have_arcana = { arcana = spell_change_genetics_beauty_bad_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_change_genetics_beauty_level_0_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { NOT = { has_trait = beauty_good_1 } }
+			have_arcana = { arcana = spell_change_genetics_beauty_good_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { NOT = { has_trait = beauty_good_2 } }
+			have_arcana = { arcana = spell_change_genetics_beauty_good_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { has_trait = beauty_good_3 } }
+			have_arcana = { arcana = spell_change_genetics_beauty_good_3_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		custom_tooltip = {
+			text = "target_caster_same_loc"
+			scope:target.location = root.location
+		}
+	}
+}
+#spell_change_genetics_physique
+spell_change_genetics_physique_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_3 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_3 }
+		if = { limit = { exists = flag:spell_change_genetics_physique } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_change_genetics_physique_script = {
+	effect = {
+		scope:target = {
+			add_character_modifier = { modifier = recent_genetic_change years = 2 }
+			remove_trait = physique_good_1
+			remove_trait = physique_good_2
+			remove_trait = physique_good_3
+			remove_trait = physique_bad_1
+			remove_trait = physique_bad_2
+			remove_trait = physique_bad_3
+		}
+		if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { set_trait_rank = { trait = physique_bad rank = 3 } add_stress = 300 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_bad_3_cost }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { set_trait_rank = { trait = physique_bad rank = 2 } add_stress = 250 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_bad_2_cost }
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { set_trait_rank = { trait = physique_bad rank = 1 } add_stress = 200 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_bad_1_cost }
+		}
+		if = { limit = { scope:setting = flag:level_0 } 
+			scope:target = { add_stress = 150 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_level_0_cost }
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { set_trait_rank = { trait = physique_good rank = 1 } add_stress = 200 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_good_1_cost }
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { set_trait_rank = { trait = physique_good rank = 2 } add_stress = 250 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_good_2_cost }
+		}
+		if = { limit = { scope:setting = flag:good_3 } 
+			scope:target = { set_trait_rank = { trait = physique_good rank = 3 } add_stress = 300 } 
+			remove_arcana = { VALUE = spell_change_genetics_physique_good_3_cost }
+		}
+	}
+	is_valid = {
+		trigger_if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { NOT = { has_trait = physique_bad_3 } }
+			have_arcana = { arcana = spell_change_genetics_physique_bad_3_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { NOT = { has_trait = physique_bad_2 } }
+			have_arcana = { arcana = spell_change_genetics_physique_bad_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { NOT = { has_trait = physique_bad_2 } }
+			have_arcana = { arcana = spell_change_genetics_physique_bad_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_change_genetics_physique_level_0_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { NOT = { has_trait = physique_good_1 } }
+			have_arcana = { arcana = spell_change_genetics_physique_good_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { NOT = { has_trait = physique_good_2 } }
+			have_arcana = { arcana = spell_change_genetics_physique_good_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { has_trait = physique_good_3 } }
+			have_arcana = { arcana = spell_change_genetics_physique_good_3_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		custom_tooltip = {
+			text = "target_caster_same_loc"
+			scope:target.location = root.location
+		}
+	}
+}
+#spell_change_genetics_intellect
+spell_change_genetics_intellect_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_3 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_3 }
+		if = { limit = { exists = flag:spell_change_genetics_intellect } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_change_genetics_intellect_script = {
+	effect = {
+		scope:target = {
+			add_character_modifier = { modifier = recent_genetic_change years = 2 }
+			remove_trait = intellect_good_1
+			remove_trait = intellect_good_2
+			remove_trait = intellect_good_3
+			remove_trait = intellect_bad_1
+			remove_trait = intellect_bad_2
+			remove_trait = intellect_bad_3
+		}
+		if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { set_trait_rank = { trait = intellect_bad rank = 3 } add_stress = 300 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_bad_3_cost }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { set_trait_rank = { trait = intellect_bad rank = 2 } add_stress = 250 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_bad_2_cost }
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { set_trait_rank = { trait = intellect_bad rank = 1 } add_stress = 200 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_bad_1_cost }
+		}
+		if = { limit = { scope:setting = flag:level_0 } 
+			scope:target = { add_stress = 150 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_level_0_cost }
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { set_trait_rank = { trait = intellect_good rank = 1 } add_stress = 200 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_good_1_cost }
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { set_trait_rank = { trait = intellect_good rank = 2 } add_stress = 250 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_good_2_cost }
+		}
+		if = { limit = { scope:setting = flag:good_3 } 
+			scope:target = { set_trait_rank = { trait = intellect_good rank = 3 } add_stress = 300 } 
+			remove_arcana = { VALUE = spell_change_genetics_intellect_good_3_cost }
+		}
+	}
+	is_valid = {
+		trigger_if = { limit = { scope:setting = flag:bad_3 }
+			scope:target = { NOT = { has_trait = intellect_bad_3 } }
+			have_arcana = { arcana = spell_change_genetics_intellect_bad_3_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target = { NOT = { has_trait = intellect_bad_2 } }
+			have_arcana = { arcana = spell_change_genetics_intellect_bad_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target = { NOT = { has_trait = intellect_bad_2 } }
+			have_arcana = { arcana = spell_change_genetics_intellect_bad_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_change_genetics_intellect_level_0_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target = { NOT = { has_trait = intellect_good_1 } }
+			have_arcana = { arcana = spell_change_genetics_intellect_good_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_2 } 
+			scope:target = { NOT = { has_trait = intellect_good_2 } }
+			have_arcana = { arcana = spell_change_genetics_intellect_good_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		trigger_else = {
+			scope:target = { NOT = { has_trait = intellect_good_3 } }
+			have_arcana = { arcana = spell_change_genetics_intellect_good_3_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		custom_tooltip = {
+			text = "target_caster_same_loc"
+			scope:target.location = root.location
+		}
+	}
+}
+#spell_change_topography
+spell_change_topography_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_2 }
+		add_to_variable_list = { name = magecraft_settings target = flag:bad_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:good_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:good_2 }
+		if = { limit = { exists = flag:spell_change_topography } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_change_topography_script = {
+	effect = {
+		scope:target.location.county = {
+			if = { limit = { has_county_modifier = change_topography_bad_2 } remove_county_modifier = change_topography_bad_2 }
+			if = { limit = { has_county_modifier = change_topography_bad_1 } remove_county_modifier = change_topography_bad_1 }
+			if = { limit = { has_county_modifier = change_topography_good_1 } remove_county_modifier = change_topography_good_1 }
+			if = { limit = { has_county_modifier = change_topography_good_2 } remove_county_modifier = change_topography_good_2 }
+		}
+		if = { limit = { scope:setting = flag:bad_2 } 
+			remove_arcana = { VALUE = spell_change_topography_bad_2_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = change_topography_bad_2 } 
+		}
+		if = { limit = { scope:setting = flag:bad_1 } 
+			remove_arcana = { VALUE = spell_change_topography_bad_1_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = change_topography_bad_1 } 
+		}
+		if = { limit = { scope:setting = flag:level_0 } 
+			remove_arcana = { VALUE = spell_change_topography_level_0_cost }
+			custom_tooltip = "spell_change_topography_info"
+		}
+		if = { limit = { scope:setting = flag:good_1 } 
+			remove_arcana = { VALUE = spell_change_topography_good_1_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = change_topography_good_1 } 
+		}
+		if = { limit = { scope:setting = flag:good_2 } 
+			remove_arcana = { VALUE = spell_change_topography_good_2_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = change_topography_good_2 } 
+		}
+	}
+	is_valid = {
+		trigger_if = { limit = { scope:setting = flag:bad_2 } 
+			scope:target.location.county = { NOT = { has_county_modifier = change_topography_bad_2 } }
+			have_arcana = { arcana = spell_change_topography_bad_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:bad_1 } 
+			scope:target.location.county = { NOT = { has_county_modifier = change_topography_bad_1 } }
+			have_arcana = { arcana = spell_change_topography_bad_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_0 } 
+			has_perk = al_arcane_mastery_master_spell
+			have_arcana = { arcana = spell_change_topography_level_0_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:good_1 } 
+			scope:target.location.county = { NOT = { has_county_modifier = change_topography_good_1 } }
+			have_arcana = { arcana = spell_change_topography_good_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else = {
+			scope:target.location.county = { NOT = { has_county_modifier = change_topography_good_2 } }
+			have_arcana = { arcana = spell_change_topography_good_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+	}
+}
+#spell_metal_into_gold
+spell_metal_into_gold_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		if = { limit = { exists = flag:spell_metal_into_gold } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_metal_into_gold_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 } 
+			scope:target = { add_gold = 40 } 
+			remove_short_term_gold = 20
+			remove_arcana = { VALUE = spell_metal_into_gold_level_0_cost }
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = { add_gold = 60 } 
+			remove_short_term_gold = 30
+			remove_arcana = { VALUE = spell_metal_into_gold_level_1_cost }
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			scope:target = { add_gold = 80 } 
+			remove_short_term_gold = 40
+			remove_arcana = { VALUE = spell_metal_into_gold_level_2_cost }
+		}
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+	}
+	is_valid = {
+		has_perk = al_arcane_mastery_novice_spell
+		trigger_if = { limit = { scope:setting = flag:level_0 }
+			gold > 20
+			have_arcana = { arcana = spell_metal_into_gold_level_0_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			gold > 30
+			have_arcana = { arcana = spell_metal_into_gold_level_1_cost }
+		}
+		trigger_else = {
+			gold > 40
+			have_arcana = { arcana = spell_metal_into_gold_level_2_cost }
+		}
+	}
+}
+#spell_create_gold
+spell_create_gold_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		if = { limit = { exists = flag:spell_create_gold } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_create_gold_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 } 
+			scope:target = { add_gold = 160 } 
+			remove_arcana = { VALUE = spell_create_gold_level_0_cost }
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			scope:target = { add_gold = 200 } 
+			remove_arcana = { VALUE = spell_create_gold_level_1_cost }
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			scope:target = { add_gold = 240 } 
+			remove_arcana = { VALUE = spell_create_gold_level_2_cost }
+		}
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+	}
+	is_valid = {
+		has_perk = al_arcane_mastery_master_spell
+		trigger_if = { limit = { scope:setting = flag:level_0 }
+			have_arcana = { arcana = spell_create_gold_level_0_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			have_arcana = { arcana = spell_create_gold_level_1_cost }
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_create_gold_level_2_cost }
+		}
+	}
+}
+#spell_devastate_land
+spell_devastate_land_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 }
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 }
+		if = { limit = { exists = flag:spell_devastate_land } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_devastate_land_script = {
+	effect = {
+		scope:target.location.county = {
+			if = { limit = { has_county_modifier = devastate_land_1 } remove_county_modifier = devastate_land_1 }
+			if = { limit = { has_county_modifier = devastate_land_2 } remove_county_modifier = devastate_land_2 }
+			if = { limit = { has_county_modifier = devastate_land_3 } remove_county_modifier = devastate_land_3 }
+		
+		}
+		if = { limit = { scope:setting = flag:level_0 } 
+			remove_arcana = { VALUE = spell_devastate_land_level_0_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = { modifier = devastate_land_1 years = 5 } } 
+		}
+		if = { limit = { scope:setting = flag:level_1 } 
+			remove_arcana = { VALUE = spell_devastate_land_level_1_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = { modifier = devastate_land_2 years = 5 } } 
+		}
+		if = { limit = { scope:setting = flag:level_2 } 
+			remove_arcana = { VALUE = spell_devastate_land_level_2_cost }
+			custom_tooltip = "spell_change_topography_info"
+			scope:target.location.county = { add_county_modifier = { modifier = devastate_land_3 years = 5 } } 
+		}
+		if = { limit = { NOT = { scope:target.location.county_controller = ROOT } } scope:target.location.county_controller = { add_opinion = { modifier = al_hurt target = prev } } }
+		
+	}
+	is_valid = {
+		custom_tooltip = {
+			text = "target_caster_same"
+			scope:target = root
+		}
+		trigger_if = { limit = { scope:setting = flag:level_0 } 
+			scope:target.location.county = { NOT = { has_county_modifier = devastate_land_1 } }
+			have_arcana = { arcana = spell_devastate_land_level_0_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			scope:target.location.county = { NOT = { has_county_modifier = devastate_land_2 } }
+			have_arcana = { arcana = spell_devastate_land_level_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else = {
+			scope:target.location.county = { NOT = { has_county_modifier = devastate_land_3 } }
+			have_arcana = { arcana = spell_devastate_land_level_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+	}
+}
+#spell_domination
+spell_domination_select = {
+    effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # REQUIRED
+		if = { limit = { exists = flag:spell_domination } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_domination_script = {
+    effect = {
+        if = { limit = { scope:setting = flag:level_0 } 
+            add_hook = {
+                type = suggestion
+                years = 5
+                target = scope:target
+            }
+            remove_arcana = { VALUE = spell_domination_level_0_cost }
+        }
+        else_if = { limit = { scope:setting = flag:level_1 } 
+            add_hook = {
+                type = influance
+                years = 5
+                target = scope:target
+            }
+            remove_arcana = { VALUE = spell_domination_level_1_cost }
+        }
+        else = {
+            add_hook = {
+                type = pupet
+                target = scope:target
+            }
+            scope:target = {
+                add_opinion = { modifier = al_master target = prev }
+                add_character_modifier = al_pupet_modifier
+            }
+            remove_arcana = { VALUE = spell_domination_level_2_cost }
+        }
+	}
+	is_valid = {
+		NOT = { scope:target = ROOT }
+        trigger_if = { limit = { scope:setting = flag:level_0 } 
+			NOT = { has_hook_of_type = { target = scope:target type = suggestion } }
+			NOT = { has_hook_of_type = { target = scope:target type = influance } }
+			NOT = { has_hook_of_type = { target = scope:target type = pupet } }
+			have_arcana = { arcana = spell_domination_level_0_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			NOT = { has_hook_of_type = { target = scope:target type = influance } }
+			NOT = { has_hook_of_type = { target = scope:target type = pupet } }
+			have_arcana = { arcana = spell_domination_level_1_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+		trigger_else = {
+			NOT = { has_hook_of_type = { target = scope:target type = pupet } }
+			have_arcana = { arcana = spell_domination_level_2_cost }
+			has_perk = al_arcane_mastery_archmage_spell
+		}
+    }
+}
+#spell_calm
+spell_calm_select = {
+    effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # REQUIRED
+		if = { limit = { exists = flag:spell_calm } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_calm_script = {
+    effect = {
+        if = { limit = { scope:setting = flag:level_0 } 
+            scope:target = { add_stress = -25 }
+            remove_arcana = { VALUE = spell_calm_level_0_cost }
+        }
+        else_if = { limit = { scope:setting = flag:level_1 } 
+            scope:target = { add_stress = -50 }
+            remove_arcana = { VALUE = spell_calm_level_1_cost }
+        }
+        else = {
+            scope:target = { add_stress = -75 add_character_modifier = { modifier = al_calmed_modifier years = 5 } }
+            remove_arcana = { VALUE = spell_calm_level_2_cost }
+        }
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+	}
+	is_valid = {
+        trigger_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_calm_level_0_cost }
+			has_perk = al_arcane_mastery_novice_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			have_arcana = { arcana = spell_calm_level_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_calm_level_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+    }
+}
+#spell_anger
+spell_anger_select = {
+    effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # REQUIRED
+		if = { limit = { exists = flag:spell_anger } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_anger_script = {
+    effect = {
+        if = { limit = { scope:setting = flag:level_0 } 
+            scope:target = { add_stress = 25 }
+            remove_arcana = { VALUE = spell_anger_level_0_cost }
+        }
+        else_if = { limit = { scope:setting = flag:level_1 } 
+            scope:target = { add_stress = 50 }
+            remove_arcana = { VALUE = spell_anger_level_1_cost }
+        }
+        else = {
+            scope:target = { add_stress = 75 add_character_modifier = { modifier = al_anger_modifier years = 5 } }
+            remove_arcana = { VALUE = spell_anger_level_2_cost }
+        }
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_hurt target = prev } } }
+	}
+	is_valid = {
+        trigger_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_anger_level_0_cost }
+			has_perk = al_arcane_mastery_novice_spell
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			have_arcana = { arcana = spell_anger_level_1_cost }
+			has_perk = al_arcane_mastery_adept_spell
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_anger_level_2_cost }
+			has_perk = al_arcane_mastery_master_spell
+		}
+    }
+}
+#spell_overcharge_mind
+spell_overcharge_mind_select = {
+    effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # REQUIRED
+		if = { limit = { exists = flag:spell_overcharge_mind } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_overcharge_mind_script = {
+    effect = {
+        if = { limit = { scope:setting = flag:level_0 } 
+            scope:target = { add_character_modifier = { modifier = overcharged_mind years = 5 } }
+            remove_arcana = { VALUE = spell_overcharge_mind_level_0_cost }
+        }
+        else_if = { limit = { scope:setting = flag:level_1 } 
+            scope:target = { add_character_modifier = { modifier = overcharged_mind years = 10 } }
+            remove_arcana = { VALUE = spell_overcharge_mind_level_1_cost }
+        }
+        else = {
+            scope:target = { add_character_modifier = { modifier = overcharged_mind years = 15 } }
+            remove_arcana = { VALUE = spell_overcharge_mind_level_2_cost }
+        }
+	}
+	is_valid = {
+        NOT = { has_character_modifier = overcharged_mind }
+        scope:target.location = root.location
+		has_perk = al_arcane_mastery_master_spell
+        trigger_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_overcharge_mind_level_0_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			have_arcana = { arcana = spell_overcharge_mind_level_1_cost }
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_overcharge_mind_level_2_cost }
+		}
+    }
+}
+#spell_overcharge_body
+spell_overcharge_body_select = {
+    effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # REQUIRED
+		if = { limit = { exists = flag:spell_overcharge_body } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_overcharge_body_script = {
+    effect = {
+        if = { limit = { scope:setting = flag:level_0 } 
+            scope:target = { add_character_modifier = { modifier = overcharged_body years = 5 } }
+            remove_arcana = { VALUE = spell_overcharge_body_level_0_cost }
+        }
+        else_if = { limit = { scope:setting = flag:level_1 } 
+            scope:target = { add_character_modifier = { modifier = overcharged_body years = 10 } }
+            remove_arcana = { VALUE = spell_overcharge_body_level_1_cost }
+        }
+        else = {
+            scope:target = { add_character_modifier = { modifier = overcharged_body years = 15 } }
+            remove_arcana = { VALUE = spell_overcharge_body_level_2_cost }
+        }
+	}
+	is_valid = {
+        NOT = { has_character_modifier = overcharged_body }
+        scope:target.location = root.location
+		has_perk = al_arcane_mastery_master_spell
+        trigger_if = { limit = { scope:setting = flag:level_0 } 
+			have_arcana = { arcana = spell_overcharge_body_level_0_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			have_arcana = { arcana = spell_overcharge_body_level_1_cost }
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_overcharge_body_level_2_cost }
+		}
+    }
+}
+#spell_bad_vibes
+spell_bad_vibes_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_1 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_2 } # REQUIRED
+		add_to_variable_list = { name = magecraft_settings target = flag:level_3 } # REQUIRED
+		if = { limit = { exists = flag:spell_bad_vibes } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_bad_vibes_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 } 
+            scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_0 years = 5 } }
+            remove_arcana = { VALUE = spell_bad_vibes_level_0_cost }
+        }
+        else_if = { limit = { scope:setting = flag:level_1 } 
+            scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_1 years = 5 } }
+            remove_arcana = { VALUE = spell_bad_vibes_level_1_cost }
+        }
+		else_if = { limit = { scope:setting = flag:level_2 } 
+            scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_2 years = 5 } }
+            remove_arcana = { VALUE = spell_bad_vibes_level_2_cost }
+        }
+		else = {
+			scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_3 years = 5 } }
+            remove_arcana = { VALUE = spell_bad_vibes_level_3_cost }
+		}
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_hurt target = prev } } }
+		custom_tooltip = "spell_author_vytarrus"
+	}
+	is_valid = {
+		trigger_if = { limit = { scope:setting = flag:level_0 } 
+			has_perk = al_arcane_mastery_adept_spell
+			have_arcana = { arcana = spell_bad_vibes_level_0_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
+			has_perk = al_arcane_mastery_master_spell
+			have_arcana = { arcana = spell_bad_vibes_level_1_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:level_2 } 
+			has_perk = al_arcane_mastery_archmage_spell
+			have_arcana = { arcana = spell_bad_vibes_level_2_cost }
+		}
+		trigger_else = {
+			have_arcana = { arcana = spell_bad_vibes_level_3_cost }
+			has_perk = al_arcane_mastery_godly_spell
+		}
+	}
+}
+#spell_purify_physique
+spell_purify_physique_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = {
+			limit = { scope:target = { has_trait = clubfooted } }
+			add_to_variable_list = { name = magecraft_settings target = flag:clubfooted_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = hunchbacked } }
+			add_to_variable_list = { name = magecraft_settings target = flag:hunchbacked_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = lisping } }
+			add_to_variable_list = { name = magecraft_settings target = flag:lisping_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = stuttering } }
+			add_to_variable_list = { name = magecraft_settings target = flag:stuttering_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = inbred } }
+			add_to_variable_list = { name = magecraft_settings target = flag:inbred_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = weak } }
+			add_to_variable_list = { name = magecraft_settings target = flag:weak_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = dull } }
+			add_to_variable_list = { name = magecraft_settings target = flag:dull_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = impotent } }
+			add_to_variable_list = { name = magecraft_settings target = flag:impotent_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = spindly } }
+			add_to_variable_list = { name = magecraft_settings target = flag:spindly_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = scaly } }
+			add_to_variable_list = { name = magecraft_settings target = flag:scaly_setting } 
+		}
+		if = { limit = { exists = flag:spell_purify_physique } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_purify_physique_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:clubfooted_setting } 
+            scope:target = { remove_trait = clubfooted }
+            remove_arcana = { VALUE = spell_purify_physique_clubfooted_setting_cost }
+        }
+        else_if = { limit = { scope:setting = flag:hunchbacked_setting } 
+            scope:target = { remove_trait = hunchbacked }
+            remove_arcana = { VALUE = spell_purify_physique_hunchbacked_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:lisping_setting } 
+            scope:target = { remove_trait = lisping }
+            remove_arcana = { VALUE = spell_purify_physique_lisping_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:stuttering_setting } 
+            scope:target = { remove_trait = stuttering }
+            remove_arcana = { VALUE = spell_purify_physique_stuttering_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:inbred_setting } 
+            scope:target = { remove_trait = inbred }
+            remove_arcana = { VALUE = spell_purify_physique_inbred_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:weak_setting } 
+            scope:target = { remove_trait = weak }
+            remove_arcana = { VALUE = spell_purify_physique_weak_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:dull_setting } 
+            scope:target = { remove_trait = dull }
+            remove_arcana = { VALUE = spell_purify_physique_dull_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:impotent_setting } 
+            scope:target = { remove_trait = impotent }
+            remove_arcana = { VALUE = spell_purify_physique_impotent_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:spindly_setting } 
+            scope:target = { remove_trait = spindly }
+            remove_arcana = { VALUE = spell_purify_physique_spindly_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:scaly_setting } 
+            scope:target = { remove_trait = scaly }
+            remove_arcana = { VALUE = spell_purify_physique_scaly_setting_cost }
+        }
+		else = {
+			custom_tooltip = "spell_purify_physique_info"
+		}
+
+
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+		custom_tooltip = "spell_author_tene"
+	}
+	is_valid = {
+		has_perk = al_arcane_mastery_master_spell
+		trigger_if = { limit = { scope:setting = flag:clubfooted_setting }
+			scope:target = { has_trait = clubfooted }
+			have_arcana = { arcana = spell_purify_physique_clubfooted_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:hunchbacked_setting }
+			scope:target = { has_trait = hunchbacked }
+			have_arcana = { arcana = spell_purify_physique_hunchbacked_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:lisping_setting }
+			scope:target = { has_trait = lisping }
+			have_arcana = { arcana = spell_purify_physique_lisping_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:stuttering_setting }
+			scope:target = { has_trait = stuttering }
+			have_arcana = { arcana = spell_purify_physique_stuttering_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:inbred_setting }
+			scope:target = { has_trait = inbred }
+			have_arcana = { arcana = spell_purify_physique_inbred_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:weak_setting }
+			scope:target = { has_trait = weak }
+			have_arcana = { arcana = spell_purify_physique_weak_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:dull_setting }
+			scope:target = { has_trait = dull }
+			have_arcana = { arcana = spell_purify_physique_dull_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:impotent_setting }
+			scope:target = { has_trait = impotent }
+			have_arcana = { arcana = spell_purify_physique_impotent_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:spindly_setting }
+			scope:target = { has_trait = spindly }
+			have_arcana = { arcana = spell_purify_physique_spindly_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:scaly_setting }
+			scope:target = { has_trait = scaly }
+			have_arcana = { arcana = spell_purify_physique_scaly_setting_cost }
+		}
+		trigger_else = {
+			custom_tooltip = {
+				text = "AL_always_no"
+				always = no
+			}
+		}
+	}
+}
+#spell_fix_flesh
+spell_fix_flesh_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = {
+			limit = { scope:target = { has_trait = blind } }
+			add_to_variable_list = { name = magecraft_settings target = flag:blind_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = eunuch } }
+			add_to_variable_list = { name = magecraft_settings target = flag:eunuch_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = scarred } }
+			add_to_variable_list = { name = magecraft_settings target = flag:scarred_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = disfigured } }
+			add_to_variable_list = { name = magecraft_settings target = flag:disfigured_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = one_legged } }
+			add_to_variable_list = { name = magecraft_settings target = flag:one_legged_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = one_eyed } }
+			add_to_variable_list = { name = magecraft_settings target = flag:one_eyed_setting } 
+		}
+		if = {
+			limit = { scope:target = { has_trait = maimed } }
+			add_to_variable_list = { name = magecraft_settings target = flag:maimed_setting } 
+		}
+		if = { limit = { exists = flag:spell_fix_flesh } } # TO DELETE CONSOLE SPAM...
+	}
+}
+spell_fix_flesh_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:blind_setting } 
+            scope:target = { remove_trait = blind }
+            remove_arcana = { VALUE = spell_fix_flesh_blind_setting_cost }
+        }
+        else_if = { limit = { scope:setting = flag:eunuch_setting } 
+            scope:target = { remove_trait = eunuch }
+            remove_arcana = { VALUE = spell_fix_flesh_eunuch_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:scarred_setting } 
+            scope:target = { remove_trait = scarred }
+            remove_arcana = { VALUE = spell_fix_flesh_scarred_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:disfigured_setting } 
+            scope:target = { remove_trait = disfigured }
+            remove_arcana = { VALUE = spell_fix_flesh_disfigured_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:one_legged_setting } 
+            scope:target = { remove_trait = one_legged }
+            remove_arcana = { VALUE = spell_fix_flesh_one_legged_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:one_eyed_setting } 
+            scope:target = { remove_trait = one_eyed }
+            remove_arcana = { VALUE = spell_fix_flesh_one_eyed_setting_cost }
+        }
+		else_if = { limit = { scope:setting = flag:maimed_setting } 
+            scope:target = { remove_trait = maimed }
+            remove_arcana = { VALUE = spell_fix_flesh_maimed_setting_cost }
+        }
+		else = {
+			custom_tooltip = "spell_fix_flesh_info"
+		}
+
+
+		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
+		custom_tooltip = "spell_author_tene"
+	}
+	is_valid = {
+		has_perk = al_arcane_mastery_master_spell
+		trigger_if = { limit = { scope:setting = flag:blind_setting }
+			scope:target = { has_trait = blind }
+			have_arcana = { arcana = spell_fix_flesh_blind_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:eunuch_setting }
+			scope:target = { has_trait = eunuch }
+			have_arcana = { arcana = spell_fix_flesh_eunuch_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:scarred_setting }
+			scope:target = { has_trait = scarred }
+			have_arcana = { arcana = spell_fix_flesh_scarred_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:disfigured_setting }
+			scope:target = { has_trait = disfigured }
+			have_arcana = { arcana = spell_fix_flesh_disfigured_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:one_legged_setting }
+			scope:target = { has_trait = one_legged }
+			have_arcana = { arcana = spell_fix_flesh_one_legged_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:one_eyed_setting }
+			scope:target = { has_trait = one_eyed }
+			have_arcana = { arcana = spell_fix_flesh_one_eyed_setting_cost }
+		}
+		trigger_else_if = { limit = { scope:setting = flag:maimed_setting }
+			scope:target = { has_trait = maimed }
+			have_arcana = { arcana = spell_fix_flesh_maimed_setting_cost }
+		}
+		trigger_else = {
+			custom_tooltip = {
+				text = "AL_always_no"
+				always = no
+			}
+		}
+	}
+}

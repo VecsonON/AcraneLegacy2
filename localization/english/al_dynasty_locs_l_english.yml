@@ -1,0 +1,12 @@
+﻿l_english:
+ magecraft_legacy_track_name: "Arcane Legacy ([magecraft|E])"
+ magecraft_legacy_track_desc: "Family Arcane techniques and Arcane bloodline"
+ magecraft_legacy_1_name: "Family Arcane Understanding"
+ magecraft_legacy_1_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +5#!"
+ magecraft_legacy_2_name: "Arcane Blood"
+ magecraft_legacy_2_desc: "Improves [arcana_affinity|E] of new born childrens"
+ magecraft_legacy_3_name: "Family Arcane Minds"
+ magecraft_legacy_4_name: "Family [arcana|E] manipulation techniques"
+ magecraft_legacy_4_desc: "#P -20%#! [Concept('arcana','#E Arcana Cost')] of spells and rewrite spells\nAll Family Members start with [GetPerk('al_arcane_mastery_adept').GetName(GetNullCharacter)]"
+ magecraft_legacy_5_name: "Family [arcana|E] control techniques"
+ magecraft_legacy_5_desc: "#P -20%#! [Concept('arcana','#E Arcana Upkeep')] of Rituals\nAll Family Members start with [GetPerk('al_arcane_mastery_master').GetName(GetNullCharacter)]"

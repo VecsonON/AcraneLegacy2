@@ -1,0 +1,92 @@
+﻿monthly_arcana_change = {
+	if = {
+		limit = { NOT = { has_variable = arcana } }
+		set_variable = {
+			name = arcana
+			value = arcana_maximum
+		}
+	}
+	change_variable = {
+		name = arcana
+		add = arcana_change
+	}
+	if = {
+		limit = { var:arcana > arcana_maximum }
+		set_variable = {
+			name = arcana
+			value = arcana_maximum
+		}
+	}
+	if = {
+		limit = { var:arcana <= 0 }
+		set_variable = {
+			name = arcana
+			value = 0
+		}
+		if = { 
+			limit = { has_character_modifier = casting_rewriting_spell } 
+			remove_character_modifier = casting_rewriting_spell 
+			add_character_flag = rewrite_cancel 
+			trigger_event = magecraft.0002
+			remove_variable = rewriting_cost
+			remove_variable = rewriting_name
+			remove_variable = rewriting_target
+			remove_character_modifier = casting_rewriting_spell
+		}
+		trigger_event = { on_action = arcana_depleted }
+	}
+	
+}
+add_arcana = {
+	custom_description = {
+        text = arcana_add
+        value = $VALUE$
+		if = {
+			limit = { NOT = { has_variable = arcana } }
+			set_variable = {
+				name = arcana
+				value = arcana_maximum
+			}
+		}
+		change_variable = {
+			name = arcana
+			add = $VALUE$
+		}
+		if = {
+			limit = { var:arcana > arcana_maximum }
+			set_variable = {
+				name = arcana
+				value = arcana_maximum
+			}
+		}
+	}
+}
+remove_arcana = {
+	custom_description = {
+        text = arcana_remove
+        value = $VALUE$
+		if = {
+			limit = { NOT = { has_variable = arcana } }
+			set_variable = {
+				name = arcana
+				value = arcana_maximum
+			}
+		}
+		change_variable = {
+			name = arcana
+			subtract = $VALUE$
+		}
+		if = {
+			limit = { var:arcana < 0 }
+			set_variable = {
+				name = arcana
+				value = 0
+			}
+		}
+	}
+	add_arcane_mastery_lifestyle_xp = {
+		value = $VALUE$
+		divide = 2.5
+	}
+	
+}

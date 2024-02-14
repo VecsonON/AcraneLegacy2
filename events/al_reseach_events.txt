@@ -1,0 +1,696 @@
+﻿namespace = al_research_events
+al_research_events.0001 = { # START
+    type = character_event
+	title = al_research_events.0001.title
+	desc = al_research_events.0001.desc
+	theme = secret
+	option = { # Use inspiraction
+		name = al_research_events.0001.a
+        trigger = { have_inspiration_to_research = yes  }
+        show_as_unavailable = { have_inspiration_to_research = no }
+        trigger_event = al_research_events.0101
+
+	}
+    option = { # USE BOOK
+        name = al_research_events.0001.b
+        trigger = { have_arcane_book = yes  }
+        show_as_unavailable = { have_arcane_book = no }
+        trigger_event = al_research_events.0201
+    }
+}
+scripted_effect increase_research_chance_by = {
+    ROOT = {
+        if = {
+            limit = { NOT = { has_variable = research_succes_chance } }
+            set_variable = {
+                name = research_succes_chance 
+                value = 0
+            }
+        }
+        custom_description = {
+            text = increase_research_chance_by_desc
+            value = $VALUE$
+
+            change_variable = {
+                name = research_succes_chance
+                add = $VALUE$
+            }
+        }
+        if = {
+            limit = { var:research_succes_chance > 100 }
+            set_variable = {
+                name = research_succes_chance
+                value = 100
+            }
+        }
+    }
+}
+scripted_effect decrease_research_chance_by = {
+    ROOT = {
+        if = {
+            limit = { NOT = { has_variable = research_succes_chance } }
+            set_variable = {
+                name = research_succes_chance 
+                value = 0
+            }
+        }
+        custom_description = {
+            text = decrease_research_chance_by_desc
+            value = $VALUE$
+
+            change_variable = {
+                name = research_succes_chance
+                subtract = $VALUE$
+            }
+        }
+        if = {
+            limit = { var:research_succes_chance < 0 }
+            set_variable = {
+                name = research_succes_chance
+                value = 0
+            }
+        }
+    }
+}
+al_research_events.0002 = { # Founds
+    type = character_event
+	title = al_research_events.0002.title
+	desc = al_research_events.0002.desc
+	theme = secret
+    immediate = {
+        set_variable = {
+            name = research_succes_chance 
+            value = 0
+        }
+        add_character_modifier = { modifier = al_pending_research months = 28 }
+        if = {  limit = {  has_trait_rank = { trait = intellect_bad rank >= 3 }  } 
+            decrease_research_chance_by = { VALUE = 15 }
+        }
+        else_if = {  limit = {  has_trait_rank = { trait = intellect_bad rank = 2 }  } 
+            decrease_research_chance_by = { VALUE = 10 }
+        }
+        else_if = {  limit = {  has_trait_rank = { trait = intellect_bad rank = 1 }  } 
+            decrease_research_chance_by = { VALUE = 5 }
+        }
+        else_if = {  limit = {  has_trait_rank = { trait = intellect_good rank = 1 }  } 
+            increase_research_chance_by = { VALUE = 10 }
+        }
+        else_if = {  limit = {  has_trait_rank = { trait = intellect_good rank = 2 }  } 
+            increase_research_chance_by = { VALUE = 20 }
+        }
+        else_if = {  limit = {  has_trait_rank = { trait = intellect_good rank >= 3 }  } 
+            increase_research_chance_by = { VALUE = 30 }
+        }
+    }
+	option = { # Huge funds
+		name = al_research_events.0002.a
+        remove_short_term_gold = 2000
+        increase_research_chance_by = { VALUE = 40 }
+	}
+    option = { # Big funds
+		name = al_research_events.0002.b
+        remove_short_term_gold = 1000
+        increase_research_chance_by = { VALUE = 20 }
+	}
+    option = { # Major funds
+		name = al_research_events.0002.c
+        remove_short_term_gold = 500
+        increase_research_chance_by = { VALUE = 10 }
+	}
+    option = { # Normal funds
+		name = al_research_events.0002.d
+        remove_short_term_gold = 250
+        increase_research_chance_by = { VALUE = 5 }
+	}
+    option = { # Small funds
+		name = al_research_events.0002.e
+        remove_short_term_gold = 125
+        increase_research_chance_by = { VALUE = 2.5 }
+	}
+}
+######################### inspiraction #########################
+al_research_events.0101 = { # inspiraction START
+    type = character_event
+	title = al_research_events.0001.title
+	desc = al_research_events.0001.desc
+	theme = secret
+    immediate = {
+        trigger_event = { on_action = al_research_events_inspiration months = 4  }
+        trigger_event = { on_action = al_research_events_inspiration months = 8  }
+        trigger_event = { on_action = al_research_events_inspiration months = 12  }
+        trigger_event = { on_action = al_research_events_inspiration months = 16  }
+        trigger_event = { on_action = al_research_events_inspiration months = 24  }
+        trigger_event = { id = al_research_events.1000 months = 28  }
+    }
+	option = { # inspiraction - Apotheosis
+		name = al_research_events.0101.apotheosis
+        trigger = { 
+            has_variable = al_arcane_inspiration
+            var:al_arcane_inspiration = flag:rewrite_spell_apotheosis
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_apotheosis } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_apotheosis
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # inspiraction - Utopia
+		name = al_research_events.0101.utopia
+        trigger = { 
+            has_variable = al_arcane_inspiration
+            var:al_arcane_inspiration = flag:rewrite_spell_utopia
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_utopia } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_utopia
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # inspiraction - Armagedon
+		name = al_research_events.0101.armagedon
+        trigger = { 
+            has_variable = al_arcane_inspiration
+            var:al_arcane_inspiration = flag:rewrite_spell_armagedon
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_armagedon } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_armagedon
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # inspiraction - Genesis
+		name = al_research_events.0101.genesis
+        trigger = { 
+            has_variable = al_arcane_inspiration
+            var:al_arcane_inspiration = flag:rewrite_spell_genesis
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_genesis } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_genesis
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # inspiraction - Increase Arcana Affinity
+		name = al_research_events.0101.affinity
+        trigger = { 
+            has_variable = al_arcane_inspiration
+            var:al_arcane_inspiration = flag:arcana_affinity
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:arcana_affinity
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+}
+al_research_events.0102 = { # inspiraction - Unexpected Costs
+    type = character_event
+	title = al_research_events.0102.title
+	desc = al_research_events.0102.desc
+	theme = secret
+    immediate = {
+        increase_research_chance_by = { VALUE = 5 }
+    }
+	option = { # extort subjects
+		name = al_research_events.0102.a
+        add_character_modifier = {
+			modifier = extorted_courtiers_modifier
+			years = 10
+		}
+        add_prestige = -200
+	}
+    option = { # Increase Founds
+		name = al_research_events.0102.b
+
+        remove_short_term_gold = 120
+	}
+}
+al_research_events.0103 = { # inspiraction - Breakthrough 
+    type = character_event
+	title = al_research_events.0103.title
+	desc = al_research_events.0103.desc
+	theme = secret
+    immediate = {
+        increase_research_chance_by = { VALUE = 20 }
+    }
+	option = { # Go further!
+		name = al_research_events.0103.a
+        increase_research_chance_by = { VALUE = 10 }
+        add_stress = 100
+	}
+    option = { # Take break
+		name = al_research_events.0103.b
+        add_stress = -50
+	}
+}
+al_research_events.0104 = { # inspiraction - Living Test Dummies 
+    type = character_event
+	title = al_research_events.0104.title
+	desc = al_research_events.0104.desc
+	theme = secret
+    immediate = {
+        create_character = {
+			template = generic_peasant_character
+			location = root.capital_province
+			gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+			faith = root.faith
+			culture = root.culture
+			save_scope_as = peasant
+		}
+    }
+	option = { # Of Course DO it
+		name = al_research_events.0104.a
+        increase_research_chance_by = { VALUE = 15 }
+        trait = compassionate
+		trait = callous
+		trait = sadistic
+		trait = ambitious
+        stress_impact = {
+			base = minor_stress_impact_gain
+            sadistic = medium_stress_impact_loss
+            compassionate = major_stress_impact_gain
+            forgiving = medium_stress_impact_gain
+            generous = medium_stress_impact_gain
+            trusting = minor_stress_impact_gain
+            content = minor_stress_impact_gain
+        }
+        scope:peasant = {
+			death = {
+				death_reason = death_torture
+				killer = root
+			}
+		} 
+	}
+    option = { # NO!
+		name = al_research_events.0104.b
+        hidden_effect = {
+			scope:peasant = {
+				death = {
+					death_reason = death_disappearance
+				}
+			} 
+		}
+	}
+}
+al_research_events.0105 = { # inspiraction - Roadblock 
+    type = character_event
+	title = al_research_events.0105.title
+	desc = al_research_events.0105.desc
+	theme = secret
+	option = { # throw gold at problem
+		name = al_research_events.0105.a
+        remove_short_term_gold = 100
+	}
+    option = { # Use High Learning Skill
+		name = al_research_events.0105.b
+        trigger = {  learning > 20 }
+        show_as_unavailable = { learning < 20 }
+        skill = learning
+	}
+    option = { # Use Burte Force
+		name = al_research_events.0105.c
+        add_stress = 100
+	}
+    option = { # Take break
+		name = al_research_events.0105.d
+        decrease_research_chance_by = { VALUE = 5 }
+	}
+}
+######################### book #########################
+al_research_events.0201 = { # book START
+    type = character_event
+	title = al_research_events.0201.title
+	desc = al_research_events.0201.desc
+	theme = secret
+    immediate = {
+        trigger_event = { on_action = al_research_events_book months = 4  }
+        trigger_event = { on_action = al_research_events_book months = 8  }
+        trigger_event = { on_action = al_research_events_book months = 12  }
+        trigger_event = { on_action = al_research_events_book months = 16  }
+        trigger_event = { on_action = al_research_events_book months = 24  }
+        trigger_event = { id = al_research_events.1000 months = 28  }
+    }
+	option = { # BOOK - Apotheosis
+		name = al_research_events.0201.apotheosis
+        trigger = { 
+            any_character_artifact = {
+                exists = var:spell
+                var:spell ?= flag:rewrite_spell_apotheosis
+            } 
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_apotheosis } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_apotheosis
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # BOOK - Utopia
+		name = al_research_events.0201.utopia
+        trigger = { 
+            any_character_artifact = {
+                exists = var:spell
+                var:spell ?= flag:rewrite_spell_utopia
+            }
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_utopia } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_utopia
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # BOOK - Armagedon
+		name = al_research_events.0201.armagedon
+        trigger = { 
+            any_character_artifact = {
+                exists = var:spell
+                var:spell ?= flag:rewrite_spell_armagedon
+            }
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_armagedon } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_armagedon
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # BOOK - Genesis
+		name = al_research_events.0201.genesis
+        trigger = { 
+            any_character_artifact = {
+                exists = var:spell
+                var:spell ?= flag:rewrite_spell_genesis
+            }
+            NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_genesis } }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:rewrite_spell_genesis
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+    option = { # BOOK - Increase Arcana Affinity
+		name = al_research_events.0201.affinity
+        trigger = { 
+            any_character_artifact = {
+                has_variable = spell
+            }
+        }
+        hidden_effect = {
+            set_variable = {
+                name = research_spell
+                value = flag:arcana_affinity
+            }
+            remove_variable = al_arcane_inspiration
+        }
+        trigger_event = al_research_events.0002
+	}
+}
+al_research_events.0202 = { # book - Unexpected Costs
+    type = character_event
+	title = al_research_events.0202.title
+	desc = al_research_events.0202.desc
+	theme = secret
+    immediate = {
+        increase_research_chance_by = { VALUE = 5 }
+    }
+	option = { # extort subjects
+		name = al_research_events.0202.a
+        add_character_modifier = {
+			modifier = extorted_courtiers_modifier
+			years = 10
+		}
+        add_prestige = -200
+	}
+    option = { # Increase Founds
+		name = al_research_events.0202.b
+
+        remove_short_term_gold = 120
+	}
+}
+al_research_events.0203 = { # book - Breakthrough 
+    type = character_event
+	title = al_research_events.0203.title
+	desc = al_research_events.0203.desc
+	theme = secret
+    immediate = {
+        increase_research_chance_by = { VALUE = 20 }
+    }
+	option = { # Go further!
+		name = al_research_events.0203.a
+        increase_research_chance_by = { VALUE = 10 }
+        add_stress = 100
+	}
+    option = { # Take break
+		name = al_research_events.0203.b
+        add_stress = -50
+	}
+}
+al_research_events.0204 = { # book - Unreadable text
+    type = character_event
+	title = al_research_events.0204.title
+	desc = al_research_events.0204.desc
+	theme = secret
+	option = { # Try to get by context meaning
+		name = al_research_events.0204.a
+        duel = {
+            skill = learning
+            value = 20
+            2 = {
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				desc = al_research_events.0204.a.success
+                send_interface_toast = {
+                    title = al_research_events.0204.a.success
+                    increase_research_chance_by = { VALUE = 20 }
+                }
+			}
+			2 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -1
+				}
+				desc = al_research_events.0204.a.failure
+				add_stress = 25
+				send_interface_toast = {
+					title = al_research_events.0204.a.failure
+                    decrease_research_chance_by = { VALUE = 10 }
+				}
+			}
+        }
+	}
+    option = { # Ignore.
+		name = al_research_events.0204.b
+        decrease_research_chance_by = { VALUE = 5 }
+	}
+}
+al_research_events.0205 = { # book - Roadblock 
+    type = character_event
+	title = al_research_events.0205.title
+	desc = al_research_events.0205.desc
+	theme = secret
+	option = { # throw gold at problem
+		name = al_research_events.0205.a
+        remove_short_term_gold = 100
+	}
+    option = { # Use High Learning Skill
+		name = al_research_events.0205.b
+        trigger = {  learning > 20 }
+        show_as_unavailable = { learning < 20 }
+        skill = learning
+	}
+    option = { # Use Burte Force
+		name = al_research_events.0205.c
+        add_stress = 100
+	}
+    option = { # Take break
+		name = al_research_events.0205.d
+        decrease_research_chance_by = { VALUE = 5 }
+	}
+}
+######################### END #########################
+al_research_events.1000 = { # END - Last Test
+    type = character_event
+	title = al_research_events.1000.title
+	desc = al_research_events.1000.desc
+	theme = secret
+	option = { # Go!
+		name = al_research_events.1000.a
+        random_list = {
+            0 = {
+                modifier = {
+                    add = var:research_succes_chance
+                }
+                desc = al_research_events.1000.succes
+                trigger_event = al_research_events.1001
+            }
+            100 = {
+                modifier = {
+                    add = { value = var:research_succes_chance multiply = -1 }
+                }
+                desc = al_research_events.1000.failure
+                trigger_event = al_research_events.1002
+            }
+        }
+	}
+}
+al_research_events.1001 = { # END - Succes
+    type = character_event
+	title = al_research_events.1001.title
+	desc = al_research_events.1001.desc
+	theme = secret
+	option = { # Hura!
+		name = al_research_events.1001.a
+        if = { limit = { NOT = { var:research_spell = flag:arcana_affinity } } custom_tooltip = "unlocked_new_spell" add_to_variable_list = { name = done_arcane_research target = var:research_spell } }
+        else = { add_born_arcana_affinity = { VALUE = 5 } }
+        remove_variable = research_succes_chance
+        remove_variable = research_spell
+	}
+}
+al_research_events.1002 = { # END - Failure
+    type = character_event
+	title = al_research_events.1002.title
+	desc = al_research_events.1002.desc
+	theme = secret
+	option = { # Uh...
+		name = al_research_events.1001.a
+        remove_variable = research_succes_chance
+        remove_variable = research_spell
+	}
+}
+######################### OTHER #########################
+al_research_events.2000 = {
+    type = character_event
+	title = al_research_events.2000.title
+	desc = al_research_events.2000.desc
+	theme = secret
+	option = { # Apotheosis
+		name = al_research_events.2000.apotheosis
+        trait = arrogant
+        trait = ambitious
+        trigger = {
+            OR = {
+                has_trait = arrogant
+                has_trait = ambitious
+            }
+        }
+        show_as_unavailable = {
+            NOT = {
+                OR = {
+                    has_trait = arrogant
+                    has_trait = ambitious
+                }
+            }
+        }
+        set_variable = {
+            name = al_arcane_inspiration
+            value = flag:rewrite_spell_apotheosis
+        }
+        add_stress = 200
+	}
+    option = { # Utopia
+		name = al_research_events.2000.utopia
+        trait = diligent
+        trait = compassionate
+        trigger = {
+            OR = {
+                has_trait = diligent
+                has_trait = compassionate
+            }
+        }
+        show_as_unavailable = {
+            NOT = {
+                OR = {
+                    has_trait = diligent
+                    has_trait = compassionate
+                }
+            }
+        }
+        set_variable = {
+            name = al_arcane_inspiration
+            value = flag:rewrite_spell_utopia
+        }
+        add_stress = 200
+	}
+    option = { # Armagedon
+		name = al_research_events.2000.armagedon
+        trait = callous
+        trait = sadistic
+        trigger = {
+            OR = {
+                has_trait = callous
+                has_trait = sadistic
+            }
+        }
+        show_as_unavailable = {
+            NOT = {
+                OR = {
+                    has_trait = callous
+                    has_trait = sadistic
+                }
+            }
+        }
+        set_variable = {
+            name = al_arcane_inspiration
+            value = flag:rewrite_spell_armagedon
+        }
+        add_stress = 200
+	}
+    option = { # Genesis
+		name = al_research_events.2000.genesis
+        trait = al_god
+        trait = greedy
+        trigger = {
+            OR = {
+                has_trait = al_god
+                has_trait = greedy
+            }
+        }
+        show_as_unavailable = {
+            NOT = {
+                OR = {
+                    has_trait = al_god
+                    has_trait = greedy
+                }
+            }
+        }
+        set_variable = {
+            name = al_arcane_inspiration
+            value = flag:rewrite_spell_apotheosis
+        }
+        add_stress = 200
+	}
+}

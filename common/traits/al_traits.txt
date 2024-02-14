@@ -1,0 +1,516 @@
+﻿mage = {
+	learning = 2
+	flag = arcana_affinity_add_2
+
+	dread_baseline_add = 10
+	monthly_prestige = 0.5
+	monthly_lifestyle_xp_gain_mult = 0.1
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 25
+	# tracks = {
+	# 	mage_legacy = {
+	# 		10 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		20 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		30 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		40 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		50 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		60 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		70 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		80 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		90 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 		100 = {
+	# 			dread_baseline_add = 5
+	# 			monthly_prestige = 0.2
+	# 		}
+	# 	}
+	# }
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mage_desc
+			}
+			desc = trait_mage_character_desc
+		}
+	}
+	no_prowess_loss_from_age = yes
+	triggered_opinion = {
+		parameter = magecraft_popular_fear
+		opinion_modifier = al_magecraft_feared
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = magecraft_illegal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = magecraft_shunned
+		opinion_modifier = witchcraft_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+}
+genetic_perfection = {
+	shown_in_ruler_designer = no
+	martial = 2
+	diplomacy = 4
+	intrigue = 2
+	stewardship = 2
+	learning = 4
+	monthly_lifestyle_xp_gain_mult = 0.25
+	prowess = 8
+	health = 1
+	life_expectancy = 25
+	years_of_fertility = 25
+	attraction_opinion = 25
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_genetic_perfection_desc
+			}
+			desc = trait_genetic_perfection_character_desc
+		}
+	}
+	tracks = {
+		genetic_perfection_track = {
+			25 = {
+				prowess = 8
+				health = 1
+				life_expectancy = 50
+				
+				years_of_fertility = 50 # Thanks to SirChaos77
+				negate_prowess_penalty_add = 50
+				fertility = 0.2
+				martial = 4
+				learning = 6
+				stewardship = 4
+				intrigue = 4
+				diplomacy = 6
+				monthly_lifestyle_xp_gain_mult = 0.25
+			}
+			50 = {
+				prowess = 8
+				health = 1
+				life_expectancy = 100
+				negate_prowess_penalty_add = 100
+				prowess = 6
+				health = 2
+				fertility = 0.2
+				years_of_fertility = 100
+				fertility = 0.2
+		
+				martial = 4
+				learning = 6
+				stewardship = 4
+				intrigue = 4
+				diplomacy = 6
+				monthly_lifestyle_xp_gain_mult = 0.25
+			}
+			75 = {
+				prowess = 8
+				health = 1
+				life_expectancy = 200
+				negate_prowess_penalty_add = 200
+				prowess = 8
+				health = 3
+				fertility = 0.2
+				years_of_fertility = 200
+				fertility = 0.2
+		
+				martial = 4
+				learning = 6
+				stewardship = 4
+				intrigue = 4
+				diplomacy = 6
+				monthly_lifestyle_xp_gain_mult = 0.25
+			}
+			100 = {
+				prowess = 8
+				health = 1
+				health = 5
+				life_expectancy = 1000
+				negate_prowess_penalty_add = 1000
+				prowess = 15
+				fertility = 0.4
+				years_of_fertility = 1000
+				fertility = 0.2
+		
+				martial = 4
+				learning = 6
+				stewardship = 4
+				intrigue = 4
+				diplomacy = 6
+				monthly_lifestyle_xp_gain_mult = 0.25
+				#immortal = yes ERROR; I hope 1000+ life expectancy will be enough!
+			}
+		}
+	}
+	
+}
+al_god = {
+	shown_in_ruler_designer = no
+	martial = 40
+	diplomacy = 40
+	intrigue = 40
+	stewardship = 40
+	learning = 80
+	monthly_lifestyle_xp_gain_mult = 2.5
+	prowess = 100
+	health = 10
+	life_expectancy = 2500
+	flag = arcana_affinity_add_100
+	immortal = yes
+	flag = immortality
+	enables_inbred = no
+	can_have_children = no
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_al_god_desc
+			}
+			desc = trait_al_god_character_desc
+		}
+	}
+	flag = al_god_children
+}
+al_ancient = {
+	immortal = yes
+	shown_in_ruler_designer = no
+	martial = 100
+	diplomacy = 100
+	intrigue = 100
+	stewardship = 100
+	learning = 100
+	prowess = 100
+	health = 100
+
+	can_have_children = no
+	incapacitating = yes
+
+	inheritance_blocker = all	
+	claim_inheritance_blocker = all
+
+	disables_combat_leadership = yes
+	no_prowess_loss_from_age = yes
+	ai_energy = -100
+	desc = trait_al_ancient_desc
+
+}
+
+al_golem = {
+	physical = yes
+	shown_in_ruler_designer = no
+	immortal = yes
+	diplomacy = -20
+	martial = -20
+	stewardship = -20
+	intrigue = -20
+	learning = -20
+	prowess = 25
+	no_prowess_loss_from_age = yes
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_al_golem_desc
+			}
+			desc = trait_al_golem_character_desc
+		}
+	}
+}
+al_homunculus = {
+	physical = yes
+	diplomacy = -4
+	martial = -4
+	stewardship = -4
+	intrigue = -4
+	learning = -4
+	prowess = -2
+	fertility = -0.4
+	health = -0.4
+	
+	ruler_designer_cost = -30
+	
+	life_expectancy = -40
+	years_of_fertility = -40
+
+	tracks = {
+		al_homunculus_track = {
+			25 = {
+				life_expectancy = 10
+				years_of_fertility = 10
+				diplomacy = 1
+				martial = 1
+				stewardship = 1
+				intrigue = 1
+				learning = 1
+				fertility = 0.1
+				health = 0.1
+			}
+			50 = {
+				life_expectancy = 10
+				years_of_fertility = 10
+				diplomacy = 1
+				martial = 1
+				stewardship = 1
+				intrigue = 1
+				learning = 1
+				fertility = 0.1
+				health = 0.1
+			}
+			75 = {
+				life_expectancy = 10
+				years_of_fertility = 10
+				diplomacy = 1
+				martial = 1
+				stewardship = 1
+				intrigue = 1
+				learning = 1
+				fertility = 0.1
+				health = 0.1
+			}
+			100 = {
+				life_expectancy = 10
+				years_of_fertility = 10
+				diplomacy = 1
+				martial = 1
+				stewardship = 1
+				intrigue = 1
+				learning = 1
+				fertility = 0.1
+				health = 0.1
+			}
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_al_homunculus_desc
+			}
+			desc = trait_al_homunculus_character_desc
+		}
+	}
+
+}
+al_perfect_human = {
+	shown_in_ruler_designer = no
+	martial = 20
+	diplomacy = 20
+	intrigue = 20
+	stewardship = 20
+	learning = 40
+	monthly_lifestyle_xp_gain_mult = 2
+	prowess = 40
+	health = 10
+	life_expectancy = 2000
+	years_of_fertility = 2000
+	enables_inbred = no
+
+	desc = trait_al_perfect_human_desc
+	#can_have_children = no
+
+}
+# magical_vampire = { LATER
+# 	immortal = yes
+# 	life_expectancy = 1000
+# 	years_of_fertility = 1000
+# 	health = -3
+# 	flag = magical_vampire_immortality
+# 	flag = magical_vampire_hunger
+# 	track = {
+# 		0 = {
+# 			health = 0.25
+# 		}
+# 		25 = {
+# 			health = 0.5
+# 		}
+# 		50 = {
+# 			health = 1
+# 		}
+# 		75 = {
+# 			health = 2
+# 		}
+# 		100 = {
+# 			health = 3
+# 		}
+# 	}
+# }
+# FROM GodHerja: LATER WILL DO OWN
+# education_arcana_1 = {
+# 	learning = 1
+# 	minimum_age = 16
+# 	category = education
+# 	monthly_arcana_lifestyle_xp_gain_mult = 0.1
+
+# 	character_travel_safety = 5
+# 	magic_focused_opinion = 5
+
+# 	ruler_designer_cost = 0
+# 	flag = arcana_add
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_education_arcana_1_desc
+# 			}
+# 			desc = trait_education_arcana_1_character_desc
+# 		}
+# 	}
+
+# 	group = education_arcana
+# 	level = 1
+# }
+# education_arcana_2 = {
+# 	learning = 2
+# 	minimum_age = 16
+# 	category = education
+# 	monthly_arcana_lifestyle_xp_gain_mult = 0.2
+
+# 	character_travel_safety = 10
+# 	magic_focused_opinion = 10
+
+# 	ruler_designer_cost = 20
+# 	flag = arcana_add
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_education_arcana_2_desc
+# 			}
+# 			desc = trait_education_arcana_2_character_desc
+# 		}
+# 	}
+
+# 	group = education_arcana
+# 	level = 2
+# }
+# education_arcana_3 = {
+# 	learning = 3
+# 	minimum_age = 16
+# 	category = education
+# 	monthly_arcana_lifestyle_xp_gain_mult = 0.3
+
+# 	character_travel_safety = 15
+# 	magic_focused_opinion = 15
+
+# 	ruler_designer_cost = 40
+# 	flag = arcana_add
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_education_arcana_3_desc
+# 			}
+# 			desc = trait_education_arcana_3_character_desc
+# 		}
+# 	}
+
+# 	group = education_arcana
+# 	level = 3
+# }
+# education_arcana_4 = {
+# 	learning = 4
+# 	minimum_age = 16
+# 	category = education
+# 	monthly_arcana_lifestyle_xp_gain_mult = 0.4
+
+# 	character_travel_safety = 20
+# 	magic_focused_opinion = 20
+
+# 	ruler_designer_cost = 60
+# 	flag = arcana_add
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_education_arcana_4_desc
+# 			}
+# 			desc = trait_education_arcana_4_character_desc
+# 		}
+# 	}
+
+# 	group = education_arcana
+# 	level = 4
+# }
+# education_arcana_5 = {
+# 	learning = 4
+# 	minimum_age = 16
+# 	category = education
+# 	monthly_arcana_lifestyle_xp_gain_mult = 0.5
+
+# 	character_travel_safety = 25
+# 	magic_focused_opinion = 25
+
+# 	ruler_designer_cost = 100
+# 	flag = arcana_add
+
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					NOT = { exists = this }
+# 				}
+# 				desc = trait_education_arcana_5_desc
+# 			}
+# 			desc = trait_education_arcana_5_character_desc
+# 		}
+# 	}
+
+# 	random_creation_weight = 0
+# 	group = education_arcana
+# 	level = 5
+# }

@@ -1,0 +1,111 @@
+Legend;
+    + Done
+    - Undone
+    / Dropped\Old
+    ? I don't know
+    * Delayed
+Rebuilding:
+    + Casting System
+    + All previus Spells
+    + Rewrite Lore
+    / Playable Witchhunter
+    / Magicardia
+Seen Problems:
+    / Will be problem with getting at the same time 2 lifestyle perks: Posible fixes [Add decision to experiment to get lifestyle xp for gold or prestige]
+    + Mage Tower
+    + Rewrite Lore
+    + rewrite becoming mage
+    + Welcome event
+    + More Magecraft:
+        + Influance -> domination
+        + Puppet -> domination
+        - Create Homunculus => Rewriting Spell
+        + Suggest -> domination
+        / Grand Change Genetics [Mutate] => Rewriting Spell
+        + Overcharge Mind
+        + Overcharge Body
+        + Calm
+        + Anger
+        - Control Animals => -Ritual- Spell
+        / Create Animals => -Ritual- Spell
+        / Create Perfect Animal [As weapon] => -Ritual- Spell
+        + Pyrokineis => Ritual
+        - Create Artifact => Rewriting Spell
+        + Apocalipse => Rewriting Spell
+        + spawn meteorite (MADARA!) => Rewriting Spell
+        - increase natural minerals => -Ritual- Rewriting Spell
+    / Magical Buildings [Requires Mage tower in county] = Requires Changing 00_holdings.txt 
+    + 3 Immotralities:
+        + Ritualistic (UNHOLY AMOUNT OF HEALTH)
+        + Genetic 
+        * Vampiric(Magical)
+    * More Events:
+        + Many lifestyle events
+        * White inq. attacks 
+        * Use of magic in normal life
+        * fellow mage's Unethical experiments
+        * Mad mage in realm
+        * Mage's Experiment goes wild
+    + Way to improve magecraft acceptibility
+    + End Game quests:
+        + Become god-like 
+        - Destroy know world {END GAME}
+        - Create Utopia
+        ? Chalange creator {DON't KNOW IF CREATOR EXITS YET}
+    + Arcane Legacy (WOOHOOO! HE SAID IT!)
+    + Spell/Rewrite/Ritual Discounts
+    
+    * Add ton of combat modifier like P.O.D.
+
+DEADLINE: ∞.∞.2024
+TODO:
+    + Add worning to apothiosis
+    + XP for casting spell -> 5Arcana -> 1XP
+    + Look into magetower
+    + Add posibility to look arcana affinity by other means
+    - Compatibility with Elf destiniy
+    + Add greater bonuses to Apothiosis
+    + 'Bad vibes' spell by Vytarrus: Opinion modifiers
+    / 'Vovs' by Eztoom: Force Allince
+    + [?] Fix Gui BUG [by localization of '_-_' of every spell]
+
+Version 1.2: 
+    + Fixed Gui Text Overlap
+    + Xp for casting spells
+    + Add warning to apothiosis
+    + Fixed Magecraft buffs
+    + Added Other way to check arcana affinity
+    + Better Apothiosis house
+    + Added 3 spells: Worsnend opinion, Fix Flesh and Purify Physique
+    + Fixed localizaction of events
+    + Increased Lifestyle Xp level up from 1250 to 1500
+    + Pyrokinesis now disibles after getting 0 arcana
+    + Added no prowwes loss from age to genetic perfection
+    + Removed Fertility bonuses from genetic perfection and house of god
+    + Added when gaining new perk spells are refreshed
+    + Gain Potential Decision now instead from being one for session, is unvaible after resurgance. {THAT MEAN IF YOU DIE IN 25 YEARS FROM START YOUR NEW CHARACTER CAN CHOOSE THIS DECISION AGAIN!} 
+    Delayed:
+        / Elf Destiny Compatibilty 
+        / Respect for gods.
+Version 1.3 Adventure & Research Update:
+    + Adventure System: (Like in Elf destiny Mod)
+        / Rework 'Great Search' to activity [Already works good]
+        + Add new activity 'Mage tower Search'
+        + Add few magical artifacts
+        - Rework 'Apothiosis' to being found in mage tower search
+    - Implement god-child mechanic
+    - Spells:
+        - Create Golem
+        - Impregnate
+        - Create Golem Army
+    - Rituals:
+        - Telekinesis, Pyrokinesis, accelerate add commander traits on higher levels
+        - Improved court opinion
+        - Improved prestige gain
+        - Improved piety gain
+        - Reinforcment gain (No Commander) 
+    - More immersive events in mage tower
+    - Upgrading mage tower via decision
+    - Research System:
+        - Way to unlocking special spells
+    - Early AI mage

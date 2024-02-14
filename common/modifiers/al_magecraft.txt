@@ -1,0 +1,349 @@
+﻿change_topography_bad_2 = {
+	icon = rock_negative 
+	development_growth = -0.4
+	development_growth_factor = -0.2
+	levy_size = -0.2
+}
+change_topography_bad_1 = {
+	icon = rock_negative 
+	development_growth = -0.2
+	development_growth_factor = -0.1
+	levy_size = -0.1
+}
+change_topography_good_1 = {
+	icon = rock_positive
+	development_growth = 0.2
+	development_growth_factor = 0.1
+	levy_size = 0.1
+}
+change_topography_good_2 = {
+	icon = rock_positive 
+	development_growth = 0.4
+	development_growth_factor = 0.2
+	levy_size = 0.2
+}
+devastate_land_1 = {
+	icon = county_modifier_corruption_negative 
+	development_growth = -0.5
+	levy_size = -0.5
+}
+devastate_land_2 = {
+	icon = county_modifier_corruption_negative
+	development_growth = -1
+	levy_size = -0.8
+}
+devastate_land_3 = {
+	icon = county_modifier_corruption_negative 
+	development_growth = -1.5
+	levy_size = -1
+}
+al_pupet_modifier = {
+	icon = health_negative
+	learning = -20
+	stewardship = -10
+	intrigue = -10
+	martial = -5
+	diplomacy = -10
+	health = -0.5
+	
+	stress_gain_mult = -0.75
+	stress_loss_mult = 0.75
+}
+al_calmed_modifier = {
+	icon = stress_positive
+	stress_gain_mult = -0.5
+	stress_loss_mult = 0.5
+}
+al_anger_modifier = {
+	icon = stress_negative
+	
+	stress_gain_mult = 0.5
+	stress_loss_mult = -0.5
+}
+overcharged_mind = {
+	icon = stress_negative
+	
+	stress_gain_mult = 0.5
+	stress_loss_mult = -0.5
+	learning = 2
+	martial = 2
+	diplomacy = 2
+	intrigue = 2
+	stewardship = 2
+	monthly_lifestyle_xp_gain_mult = 0.25
+}
+overcharged_body = {
+	icon = health_negative
+	
+	health = 0.5
+	fertility = 0.5
+	life_expectancy = -10
+
+}
+ritual_improve_intellect_minor = {
+	icon = learning_positive
+	martial = 1
+	diplomacy = 1
+	intrigue = 1
+	stewardship = 1
+	learning = 2
+	monthly_lifestyle_xp_gain_mult = 0.1
+}
+ritual_improve_intellect_normal = {
+	icon = learning_positive
+	martial = 2
+	diplomacy = 2
+	intrigue = 2
+	stewardship = 2
+	learning = 4
+	monthly_lifestyle_xp_gain_mult = 0.2
+}
+ritual_improve_intellect_major = {
+	icon = learning_positive
+	martial = 3
+	diplomacy = 3
+	intrigue = 3
+	stewardship = 3
+	learning = 6
+	monthly_lifestyle_xp_gain_mult = 0.3
+}
+ritual_improve_intellect_supreme = {
+	icon = learning_positive
+	martial = 4
+	diplomacy = 4
+	intrigue = 4
+	stewardship = 4
+	learning = 8
+	monthly_lifestyle_xp_gain_mult = 0.5
+}
+ritual_improve_body_health_minor = {
+	icon = health_positive
+	health = 0.5
+}
+ritual_improve_body_health_normal = {
+	icon = health_positive
+	health = 1
+}
+ritual_improve_body_health_major = {
+	icon = health_positive
+	health = 1.5
+}
+ritual_improve_body_health_supreme = {
+	icon = health_positive
+	health = 2
+}
+ritual_improve_fertility_minor = {
+	icon = fertility_positive
+	fertility = 0.25
+}
+ritual_improve_fertility_normal = {
+	icon = fertility_positive
+	fertility = 0.5
+}
+ritual_improve_fertility_major = {
+	icon = fertility_positive
+	fertility = 0.75
+}
+ritual_improve_fertility_supreme = {
+	icon = fertility_positive
+	fertility = 1
+}
+ritual_improve_body_prowess_minor = {
+	icon = prowess_positive
+	prowess = 4
+	enemy_hostile_scheme_success_chance_add = -2
+}
+ritual_improve_body_prowess_normal = {
+	icon = prowess_positive
+	prowess = 8
+	enemy_hostile_scheme_success_chance_add = -4
+}
+ritual_improve_body_prowess_major = {
+	icon = prowess_positive
+	prowess = 12
+	enemy_hostile_scheme_success_chance_add = -6
+}
+ritual_improve_body_prowess_supreme = {
+	icon = prowess_positive
+	prowess = 16
+	enemy_hostile_scheme_success_chance_add = -8
+}
+
+ritual_accelerate_minor = {
+	icon = magic_positive
+	character_travel_speed_mult = 0.25
+	prowess_no_portrait = 2
+}
+ritual_accelerate_normal = {
+	icon = magic_positive
+	character_travel_speed_mult = 0.5
+	prowess_no_portrait = 4
+}
+ritual_accelerate_major = {
+	icon = magic_positive
+	character_travel_speed_mult = 0.75
+	prowess_no_portrait = 6
+}
+ritual_accelerate_supreme = {
+	icon = magic_positive
+	character_travel_speed_mult = 1
+	prowess_no_portrait = 8
+}
+
+ritual_accelerate_army_minor = {
+	icon = magic_positive
+	movement_speed = 0.25
+	naval_movement_speed_mult = 0.25
+}
+ritual_accelerate_army_normal = {
+	icon = magic_positive
+	movement_speed = 0.5
+	naval_movement_speed_mult = 0.5
+}
+ritual_accelerate_army_major = {
+	icon = magic_positive
+	movement_speed = 0.75
+	naval_movement_speed_mult = 0.75
+}
+ritual_accelerate_army_supreme = {
+	icon = magic_positive
+	movement_speed = 1
+	naval_movement_speed_mult = 1
+}
+
+ritual_improve_army_bodies_minor = {
+	icon = martial_positive
+	maa_damage_mult = 0.1
+	maa_toughness_mult = 0.1
+	maa_pursuit_mult = 0.1
+	maa_screen_mult = 0.1
+}
+ritual_improve_army_bodies_normal = {
+	icon = martial_positive
+	maa_damage_mult = 0.2
+	maa_toughness_mult = 0.2
+	maa_pursuit_mult = 0.2
+	maa_screen_mult = 0.2
+}
+ritual_improve_army_bodies_major = {
+	icon = martial_positive
+	maa_damage_mult = 0.3
+	maa_toughness_mult = 0.3
+	maa_pursuit_mult = 0.3
+	maa_screen_mult = 0.3
+}
+ritual_improve_army_bodies_supreme = {
+	icon = martial_positive
+	maa_damage_mult = 0.4
+	maa_toughness_mult = 0.4
+	maa_pursuit_mult = 0.4
+	maa_screen_mult = 0.4
+}
+
+ritual_telekinesis_minor = {
+	icon = prowess_positive
+	prowess_no_portrait = 6
+	enemy_hostile_scheme_success_chance_add = -3
+}
+ritual_telekinesis_normal = {
+	icon = prowess_positive
+	prowess_no_portrait = 10
+	enemy_hostile_scheme_success_chance_add = -5
+}
+ritual_telekinesis_major = {
+	icon = prowess_positive
+	prowess_no_portrait = 14
+	enemy_hostile_scheme_success_chance_add = -7
+}
+ritual_telekinesis_supreme = {
+	icon = prowess_positive
+	prowess_no_portrait = 18
+	enemy_hostile_scheme_success_chance_add = -9
+}
+ritual_immortality_modifier = {
+	icon = health_positive
+	health = 100
+	stress_gain_mult = 0.25
+	stress_loss_mult = -0.25
+}
+ritual_pyrokineis_minor = {
+	icon = prowess_positive
+	prowess_no_portrait = 6
+	enemy_hostile_scheme_success_chance_add = -3
+}
+ritual_pyrokineis_normal = {
+	icon = prowess_positive
+	prowess_no_portrait = 10
+	enemy_hostile_scheme_success_chance_add = -5
+}
+ritual_pyrokineis_major = {
+	icon = prowess_positive
+	prowess_no_portrait = 14
+	enemy_hostile_scheme_success_chance_add = -7
+}
+ritual_pyrokineis_supreme = {
+	icon = prowess_positive
+	prowess_no_portrait = 18
+	enemy_hostile_scheme_success_chance_add = -9
+}
+
+apocalipse_modifier = {
+	icon = county_modifier_corruption_negative
+	development_growth_factor = -5
+	levy_size = -5
+}
+
+
+minor_meteorite = {
+	icon = county_modifier_corruption_negative
+	development_growth_factor = -0.50
+	levy_size = -0.5
+}
+meteorite = {
+	icon = county_modifier_corruption_negative
+	development_growth_factor = -1
+	levy_size = -1
+}
+major_meteorite = {
+	icon = county_modifier_corruption_negative
+	development_growth_factor = -2
+	levy_size = -2
+}
+
+al_bad_vibes_level_0 = {
+	icon = county_modifier_opinion_positive 
+	spouse_opinion = -75
+}
+al_bad_vibes_level_1 = {
+	icon = county_modifier_opinion_positive
+	liege_opinion = -75
+	vassal_opinion = -75
+}
+al_bad_vibes_level_2 = {
+	icon = county_modifier_opinion_positive 
+	general_opinion = -75
+}
+al_bad_vibes_level_3 = {
+	icon = county_modifier_opinion_positive 
+	county_opinion_add = -75
+}
+
+# utopia_province_modifier = {
+# 	icon = county_modifier_corruption_negative
+# 	tax_mult = 0.5
+# }
+
+# utopia_county_modifier = {
+# 	icon = county_modifier_corruption_negative
+# 	development_growth_factor = 0.5
+# 	travel_danger = -100
+# 	supply_limit = 2000
+# 	fort_level = 20
+# 	defender_holding_advantage = 100
+# 	building_slot_add = 5
+# }
+# non_utopia_county_modifier = {
+# 	icon = county_modifier_corruption_negative
+# 	development_growth_factor = -1
+# 	development_growth = -1
+# }

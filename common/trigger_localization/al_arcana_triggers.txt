@@ -1,0 +1,2 @@
+﻿have_arcana_trigger = { global = have_arcana_trigger_loc }
+have_inspiration_to_research_trigger = { global = have_inspiration_to_research_trigger_loc }

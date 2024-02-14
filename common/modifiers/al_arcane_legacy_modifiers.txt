@@ -1,0 +1,125 @@
+﻿casting_rewriting_spell = {
+	icon = stress_negative
+	martial = -2
+	diplomacy = -2
+	intrigue = -2
+	stewardship = -2
+	stress_gain_mult = 0.25
+	stress_loss_mult = -0.25
+}
+recent_genetic_change = {
+	icon = health_negative
+	health = -1.5
+	martial = -2
+	diplomacy = -2
+	intrigue = -2
+	stewardship = -2
+	learning = -2
+	stress_gain_mult = 0.25
+	stress_loss_mult = -0.25
+}
+teacher_mage = {
+	icon = county_modifier_opinion_positive
+}
+arcane_legacy_modifier = {
+	icon = learning_positive
+}
+great_arcane_loot = {
+	icon = learning_positive
+	learning = 6
+}
+arcane_loot = {
+	icon = learning_positive
+	learning = 4
+}
+small_arcane_loot = {
+	icon = learning_positive
+	learning = 2
+}
+mage_tower_main = {
+    icon = county_modifier_control_positive
+    stewardship = -6
+    martial = -5
+    diplomacy = -4
+    learning = 4
+    
+	enemy_hostile_scheme_success_chance_add = -10
+    health = 1
+    life_expectancy = 5
+}
+huge_arcane_affinity_boost = {
+	icon = magic_positive
+}
+huge_arcane_month_boost = {
+	icon = magic_positive
+}
+arcane_book = {
+	icon = learning_positive
+	monthly_lifestyle_xp_gain_mult = 0.1
+	learning = 2
+}
+al_experiment_arcana_5 = {
+	icon = magic_positive
+}
+al_experiment_arcana_4 = {
+	icon = magic_positive
+}
+al_experiment_arcana_3 = {
+	icon = magic_positive
+}
+al_experiment_arcana_2 = {
+	icon = magic_positive
+}
+al_experiment_arcana_1 = {
+	icon = magic_positive
+}
+apotheosis_house_modifier = {
+	icon = family_positive
+	life_expectancy = 250
+	years_of_fertility = 250
+	health = 2
+	learning = 15
+	martial = 15
+	stewardship = 15
+	intrigue = 15
+	diplomacy = 15
+	dread_baseline_add = 50
+	general_opinion = 25
+}
+al_great_libary_used = {
+	monthly_lifestyle_xp_gain_mult = 0.5
+}
+old_arcane_books = {
+	monthly_lifestyle_xp_gain_mult = 0.25
+}
+al_understood_golem_factory = {
+	monthly_lifestyle_xp_gain_mult = 0.1
+}
+al_semi_understood_golem_factory = {
+	monthly_lifestyle_xp_gain_mult = 0.1
+}
+al_readable_magical_experiments = { monthly_lifestyle_xp_gain_mult = 0.25 }
+al_unreadable_magical_experiments = { al_arcana_ancient_magicus_learning_t_cancel_negative_supply = yes }
+al_readable_magical_papers = { monthly_lifestyle_xp_gain_mult = 0.1 }
+al_unreadable_magical_papers = { al_arcana_ancient_magicus_learning_t_cancel_negative_supply = yes }
+
+
+al_pending_research = { icon = stress_negative stress_gain_mult = 0.5 stress_loss_mult = -0.5 }
+
+apotheosis_ask_health = {
+	icon = health_positive
+	health = 1
+}
+apotheosis_ask_fertility = {
+	icon = fertility_positive
+	fertility = 0.5
+}
+apotheosis_ask_intelect = {
+	icon = learning_positive
+	martial = 2
+	diplomacy = 2
+	intrigue = 2
+	stewardship = 2
+	learning = 4
+	monthly_lifestyle_xp_gain_mult = 0.2
+}

@@ -1,0 +1,36 @@
+﻿vbox = {
+	name = "create_arcane_artifact_widget"
+	layoutpolicy_horizontal = expanding
+	layoutpolicy_vertical = expanding
+	ignoreinvisible = yes
+
+	margin_top = 10
+	spacing = 10
+
+	vbox = {
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		text_label_center = {
+			text = "create_arcane_artifact_widget_label"
+		}
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_content" {
+				vbox = {
+					datamodel = "[DecisionViewWidgetOptionList.GetEntries]"
+					spacing = 6
+
+					item = {
+						UnityDirectionItem = {}
+					}
+				}
+			}
+
+			blockoverride "scrollbox_background_fade" {}
+		}
+	}
+}

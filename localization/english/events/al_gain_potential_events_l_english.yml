@@ -1,0 +1,9 @@
+﻿l_english:
+ al_gain_potential_events.0001.title: "Gain Potential"
+ al_gain_potential_events.0001.desc: "Your current [arcana_affinity|E]: [ROOT.Var('base_arcana_affinity').GetValue|V1]"
+
+ al_gain_potential_events.0001.a: "Reset to 0"
+ al_gain_potential_events.0001.b: "Add 1"
+ al_gain_potential_events.0001.c: "Add 5"
+ al_gain_potential_events.0001.d: "Add 10"
+ al_gain_potential_events.0001.e: "Done"

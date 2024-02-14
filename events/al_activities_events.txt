@@ -1,0 +1,1902 @@
+﻿namespace = al_activities_events 
+al_activities_events.0001 = { # Secret Passage
+    type = activity_event
+    title = al_activities_events.0001.title
+	desc = al_activities_events.0001.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Explore Hidden Passage
+		name = al_activities_events.0001.a
+        stress_impact = {
+            paranoid = 50
+            craven = 35
+            ambitious = -25
+        }
+        hidden_effect = {
+            random_list = {
+                40 = { # tRaP
+                    trigger_event = al_activities_events.0011 # Small Trap
+                }
+                20 = { # Laboratiries
+                    trigger_event = al_activities_events.0021 # Small Laboratory
+                }
+                10 = { # Pedestal with artifact
+                    trigger_event = al_activities_events.0031 # common pedestal
+                }
+                40 = { # dead end
+                    trigger_event = al_activities_events.0041 # Dead End
+                }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0001.b
+	}
+}
+al_activities_events.0011 = { # Secret Passage - Trap
+    type = activity_event
+    title = al_activities_events.0011.title
+	desc = al_activities_events.0011.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = fear
+	}
+    option = { # Try to Dogde risking more damage
+		name = al_activities_events.0011.a
+        duel ={
+            skill = prowess 
+            value = 10
+            10 = { 
+				desc = al_activities_events.0011.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+			}
+            25 = { 
+				desc = al_activities_events.0011.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 1 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0011.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+        }
+	}
+    option = { # Ritural Telekinesis
+		name = al_activities_events.0011.b
+        custom_tooltip = "al_activities_events.0011.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            OR = {
+                has_character_modifier = ritual_telekinesis_minor
+                has_character_modifier = ritual_telekinesis_normal
+                has_character_modifier = ritual_telekinesis_major
+                has_character_modifier = ritual_telekinesis_supreme
+            }
+        }
+	}
+    option = { # Take it in
+		name = al_activities_events.0011.c
+        change_trait_rank = {
+            trait = wounded
+            rank = 1
+            max = 3
+        }
+    }
+}
+al_activities_events.0021 = { # Secret Passage - Lab
+    type = activity_event
+    title = al_activities_events.0021.title
+	desc = al_activities_events.0021.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { 
+		name = al_activities_events.0021.a
+        add_stress = 50
+        duel ={
+            skill = learning 
+            value = 20
+            10 = { # You can understand most of loot
+				desc = al_activities_events.0021.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+                add_arcane_mastery_lifestyle_xp = 3000
+                learn_language = ancient_magicus
+			}
+            25 = { 
+				desc = al_activities_events.0021.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                add_character_modifier = old_arcane_books
+			}
+            25 = { 
+				desc = al_activities_events.0021.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+			}
+        }
+	}
+    option = { # Ingnore
+		name = al_activities_events.0021.b
+        stress_impact = {
+            ambitious = 25
+        }
+    }
+}
+al_activities_events.0031 = { # Secret Passage - common pedestal
+    type = activity_event
+    title = al_activities_events.0031.title
+	desc = al_activities_events.0031.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    artifact = { 
+		target = scope:al_artifact_found
+		position = lower_right_portrait 
+		trigger = { exists = scope:al_artifact_found }
+	}
+    immediate = {
+        create_common_arcane_artifact = yes
+    }
+    option = {
+		name = al_activities_events.0031.a
+        trigger = {
+            learning >= 20
+        }
+        skill = learning
+        scope:al_artifact_found = { set_owner = root }
+	}
+    option = {
+		name = al_activities_events.0031.b
+        scope:al_artifact_found = { set_owner = root }
+        random_list = {
+            50 = {
+                desc = al_activities_events.0031.b.failiure
+                duel ={
+                    skill = prowess 
+                    value = 10
+                    10 = { 
+                        desc = al_activities_events.0031.b.a.critical.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                    }
+                    25 = { 
+                        desc = al_activities_events.0031.b.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -0.5
+                        }
+                        change_trait_rank = {
+                            trait = wounded
+                            rank = 1
+                            max = 3
+                        }
+                    }
+                    25 = { 
+                        desc = al_activities_events.0031.b.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        change_trait_rank = {
+                            trait = wounded
+                            rank = 2
+                            max = 3
+                        }
+                    }
+                }
+            }
+            50 = {
+                desc = al_activities_events.0031.b.succes
+            }
+        }
+	}
+    option = {
+		name = al_activities_events.0031.c
+	}
+}
+al_activities_events.0041 = { # Secret Passage - Dead End
+    type = activity_event
+    title = al_activities_events.0041.title
+	desc = al_activities_events.0041.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = grief
+	}
+    option = {
+		name = al_activities_events.0041.a
+        add_stress = 25
+	}
+}
+######################################################
+al_activities_events.0002 = { # Great Hall
+    type = activity_event
+    title = al_activities_events.0002.title
+	desc = al_activities_events.0002.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Explore The Hall
+		name = al_activities_events.0002.a
+        stress_impact = {
+            paranoid = 50
+            craven = 35
+            ambitious = -25
+        }
+        hidden_effect = {
+            random_list = {
+                40 = { # Hall is purly estetic
+                    trigger_event = al_activities_events.0012 
+                }
+                20 = { # Hall is Great Libary
+                    trigger_event = al_activities_events.0022 
+                }
+                10 = { # Hall is old arcane Nexus
+                    trigger_event = al_activities_events.0032 
+                }
+                40 = { # Hall is Treasure
+                    trigger_event = al_activities_events.0042 
+                }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0002.b
+	}
+}
+al_activities_events.0012 = { # Hall is purly estetic
+    type = activity_event
+    title = al_activities_events.0012.title
+	desc = al_activities_events.0012.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Relax and enjoy surranding
+		name = al_activities_events.0012.a
+        add_stress = -50
+	}
+    option = { # Try to understand and maybe even recreate it later
+        trigger = {
+            learning >= 20
+        }
+        show_as_unavailable = {
+            learning < 20
+        }
+		name = al_activities_events.0012.b
+        add_stress = 25
+        duel ={
+            skill = learning 
+            value = 20
+            10 = { # You manage to understand and you are ready to recreate it in home
+				desc = al_activities_events.0012.b.critical.succes
+				compare_modifier = { value = scope:duel_value }
+                #add_character_modifier = 
+                add_arcane_mastery_lifestyle_xp = 3500
+			}
+            25 = { # You not fully understand what is this but it was fun do think about it
+				desc = al_activities_events.0012.b.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                add_arcane_mastery_lifestyle_xp = 1500
+			}
+            25 = { # You dind't understand anything
+				desc = al_activities_events.0012.b.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+			}
+        }
+	}
+}
+al_activities_events.0022 = { # Great Libary
+    type = activity_event
+    title = al_activities_events.0022.title
+	desc = al_activities_events.0022.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    artifact = { 
+		target = scope:al_artifact_found
+		position = lower_right_portrait 
+		trigger = { exists = scope:al_artifact_found }
+	}
+    immediate = {
+        create_ancient_tome = yes
+    }
+	option = { # Use libary to full extend
+		name = al_activities_events.0022.a
+        trigger = {
+            knows_language = ancient_magicus
+        }
+        add_internal_flag = special
+        add_stress = 10
+        add_character_modifier = { modifier = al_great_libary_used years = 10 }
+        scope:al_artifact_found = { set_owner = root }
+	}
+    option = { # Take book and leave
+		name = al_activities_events.0022.b
+        add_stress = 50
+        scope:al_artifact_found = { set_owner = root }
+	}
+    option = { # Ignore
+		name = al_activities_events.0022.c
+	}
+}
+al_activities_events.0032 = { # Arcane Nexus
+    type = activity_event
+    title = al_activities_events.0032.title
+	desc = al_activities_events.0032.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    option = { # Use and Study
+        name = al_activities_events.0032.a
+        trigger = {
+            learning >= 25
+        }
+        show_as_unavailable = {
+            learning < 25
+        }
+        skill = learning
+        add_stress = 100
+        add_arcane_mastery_lifestyle_xp = 2000
+        duel ={
+            skill = learning 
+            value = 20
+            10 = {
+				desc = al_activities_events.0032.a.succes
+				compare_modifier = { value = scope:duel_value }
+                custom_tooltip = {
+                    text = "al_arcane_nexus_building_flag"
+                    set_variable = al_arcane_nexus_building_flag
+                }
+			}
+            25 = { 
+				desc = al_activities_events.0032.a.fail
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+			}
+        }
+        custom_tooltip = {
+            text = "base_arcana_affinity_add_2"
+            change_variable = {
+                name = base_arcana_affinity
+                add = 2
+            }
+        } 
+    }
+	option = { # Study Arcane Nexus
+		name = al_activities_events.0032.b
+        add_stress = 50
+        add_arcane_mastery_lifestyle_xp = 2000
+
+        duel ={
+            skill = learning 
+            value = 20
+            10 = {
+				desc = al_activities_events.0032.b.succes
+				compare_modifier = { value = scope:duel_value }
+                custom_tooltip = {
+                    text = "al_arcane_nexus_building_flag"
+                    set_variable = al_arcane_nexus_building_flag
+                }
+			}
+            25 = { 
+				desc = al_activities_events.0032.b.fail
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+			}
+        }
+	}
+    option = { # Use Arcane Nexus
+        name = al_activities_events.0032.c
+        custom_tooltip = {
+            text = "base_arcana_affinity_add_2"
+            change_variable = {
+                name = base_arcana_affinity
+                add = 2
+            }
+        } 
+    }
+    option = { # Ignore
+		name = al_activities_events.0032.d
+	}
+}
+al_activities_events.0042 = { # Treasure
+    type = activity_event
+    title = al_activities_events.0042.title
+	desc = al_activities_events.0042.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    immediate = {
+        if = { limit = { NOT = { exists = var:created_artifacts_al } } 
+            create_ancient_tome = yes
+            scope:al_artifact_found = { save_scope_as = al_ancient_tome_found }
+            create_random_arcane_artifact = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_1_found }
+            create_random_arcane_artifact = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_2_found }
+            create_random_arcane_artifact = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_3_found }
+            create_random_arcane_artifact = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_4_found }
+            set_variable = created_artifacts_al
+        }
+    }
+	option = { # Take 1
+		name = al_activities_events.0042.a
+        trigger = { exists = scope:al_ancient_tome_found NOT = { has_variable = al_ancient_tome_found_get } }
+        scope:al_ancient_tome_found = { set_owner = root }
+        set_variable = al_ancient_tome_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0142 }
+                75 = { trigger_event = al_activities_events.0042 }
+            }
+        }
+	}
+	option = { # Take 2
+		name = al_activities_events.0042.b
+        trigger = { exists = scope:al_artifact_1_found NOT = { has_variable = al_artifact_1_found_get } }
+        scope:al_artifact_1_found = { set_owner = root }
+        set_variable = al_artifact_1_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0142 }
+                75 = { trigger_event = al_activities_events.0042 }
+            }
+        }
+	}
+	option = { # Take 3
+		name = al_activities_events.0042.c
+        trigger = { exists = scope:al_artifact_2_found NOT = { has_variable = al_artifact_2_found_get } }
+        scope:al_artifact_2_found = { set_owner = root }
+        set_variable = al_artifact_2_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0142 }
+                75 = { trigger_event = al_activities_events.0042 }
+            }
+        }
+	}
+	option = { # Take 4
+		name = al_activities_events.0042.d
+        trigger = { exists = scope:al_artifact_3_found NOT = { has_variable = al_artifact_3_found_get } }
+        scope:al_artifact_3_found = { set_owner = root }
+        set_variable = al_artifact_3_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0142 }
+                75 = { trigger_event = al_activities_events.0042 }
+            }
+        }
+	}
+	option = { # Take 5
+		name = al_activities_events.0042.e
+        trigger = { exists = scope:al_artifact_4_found NOT = { has_variable = al_artifact_4_found_get } }
+        scope:al_artifact_4_found = { set_owner = root }
+        set_variable = al_artifact_4_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0142 }
+                75 = { trigger_event = al_activities_events.0042 }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0042.f
+        remove_variable = created_artifacts_al
+        hidden_effect = {
+            if = { limit = { has_variable = al_ancient_tome_found_get } remove_variable = al_ancient_tome_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_ancient_tome_found } }
+            if = { limit = { has_variable = al_artifact_1_found_get } remove_variable = al_artifact_1_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_1_found } }
+            if = { limit = { has_variable = al_artifact_2_found_get } remove_variable = al_artifact_2_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_2_found } }
+            if = { limit = { has_variable = al_artifact_3_found_get } remove_variable = al_artifact_3_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_3_found } }
+            if = { limit = { has_variable = al_artifact_4_found_get } remove_variable = al_artifact_4_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_4_found } }
+        }
+	}
+}
+al_activities_events.0142 = { # Treasure - Trap
+    type = activity_event
+    title = al_activities_events.0142.title
+	desc = al_activities_events.0142.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = fear
+	}
+    immediate ={
+        remove_variable = created_artifacts_al
+        if = { limit = { has_variable = al_ancient_tome_found_get } remove_variable = al_ancient_tome_found_get }
+        else = { character:AL_ancient = { destroy_artifact = scope:al_ancient_tome_found } }
+        if = { limit = { has_variable = al_artifact_1_found_get } remove_variable = al_artifact_1_found_get }
+        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_1_found } }
+        if = { limit = { has_variable = al_artifact_2_found_get } remove_variable = al_artifact_2_found_get }
+        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_2_found } }
+        if = { limit = { has_variable = al_artifact_3_found_get } remove_variable = al_artifact_3_found_get }
+        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_3_found } }
+        if = { limit = { has_variable = al_artifact_4_found_get } remove_variable = al_artifact_4_found_get }
+        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_4_found } }
+    }
+    option = { # Try to Dogde risking more damage
+		name = al_activities_events.0142.a
+        duel ={
+            skill = prowess 
+            value = 10
+            10 = { 
+				desc = al_activities_events.0142.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+			}
+            25 = { 
+				desc = al_activities_events.0142.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 1 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0142.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+        }
+	}
+    option = { # Ritural Telekinesis
+		name = al_activities_events.0142.b
+        custom_tooltip = "al_activities_events.0142.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            OR = {
+                has_character_modifier = ritual_telekinesis_minor
+                has_character_modifier = ritual_telekinesis_normal
+                has_character_modifier = ritual_telekinesis_major
+                has_character_modifier = ritual_telekinesis_supreme
+            }
+        }
+	}
+    option = { # Take it in
+		name = al_activities_events.0142.c
+        change_trait_rank = {
+            trait = wounded
+            rank = 1
+            max = 3
+        }
+    }
+}
+######################################################
+al_activities_events.0003 = { # Trap
+    type = activity_event
+    title = al_activities_events.0003.title
+	desc = al_activities_events.0003.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = fear
+	}
+    option = { # Try to Dogde risking more damage
+		name = al_activities_events.0003.a
+        duel ={
+            skill = prowess 
+            value = 10
+            10 = { 
+				desc = al_activities_events.0003.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+			}
+            25 = { 
+				desc = al_activities_events.0003.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 1 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0003.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+        }
+	}
+    option = { # Ritural Telekinesis
+		name = al_activities_events.0003.b
+        custom_tooltip = "al_activities_events.0003.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            OR = {
+                has_character_modifier = ritual_telekinesis_minor
+                has_character_modifier = ritual_telekinesis_normal
+                has_character_modifier = ritual_telekinesis_major
+                has_character_modifier = ritual_telekinesis_supreme
+            }
+        }
+	}
+    option = { # Take it in
+		name = al_activities_events.0003.c
+        change_trait_rank = {
+            trait = wounded
+            rank = 1
+            max = 3
+        }
+    }
+}
+######################################################
+al_activities_events.0004 = { # Ruined Passage?
+    type = activity_event
+    title = al_activities_events.0004.title
+	desc = al_activities_events.0004.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    option = { # Try to remove rocks
+		name = al_activities_events.0004.a
+        add_stress = 25
+        duel = {
+            skill = prowess 
+            value = 10
+            50 = {
+                compare_modifier = { value = scope:duel_value }
+                desc = al_activities_events.0004.a.a
+                hidden_effect = {
+                    random_list = {# On another side is...
+                        25 = { # Semi-Ok Golem Factory
+                            trigger_event = al_activities_events.0014
+                        }
+                        25 = { # Destroyed Gole Factory
+                            trigger_event = al_activities_events.0024
+                        }
+                        25 = { # A lot of junk
+                            trigger_event = al_activities_events.0034
+                        }
+                    }
+                }
+            }
+            50 = {
+                compare_modifier = { value = scope:duel_value multiplier = -1 }
+                desc = al_activities_events.0004.a.b
+                trigger_event = al_activities_events.0044
+            }
+        }
+	}
+    option = { # Back down
+		name = al_activities_events.0004.b
+    }
+}
+al_activities_events.0014 = { # Ruined Passage? - Semi-ok Golem Factory
+    type = activity_event
+    title = al_activities_events.0014.title
+	desc = al_activities_events.0014.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    immediate = {
+        create_character = {
+            template = al_golem_template
+            location = root.location
+            faith = root.faith
+            culture = root.culture
+            save_scope_as = al_golem
+        }
+    }
+    option = { # Try to make sence of machinces
+		name = al_activities_events.0014.a
+        trigger_event = al_activities_events.0114
+	}
+    option = { # Turn on with hope of taking a few of golems with you
+		name = al_activities_events.0014.b
+        
+        random_list = {
+            50 = {
+                show_chance = no
+                desc = al_activities_events.0114.golem
+                add_courtier = scope:al_golem
+                add_hook = { type = pupet target = scope:al_golem }
+                scope:al_golem = { add_opinion = { modifier = al_master target = prev } }
+            }
+            50 = {
+                show_chance = no
+                desc = al_activities_events.0114.nogolem
+                configure_start_single_combat_effect = {
+                    SC_INITIATOR = scope:al_golem
+                    SC_ATTACKER = scope:al_golem
+                    SC_DEFENDER = root
+                    FATALITY = always
+                    FIXED = no
+                    LOCALE = corridor_night
+                    OUTPUT_EVENT = al_activities_events.0214
+                    INVALIDATION_EVENT = al_activities_events.0214
+                }
+            }
+        }
+	}
+    option = { # Take everything that looks made of gold
+		name = al_activities_events.0014.c
+        add_gold = 125
+    }
+}
+al_activities_events.0114 = { # Ruined Passage? - Semi-ok Golem Factory - Try to make...
+    type = activity_event
+    title = al_activities_events.0114.title
+	desc = al_activities_events.0114.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    immediate = {
+        create_character = {
+            template = al_golem_template
+            location = root.location
+            faith = root.faith
+            culture = root.culture
+            save_scope_as = al_golem
+        }
+    }
+    option = { # Turn on machine and look how it works
+		name = al_activities_events.0114.a
+        random_list = {
+            50 = {
+                show_chance = no
+                desc = al_activities_events.0114.golem
+                configure_start_single_combat_effect = {
+                    SC_INITIATOR = scope:al_golem
+                    SC_ATTACKER = scope:al_golem
+                    SC_DEFENDER = root
+                    FATALITY = always
+                    FIXED = no
+                    LOCALE = corridor_night
+                    OUTPUT_EVENT = al_activities_events.0214
+                    INVALIDATION_EVENT = al_activities_events.0214
+                }
+            }
+            50 = {
+                show_chance = no
+                desc = al_activities_events.0114.nogolem
+                duel ={
+                    skill = learning 
+                    value = 20
+                    10 = { 
+                        desc = al_activities_events.0114.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                        add_character_modifier = al_understood_golem_factory
+                        add_arcane_mastery_lifestyle_xp = 6000
+                    }
+                    25 = { 
+                        desc = al_activities_events.0114.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        add_prestige = -125
+                        add_stress = 15
+                    }
+                }
+            }
+        }
+	}
+    option = { # Don't turn on and just try to understand
+		name = al_activities_events.0114.b
+        duel ={
+            skill = learning 
+            value = 40
+            10 = { 
+                desc = al_activities_events.0114.b.succes
+                compare_modifier = {
+                    value = scope:duel_value
+                }
+                add_character_modifier = al_understood_golem_factory
+                add_arcane_mastery_lifestyle_xp = 6000
+            }
+            25 = { 
+                desc = al_activities_events.0114.b.failiure
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1
+                }
+            }
+        }
+	}
+    option = { 
+		name = al_activities_events.0114.c
+        custom_tooltip = "al_activities_events.0114.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            has_perk = al_arcane_mastery_master_arcane_studies
+        }
+        add_character_modifier = al_understood_golem_factory
+        add_arcane_mastery_lifestyle_xp = 4000
+    }
+    option = { # Diconstruct and try to reconsturct
+		name = al_activities_events.0114.d
+        duel ={
+            skill = stewardship 
+            value = 20
+            10 = { 
+                desc = al_activities_events.0114.d.succes
+                compare_modifier = {
+                    value = scope:duel_value
+                }
+                add_character_modifier = al_semi_understood_golem_factory
+                add_arcane_mastery_lifestyle_xp = 3000
+            }
+            25 = { 
+                desc = al_activities_events.0114.d.failiure
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1
+                }
+            }
+        }
+    }
+}
+al_activities_events.0214 = { # Ruined Passage? - Semi-ok Golem Factory - Golem Fight
+    type = activity_event
+    title = al_activities_events.0214.title
+	desc = al_activities_events.0214.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = happiness
+	}
+    option = { 
+		name = al_activities_events.0214.a
+        
+    }
+}
+al_activities_events.0024 = { # Ruined Passage? - Destroyed Golem Factory
+    type = activity_event
+    title = al_activities_events.0024.title
+	desc = al_activities_events.0024.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    option = { # Take what is posible to study
+		name = al_activities_events.0024.a
+        random_list = {
+            25 = { # Huge to study
+                desc = al_activities_events.0024.a.a
+                duel ={
+                    skill = learning 
+                    value = 20
+                    10 = { 
+                        desc = al_activities_events.0114.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                        add_arcane_mastery_lifestyle_xp = 3000
+                    }
+                    25 = { 
+                        desc = al_activities_events.0114.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        add_arcane_mastery_lifestyle_xp = 1000
+                    }
+                }
+            }
+            25 = { # Big to study
+                desc = al_activities_events.0024.a.b
+                duel ={
+                    skill = learning 
+                    value = 20
+                    10 = { 
+                        desc = al_activities_events.0114.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                        add_arcane_mastery_lifestyle_xp = 2000
+                    }
+                    25 = { 
+                        desc = al_activities_events.0114.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        add_arcane_mastery_lifestyle_xp = 500
+                    }
+                }
+            }
+            25 = { # Normal to study
+                desc = al_activities_events.0024.a.c
+                duel ={
+                    skill = learning 
+                    value = 20
+                    10 = { 
+                        desc = al_activities_events.0114.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                        add_arcane_mastery_lifestyle_xp = 1000
+                    }
+                    25 = { 
+                        desc = al_activities_events.0114.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        add_arcane_mastery_lifestyle_xp = 250
+                    }
+                }
+            }
+            25 = { # Nothing to study
+                desc = al_activities_events.0024.a.d
+                add_stress = 25
+            }
+        }
+        
+	}
+    option = { # Take everything to sell
+		name = al_activities_events.0024.b
+        add_gold = 75
+	}
+}
+al_activities_events.0034 = { # Ruined Passage? - Junk
+    type = activity_event
+    title = al_activities_events.0034.title
+	desc = al_activities_events.0034.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = anger
+	}
+    option = { 
+		name = al_activities_events.0034.a
+        add_stress = 25
+    }
+}
+al_activities_events.0044 = { # Ruined Passage? - Fail
+    type = activity_event
+    title = al_activities_events.0044.title
+	desc = al_activities_events.0044.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = anger
+	}
+    option = { 
+		name = al_activities_events.0044.a
+        add_stress = 25
+    }
+}
+######################################################
+al_activities_events.0005 = { # False Wall
+    type = activity_event
+    title = al_activities_events.0005.title
+	desc = al_activities_events.0005.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Explore False Wall
+		name = al_activities_events.0005.a
+        stress_impact = {
+            paranoid = 50
+            craven = 35
+            ambitious = -25
+        }
+        hidden_effect = {
+            random_list = {
+                30 = { # tRaP
+                    trigger_event = al_activities_events.0015 # Trap
+                }
+                20 = { # Libary
+                    trigger_event = al_activities_events.0025 # Libary
+                }
+                20 = { # dead end
+                    trigger_event = al_activities_events.0035 # Dead End
+                }
+                30 = { # Pedestal with artifact
+                    trigger_event = al_activities_events.0045 # Rare/Uncommon pedestal
+                }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0005.b
+	}
+}
+al_activities_events.0015 = { # False Wall - Trap
+    type = activity_event
+    title = al_activities_events.0015.title
+	desc = al_activities_events.0015.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = fear
+	}
+    option = { # Try to Dogde risking more damage
+		name = al_activities_events.0015.a
+        duel ={
+            skill = prowess 
+            value = 10
+            10 = { 
+				desc = al_activities_events.0015.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+                change_trait_rank = { trait = wounded rank = 1 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0015.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0015.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                change_trait_rank = { trait = wounded rank = 3 max = 3 }
+			}
+        }
+	}
+    option = { # Ritural Telekinesis
+		name = al_activities_events.0015.b
+        custom_tooltip = "al_activities_events.0015.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            OR = {
+                has_character_modifier = ritual_telekinesis_minor
+                has_character_modifier = ritual_telekinesis_normal
+                has_character_modifier = ritual_telekinesis_major
+                has_character_modifier = ritual_telekinesis_supreme
+            }
+        }
+	}
+    option = { # Take it in
+		name = al_activities_events.0015.c
+        change_trait_rank = {
+            trait = wounded
+            rank = 2
+            max = 3
+        }
+    }
+}
+al_activities_events.0025 = { # False Wall - Libary
+    type = activity_event
+    title = al_activities_events.0025.title
+	desc = al_activities_events.0025.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Sit down and read
+		name = al_activities_events.0025.a
+        add_stress = 100
+        duel ={
+            skill = learning 
+            value = 20
+            10 = {
+				desc = al_activities_events.0025.a.succes
+				compare_modifier = { value = scope:duel_value }
+                learn_language = ancient_magicus
+			}
+            25 = { 
+				desc = al_activities_events.0025.a.fail
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+			}
+        }
+        if = {
+            limit = {
+                knows_language = ancient_magicus
+            }
+            add_arcane_mastery_lifestyle_xp = 6000
+            unlock_random_special_spell = yes
+        }
+        else = {
+            custom_tooltip = "not_know_ancient_magicus"
+        }
+	}
+    option = { # Ingnore
+		name = al_activities_events.0025.b
+        stress_impact = {
+            ambitious = 25
+        }
+    }
+}
+al_activities_events.0035 = { # False Wall - Dead End
+    type = activity_event
+    title = al_activities_events.0035.title
+	desc = al_activities_events.0035.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = grief
+	}
+    option = {
+		name = al_activities_events.0035.a
+        add_stress = 25
+	}
+}
+al_activities_events.0045 = { # False Wall - Rare/Uncommon pedestal
+    type = activity_event
+    title = al_activities_events.0045.title
+	desc = al_activities_events.0045.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    artifact = { 
+		target = scope:al_artifact_found
+		position = lower_right_portrait 
+		trigger = { exists = scope:al_artifact_found }
+	}
+    immediate = {
+        random_list = {
+            50 = {
+                create_uncommon_arcane_artifact = yes
+            }
+            50 = {
+                create_rare_arcane_artifact = yes
+            }
+        }
+    }
+    option = {
+		name = al_activities_events.0045.a
+        trigger = {
+            learning >= 20
+        }
+        skill = learning
+        scope:al_artifact_found = { set_owner = root }
+	}
+    option = {
+		name = al_activities_events.0045.b
+        scope:al_artifact_found = { set_owner = root }
+        random_list = {
+            50 = {
+                desc = al_activities_events.0045.b.failiure
+                duel ={
+                    skill = prowess 
+                    value = 10
+                    10 = { 
+                        desc = al_activities_events.0045.b.a.critical.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                    }
+                    25 = { 
+                        desc = al_activities_events.0045.b.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -0.5
+                        }
+                        change_trait_rank = {
+                            trait = wounded
+                            rank = 1
+                            max = 3
+                        }
+                    }
+                    25 = { 
+                        desc = al_activities_events.0045.b.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        change_trait_rank = {
+                            trait = wounded
+                            rank = 2
+                            max = 3
+                        }
+                    }
+                }
+            }
+            50 = {
+                desc = al_activities_events.0045.b.succes
+            }
+        }
+	}
+    option = {
+		name = al_activities_events.0045.c
+	}
+}
+######################################################
+al_activities_events.0006 = { # Great Hall
+    type = activity_event
+    title = al_activities_events.0006.title
+	desc = al_activities_events.0006.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Explore The Hall
+		name = al_activities_events.0006.a
+        stress_impact = {
+            paranoid = 50
+            craven = 35
+            ambitious = -25
+        }
+        hidden_effect = {
+            random_list = { # BETTER ITEAM BUT MORE RISK
+                20 = { # Hall is Main office
+                    trigger_event = al_activities_events.0016 
+                }
+                20 = { # Hall is arcane Nexus
+                    trigger_event = al_activities_events.0026
+                }
+                60 = { # Hall is Treasure
+                    trigger_event = al_activities_events.0036
+                }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0006.b
+	}
+}
+al_activities_events.0016 = { # Main office
+    type = activity_event
+    title = al_activities_events.0016.title
+	desc = al_activities_events.0016.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Take everything you can take
+		name = al_activities_events.0016.a
+        add_stress = 75
+        if = { limit = { knows_language = ancient_magicus } add_character_modifier = { modifier = al_readable_magical_experiments years = 10 } }
+        else = { add_character_modifier = { modifier = al_unreadable_magical_experiments years = 10 } }
+	}
+    option = { # Take most of thing you can take
+		name = al_activities_events.0016.b
+        add_stress = 50
+        if = { limit = { knows_language = ancient_magicus } add_character_modifier = { modifier = al_readable_magical_papers years = 5 } }
+        else = { add_character_modifier = { modifier = al_unreadable_magical_papers years = 5 } }
+	}
+    option = { # Relax
+		name = al_activities_events.0016.c
+        add_stress = -50
+	}
+}
+al_activities_events.0026 = { # Arcane Nexus
+    type = activity_event
+    title = al_activities_events.0026.title
+	desc = al_activities_events.0026.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    option = { # Use and Study
+        name = al_activities_events.0026.a
+        trigger = {
+            learning >= 25
+        }
+        show_as_unavailable = {
+            learning < 25
+        }
+        skill = learning
+        add_stress = 100
+        add_arcane_mastery_lifestyle_xp = 4000
+        custom_tooltip = {
+            text = "al_arcane_nexus_building_flag"
+            set_variable = al_arcane_nexus_building_flag
+        }
+        custom_tooltip = {
+            text = "base_arcana_affinity_add_5"
+            change_variable = {
+                name = base_arcana_affinity
+                add = 5
+            }
+        } 
+    }
+	option = { # Study Arcane Nexus
+		name = al_activities_events.0026.b
+        add_stress = 50
+        add_arcane_mastery_lifestyle_xp = 4000
+        custom_tooltip = {
+            text = "al_arcane_nexus_building_flag"
+            set_variable = al_arcane_nexus_building_flag
+        }
+	}
+    option = { # Use Arcane Nexus
+        name = al_activities_events.0026.c
+        custom_tooltip = {
+            text = "base_arcana_affinity_add_5"
+            change_variable = {
+                name = base_arcana_affinity
+                add = 5
+            }
+        } 
+    }
+    option = { # Ignore
+		name = al_activities_events.0026.d
+	}
+}
+al_activities_events.0036 = { # Treasure
+    type = activity_event
+    title = al_activities_events.0036.title
+	desc = al_activities_events.0036.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    immediate = {
+        if = { limit = { NOT = { exists = var:created_artifacts_al } } 
+            create_random_arcane_artifact_super = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_1_found }
+            create_random_arcane_artifact_better = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_2_found }
+            create_random_arcane_artifact_better = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_3_found }
+            create_random_arcane_artifact_better = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_4_found }
+            create_random_arcane_artifact_better = yes
+            scope:al_artifact_found = { save_scope_as = al_artifact_5_found }
+            set_variable = created_artifacts_al
+        }
+    }
+	option = { # Take 1
+		name = al_activities_events.0036.a
+        trigger = { exists = scope:al_artifact_5_found NOT = { has_variable = al_artifact_5_found_get } }
+        scope:al_artifact_5_found = { set_owner = root }
+        set_variable = al_artifact_5_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0136 }
+                75 = { trigger_event = al_activities_events.0036 }
+            }
+        }
+	}
+	option = { # Take 2
+		name = al_activities_events.0036.b
+        trigger = { exists = scope:al_artifact_1_found NOT = { has_variable = al_artifact_1_found_get } }
+        scope:al_artifact_1_found = { set_owner = root }
+        set_variable = al_artifact_1_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0136 }
+                75 = { trigger_event = al_activities_events.0036 }
+            }
+        }
+	}
+	option = { # Take 3
+		name = al_activities_events.0036.c
+        trigger = { exists = scope:al_artifact_2_found NOT = { has_variable = al_artifact_2_found_get } }
+        scope:al_artifact_2_found = { set_owner = root }
+        set_variable = al_artifact_2_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0136 }
+                75 = { trigger_event = al_activities_events.0036 }
+            }
+        }
+	}
+	option = { # Take 4
+		name = al_activities_events.0036.d
+        trigger = { exists = scope:al_artifact_3_found NOT = { has_variable = al_artifact_3_found_get } }
+        scope:al_artifact_3_found = { set_owner = root }
+        set_variable = al_artifact_3_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0136 }
+                75 = { trigger_event = al_activities_events.0036 }
+            }
+        }
+	}
+	option = { # Take 5
+		name = al_activities_events.0036.e
+        trigger = { exists = scope:al_artifact_4_found NOT = { has_variable = al_artifact_4_found_get } }
+        scope:al_artifact_4_found = { set_owner = root }
+        set_variable = al_artifact_4_found_get
+        hidden_effect = {
+            random_list = {
+                25 = { trigger_event = al_activities_events.0136 }
+                75 = { trigger_event = al_activities_events.0036 }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0036.f
+        hidden_effect = {
+            remove_variable = created_artifacts_al
+            if = { limit = { has_variable = al_artifact_1_found_get } remove_variable = al_artifact_1_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_1_found } }
+            if = { limit = { has_variable = al_artifact_2_found_get } remove_variable = al_artifact_2_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_2_found } }
+            if = { limit = { has_variable = al_artifact_3_found_get } remove_variable = al_artifact_3_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_3_found } }
+            if = { limit = { has_variable = al_artifact_4_found_get } remove_variable = al_artifact_4_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_4_found } }
+            if = { limit = { has_variable = al_artifact_5_found_get } remove_variable = al_artifact_5_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_5_found } }
+        }
+	}
+}
+al_activities_events.0136 = { # Treasure - Trap
+    type = activity_event
+    title = al_activities_events.0136.title
+	desc = al_activities_events.0136.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = fear
+	}
+    immediate ={
+        hidden_effect = {
+            remove_variable = created_artifacts_al
+            if = { limit = { has_variable = al_artifact_1_found_get } remove_variable = al_artifact_1_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_1_found } }
+            if = { limit = { has_variable = al_artifact_2_found_get } remove_variable = al_artifact_2_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_2_found } }
+            if = { limit = { has_variable = al_artifact_3_found_get } remove_variable = al_artifact_3_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_3_found } }
+            if = { limit = { has_variable = al_artifact_4_found_get } remove_variable = al_artifact_4_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_4_found } }
+            if = { limit = { has_variable = al_artifact_5_found_get } remove_variable = al_artifact_5_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_5_found } }
+        }
+    }
+    option = { # Try to Dogde risking more damage
+		name = al_activities_events.0136.a
+        duel ={
+            skill = prowess 
+            value = 10
+            10 = { 
+				desc = al_activities_events.0136.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+			}
+            25 = { 
+				desc = al_activities_events.0136.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 1 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0136.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+        }
+	}
+    option = { # Ritural Telekinesis
+		name = al_activities_events.0136.b
+        custom_tooltip = "al_activities_events.0136.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            OR = {
+                has_character_modifier = ritual_telekinesis_minor
+                has_character_modifier = ritual_telekinesis_normal
+                has_character_modifier = ritual_telekinesis_major
+                has_character_modifier = ritual_telekinesis_supreme
+            }
+        }
+	}
+    option = { # Take it in
+		name = al_activities_events.0136.c
+        change_trait_rank = {
+            trait = wounded
+            rank = 1
+            max = 3
+        }
+    }
+}
+######################################################
+al_activities_events.0007 = { # Hole
+    type = activity_event
+    title = al_activities_events.0007.title
+	desc = al_activities_events.0007.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    option = {
+        name = al_activities_events.0007.ritual
+        custom_tooltip = "al_activities_events.0007.ritual.tooltip"
+        add_internal_flag = special
+        trigger = {
+            OR = {
+                has_character_modifier = ritual_telekinesis_major
+                has_character_modifier = ritual_telekinesis_supreme
+            }
+        }
+        hidden_effect = {
+            random_list = {
+                33 = { # Laboratiries
+                    trigger_event = al_activities_events.0017 # Huge Laboratory
+                }
+                33 = { # Pedestal with artifact
+                    trigger_event = al_activities_events.0027 # Rare pedestal
+                }
+                33 = { #Nothing, You stupid idot :D
+                    trigger_event = al_activities_events.0037 # Notinhg
+                }
+            }
+        }
+    }
+	option = { # Jump In
+		name = al_activities_events.0007.a
+        stress_impact = {
+            paranoid = 50
+            craven = 35
+            ambitious = -25
+        }
+        duel ={
+            skill = prowess 
+            value = 10
+            10 = { 
+				desc = al_activities_events.0007.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+                change_trait_rank = { trait = wounded rank = 1 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0007.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0007.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                add_trait = maimed
+                add_trait = one_legged 
+			}
+        }
+        hidden_effect = {
+            random_list = {
+                33 = { # Laboratiries
+                    trigger_event = al_activities_events.0017 # Huge Laboratory
+                }
+                33 = { # Pedestal with artifact
+                    trigger_event = al_activities_events.0027 # Rare pedestal
+                }
+                33 = { #Nothing, You stupid idot :D
+                    trigger_event = al_activities_events.0037 
+                }
+            }
+        }
+	}
+    option = { # Ignore
+		name = al_activities_events.0007.b
+	}
+}
+al_activities_events.0017 = { # Hole - Huge Laboratory
+    type = activity_event
+    title = al_activities_events.0017.title
+	desc = al_activities_events.0017.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { # Take what you can read with you to home
+		name = al_activities_events.0017.a
+        add_stress = 50
+        duel ={
+            skill = learning 
+            value = 20
+            10 = { # You can understand most of loot
+				desc = al_activities_events.0017.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+                add_arcane_mastery_lifestyle_xp = 8000
+			}
+            25 = { # You can understand some of loot
+				desc = al_activities_events.0017.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                add_arcane_mastery_lifestyle_xp = 6000
+			}
+            25 = { # You can bearly ready anything
+				desc = al_activities_events.0017.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                add_arcane_mastery_lifestyle_xp = 4000
+			}
+            10 = { # You can't ready anything
+				desc = al_activities_events.0017.a.critical.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1.5 }
+                add_prestige = -125
+                add_stress = 15
+			}
+        }
+	}
+    option = { # Ingnore
+		name = al_activities_events.0017.b
+        stress_impact = {
+            ambitious = 25
+        }
+    }
+}
+al_activities_events.0027 = { # Hole - Rare pedestal
+    type = activity_event
+    title = al_activities_events.0027.title
+	desc = al_activities_events.0027.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    artifact = { 
+		target = scope:al_artifact_found
+		position = lower_right_portrait 
+		trigger = { exists = scope:al_artifact_found }
+	}
+    immediate = {
+        create_rare_arcane_artifact = yes
+    }
+    option = {
+		name = al_activities_events.0027.a
+        trigger = {
+            learning >= 20
+        }
+        skill = learning
+        scope:al_artifact_found = { set_owner = root }
+	}
+    option = {
+		name = al_activities_events.0027.b
+        scope:al_artifact_found = { set_owner = root }
+        random_list = {
+            50 = {
+                desc = al_activities_events.0027.b.failiure
+                duel ={
+                    skill = prowess 
+                    value = 10
+                    10 = { 
+                        desc = al_activities_events.0027.b.a.critical.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                        }
+                    }
+                    25 = { 
+                        desc = al_activities_events.0027.b.a.succes
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -0.5
+                        }
+                        change_trait_rank = {
+                            trait = wounded
+                            rank = 1
+                            max = 3
+                        }
+                    }
+                    25 = { 
+                        desc = al_activities_events.0027.b.a.failiure
+                        compare_modifier = {
+                            value = scope:duel_value
+                            multiplier = -1
+                        }
+                        change_trait_rank = {
+                            trait = wounded
+                            rank = 2
+                            max = 3
+                        }
+                    }
+                }
+            }
+            50 = {
+                desc = al_activities_events.0027.b.succes
+            }
+        }
+	}
+    option = {
+		name = al_activities_events.0027.c
+	}
+}
+al_activities_events.0037 = { # Hole - Dead End
+    type = activity_event
+    title = al_activities_events.0037.title
+	desc = al_activities_events.0037.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = grief
+	}
+    option = {
+		name = al_activities_events.0037.a
+        add_stress = 25
+	}
+}
+######################################################
+al_activities_events.0008 = { # Secret Rare Passage
+    type = activity_event
+    title = al_activities_events.0008.title
+	desc = al_activities_events.0008.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    trigger = {
+        NOT = { has_global_variable = arhon_staff_get }
+    }
+	option = { # Explore Hidden Passage
+		name = al_activities_events.0008.a
+        stress_impact = {
+            paranoid = 50
+            craven = 35
+            ambitious = -25
+        }
+        trigger_event = al_activities_events.0018
+	}
+    option = { # Ignore
+		name = al_activities_events.0008.b
+	}
+}
+al_activities_events.0018 = { # Secret Rare Passage 2
+    type = activity_event
+    title = al_activities_events.0018.title
+	desc = al_activities_events.0018.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = fear
+	}
+    option = { # Go anyway
+		name = al_activities_events.0018.a
+        duel ={
+            skill = prowess 
+            value = 40
+            10 = { 
+				desc = al_activities_events.0018.a.critical.succes
+				compare_modifier = { value = scope:duel_value }
+			}
+            25 = { 
+				desc = al_activities_events.0018.a.succes
+				compare_modifier = { value = scope:duel_value multiplier = -0.5 }
+                change_trait_rank = { trait = wounded rank = 2 max = 3 }
+			}
+            25 = { 
+				desc = al_activities_events.0018.a.failiure
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                change_trait_rank = {trait = wounded rank = 2 max = 3 }
+                add_trait = maimed
+			}
+        }
+        trigger_event = al_activities_events.0028
+	}
+    option = { # retreat
+		name = al_activities_events.0018.b
+        change_trait_rank = {
+            trait = wounded
+            rank = 1
+            max = 3
+        }
+    }
+}
+al_activities_events.0028 = { # Secret Rare Passage 3
+    type = activity_event
+    title = al_activities_events.0028.title
+	desc = al_activities_events.0028.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    option = {
+		name = al_activities_events.0028.a
+        trigger = {
+            learning > 20
+        }
+        show_as_unavailable = {
+            learning < 20
+        }
+        skill = learning
+        trigger_event = al_activities_events.0038
+    }
+    option = { # retreat
+		name = al_activities_events.0018.b
+        add_stress = 50
+    }
+}
+al_activities_events.0038 = { # Secret Rare Passage 4
+    type = activity_event
+    title = al_activities_events.0038.title
+	desc = al_activities_events.0038.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+	option = { 
+		name = al_activities_events.0038.a
+        custom_tooltip = "al_activities_events.0038.skill.tooltip"
+        add_internal_flag = special
+        trigger = {
+            has_perk = al_arcane_mastery_archmage_arcane_studies
+        }
+        trigger_event = al_activities_events.0048
+    }
+    option = { # retreat
+		name = al_activities_events.0038.b
+        add_stress = 50
+    }
+}
+al_activities_events.0048 = { # Secret Rare Passage 5
+    type = activity_event
+    title = al_activities_events.0048.title
+	desc = al_activities_events.0048.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    left_portrait = {
+		character = scope:host
+		animation = thinking
+	}
+    immediate = {
+        create_arhons_staff_artifact = yes
+        set_global_variable = arhon_staff_get
+    }
+	option = { 
+		name = al_activities_events.0048.a
+        scope:al_artifact_arhons_staff = { set_owner = root }
+	}
+}
+######################################################
+
+######################################################
+al_activities_events.0102 = {
+    type = activity_event
+    title = al_activities_events.0102.title
+	desc = al_activities_events.0102.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    option = {
+		name = al_activities_events.0102.a
+	}
+}
+al_activities_events.0101 = {
+    type = activity_event
+    title = al_activities_events.0101.title
+	desc = al_activities_events.0101.desc
+    theme = hunt_activity
+	override_background = "corridor_night"
+    option = {
+		name = al_activities_events.0101.a
+	}
+}

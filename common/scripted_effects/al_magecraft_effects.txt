@@ -1,0 +1,12 @@
+﻿effect_open_magic_window = {
+	set_variable = {
+		name = show_spells
+		value = 1
+	}
+	trigger_event = { on_action = open_magecraft_window }
+	set_variable = setting # DELETE CONSOLE SPAM
+	if = { limit = { has_variable = setting } }
+}
+unlock_random_special_spell = {
+	
+}

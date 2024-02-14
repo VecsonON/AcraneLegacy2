@@ -1,0 +1,414 @@
+﻿####################### NOVICE #######################
+al_arcane_mastery_novice = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 0 }
+	icon = node_learning
+	effect = {
+		custom_description_no_bullet = { text = add_2_arcane_affinity_desc }
+	}
+	can_be_auto_selected = { always = no }
+}
+
+al_arcane_mastery_novice_arcane_studies = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 1 }
+	icon = node_learning
+	parent = al_arcane_mastery_novice
+	
+	effect = {
+		custom_description_no_bullet = { text = add_5_percent_discount }
+		custom_tooltip = { text = unlock_creaction_arcane_artifacts_desc }
+		custom_description_no_bullet = { text = arcane_studies_perk_desc }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_novice_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 1 1 }
+	icon = node_learning
+	parent = al_arcane_mastery_novice
+	
+	effect = {
+		custom_description_no_bullet = { text = spell_casting_perk_desc }
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_novice_ritual = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 5 1 }
+	icon = node_learning
+	parent = al_arcane_mastery_novice
+	
+	effect = {
+		custom_description_no_bullet = { text = ritual_creating_perk_desc }
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+
+####################### ADEPT #######################
+al_arcane_mastery_adept = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 2 }
+	icon = node_learning
+	parent = al_arcane_mastery_novice_arcane_studies
+	parent = al_arcane_mastery_novice_spell
+	parent = al_arcane_mastery_novice_ritual
+	effect = {
+		custom_description_no_bullet = { text = add_2_arcane_affinity_desc }
+	}
+	can_be_auto_selected = { always = no }
+}
+
+al_arcane_mastery_adept_arcane_studies = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 3 }
+	icon = node_learning
+	parent = al_arcane_mastery_adept
+	
+	effect = {
+		custom_description_no_bullet = { text = add_5_percent_discount }
+		custom_tooltip = { text = better_created_arcane_artifacts_desc }
+		custom_description_no_bullet = { text = arcane_studies_perk_desc }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_adept_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 1 3 }
+	icon = node_learning
+	parent = al_arcane_mastery_adept
+	
+	effect = {
+		custom_description_no_bullet = { text = spell_casting_perk_desc }
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_adept_ritual = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 5 3 }
+	icon = node_learning
+	parent = al_arcane_mastery_adept
+	
+	effect = {
+		custom_description_no_bullet = { text = ritual_creating_perk_desc }
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+
+####################### MASTER #######################
+al_arcane_mastery_master = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 4 }
+	icon = node_learning
+	parent = al_arcane_mastery_adept_ritual
+	parent = al_arcane_mastery_adept_spell
+	parent = al_arcane_mastery_adept_arcane_studies
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 1
+	}
+	effect = {
+		custom_description_no_bullet = { text = add_2_arcane_affinity_desc }
+		custom_tooltip = { text = need_2_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -1
+		}
+	}
+	can_be_auto_selected = { always = no }
+}
+
+al_arcane_mastery_master_arcane_studies = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 2 5 }
+	icon = node_learning
+	parent = al_arcane_mastery_master
+	
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 1
+	}
+	effect = {
+		custom_description_no_bullet = { text = add_5_percent_discount }
+		custom_tooltip = { text = better_created_arcane_artifacts_desc }
+		custom_description_no_bullet = { text = arcane_studies_perk_desc }
+		custom_tooltip = { text = need_2_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -1
+		}
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_master_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 0 5 }
+	icon = node_learning
+	parent = al_arcane_mastery_master
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 1
+	}
+	effect = {
+		custom_description_no_bullet = { text = spell_casting_perk_desc }
+		custom_tooltip = { text = need_2_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -1
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_master_ritual = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 4 5 }
+	icon = node_learning
+	parent = al_arcane_mastery_master
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 1
+	}
+	effect = {
+		custom_description_no_bullet = { text = ritual_creating_perk_desc }
+		custom_tooltip = { text = need_2_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -1
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_master_rewrite_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 6 5 }
+	icon = node_learning
+	parent = al_arcane_mastery_master
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 1
+	}
+	effect = {
+		custom_description_no_bullet = { text = worldweaving_perk_desc }
+		custom_tooltip = { text = need_2_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -1
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+
+####################### ARCHMAGE #######################
+al_arcane_mastery_archmage = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 6 }
+	icon = node_learning
+	parent = al_arcane_mastery_master_rewrite_spell
+	parent = al_arcane_mastery_master_ritual
+	parent = al_arcane_mastery_master_spell
+	parent = al_arcane_mastery_master_arcane_studies
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 2
+	}
+	effect = {
+		custom_description_no_bullet = { text = add_2_arcane_affinity_desc }
+		custom_tooltip = { text = unlock_arcane_inspiraction_decision_desc }
+		custom_tooltip = { text = need_3_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -2
+		}
+	}
+	can_be_auto_selected = { always = no }
+}
+
+al_arcane_mastery_archmage_arcane_studies = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 2 7 }
+	icon = node_learning
+	parent = al_arcane_mastery_archmage
+	
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 2
+	}
+	effect = {
+		custom_description_no_bullet = { text = add_5_percent_discount }
+		custom_tooltip = { text = better_created_arcane_artifacts_desc }
+		custom_description_no_bullet = { text = arcane_studies_perk_desc }
+		custom_tooltip = { text = need_3_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -2
+		}
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_archmage_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 0 7 }
+	icon = node_learning
+	parent = al_arcane_mastery_archmage
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 2
+	}
+	effect = {
+		custom_description_no_bullet = { text = spell_casting_perk_desc }
+		custom_tooltip = { text = need_3_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -2
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_archmage_ritual = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 4 7 }
+	icon = node_learning
+	parent = al_arcane_mastery_archmage
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 2
+	}
+	effect = {
+		custom_description_no_bullet = { text = ritual_creating_perk_desc }
+		custom_tooltip = { text = need_3_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -2
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_archmage_rewrite_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 6 7 }
+	icon = node_learning
+	parent = al_arcane_mastery_archmage
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 2
+	}
+	effect = {
+		custom_description_no_bullet = { text = worldweaving_perk_desc }
+		custom_tooltip = { text = need_3_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -2
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+
+####################### GODLY #######################
+al_arcane_mastery_godly = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 8 }
+	icon = node_learning
+	parent = al_arcane_mastery_archmage_rewrite_spell
+	parent = al_arcane_mastery_archmage_ritual
+	parent = al_arcane_mastery_archmage_spell
+	parent = al_arcane_mastery_archmage_arcane_studies
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 3
+	}
+	effect = {
+		custom_description_no_bullet = { text = add_2_arcane_affinity_desc }
+		custom_tooltip = { text = need_4_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -3
+		}
+	}
+	can_be_auto_selected = { always = no }
+}
+
+al_arcane_mastery_godly_arcane_studies = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 2 9 }
+	icon = ArcanaIcon
+	parent = al_arcane_mastery_godly
+	
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 3
+	}
+	effect = {
+		custom_description_no_bullet = { text = add_10_percent_discount }
+		custom_tooltip = { text = better_created_arcane_artifacts_desc }
+		custom_description_no_bullet = { text = arcane_studies_perk_desc }
+		custom_tooltip = { text = need_4_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -3
+		}
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_godly_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 0 9 }
+	icon = al_spell
+	parent = al_arcane_mastery_godly
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 3
+	}
+	effect = {
+		custom_description_no_bullet = { text = spell_casting_perk_desc }
+		custom_tooltip = { text = need_4_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -3
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_godly_ritual = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 4 9 }
+	icon = al_ritual
+	parent = al_arcane_mastery_godly
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 3
+	}
+	effect = {
+		custom_description_no_bullet = { text = ritual_creating_perk_desc }
+		custom_tooltip = { text = need_4_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -3
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
+al_arcane_mastery_godly_rewrite_spell = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 6 9 }
+	icon = al_spell
+	parent = al_arcane_mastery_godly
+	can_be_picked = {
+		arcane_mastery_lifestyle_perk_points > 3
+	}
+	effect = {
+		custom_description_no_bullet = { text = worldweaving_perk_desc }
+		custom_tooltip = { text = need_4_perk_points }
+		hidden_effect = {
+			add_arcane_mastery_lifestyle_perk_points = -3
+		}
+		trigger_event = { on_action = open_magecraft_window }
+	}
+	can_be_auto_selected = { always = no }
+}
