@@ -9,8 +9,12 @@
  arcane_mastery_name: "Arcane Mastery"
 
 
- arcane_mastery_focus: "Arcane Mastery Focus"
- arcane_mastery_focus_effect_desc: "Focus on Arcane Mastery\n[arcana_affinity|E]: #P +2#!"
+ arcane_mastery_focus: "Arcane Focus"
+ arcane_mastery_focus_effect_desc: "Focus on Arcane\n[arcana_affinity|E]: @arcana_affinity_icon!#P +4#!"
+
+ arcane_mastery_fast_focus: "Arcane Mastery Focus"
+ arcane_mastery_fast_focus_effect_desc: "Focus on Arcane Mastery"
+
 
  rewrite_spell_change_genetics_perk_name: "[rewriting_spell|E]: Change genetics"
 

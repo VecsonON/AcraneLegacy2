@@ -607,14 +607,6 @@ al_research_events.2000 = {
                 has_trait = ambitious
             }
         }
-        show_as_unavailable = {
-            NOT = {
-                OR = {
-                    has_trait = arrogant
-                    has_trait = ambitious
-                }
-            }
-        }
         set_variable = {
             name = al_arcane_inspiration
             value = flag:rewrite_spell_apotheosis
@@ -629,14 +621,6 @@ al_research_events.2000 = {
             OR = {
                 has_trait = diligent
                 has_trait = compassionate
-            }
-        }
-        show_as_unavailable = {
-            NOT = {
-                OR = {
-                    has_trait = diligent
-                    has_trait = compassionate
-                }
             }
         }
         set_variable = {
@@ -655,14 +639,6 @@ al_research_events.2000 = {
                 has_trait = sadistic
             }
         }
-        show_as_unavailable = {
-            NOT = {
-                OR = {
-                    has_trait = callous
-                    has_trait = sadistic
-                }
-            }
-        }
         set_variable = {
             name = al_arcane_inspiration
             value = flag:rewrite_spell_armagedon
@@ -679,18 +655,13 @@ al_research_events.2000 = {
                 has_trait = greedy
             }
         }
-        show_as_unavailable = {
-            NOT = {
-                OR = {
-                    has_trait = al_god
-                    has_trait = greedy
-                }
-            }
-        }
         set_variable = {
             name = al_arcane_inspiration
             value = flag:rewrite_spell_apotheosis
         }
         add_stress = 200
 	}
+    option = {
+        name = al_research_events.2000.a
+    }
 }

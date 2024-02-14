@@ -1,12 +1,15 @@
 ﻿l_english:
+ # HOW?! i was testing mod and here i see duck as setting HOW?!
  spell_wound_name: "Wound"
  spell_wound_-_loc: " "
+ spell_wound_duck_loc: " "
  spell_wound_level_0_loc: "Minor"
  spell_wound_level_1_loc: "Normal"
  spell_wound_level_2_loc: "Major"
 
  spell_heal_name: "Heal"
  spell_heal_-_loc: " "
+ spell_heal_duck_loc: " "
  spell_heal_level_0_loc: "Minor"
  spell_heal_level_1_loc: "Normal"
  spell_heal_level_2_loc: "Major"
@@ -14,6 +17,7 @@
 
  spell_inflict_illness_name: "Inflict Ilness"
  spell_inflict_illness_-_loc: " "
+ spell_inflict_illness_duck_loc: " "
  spell_inflict_illness_level_0_loc: "Minor"
  spell_inflict_illness_level_1_loc: "Normal"
  spell_inflict_illness_level_2_loc: "Major"
@@ -22,6 +26,7 @@
 
  spell_cure_name: "Cure"
  spell_cure_-_loc: " "
+ spell_cure_duck_loc: " "
  spell_cure_level_0_loc: "Cure"
  spell_cure_has_any_illnes: "Target must have atleast one illnes"
 
@@ -30,6 +35,7 @@
 
  spell_change_genetics_beauty_name: "Change genetics: [GetTrait('beauty_good_2').GetName(GetNullCharacter)]"
  spell_change_genetics_beauty_-_loc: " "
+ spell_change_genetics_beauty_duck_loc: " "
  spell_change_genetics_beauty_bad_3_loc: "[GetTrait('beauty_bad_3').GetName(GetNullCharacter)|N]"
  spell_change_genetics_beauty_bad_2_loc: "[GetTrait('beauty_bad_2').GetName(GetNullCharacter)|N]"
  spell_change_genetics_beauty_bad_1_loc: "[GetTrait('beauty_bad_1').GetName(GetNullCharacter)|N]"
@@ -40,6 +46,7 @@
 
  spell_change_genetics_physique_name: "Change genetics: [GetTrait('physique_good_2').GetName(GetNullCharacter)]"
  spell_change_genetics_physique_-_loc: " "
+ spell_change_genetics_physique_duck_loc: " "
  spell_change_genetics_physique_bad_3_loc: "[GetTrait('physique_bad_3').GetName(GetNullCharacter)|N]"
  spell_change_genetics_physique_bad_2_loc: "[GetTrait('physique_bad_2').GetName(GetNullCharacter)|N]"
  spell_change_genetics_physique_bad_1_loc: "[GetTrait('physique_bad_1').GetName(GetNullCharacter)|N]"
@@ -50,6 +57,7 @@
 
  spell_change_genetics_intellect_name: "Change genetics: [GetTrait('intellect_good_2').GetName(GetNullCharacter)]"
  spell_change_genetics_intellect_-_loc: " "
+ spell_change_genetics_intellect_duck_loc: " "
  spell_change_genetics_intellect_bad_3_loc: "[GetTrait('intellect_bad_3').GetName(GetNullCharacter)|N]"
  spell_change_genetics_intellect_bad_2_loc: "[GetTrait('intellect_bad_2').GetName(GetNullCharacter)|N]"
  spell_change_genetics_intellect_bad_1_loc: "[GetTrait('intellect_bad_1').GetName(GetNullCharacter)|N]"
@@ -60,6 +68,7 @@
 
  spell_change_topography_name: "Change Topography"
  spell_change_topography_-_loc: " "
+ spell_change_topography_duck_loc: " "
  spell_change_topography_bad_2_loc: "[GetModifier('change_topography_bad_2').GetNameWithTooltip|N]"
  spell_change_topography_bad_1_loc: "[GetModifier('change_topography_bad_1').GetNameWithTooltip|N]"
  spell_change_topography_level_0_loc: "Clear"
@@ -75,18 +84,21 @@
 
  spell_metal_into_gold_name: "Materia into gold"
  spell_metal_into_gold_-_loc: " "
+ spell_metal_into_gold_duck_loc: " "
  spell_metal_into_gold_level_0_loc: "Minor"
  spell_metal_into_gold_level_1_loc: "Normal"
  spell_metal_into_gold_level_2_loc: "Major"
 
  spell_create_gold_name: "Create Gold"
  spell_create_gold_-_loc: " "
+ spell_create_gold_duck_loc: " "
  spell_create_gold_level_0_loc: "Minor"
  spell_create_gold_level_1_loc: "Normal"
  spell_create_gold_level_2_loc: "Major"
 
  spell_devastate_land_name: "Devastate Land"
  spell_devastate_land_-_loc: " "
+ spell_devastate_land_duck_loc: " "
  spell_devastate_land_level_0_loc: "[GetModifier('devastate_land_1').GetNameWithTooltip|N]"
  spell_devastate_land_level_1_loc: "[GetModifier('devastate_land_2').GetNameWithTooltip|N]"
  spell_devastate_land_level_2_loc: "[GetModifier('devastate_land_3').GetNameWithTooltip|N]"
@@ -97,6 +109,7 @@
 
  spell_domination_name: "Dominate"
  spell_domination_-_loc: " "
+ spell_domination_duck_loc: " "
  spell_domination_level_0_loc: "Suggest"
  spell_domination_level_1_loc: "Influance"
  spell_domination_level_2_loc: "Puppet"
@@ -106,6 +119,7 @@
 
  spell_calm_name: "Calm"
  spell_calm_-_loc: " "
+ spell_calm_duck_loc: " "
  spell_calm_level_0_loc: "Minor"
  spell_calm_level_1_loc: "Normal"
  spell_calm_level_2_loc: "Major"
@@ -115,6 +129,7 @@
 
  spell_anger_name: "Anger"
  spell_anger_-_loc: " "
+ spell_anger_duck_loc: " "
  spell_anger_level_0_loc: "Minor"
  spell_anger_level_1_loc: "Normal"
  spell_anger_level_2_loc: "Major"
@@ -123,6 +138,7 @@
 
  spell_overcharge_mind_name: "Overcharge Mind"
  spell_overcharge_mind_-_loc: " "
+ spell_overcharge_mind_duck_loc: " "
  spell_overcharge_mind_level_0_loc: "Minor"
  spell_overcharge_mind_level_1_loc: "Normal"
  spell_overcharge_mind_level_2_loc: "Major"
@@ -132,6 +148,7 @@
 
  spell_overcharge_body_name: "Overcharge Body"
  spell_overcharge_body_-_loc: " "
+ spell_overcharge_body_duck_loc: " "
  spell_overcharge_body_level_0_loc: "Minor"
  spell_overcharge_body_level_1_loc: "Normal"
  spell_overcharge_body_level_2_loc: "Major"
@@ -140,6 +157,7 @@
 
  spell_bad_vibes_name: "Worsen Opinion"
  spell_bad_vibes_-_loc: " "
+ spell_bad_vibes_duck_loc: " "
  spell_bad_vibes_level_0_loc: "Spouse"
  spell_bad_vibes_level_1_loc: "Liege, Vassal"
  spell_bad_vibes_level_2_loc: "General"
@@ -153,6 +171,7 @@
 
  spell_purify_physique_name: "Purify Physique"
  spell_purify_physique_-_loc: " "
+ spell_purify_physique_duck_loc: " "
  spell_purify_physique_level_0_loc: "None"
  spell_purify_physique_clubfooted_setting_loc: "[GetTrait('clubfooted').GetName(GetNullCharacter)|N]"
  spell_purify_physique_hunchbacked_setting_loc: "[GetTrait('hunchbacked').GetName(GetNullCharacter)|N]"
@@ -168,6 +187,7 @@
 
  spell_fix_flesh_name: "Fix Flesh"
  spell_fix_flesh_-_loc: " "
+ spell_fix_flesh_duck_loc: " "
  spell_fix_flesh_level_0_loc: "None"
  spell_fix_flesh_blind_setting_loc: "[GetTrait('blind').GetName(GetNullCharacter)|N]"
  spell_fix_flesh_eunuch_setting_loc: "[GetTrait('eunuch').GetName(GetNullCharacter)|N]"

@@ -451,7 +451,10 @@ rewrite_spell_genetic_perfection_script = {
 		custom_description_no_bullet = { text = after_casting }
 		show_as_tooltip = {
 			scope:target = {
-				if = { limit = { NOT = { has_trait = genetic_perfection } } add_trait = genetic_perfection }
+				if = { limit = { has_trait = al_homunculus } 
+					remove_trait = al_homunculus
+				}
+				else_if = { limit = { NOT = { has_trait = genetic_perfection } } add_trait = genetic_perfection }
 				else = { add_trait_xp = { trait = genetic_perfection value = 25 } }
 			}
 		}
@@ -533,6 +536,7 @@ rewrite_spell_apotheosis_script = {
 						death = {
 							death_reason = death_disappearance
 						}
+						house = { add_house_modifier = apotheosis_house_modifier }
 					}
 					1 = {
 						show_chance = no
@@ -540,7 +544,6 @@ rewrite_spell_apotheosis_script = {
 						death = {
 							death_reason = death_disappearance
 						}
-						house = { add_house_modifier = apotheosis_house_modifier }
 					}
 				}
 			}
@@ -584,9 +587,9 @@ rewrite_spell_apotheosis_script = {
 			}
 				
 			
-			set_variable = { name = rewriting_cost  value = rewrite_spell_apotheosis_level_0_time_cost }
+			set_variable = { name = rewriting_cost  value = rewrite_spell_apotheosis_level_1_time_cost }
 			set_variable = { name = rewriting_name  value = flag:rewrite_spell_apotheosis_level_1 }
-			trigger_event = { id = magecraft.0001   months = rewrite_spell_apotheosis_level_0_time }
+			trigger_event = { id = magecraft.0001   months = rewrite_spell_apotheosis_level_1_time }
 		}
 	}
 	is_valid  = {
@@ -604,35 +607,117 @@ rewrite_spell_apotheosis_script = {
 		has_perk = al_arcane_mastery_godly_rewrite_spell
 	}
 }
+#rewrite_spell_armagedon
+rewrite_spell_armagedon_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:rewrite_spell_armagedon } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_armagedon_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		show_as_tooltip = {
+			every_county = {
+				custom = custom.every_county
+				add_county_modifier = {
+					modifier = apocalipse_modifier
+				}
+				change_development_level = -100
+			}
+			every_province = { 
+				custom = custom.every_province
+				limit = { is_county_capital = no } 
+				remove_holding = yes 
+			} 
+			every_living_character = {
+				custom = custom.every_living_character
+				limit = { NOT = { this = ROOT } }
+				random_list = {
+					1 = { death = { death_reason = death_brutally_despatched  } }
+					1 = { change_trait_rank = { trait = wounded rank = 3 max = 3 }}
+				}
+			}
+			custom_tooltip = "al_end_world_warring"
+		}
+		set_variable = { name = rewriting_cost  value = rewrite_spell_armagedon_level_0_time_cost }
+		set_variable = { name = rewriting_name  value = flag:rewrite_spell_armagedon_level_0 }
+		trigger_event = { id = magecraft.0001   months = rewrite_spell_armagedon_level_0_time }
+
+
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		has_perk = al_arcane_mastery_godly_rewrite_spell
+	}
+}
 #rewrite_spell_utopia
-# rewrite_spell_utopia_select = {
-# 	effect = {
-# 		clear_variable_list = magecraft_settings
-# 		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
-# 		if = { limit = { exists = flag:rewrite_spell_utopia } } # TO DELETE CONSOLE SPAM...
-# 	}
-# }
-# rewrite_spell_utopia_script = {
-# 	effect = {
-# 		add_character_modifier = {
-# 			modifier = casting_rewriting_spell 
-# 		}
-# 		set_variable = { name = rewriting_target  value = scope:target }
-# 		custom_description_no_bullet = { text = after_casting }
-# 		show_as_tooltip = {
-# 			custom_tooltip = "post_utopia_mechanic"
-# 			custom_tooltip = "post_utopia_mechanic_realm"
-# 			custom_tooltip = "post_utopia_mechanic_other_realm"
-# 		}
-# 		set_variable = { name = rewriting_cost  value = rewrite_spell_utopia_level_0_time_cost }
-# 		set_variable = { name = rewriting_name  value = flag:rewrite_spell_utopia_level_0 }
-# 		trigger_event = { id = magecraft.0001   months = rewrite_spell_utopia_level_0_time }
-# 	}
-# 	is_valid  = {
-# 		NOT = { has_character_modifier = casting_rewriting_spell }
-# 		has_perk = al_arcane_mastery_godly_rewrite_spell
-# 	}
-# }
+rewrite_spell_utopia_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:rewrite_spell_utopia } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_utopia_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				if = { limit = { has_county_modifier = apocalipse_modifier } remove_county_modifier = apocalipse_modifier }
+				else = {
+					add_county_modifier = { modifier = utopia_county_modifier }
+					every_county_province = { add_province_modifier = utopia_province_modifier }
+				}
+			}
+		}
+		set_variable = { name = rewriting_cost  value = rewrite_spell_utopia_level_0_time_cost }
+		set_variable = { name = rewriting_name  value = flag:rewrite_spell_utopia_level_0 }
+		trigger_event = { id = magecraft.0001   months = rewrite_spell_utopia_level_0_time }
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		has_perk = al_arcane_mastery_godly_rewrite_spell
+	}
+}
+#rewrite_spell_create_homunculi
+rewrite_spell_create_homunculi_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:rewrite_spell_create_homunculi } } # TO DELETE CONSOLE SPAM...
+	}
+}
+rewrite_spell_create_homunculi_script = {
+	effect = {
+		add_character_modifier = {
+			modifier = casting_rewriting_spell 
+		}
+		set_variable = { name = rewriting_target  value = scope:target }
+		custom_description_no_bullet = { text = after_casting }
+		show_as_tooltip = {
+			custom_tooltip = "al_create_homunculus"
+			custom_tooltip = "al_create_homunculus_quality"
+		}
+		set_variable = { name = rewriting_cost  value = rewrite_spell_create_homunculi_level_0_time_cost }
+		set_variable = { name = rewriting_name  value = flag:rewrite_spell_create_homunculi_level_0 }
+		trigger_event = { id = magecraft.0001   months = rewrite_spell_create_homunculi_level_0_time }
+		
+	}
+	is_valid  = {
+		NOT = { has_character_modifier = casting_rewriting_spell }
+		has_perk = al_arcane_mastery_master_rewrite_spell
+	}
+}
 # #rewrite_spell_become_magical_vampire
 # rewrite_spell_become_magical_vampire_select = {
 # 	effect = {

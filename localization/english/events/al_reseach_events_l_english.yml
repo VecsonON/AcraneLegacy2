@@ -91,7 +91,7 @@
  unlocked_new_spell: "Unlock New Spell"
  increase_research_chance_by_desc: "#P Increase Research Succes Chance by: $VALUE|0$%#!"
  decrease_research_chance_by_desc: "#N Decrease Research Succes Chance by: $VALUE|0$%#!"
- add_born_arcana_affinity_desc: "born [arcana_affinity|E]:#P  +$VALUE|0$#!"
+ add_born_arcana_affinity_desc: "born [arcana_affinity|E]:#P  @arcana_affinity_icon!+$VALUE|0$#!"
 
  al_research_events.2000.title: "Gain Arcane Inspiraction"
  al_research_events.2000.desc: "Thanks to mine high understanding of arcane I can use my personality to get inspiraction for research"
@@ -99,3 +99,4 @@
  al_research_events.2000.utopia: "Utopia"
  al_research_events.2000.armagedon: "Armagedon"
  al_research_events.2000.genesis: "Genesis"
+ al_research_events.2000.a: "Back"

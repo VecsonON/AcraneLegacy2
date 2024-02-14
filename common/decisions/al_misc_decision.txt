@@ -217,7 +217,7 @@ al_learn_ancient_magicus = {
             skill = learning 
             value = 20
             10 = {
-				desc = al_activities_events.0025.a.succes
+				desc = al_learn_ancient_magicus.succes
 				compare_modifier = { value = scope:duel_value }
 				modifier = {
 					add = 10
@@ -233,7 +233,7 @@ al_learn_ancient_magicus = {
 				if = { limit = { has_character_modifier = al_unreadable_magical_papers } remove_character_modifier = al_unreadable_magical_papers add_character_modifier = { modifier = al_readable_magical_papers years = 10 } }
 			}
             25 = { 
-				desc = al_activities_events.0025.a.fail
+				desc = al_learn_ancient_magicus.fail
 				compare_modifier = { value = scope:duel_value multiplier = -1 }
 			}
         }

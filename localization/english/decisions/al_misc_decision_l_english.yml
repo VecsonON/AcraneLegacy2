@@ -52,6 +52,8 @@
  al_learn_ancient_magicus_tooltip: "It's time to learn"
  al_learn_ancient_magicus_decision_desc: "After getting these books I discovered that there were written in unknown langauge. Maybe i should try to learn it?s"
  al_learn_ancient_magicus_confirm: "Learn Ancient Magicus"
+ al_learn_ancient_magicus.succes: "Succes"
+ al_learn_ancient_magicus.fail: "Failure"
 
  gain_arcane_inspiraction: "Gain Arcane Inspiraction"
  gain_arcane_inspiraction_tooltip: "Use your personality to gain arcane inspiraction"

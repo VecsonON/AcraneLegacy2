@@ -1,6 +1,8 @@
 ﻿l_english:
+ # HOW?! i was testing mod and here i see duck as setting HOW?!
  rewrite_spell_change_genetics_beauty_name: "Change genetics: Beauty"
  rewrite_spell_change_genetics_beauty_-_loc: " "
+ rewrite_spell_change_genetics_beauty_duck_loc: " "
  rewrite_spell_change_genetics_beauty_bad_3_loc: "[GetTrait('beauty_bad_3').GetName(GetNullCharacter)|N]"
  rewrite_spell_change_genetics_beauty_bad_2_loc: "[GetTrait('beauty_bad_2').GetName(GetNullCharacter)|N]"
  rewrite_spell_change_genetics_beauty_bad_1_loc: "[GetTrait('beauty_bad_1').GetName(GetNullCharacter)|N]"
@@ -11,6 +13,7 @@
 
  rewrite_spell_change_genetics_physique_name: "Change genetics: Physique"
  rewrite_spell_change_genetics_physique_-_loc: " "
+ rewrite_spell_change_genetics_physique_duck_loc: " "
  rewrite_spell_change_genetics_physique_bad_3_loc: "[GetTrait('physique_bad_3').GetName(GetNullCharacter)|N]"
  rewrite_spell_change_genetics_physique_bad_2_loc: "[GetTrait('physique_bad_2').GetName(GetNullCharacter)|N]"
  rewrite_spell_change_genetics_physique_bad_1_loc: "[GetTrait('physique_bad_1').GetName(GetNullCharacter)|N]"
@@ -21,6 +24,7 @@
 
  rewrite_spell_change_genetics_intellect_name: "Change genetics: Intellect"
  rewrite_spell_change_genetics_intellect_-_loc: " "
+ rewrite_spell_change_genetics_intellect_duck_loc: " "
  rewrite_spell_change_genetics_intellect_bad_3_loc: "[GetTrait('intellect_bad_3').GetName(GetNullCharacter)|N]"
  rewrite_spell_change_genetics_intellect_bad_2_loc: "[GetTrait('intellect_bad_2').GetName(GetNullCharacter)|N]"
  rewrite_spell_change_genetics_intellect_bad_1_loc: "[GetTrait('intellect_bad_1').GetName(GetNullCharacter)|N]"
@@ -31,12 +35,14 @@
 
  rewrite_spell_apocalipse_name: "Apocalipse"
  rewrite_spell_apocalipse_-_loc: " "
+ rewrite_spell_apocalipse_duck_loc: " "
  rewrite_spell_apocalipse_level_0_loc: "Apocalipse"
 
  apocalipse_modifier: "Post-Apocalipse"
 
  rewrite_spell_spawn_meteorite_name: "Spawn Meteorite"
  rewrite_spell_spawn_meteorite_-_loc: " "
+ rewrite_spell_spawn_meteorite_duck_loc: " "
  rewrite_spell_spawn_meteorite_level_0_loc: "Small Meteorite"
  rewrite_spell_spawn_meteorite_level_1_loc: "Medium Meteorite"
  rewrite_spell_spawn_meteorite_level_2_loc: "Huge Meteorite"
@@ -46,15 +52,49 @@
  meteorite: "Medium Meteorite"
  major_meteorite: "Huge Meteorite"
 
+ rewrite_spell_genetic_perfection_name: "Genetic Perfection"
+ rewrite_spell_genetic_perfection_-_loc: " "
+ rewrite_spell_genetic_perfection_duck_loc: " "
+ rewrite_spell_genetic_perfection_level_0_loc: "Genetic Perfection"
+
  rewrite_spell_genesis_name: "Genesis"
  rewrite_spell_genesis_-_loc: " "
+ rewrite_spell_genesis_duck_loc: " "
  rewrite_spell_genesis_level_0_loc: "Paleo Genesis"
  rewrite_spell_genesis_level_1_loc: "Neo Genesis"
  al_create_child: "Create new character as your child"
 
  rewrite_spell_apotheosis_name: "Apotheosis"
  rewrite_spell_apotheosis_-_loc: " "
+ rewrite_spell_apotheosis_duck_loc: " " # HOW?! i was testing mod and here i see duck as setting HOW?!
  rewrite_spell_apotheosis_level_0_loc: "Path Of World"
  rewrite_spell_apotheosis_level_1_loc: "Path of Soul"
  rewrite_spell_apotheosis.WorldGod.succes: "Succesfuly connected with world"
  rewrite_spell_apotheosis.WorldGod.failure: "Failed to connect with world"
+
+ rewrite_spell_armagedon_name: "Armagedon"
+ rewrite_spell_armagedon_-_loc: " "
+ rewrite_spell_armagedon_duck_loc: " "
+ rewrite_spell_armagedon_level_0_loc: "Destroy Whole World"
+
+ custom.every_living_character: "Every living character"
+ custom.every_province: "Every Province in game"
+ custom.every_county: "Every County in game"
+ 
+ al_end_world_warring: "#R This spell WILL destroy whole world. though you can still play, most of characters will be dead. It will be near imposible to recover from this#!"
+
+ rewrite_spell_utopia_name: "Utopia"
+ rewrite_spell_utopia_-_loc: " "
+ rewrite_spell_utopia_duck_loc: " "
+ rewrite_spell_utopia_level_0_loc: "Create heaven on earth"
+
+
+ rewrite_spell_create_homunculi_name: "Create Homunculi"
+ rewrite_spell_create_homunculi_-_loc: " "
+ rewrite_spell_create_homunculi_duck_loc: " "
+ rewrite_spell_create_homunculi_level_0_loc: "Create Homunculi"
+ al_create_homunculus: "Create new character with trait [GetTrait('al_homunculus').GetName(GetNullCharacter)] at age of 0"
+ al_create_homunculus_quality: "Quality of new life will depend of your [worldweaving|E]. With your current [worldweaving|E] quality of homunculus will be: [GetPlayer.Custom('homunculus_quality')]"
+ homunculus_quality_best: "The best #weak (100 xp in homunculus trait)#!"
+ homunculus_quality_medium: "Medium #weak (50 xp in homunculus trait)#!"
+ homunculus_quality_worst: "The Worst #weak (0 xp in homunculus trait)#!"

@@ -62,3 +62,9 @@ artifact_spell_loc = {
 	text = { localization_key = artifact_spell_loc_has_genesis trigger = { has_variable = spell var:spell = flag:rewrite_spell_genesis } }
 	text = { localization_key = artifact_spell_loc_has_utopia trigger = { has_variable = spell var:spell = flag:rewrite_spell_utopia } }
 }
+homunculus_quality = {
+	type = character
+	text = { localization_key = homunculus_quality_best trigger = { has_perk = al_arcane_mastery_godly_rewrite_spell } }
+	text = { localization_key = homunculus_quality_medium trigger = { has_perk = al_arcane_mastery_archmage_rewrite_spell } }
+	text = { localization_key = homunculus_quality_worst trigger = { has_perk = al_arcane_mastery_master_rewrite_spell } }
+}

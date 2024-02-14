@@ -13,9 +13,18 @@ on_birth_child_magic = {
 	}
 }
 populate_arcana_affinity = {
-	effect = {
-		every_living_character = {
-			give_base_arcana_affinity_game_start_effect = yes
+	trigger = {
+		OR = {
+			NOT = { has_character_flag = arcana_affinity_gain }
+			NOT = { has_character_flag = chosen_potential }
 		}
+	}
+	effect = {
+		give_base_arcana_affinity_game_start_effect = yes
+	}
+}
+on_birthday = {
+	on_actions = {
+		populate_arcana_affinity
 	}
 }

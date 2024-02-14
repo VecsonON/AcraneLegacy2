@@ -87,21 +87,25 @@ apotheosis_house_modifier = {
 	general_opinion = 25
 }
 al_great_libary_used = {
+	icon = learning_positive
 	monthly_lifestyle_xp_gain_mult = 0.5
 }
 old_arcane_books = {
+	icon = learning_positive
 	monthly_lifestyle_xp_gain_mult = 0.25
 }
 al_understood_golem_factory = {
+	icon = learning_positive
 	monthly_lifestyle_xp_gain_mult = 0.1
 }
 al_semi_understood_golem_factory = {
+	icon = learning_positive
 	monthly_lifestyle_xp_gain_mult = 0.1
 }
-al_readable_magical_experiments = { monthly_lifestyle_xp_gain_mult = 0.25 }
-al_unreadable_magical_experiments = { al_arcana_ancient_magicus_learning_t_cancel_negative_supply = yes }
-al_readable_magical_papers = { monthly_lifestyle_xp_gain_mult = 0.1 }
-al_unreadable_magical_papers = { al_arcana_ancient_magicus_learning_t_cancel_negative_supply = yes }
+al_readable_magical_experiments = { icon = learning_positive monthly_lifestyle_xp_gain_mult = 0.25 }
+al_unreadable_magical_experiments = { icon = learning_negative al_arcana_ancient_magicus_learning_t_cancel_negative_supply = yes }
+al_readable_magical_papers = { icon = learning_positive monthly_lifestyle_xp_gain_mult = 0.1 }
+al_unreadable_magical_papers = { icon = learning_negative al_arcana_ancient_magicus_learning_t_cancel_negative_supply = yes }
 
 
 al_pending_research = { icon = stress_negative stress_gain_mult = 0.5 stress_loss_mult = -0.5 }

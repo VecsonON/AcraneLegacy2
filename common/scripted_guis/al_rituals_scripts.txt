@@ -625,3 +625,32 @@ ritual_pyrokineis_script = {
 		} 
 	}
 }
+#ritual_emotionless
+ritual_emotionless_select = {
+	effect = {
+		clear_variable_list = magecraft_settings
+		add_to_variable_list = { name = magecraft_settings target = flag:clear } 
+		add_to_variable_list = { name = magecraft_settings target = flag:level_0 } # REQUIRED
+		if = { limit = { exists = flag:ritual_emotionless } } # TO DELETE CONSOLE SPAM...
+	}
+}
+ritual_emotionless_script = {
+	effect = {
+		if = { limit = { scope:setting = flag:level_0 }
+			hidden_effect = { add_character_modifier = ritual_emotionless_modifier }
+			custom_tooltip  = "ritual_emotionless_level_0_tooltip"
+		}
+		if = { limit = { scope:setting = flag:clear } 	
+			hidden_effect = { remove_character_modifier = ritual_emotionless_modifier }		
+			custom_tooltip  = "ritual_clear"
+		}
+	}
+	is_valid  = {
+		scope:target = ROOT
+		trigger_if = { limit = { scope:setting = flag:clear } }
+		trigger_else = { 
+			NOT = { has_character_modifier = ritual_emotionless_modifier }
+			has_perk = al_arcane_mastery_archmage_ritual
+		}
+	}
+}

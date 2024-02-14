@@ -110,7 +110,8 @@ al_activities_events.0021 = { # Secret Passage - Lab
 				desc = al_activities_events.0021.a.critical.succes
 				compare_modifier = { value = scope:duel_value }
                 add_arcane_mastery_lifestyle_xp = 3000
-                learn_language = ancient_magicus
+                if = { limit = { knows_language = ancient_magicus } add_arcane_mastery_lifestyle_xp = 2000 }
+                else = { learn_language = ancient_magicus }
 			}
             25 = { 
 				desc = al_activities_events.0021.a.succes
@@ -742,6 +743,13 @@ al_activities_events.0014 = { # Ruined Passage? - Semi-ok Golem Factory
     option = { # Take everything that looks made of gold
 		name = al_activities_events.0014.c
         add_gold = 125
+        hidden_effect = {
+            scope:al_golem = {
+                death = {
+                    death_reason = death_disappearance
+                }
+            }
+        }
     }
 }
 al_activities_events.0114 = { # Ruined Passage? - Semi-ok Golem Factory - Try to make...
@@ -828,6 +836,13 @@ al_activities_events.0114 = { # Ruined Passage? - Semi-ok Golem Factory - Try to
                 }
             }
         }
+        hidden_effect = {
+            scope:al_golem = {
+                death = {
+                    death_reason = death_disappearance
+                }
+            }
+        }
 	}
     option = { 
 		name = al_activities_events.0114.c
@@ -838,6 +853,13 @@ al_activities_events.0114 = { # Ruined Passage? - Semi-ok Golem Factory - Try to
         }
         add_character_modifier = al_understood_golem_factory
         add_arcane_mastery_lifestyle_xp = 4000
+        hidden_effect = {
+            scope:al_golem = {
+                death = {
+                    death_reason = death_disappearance
+                }
+            }
+        }
     }
     option = { # Diconstruct and try to reconsturct
 		name = al_activities_events.0114.d
@@ -857,6 +879,13 @@ al_activities_events.0114 = { # Ruined Passage? - Semi-ok Golem Factory - Try to
                 compare_modifier = {
                     value = scope:duel_value
                     multiplier = -1
+                }
+            }
+        }
+        hidden_effect = {
+            scope:al_golem = {
+                death = {
+                    death_reason = death_disappearance
                 }
             }
         }
@@ -1110,7 +1139,8 @@ al_activities_events.0025 = { # False Wall - Libary
             10 = {
 				desc = al_activities_events.0025.a.succes
 				compare_modifier = { value = scope:duel_value }
-                learn_language = ancient_magicus
+                if = { limit = { knows_language = ancient_magicus }  }
+                else = { learn_language = ancient_magicus }
 			}
             25 = { 
 				desc = al_activities_events.0025.a.fail
@@ -1122,7 +1152,6 @@ al_activities_events.0025 = { # False Wall - Libary
                 knows_language = ancient_magicus
             }
             add_arcane_mastery_lifestyle_xp = 6000
-            unlock_random_special_spell = yes
         }
         else = {
             custom_tooltip = "not_know_ancient_magicus"

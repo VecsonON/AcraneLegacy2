@@ -254,11 +254,15 @@ ritual_telekinesis_major = {
 	icon = prowess_positive
 	prowess_no_portrait = 14
 	enemy_hostile_scheme_success_chance_add = -7
+	siege_phase_time = -0.2
+	advantage = 1
 }
 ritual_telekinesis_supreme = {
 	icon = prowess_positive
 	prowess_no_portrait = 18
 	enemy_hostile_scheme_success_chance_add = -9
+	siege_phase_time = -0.4
+	advantage = 2
 }
 ritual_immortality_modifier = {
 	icon = health_positive
@@ -275,20 +279,28 @@ ritual_pyrokineis_normal = {
 	icon = prowess_positive
 	prowess_no_portrait = 10
 	enemy_hostile_scheme_success_chance_add = -5
+	advantage = 1
 }
 ritual_pyrokineis_major = {
 	icon = prowess_positive
 	prowess_no_portrait = 14
 	enemy_hostile_scheme_success_chance_add = -7
+	advantage = 2
 }
 ritual_pyrokineis_supreme = {
 	icon = prowess_positive
 	prowess_no_portrait = 18
 	enemy_hostile_scheme_success_chance_add = -9
+	advantage = 4
 }
 
 apocalipse_modifier = {
 	icon = county_modifier_corruption_negative
+	travel_danger = 100
+	build_speed = 0.5
+	build_gold_cost = 1
+	build_piety_cost = 1
+	build_prestige_cost = 1
 	development_growth_factor = -5
 	levy_size = -5
 }
@@ -327,23 +339,22 @@ al_bad_vibes_level_3 = {
 	icon = county_modifier_opinion_positive 
 	county_opinion_add = -75
 }
+ritual_emotionless_modifier = {
+	icon = stress_positive
+	stress_gain_mult = -5
+	stress_loss_mult = 5
+}
+utopia_province_modifier = {
+	icon = county_modifier_corruption_negative
+	tax_mult = 0.5
+}
 
-# utopia_province_modifier = {
-# 	icon = county_modifier_corruption_negative
-# 	tax_mult = 0.5
-# }
-
-# utopia_county_modifier = {
-# 	icon = county_modifier_corruption_negative
-# 	development_growth_factor = 0.5
-# 	travel_danger = -100
-# 	supply_limit = 2000
-# 	fort_level = 20
-# 	defender_holding_advantage = 100
-# 	building_slot_add = 5
-# }
-# non_utopia_county_modifier = {
-# 	icon = county_modifier_corruption_negative
-# 	development_growth_factor = -1
-# 	development_growth = -1
-# }
+utopia_county_modifier = {
+	icon = county_modifier_corruption_negative
+	development_growth_factor = 0.5
+	travel_danger = -100
+	supply_limit = 2000
+	fort_level = 20
+	defender_holding_advantage = 100
+	building_slot_add = 5
+}

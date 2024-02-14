@@ -6,6 +6,7 @@ give_base_arcana_affinity = { #effect used for inheriting arcana affinity
 		name = temp_base_arcana_affinity_value
 		value = 0
 	}
+	add_character_flag = arcana_affinity_gain
 	
 	if = { #Checks if arcana affinity should be inherited
 		limit = {
@@ -136,7 +137,7 @@ give_base_arcana_affinity_game_start_effect = { #Only called on game start
 		name = temp_base_arcana_affinity_value
 		value = 0
 	}
-	
+	add_character_flag = arcana_affinity_gain
 	if = { #Based on rules that give player arcana affinity
 		limit = {
 			is_ai = no

@@ -464,7 +464,10 @@ magecraft.0001 = {
 		trigger = { var:rewriting_name = flag:rewrite_spell_genetic_perfection_level_0 }
 		
 		var:rewriting_target = {
-			if = { limit = { NOT = { has_trait = genetic_perfection } } add_trait = genetic_perfection }
+			if = { limit = { has_trait = al_homunculus } 
+				remove_trait = al_homunculus
+			}
+			else_if = { limit = { NOT = { has_trait = genetic_perfection } } add_trait = genetic_perfection }
 			else = { add_trait_xp = { trait = genetic_perfection value = 25 } }
 		}
 		remove_variable = rewriting_cost
@@ -552,52 +555,76 @@ magecraft.0001 = {
 		remove_variable = rewriting_target
 		remove_character_modifier = casting_rewriting_spell
 	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_armagedon_level_0 }
+		every_county = {
+			custom = custom.every_county
+			add_county_modifier = {
+				modifier = apocalipse_modifier
+			}
+			if = { limit = { has_county_modifier = utopia_county_modifier } remove_county_modifier = utopia_county_modifier }
+			change_development_level = -100
+		}
+		every_province = { 
+			custom = custom.every_province
+			limit = { is_county_capital = no } 
+			remove_holding = yes 
+			if = { limit = { has_province_modifier = utopia_province_modifier } remove_province_modifier = utopia_province_modifier }
+		} 
+		every_living_character = {
+			custom = custom.every_living_character
+			limit = { NOT = { this = ROOT } }
+			random_list = {
+				1 = { death = { death_reason = death_brutally_despatched  } }
+				1 = { change_trait_rank = { trait = wounded rank = 3 max = 3 }}
+			}
+		}
+		custom_tooltip = "al_end_world_warring"
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_utopia_level_0 }
+		every_sub_realm_county = {
+			if = { limit = { has_county_modifier = apocalipse_modifier }  remove_county_modifier = apocalipse_modifier } 
+			else = { 
+				add_county_modifier = { modifier = utopia_county_modifier }
+				every_county_province = { add_province_modifier = utopia_province_modifier }
+			}
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
+	option = {
+		name = magecraft.0001.a
+		trigger = { var:rewriting_name = flag:rewrite_spell_create_homunculi_level_0 }
+		hidden_effect = {
+			create_character = {
+				template = al_homunculus_child_template
+				location = root.location
+				faith = root.faith
+				culture = root.culture
+				save_scope_as = homunculus_child
+			}
+			trigger_event = magecraft.0121
+			if = { limit = { has_perk = al_arcane_mastery_godly_rewrite_spell } scope:homunculus_child = { add_trait_xp = { trait = al_homunculus value = 100 } } }
+			else_if = { limit = { has_perk = al_arcane_mastery_archmage_rewrite_spell } scope:homunculus_child = { add_trait_xp = { trait = al_homunculus value = 50 } } }
+			scope:homunculus_child = {
+				give_base_arcana_affinity_game_start_effect = yes
+			}
+		}
+		remove_variable = rewriting_cost
+		remove_variable = rewriting_name
+		remove_variable = rewriting_target
+		remove_character_modifier = casting_rewriting_spell
+	}
 	# TODO:
-	# option = {
-	# 	name = magecraft.0001.a
-	# 	trigger = { var:rewriting_name = flag:rewrite_spell_utopia_level_0 }
-		
-	# 	var:rewriting_target = {
-	# 		custom_tooltip = {
-	# 			text = "post_utopia_mechanic"
-	# 		}
-	# 		custom_tooltip = {
-	# 			text = "post_utopia_mechanic_realm"
-	# 			every_realm_province = {
-	# 				add_province_modifier = utopia_province_modifier
-	# 				remove_province_modifier = non_utopia_province_modifier
-	# 			}
-	# 			every_sub_realm_county = {
-	# 				add_county_modifier = utopia_county_modifier
-	# 				remove_county_modifier = non_utopia_county_modifier
-	# 				change_development_level = -10
-	# 			}
-	# 		}
-	# 		custom_tooltip = {
-	# 			text = "post_utopia_mechanic_other_realm"
-	# 			every_county = {
-	# 				limit = { NOT = { has_province_modifier = utopia_county_modifier } add_province_modifier = non_utopia_county_modifier }
-	# 			}
-	# 		}
-	# 	}
-	# 	remove_variable = rewriting_cost
-	# 	remove_variable = rewriting_name
-	# 	remove_variable = rewriting_target
-	# 	remove_character_modifier = casting_rewriting_spell
-	# }
-	# option = {
-	# 	name = magecraft.0001.a
-	# 	trigger = { var:rewriting_name = flag:rewrite_spell_become_magical_vampire_level_0 }
-		
-	# 	var:rewriting_target = {
-	# 		add_trait = magical_vampire
-	# 		add_trait_xp = { trait = magical_vampire value = 100 }
-	# 	}
-	# 	remove_variable = rewriting_cost
-	# 	remove_variable = rewriting_name
-	# 	remove_variable = rewriting_target
-	# 	remove_character_modifier = casting_rewriting_spell
-	# }
 	# option = {
 	# 	name = magecraft.0001.a
 	# 	trigger = { var:rewriting_name = flag:rewrite_spell_become_magical_vampire_level_1 }
@@ -767,6 +794,35 @@ magecraft.0120 = {
 	option = {
 		name = magecraft.0120.b
 		scope:god_child = { death = { death_reason = death_vanished } }
+	}
+}
+magecraft.0121 = {
+	type = character_event
+	title = magecraft.0121.title
+	desc = magecraft.0121.desc
+	theme = secret
+	left_portrait = root
+	right_portrait = scope:homunculus_child
+
+	widgets = {
+		widget = {
+			gui = "event_window_widget_name_child"
+			container = "dynamic_birth_name"
+			controller = name_character
+			setup_scope = { scope:homunculus_child = { save_scope_as = name_character_target } }
+		}
+	}
+	option = {
+		name = magecraft.0121.a
+		add_hook = {
+			type = pupet
+			target = scope:homunculus_child
+		}
+		add_courtier = scope:homunculus_child
+	}
+	option = {
+		name = magecraft.0121.b
+		scope:homunculus_child = { death = { death_reason = death_vanished } }
 	}
 }
 magecraft.0101 = {

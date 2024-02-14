@@ -40,7 +40,7 @@
  mage_tower_main_desc: "This character chooses to stay whole day in their's mage tower"
 
  huge_arcane_affinity_boost: "Huge [arcana_affinity|E] boost"
- huge_arcane_affinity_boost_desc: "[arcana_affinity|E]: #P +8#!"
+ huge_arcane_affinity_boost_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +8#!"
 
  huge_arcane_month_boost: "Huse [arcana|E] per month boost"
- huge_arcane_month_boost_desc: "[arcana|E] per month: #P +5#!"
+ huge_arcane_month_boost_desc: "[arcana|E] per month: @arcana_icon!#P +5#!"

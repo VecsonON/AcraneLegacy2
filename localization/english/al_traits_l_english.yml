@@ -27,7 +27,7 @@
  trait_al_god_desc:0 "#G This character's body is emboiment of their's soul and is compoesed fully by arcana#!"
  trait_al_god_character_desc:0 "[ROOT.GetCharacter.GetFirstName]'s body is emboiment of their's soul and is compoesed fully by arcana"
  TRAIT_FLAG_DESC_arcana_affinity_add_100: "[arcana_affinity|E]: @arcana_affinity_icon!#P +100#!"
- TRAIT_FLAG_DESC_al_god_children: "#weak Cannot have children through normal means. Only way to have child is to use 'Genesis' Rewrite spell found through research #!"
+ TRAIT_FLAG_DESC_al_god_children: "#i Cannot have children through normal means. Only way to have child is to use 'Genesis' Rewrite spell found through research #!"
 
  trait_al_ancient:0 "#B The Ancient#!"
  trait_al_ancient_desc:0 "This character is ancient mage of old era. Theirs power exels everyone before and after their's birth. If there is god somewhere this character is the closes to be one. But this character is only a legend... or is he?"
@@ -40,6 +40,8 @@
  trait_al_homunculus:0 "Homunculus"
  trait_al_homunculus_desc:0 "This character is human created by arcane means. If Homunculus is of poor quality they cannot have children..."
  trait_al_homunculus_character_desc:0 "[ROOT.GetCharacter.GetFirstName] is human created by arcane means. If Homunculus is of poor quality they cannot have children..."
+ trait_track_al_homunculus_track:0 "Quality of Homunculus"
+ trait_track_al_homunculus_track_desc:0 "Quality of Homunculus"
 
  trait_al_perfect_human:0 "Perfect Human"
  trait_al_perfect_human_desc:0 "Perfect Humans are species of highly improved human to point where they cannot be call just human."

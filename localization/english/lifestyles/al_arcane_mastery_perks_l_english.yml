@@ -27,6 +27,8 @@
  al_arcane_mastery_godly_ritual_name:0 "[ritual_creating|E]: The Ritualist" 
  al_arcane_mastery_godly_rewrite_spell_name:0 "[worldweaving|E]: The Worldweaver"
 
+ al_arcane_mastery_reperk_name: "[arcane_mastery_lifestyle|E] Reperk"
+
  arcane_studies_perk_desc: "\nDeepen your arcane knowladge. accelerating your development in arcane."
  spell_casting_perk_desc: "Learn new spells and unlock new posibilities with old ones."
  ritual_creating_perk_desc: "Learn new ritual and unlock new posibilities with old ones"

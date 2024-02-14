@@ -412,3 +412,15 @@ al_arcane_mastery_godly_rewrite_spell = {
 	}
 	can_be_auto_selected = { always = no }
 }
+
+al_arcane_mastery_reperk = {
+	lifestyle = arcane_mastery_lifestyle
+	tree = arcane_mastery
+	position = { 3 10 }
+	icon = ArcanaIcon
+	effect = {
+		hidden_effect = {
+			remove_perk = al_arcane_mastery_reperk
+		}
+	}
+}

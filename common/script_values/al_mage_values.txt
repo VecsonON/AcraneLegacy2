@@ -43,7 +43,7 @@ arcana_affinity = {
 	value = { value = arcana_affinity_base desc = arcana_affinity_base_desc format = "affinity_gain_format" }
 	if = { limit = { has_trait = mage } add = { value = mage_arcana_bonus desc = mage_arcana_bonus_desc format = "affinity_gain_format" } }
 	if = { limit = { has_trait = al_god } add = { value = 100 desc = al_god_value_desc format = "affinity_gain_format" } }
-	if = { limit = { has_focus = arcane_mastery_focus } add = { value = 2 desc = arcane_mastery_focus_value_desc format = "affinity_gain_format" } }
+	if = { limit = { has_focus = arcane_mastery_focus } add = { value = 4 desc = arcane_mastery_focus_value_desc format = "affinity_gain_format" } }
 
 	if = { limit = { has_perk = al_arcane_mastery_novice } add = { value = 2 desc = al_arcane_mastery_novice_desc format = "affinity_gain_format" } }
 	if = { limit = { has_perk = al_arcane_mastery_adept } add = { value = 2 desc = al_arcane_mastery_adept_desc format = "affinity_gain_format" } }
@@ -183,6 +183,8 @@ arcana_upkeep = {
 	if = { limit = { has_character_modifier = ritual_pyrokineis_normal } add = { value = ritual_pyrokineis_level_1_time_cost desc = ritual_pyrokineis_level_1_cost_desc format = "magecraft_upkeep_format" } }
 	if = { limit = { has_character_modifier = ritual_pyrokineis_major } add = { value = ritual_pyrokineis_level_2_time_cost desc = ritual_pyrokineis_level_2_cost_desc format = "magecraft_upkeep_format" } }
 	if = { limit = { has_character_modifier = ritual_pyrokineis_supreme } add = { value = ritual_pyrokineis_level_3_time_cost desc = ritual_pyrokineis_level_3_cost_desc format = "magecraft_upkeep_format" } }
+	
+	if = { limit = { has_character_modifier = ritual_emotionless_modifier } add = { value = ritual_emotionless_level_0_time_cost desc = ritual_emotionless_level_0_time_cost_desc format = "magecraft_upkeep_format" } }
 }
 arcana_change = {
 	value = arcana_regen

@@ -62,5 +62,6 @@ al_gain_potential_events.0001 = {
 	option = {
 		name = al_gain_potential_events.0001.e
 		add_character_flag = chosen_potential
+		add_character_flag = arcana_affinity_gain
 	}
 }

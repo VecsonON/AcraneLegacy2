@@ -153,6 +153,7 @@ open_magecraft_window = {
 			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_change_genetics_beauty }
 			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_change_genetics_physique }
 			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_change_genetics_intellect }
+			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_create_homunculi }
 		}
 		####################### ARCHMAGE #######################
 		if = { limit = { has_perk = al_arcane_mastery_archmage_spell } 
@@ -160,6 +161,7 @@ open_magecraft_window = {
 		if = { limit = { has_perk = al_arcane_mastery_archmage_ritual } 
 			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_improve_army_bodies }
 			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_immortality }
+			add_to_variable_list = { name = ritual_tab_list target = flag:ritual_emotionless }
 		}
 		if = { limit = { has_perk = al_arcane_mastery_archmage_rewrite_spell } 
 			add_to_variable_list = { name = rewrite_spell_tab_list target = flag:rewrite_spell_spawn_meteorite }

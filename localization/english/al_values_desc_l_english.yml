@@ -78,6 +78,8 @@
  ritual_pyrokineis_level_2_cost_desc: "[GetModifier('ritual_pyrokineis_major').GetName]"
  ritual_pyrokineis_level_3_cost_desc: "[GetModifier('ritual_pyrokineis_supreme').GetName]"
 
+ ritual_emotionless_level_0_time_cost_desc: "[GetModifier('ritual_emotionless_modifier').GetName]"
+
 
  magecraft_legacy_1_value_desc: "[GetDynastyPerk('magecraft_legacy_1').GetName]"
  magecraft_legacy_3_value_desc: "[GetDynastyPerk('magecraft_legacy_3').GetName]"

@@ -53,6 +53,10 @@ request_magecraft_teaching_interaction = {
 		flag = hook
 		localization = SCHEME_HOOK
 	}
+	send_option = {
+		flag = gold
+		localization = SCHEME_PAY_GOLD
+	}
 	should_use_extra_icon = { scope:actor = { has_usable_hook = scope:recipient } }
 	scheme = magecraft_learn_scheme
 	on_accept = {
@@ -66,8 +70,8 @@ request_magecraft_teaching_interaction = {
 				}
 			}
 		}
-		scope:actor = { add_stress = 50 }
-		scope:recipient = { add_stress = 50 }
+		scope:actor = { pay_reserved_gold = { target = scope:recipient gold = 100 } add_stress = 50 }
+		scope:recipient = { add_stress = 25 }
 	}
 	on_decline = {
 		hidden_effect = {
@@ -81,12 +85,12 @@ request_magecraft_teaching_interaction = {
 		}
 	}
 	ai_accept = {
-		base = -50
+		base = -100
 		
 		opinion_modifier = { # Opinion Factor
 			who = scope:recipient
 			opinion_target = scope:actor
-			multiplier = 1
+			multiplier = 0.75
 			desc = AI_OPINION_REASON
 		}
 		modifier = {
@@ -113,6 +117,11 @@ request_magecraft_teaching_interaction = {
 			scope:hook = yes
 			add = 50
 			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = { # Use GOLD
+			scope:gold = yes
+			add = 50
+			desc = SCHEME_PAYED_GOLD
 		}
 		modifier = { # Same language
 			add = 5
@@ -301,6 +310,46 @@ request_magecraft_teaching_interaction = {
 			}
 		}
 	}
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_targets = {
+		ai_recipients = liege
+	}
+	ai_targets = {
+		ai_recipients = head_of_faith
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		max = 10
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	
+	ai_frequency = 24
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = -25
+
+		modifier = {
+			has_trait = ambitious
+			add = 30
+		}
+		opinion_modifier = {
+			opinion_target = scope:recipient
+			multiplier = 0.25
+		}
+	}	
 	ai_max_reply_days = 5
 	ai_min_reply_days = 1
 
@@ -400,6 +449,29 @@ magecraft_teaching_interaction = {
 		}
 
 	}
+	ai_potential = {
+		always = yes
+	}
+	ai_frequency = 24
+	ai_targets = {
+		ai_recipients = family
+	}
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_will_do = {
+		base = -50
+
+		modifier = {
+			scope:recipient = { is_heir_of = scope:actor }
+			add = 100
+		}
+		opinion_modifier = {
+			opinion_target = scope:recipient
+			multiplier = 0.25
+		}
+
+	}
 }
 show_arcana_affinity = {
 	icon = arcana
@@ -421,10 +493,253 @@ teach_arcane_understanding_interaction = {
 		scope:actor = { has_trait = mage }
 		scope:recipient = { has_trait = mage }
 		NOT = { scope:actor = scope:recipient }
+		
+	}
+	is_highlighted = {
+		scope:recipient = { is_heir_of = scope:actor }
 	}
 	on_accept = {
 		scope:actor = { add_stress = 75 add_arcane_mastery_lifestyle_xp = 100 }
 		scope:recipient = { add_stress = 25 add_arcane_mastery_lifestyle_xp = 750 }
 	}
 	cooldown = { years = 5 }
+}
+experiment_on_prisoner = {
+	icon = arcana
+	category = interaction_category_prison
+	desc = experiment_on_prisoner_desc
+	auto_accept = yes
+	common_interaction = yes
+	is_shown = {
+		scope:actor = { is_adult = yes has_trait = mage }
+		scope:recipient = {
+			is_adult = yes
+			is_imprisoned_by = scope:actor
+		}
+	}
+	is_highlighted = {
+		OR = {
+			scope:actor = { has_trait = sadistic }
+			scope:actor = { has_trait = ambitious }
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			custom_description = {
+				text = "currently_being_tortured"
+				NOT = { has_character_flag = is_being_tortured }
+			}
+			
+		}
+		cannot_release_former_regent_whilst_old_regent_holds_power_trigger = {
+			PRISONER = scope:recipient
+			REGENT = scope:recipient.var:imprisoned_by_diarch
+		}
+	}
+	on_accept = {
+		scope:recipient = {
+			add_character_flag = {
+				flag = is_being_tortured
+				months = 6 # Players in MP can keep the event window open...
+			}
+			add_character_modifier = {
+				modifier = recently_tortured
+				years = 5
+			}
+			if = {
+				limit = {
+					NOR = {
+						has_trait = craven
+						has_trait = brave
+					}
+				}
+				add_stress = massive_stress_impact_gain
+			}
+			else = {
+				stress_impact = {
+					craven = monumental_stress_gain
+					brave = medium_stress_impact_gain
+				}
+			}
+		}
+		#Stress loss if they are my rival I hate them
+		if = {
+			limit = { has_relation_rival = scope:recipient }
+
+			if = {
+				limit = {
+					NOR = {
+						has_trait = sadistic
+						has_trait = vengeful
+						has_trait = compassionate
+						has_trait = forgiving
+					}
+				}
+				add_stress = medium_stress_loss
+			}
+			else = {
+				stress_impact = {
+					sadistic = major_stress_impact_loss
+					vengeful = massive_stress_impact_loss
+					compassionate = minor_stress_impact_gain
+					forgiving = minor_stress_impact_gain
+				}
+			}
+		}
+		else_if = { # Torturing infidels is relaxing
+			limit = {
+				has_trait = zealous
+				NOT = { scope:actor.faith = scope:recipient.faith }
+			}
+
+			if = {
+				limit = {
+					NOR = {
+						has_trait = sadistic
+						has_trait = compassionate
+						has_trait = forgiving
+					}
+				}
+				add_stress = medium_stress_loss
+			}
+			else = {
+				stress_impact = {
+					sadistic = major_stress_impact_loss
+					compassionate = minor_stress_impact_gain
+					forgiving = minor_stress_impact_gain
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_trait = sadistic
+				}
+				scope:recipient = {
+					OR = {
+						is_child_of = scope:actor
+						is_grandchild_of = scope:actor
+						is_great_grandchild_of = scope:actor
+					}
+				}
+			}
+			stress_impact = {
+				base = medium_stress_impact_loss
+				compassionate = massive_stress_impact_gain
+				craven = major_stress_impact_gain
+				just = medium_stress_impact_gain
+				forgiving = major_stress_impact_gain
+				generous = medium_stress_impact_gain
+				trusting = minor_stress_impact_gain
+				content = minor_stress_impact_gain
+				family_first = minor_stress_impact_gain
+			}
+		}
+		else = {
+			stress_impact = {
+				sadistic = medium_stress_impact_loss
+				compassionate = major_stress_impact_gain
+				craven = major_stress_impact_gain
+				just = medium_stress_impact_gain
+				forgiving = medium_stress_impact_gain
+				generous = medium_stress_impact_gain
+				trusting = minor_stress_impact_gain
+				content = minor_stress_impact_gain
+			}
+		}
+
+		###DREAD###
+		if = {
+			limit = {
+				scope:recipient = {
+					OR = {
+						is_powerful_vassal_of = scope:actor # Is your powerful vassal
+						AND = { # Is an Emperor
+							exists = primary_title
+							primary_title.tier >= tier_empire
+						}
+						target_is_vassal_or_below = scope:actor # Your liege/s
+						scope:actor.faith.religious_head = scope:recipient # Your head of faith
+					}
+				}
+			}
+			add_dread = torture_interaction_massive_dread_gain
+		}
+		else_if = {
+			limit = {
+				scope:recipient = {
+					OR = {
+						AND = { # Is your vassal, and higher than Baron
+							is_vassal_of = scope:actor
+							primary_title.tier > tier_barony
+						}
+						AND = { # Is a King
+							exists = primary_title
+							primary_title.tier >= tier_kingdom
+						}
+					}
+				}
+			}
+			add_dread = torture_interaction_major_dread_gain
+		}
+		else_if = {
+			limit = {
+				scope:recipient = {
+					OR = {
+						scope:actor = { # Torturing close family of your vassals is dreadful...
+							any_vassal = {
+								is_close_family_of = scope:recipient
+							}
+						}
+						scope:actor = { # Torturing close family of your liege/s is the same...
+							any_liege_or_above = {
+								is_close_family_of = scope:recipient
+							}
+						}
+						AND = { # Peer Vassals
+							exists = primary_title
+							primary_title.tier > tier_barony
+							exists = liege
+							liege = scope:actor.liege
+						}
+						AND = { # Is a Duke
+							exists = primary_title
+							primary_title.tier >= tier_duchy
+						}
+					}
+				}
+			}
+			add_dread = torture_interaction_medium_dread_gain
+		}
+		else_if = {
+			limit = {
+				scope:recipient = {
+					OR = {
+						is_spouse_of = scope:actor # Your own spouse
+						is_close_or_extended_family_of = scope:actor # Your own family
+						AND = {
+							exists = primary_title
+							primary_title.tier >= tier_county # Is a Count
+						}
+						scope:actor = { # Torturing extended family of your vassals is dreadful...
+							any_vassal = {
+								is_extended_family_of = scope:recipient
+							}
+						}
+						scope:actor = { # Torturing extended family of your liege/s is the same...
+							any_liege_or_above = {
+								is_extended_family_of = scope:recipient
+							}
+						}
+					}
+				}
+			}
+			add_dread = torture_interaction_minor_dread_gain
+		}
+
+		scope:actor = {
+			add_arcane_mastery_lifestyle_xp = 250
+		}
+		
+	}
 }

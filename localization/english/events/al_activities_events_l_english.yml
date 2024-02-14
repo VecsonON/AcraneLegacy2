@@ -3,8 +3,8 @@
  ancient_magicus: "Ancient Magicus"
  ancient_magicus_name: "Ancient Magicus"
 
- base_arcana_affinity_add_2: "Born [arcana_affinity|E]: #P +2#!"
- base_arcana_affinity_add_5: "Born [arcana_affinity|E]: #P +5#!"
+ base_arcana_affinity_add_2: "Born [arcana_affinity|E]: @arcana_affinity_icon!#P +2#!"
+ base_arcana_affinity_add_5: "Born [arcana_affinity|E]: @arcana_affinity_icon!#P +5#!"
  al_arcane_nexus_building_flag: "Unlock building upgrade 'Mystical Nexus' of Mage tower"
 
  al_activities_events.0001.title: "Secret Passage"
@@ -30,8 +30,8 @@
  al_activities_events.0031.title: "Secret Passage - Pedestal!"
  al_activities_events.0031.desc: "As i am walking down a secret passage I saw a pedestal with something on it. But i am prety sure that there is some catch with it... After some time I decided to..."
  al_activities_events.0031.a: "Take it, And with my high learing i will do it without any risk"
- al_activities_events.0031.c: "Take it"
- al_activities_events.0031.b: "Don't take it"
+ al_activities_events.0031.b: "Take it"
+ al_activities_events.0031.c: "Don't take it"
  
  al_activities_events.0041.title: "Secret Passage - Nothing!"
  al_activities_events.0041.desc: "As i am walking down a secret passage I saw end of passage without any other intresting thing"

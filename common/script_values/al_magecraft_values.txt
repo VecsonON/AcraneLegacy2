@@ -1056,7 +1056,14 @@ ritual_pyrokineis_level_3_time_cost = {
     if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_pyrokineis_level_3_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
     min = 0.01
 }
-
+ritual_emotionless_level_0_time_cost_b = 3.5
+ritual_emotionless_level_0_time_cost = {
+    value = { value = ritual_emotionless_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_5 } } subtract = { value = ritual_emotionless_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_5_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = ritual_emotionless_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = ritual_emotionless_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 0.01
+}
 # REWRITE SPELLS
 rewrite_spell_change_genetics_beauty_bad_3_time_cost_b = 2.2
 rewrite_spell_change_genetics_beauty_bad_3_time_cost = {
@@ -1288,7 +1295,7 @@ rewrite_spell_spawn_meteorite_level_0_time = 12
 rewrite_spell_spawn_meteorite_level_1_time = 16
 rewrite_spell_spawn_meteorite_level_2_time = 20
 
-rewrite_spell_genetic_perfection_level_0_time_cost_b = 15
+rewrite_spell_genetic_perfection_level_0_time_cost_b = 12
 rewrite_spell_genetic_perfection_level_0_time_cost = {
     value = { value = rewrite_spell_genetic_perfection_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
     if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_genetic_perfection_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
@@ -1337,8 +1344,9 @@ rewrite_spell_genesis_level_0_time_cost = {
     min = 1
 }
 rewrite_spell_apotheosis_level_0_time = 60
+rewrite_spell_apotheosis_level_1_time = 60
 
-rewrite_spell_apotheosis_level_0_time_cost_b = 12
+rewrite_spell_apotheosis_level_0_time_cost_b = 15
 rewrite_spell_apotheosis_level_0_time_cost = {
     value = { value = rewrite_spell_apotheosis_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
     if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_apotheosis_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
@@ -1346,6 +1354,8 @@ rewrite_spell_apotheosis_level_0_time_cost = {
     if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_apotheosis_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
     min = 1
 }
+rewrite_spell_apotheosis_level_1_time_cost = { value = rewrite_spell_apotheosis_level_0_time_cost }
+
 
 rewrite_spell_genesis_level_0_time = 60
 
@@ -1358,3 +1368,37 @@ rewrite_spell_genesis_level_0_time_cost = {
     min = 1
 }
 
+
+rewrite_spell_armagedon_level_0_time = 120
+
+rewrite_spell_armagedon_level_0_time_cost_b = 25
+rewrite_spell_armagedon_level_0_time_cost = {
+    value = { value = rewrite_spell_armagedon_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_armagedon_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_armagedon_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_armagedon_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+
+rewrite_spell_utopia_level_0_time = 100
+
+rewrite_spell_utopia_level_0_time_cost_b = 25
+rewrite_spell_utopia_level_0_time_cost = {
+    value = { value = rewrite_spell_utopia_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_utopia_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_utopia_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_utopia_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}
+
+rewrite_spell_create_homunculi_level_0_time = 12
+
+rewrite_spell_create_homunculi_level_0_time_cost_b = 10
+rewrite_spell_create_homunculi_level_0_time_cost = {
+    value = { value = rewrite_spell_create_homunculi_level_0_time_cost_b desc = spell_cost_base_value_desc format = "magecraft_upkeep_format" }
+    if = { limit = { dynasty = { has_dynasty_perk = magecraft_legacy_4 } } subtract = { value = rewrite_spell_create_homunculi_level_0_time_cost_b multiply = 0.2 desc = magecraft_legacy_4_value_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { has_perk = al_arcane_mastery_novice_arcane_studies } subtract = { value = rewrite_spell_create_homunculi_level_0_time_cost_b multiply = al_lifestyle_discount desc = al_arcane_mastery_arcane_studies_values_desc format = "magecraft_upkeep_format" } }
+    if = { limit = { NOT = { al_artifacts_discount = 0 } } subtract = { value = rewrite_spell_create_homunculi_level_0_time_cost_b multiply = al_artifacts_discount desc = al_artifacts_discount_values_desc format = "magecraft_upkeep_format" } }
+    min = 1
+}

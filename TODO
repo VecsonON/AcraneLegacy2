@@ -92,20 +92,24 @@ Version 1.3 Adventure & Research Update:
         / Rework 'Great Search' to activity [Already works good]
         + Add new activity 'Mage tower Search'
         + Add few magical artifacts
-        - Rework 'Apothiosis' to being found in mage tower search
-    - Implement god-child mechanic
-    - Spells:
-        - Create Golem
-        - Impregnate
-        - Create Golem Army
-    - Rituals:
-        - Telekinesis, Pyrokinesis, accelerate add commander traits on higher levels
-        - Improved court opinion
-        - Improved prestige gain
-        - Improved piety gain
-        - Reinforcment gain (No Commander) 
+        + Rework 'Apothiosis' to being found in mage tower search
+    + Implement god-child mechanic
+    + World God Ask Decision
+    + Spells:
+        / Create Golem -> Require Golem-Creating Machince from mage tower searching
+        / Impregnate
+        / Create Golem Army -> Require Golem-Creating Machince from mage tower searching
+        + Utopia
+        + Armagedon
+    + Rituals:
+        + \ - Telekinesis, Pyrokinesis, accelerate add commander traits on higher levels
+        / Improved court opinion
+        / Improved prestige gain
+        / Improved piety gain
+        / Reinforcment gain (No Commander) 
+        + Emotionless
     - More immersive events in mage tower
     - Upgrading mage tower via decision
-    - Research System:
-        - Way to unlocking special spells
-    - Early AI mage
+    + Research System:
+        + Way to unlocking special spells
+    + Early AI mage

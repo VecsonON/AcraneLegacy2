@@ -341,8 +341,8 @@ create_urah_tome_artifact = {
 set_up_artifact_spell = {
 	random_list = {
 		25 = { set_variable = { name = spell value = flag:rewrite_spell_apotheosis } set_artifact_name = al_ancient_tome }
-		#25 = { set_variable = { name = spell value = flag:rewrite_spell_utopia } } TODO:
-		#25 = { set_variable = { name = spell value = flag:rewrite_spell_armagedon } }
+		25 = { set_variable = { name = spell value = flag:rewrite_spell_utopia } }
+		25 = { set_variable = { name = spell value = flag:rewrite_spell_armagedon } }
 		25 = { set_variable = { name = spell value = flag:rewrite_spell_genesis } }
 		100 = {  }
 	}

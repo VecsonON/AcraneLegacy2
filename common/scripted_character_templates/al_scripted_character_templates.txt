@@ -77,3 +77,15 @@ al_god_child_template = {
 	intrigue = 0
 	learning = 0
 }
+al_homunculus_child_template = {
+	age = 0
+	gender_female_chance = 50
+	dynasty = none
+
+	trait = al_homunculus
+	martial = 0
+	stewardship = 0
+	diplomacy = 0
+	intrigue = 0
+	learning = 0
+}

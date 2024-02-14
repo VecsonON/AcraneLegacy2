@@ -34,9 +34,11 @@
  magecraft_teaching_interaction_accept_toast: "Teaching magecraft accepted"
  magecraft_teaching_interaction_decline_toast: "Teaching magecraft declined"
 
+ SCHEME_PAY_GOLD: "Pay 100 [gold_i] to be teached"
  MAGE_IS_CRIMINAL_ZEALOUS_REASON: "I consider magecraft to be a crime: $VALUE|+=0$"
  MAGE_IS_SHUNNED_ZEALOUS_REASON: "I consider magecraft unnatural: $VALUE|+=0$"
  I_AM_HEIR_OF_ACTOR_REASON: "[recipient.GetShortUIName|U] is heir of [actor.GetShortUIName|U]: $VALUE|+=0$"
+ SCHEME_PAYED_GOLD: "I payed gold to be teached: $VALUE|+=0$"
  #mentor_arcana_learning_interaction: "Magecraft Learning"
  #mentor_arcana_learning_interaction_desc: "Magecraft Learning"
 
@@ -45,3 +47,6 @@
 
  teach_arcane_understanding_interaction: "Teach Arcane Understanding"
  teach_arcane_understanding_interaction_desc: "Teach Arcane Understanding to other person"
+
+ experiment_on_prisoner: "Experiment On Prisoner"
+ experiment_on_prisoner_desc: "Experiment On Prisoner"

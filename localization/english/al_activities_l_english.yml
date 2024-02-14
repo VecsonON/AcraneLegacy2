@@ -1,6 +1,7 @@
 ﻿l_english:
  al_mage_tower_searching: "Mage tower searching"
  al_mage_tower_searching_desc: "Go search ruins of mage tower all around of world"
+ al_mage_tower_searching_selection_tooltip: "Go search ruins of mage tower all around of world"
  al_mage_tower_searching_host_desc: "$BULLET_WITH_TAB$@artifact_icon!Arcane Artifacts\n$BULLET_WITH_TAB$@gold_icon!Gold\n$BULLET_WITH_TAB$@acrana_icon!Discover Long forgoten arcane knowladge"
 
  great_search_intent: "Mage Tower Searching" 
@@ -19,3 +20,14 @@
  al_mage_tower_searching_time_huge_desc: "Searching will last 3 Months"
 
  TRAVEL_NAME_FOR_al_mage_tower_searching: "Your travel to ruined mage tower"
+
+ al_readable_magical_experiments: "Readable magical documents"
+ al_unreadable_magical_experiments: "Unreadable magical documents"
+ al_readable_magical_papers: "Readable magical papers"
+ al_unreadable_magical_papers: "Unreadable magical papers"
+
+ al_great_libary_used: "Readed great libary"
+ old_arcane_books: "Old arcane books"
+ al_understood_golem_factory: "Understood Golem Factory"
+ al_semi_understood_golem_factory: "Semi Understood Golem Factory"
+ al_pending_research: "Pending Research"
