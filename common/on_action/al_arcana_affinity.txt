@@ -14,9 +14,10 @@ on_birth_child_magic = {
 }
 populate_arcana_affinity = {
 	trigger = {
-		OR = {
-			NOT = { has_character_flag = arcana_affinity_gain }
-			NOT = { has_character_flag = chosen_potential }
+		exists = this
+		NOR = {
+			has_character_flag = arcana_affinity_gain
+			has_character_flag = chosen_potential
 		}
 	}
 	effect = {

@@ -336,6 +336,8 @@ request_magecraft_teaching_interaction = {
 	
 	ai_potential = {
 		always = yes
+		has_game_rule = NPC_allow_mage_yes
+		has_game_rule = Al_allow_untested_things_yes
 	}
 
 	ai_will_do = {

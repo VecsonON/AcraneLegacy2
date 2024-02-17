@@ -29,7 +29,9 @@ toggle_mage_tower_main_decision = {
 	is_shown = {
 		capital_province = { has_building_with_flag = arcane_marvel }
 	}
-	
+	is_valid = {
+		NOT = { has_character_modifier = mage_tower_cooldown }
+	}
 	effect = {
         if = { limit = { NOT = { has_character_modifier = mage_tower_main } } add_character_modifier = mage_tower_main }
         else = { remove_character_modifier = mage_tower_main }

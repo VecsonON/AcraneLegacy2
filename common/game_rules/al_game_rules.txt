@@ -56,3 +56,14 @@ NPC_magic_level = { #How high is highest game start mana affinity
 	
 	NPC_magic_level_5 = {}	
 }
+
+NPC_allow_mage = {
+	default = NPC_allow_mage_yes
+	NPC_allow_mage_yes = {}
+	NPC_allow_mage_no = {}
+}
+Al_allow_untested_things = {
+	default = Al_allow_untested_things_no
+	Al_allow_untested_things_no = {}
+	Al_allow_untested_things_yes = {}
+}

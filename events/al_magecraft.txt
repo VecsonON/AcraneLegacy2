@@ -872,9 +872,22 @@ magecraft.1000 = {
 	theme = secret
 	immediate = {
 		clear_global_variable_list = Arcane_legacy_start_type
-		trigger_event = {
-			id = magecraft.3000
-			years = 25
+		if = {
+			limit = {
+				has_game_rule = NPC_allow_mage_yes
+				has_game_rule = Al_allow_untested_things_yes
+			}
+			trigger_event = {
+				id = magecraft.3000
+				years = 25
+			}
+		}
+		if = {
+			limit = {
+				has_game_rule = NPC_allow_mage_no
+				has_game_rule = Al_allow_untested_things_yes
+			}
+			custom_tooltip = "info_about_magecraft_no_NPC_mages"
 		}
 	}
 	option = {
@@ -890,9 +903,15 @@ magecraft.1000 = {
 		al_become_mage = yes
 		custom_tooltip = "info_about_magecraft_ai"
 		custom_tooltip = "info_about_magecraft_player"
-		trigger_event = {
-			id = magecraft.3000
-			years = 10
+		if = {
+			limit = {
+				has_game_rule = NPC_allow_mage_yes
+				has_game_rule = Al_allow_untested_things_yes
+			}
+			trigger_event = {
+				id = magecraft.3000
+				years = 10
+			}
 		}
 
 	}

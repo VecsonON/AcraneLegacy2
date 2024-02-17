@@ -537,16 +537,18 @@ al_activities_events.0142 = { # Treasure - Trap
 	}
     immediate ={
         remove_variable = created_artifacts_al
-        if = { limit = { has_variable = al_ancient_tome_found_get } remove_variable = al_ancient_tome_found_get }
-        else = { character:AL_ancient = { destroy_artifact = scope:al_ancient_tome_found } }
-        if = { limit = { has_variable = al_artifact_1_found_get } remove_variable = al_artifact_1_found_get }
-        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_1_found } }
-        if = { limit = { has_variable = al_artifact_2_found_get } remove_variable = al_artifact_2_found_get }
-        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_2_found } }
-        if = { limit = { has_variable = al_artifact_3_found_get } remove_variable = al_artifact_3_found_get }
-        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_3_found } }
-        if = { limit = { has_variable = al_artifact_4_found_get } remove_variable = al_artifact_4_found_get }
-        else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_4_found } }
+        hidden_effect = {
+            if = { limit = { has_variable = al_ancient_tome_found_get } remove_variable = al_ancient_tome_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_ancient_tome_found } }
+            if = { limit = { has_variable = al_artifact_1_found_get } remove_variable = al_artifact_1_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_1_found } }
+            if = { limit = { has_variable = al_artifact_2_found_get } remove_variable = al_artifact_2_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_2_found } }
+            if = { limit = { has_variable = al_artifact_3_found_get } remove_variable = al_artifact_3_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_3_found } }
+            if = { limit = { has_variable = al_artifact_4_found_get } remove_variable = al_artifact_4_found_get }
+            else = { character:AL_ancient = { destroy_artifact = scope:al_artifact_4_found } }
+        }
     }
     option = { # Try to Dogde risking more damage
 		name = al_activities_events.0142.a

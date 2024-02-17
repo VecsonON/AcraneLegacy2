@@ -101,7 +101,6 @@ al_become_mage_decision = {
 recruit_mage = {
 	picture = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
 	
-	ai_check_interval = 0
 	
 	is_shown = {
 		has_global_variable = magecraft_resurgance
@@ -120,12 +119,34 @@ recruit_mage = {
 		}
 	}
 	cooldown = { years = 5 }
+	ai_check_interval = 12
+
 	ai_potential = {
-		always = no
+		has_global_variable = magecraft_resurgance
 	}
 	
 	ai_will_do = {
-		base = 0
+		base = 25
+		modifier = {
+			has_trait = ambitious
+			add = 30
+		}
+		modifier = {
+			has_trait = zealous
+			AND = {
+				exists = faith 
+				faith = { has_doctrine_parameter = magecraft_shunned }
+			}
+			add = -25
+		}
+		modifier = {
+			has_trait = zealous
+			AND = {
+				exists = faith 
+				faith = { has_doctrine_parameter = magecraft_illegal }
+			}
+			add = -50
+		}
 	}
 }
 # WHY ARE YOU DON'T SHOWING? | FIXED :D

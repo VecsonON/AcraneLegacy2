@@ -57,14 +57,14 @@
  rewrite_spell_genetic_perfection_duck_loc: " "
  rewrite_spell_genetic_perfection_level_0_loc: "Genetic Perfection"
 
- rewrite_spell_genesis_name: "Genesis"
+ rewrite_spell_genesis_name: "#b Genesis#!"
  rewrite_spell_genesis_-_loc: " "
  rewrite_spell_genesis_duck_loc: " "
  rewrite_spell_genesis_level_0_loc: "Paleo Genesis"
  rewrite_spell_genesis_level_1_loc: "Neo Genesis"
  al_create_child: "Create new character as your child"
 
- rewrite_spell_apotheosis_name: "Apotheosis"
+ rewrite_spell_apotheosis_name: "#b Apotheosis#!"
  rewrite_spell_apotheosis_-_loc: " "
  rewrite_spell_apotheosis_duck_loc: " " # HOW?! i was testing mod and here i see duck as setting HOW?!
  rewrite_spell_apotheosis_level_0_loc: "Path Of World"
@@ -72,7 +72,7 @@
  rewrite_spell_apotheosis.WorldGod.succes: "Succesfuly connected with world"
  rewrite_spell_apotheosis.WorldGod.failure: "Failed to connect with world"
 
- rewrite_spell_armagedon_name: "Armagedon"
+ rewrite_spell_armagedon_name: "#b Armagedon#!"
  rewrite_spell_armagedon_-_loc: " "
  rewrite_spell_armagedon_duck_loc: " "
  rewrite_spell_armagedon_level_0_loc: "Destroy Whole World"
@@ -83,7 +83,7 @@
  
  al_end_world_warring: "#R This spell WILL destroy whole world. though you can still play, most of characters will be dead. It will be near imposible to recover from this#!"
 
- rewrite_spell_utopia_name: "Utopia"
+ rewrite_spell_utopia_name: "#b Utopia#!"
  rewrite_spell_utopia_-_loc: " "
  rewrite_spell_utopia_duck_loc: " "
  rewrite_spell_utopia_level_0_loc: "Create heaven on earth"

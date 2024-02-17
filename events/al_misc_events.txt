@@ -1,0 +1,702 @@
+﻿namespace = al_misc_events
+al_misc_events.1010 = { # Spouse demands you returing home
+    title = al_misc_events.1010.title
+    desc = al_misc_events.1010.desc
+    theme = education
+    type = character_event
+    trigger = {
+        exists = primary_spouse
+    }
+    immediate = {
+        primary_spouse = {
+            save_scope_as = spouse
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = disapproval 
+    }
+    right_portrait  = {
+        character = primary_spouse
+        animation = worry 
+    }
+    option = { # Accept
+        name = al_misc_events.1010.a
+        custom_tooltip = "al_misc_events.1010.a.tooltip"
+        remove_character_modifier = mage_tower_main
+        add_character_modifier = { modifier = mage_tower_cooldown years = 5 }
+    }
+    option = { # Deny
+        name = al_misc_events.1010.b
+        custom_tooltip = "al_misc_events.1010.b.tooltip"
+        primary_spouse = {
+            add_opinion = { modifier = ignored_concerns target = prev }
+        }
+    }
+    option = { # Send an Explanation
+        name = al_misc_events.1010.c
+        trigger = {
+            diplomacy > 15
+        }
+        skill = diplomacy
+        custom_tooltip = "al_misc_events.1010.c.tooltip"
+    }
+}
+al_misc_events.1020 = { # Random Council member demands return to home
+    title = al_misc_events.1020.title
+    desc = al_misc_events.1020.desc
+    theme = education
+    type = character_event
+    immediate = {
+        random_councillor = {
+            save_scope_as = worried_councillor
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = disapproval 
+    }
+    right_portrait  = {
+        character = scope:worried_councillor
+        animation = worry 
+    }
+    option = { # Accept
+        name = al_misc_events.1020.a
+        custom_tooltip = "al_misc_events.1020.a.tooltip"
+        remove_character_modifier = mage_tower_main
+        add_character_modifier = { modifier = mage_tower_cooldown years = 5 }
+    }
+    option = { # Deny
+        name = al_misc_events.1020.b
+        custom_tooltip = "al_misc_events.1020.b.tooltip"
+        scope:worried_councillor = {
+            add_opinion = { modifier = ignored_concerns target = prev }
+        }
+    }
+    option = { # Send an Explanation
+        name = al_misc_events.1020.c
+        trigger = {
+            diplomacy > 15
+        }
+        skill = diplomacy
+        custom_tooltip = "al_misc_events.1020.c.tooltip"
+    }
+}
+al_misc_events.1030 = { # Flash of inspiration
+    title = al_misc_events.1030.title
+    desc = al_misc_events.1030.desc
+    theme = education
+    type = character_event
+    trigger = {
+        has_perk = al_arcane_mastery_master
+        NOT = {
+            has_variable = al_arcane_inspiration
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = ecstasy 
+    }
+    option = { # Yey!
+        name = al_misc_events.1030.a
+        random_list = {
+            1 = {
+                custom_tooltip = {
+                    text = "gain_arcane_inspiration_apotheosis"
+                    send_interface_toast = {
+                        title = gain_arcane_inspiration_apotheosis
+                    }
+                    set_variable = {
+                        name = al_arcane_inspiration
+                        value = flag:rewrite_spell_apotheosis
+                    }
+                }
+            }
+            1 = {
+                custom_tooltip = {
+                    text = "gain_arcane_inspiration_utopia"
+                    send_interface_toast = {
+                        title = gain_arcane_inspiration_utopia
+                    }
+                    set_variable = {
+                        name = al_arcane_inspiration
+                        value = flag:rewrite_spell_utopia
+                    }
+                }
+            }
+            1 = {
+                custom_tooltip = {
+                    text = "gain_arcane_inspiration_armagedon"
+                    send_interface_toast = {
+                        title = gain_arcane_inspiration_armagedon
+                    }
+                    set_variable = {
+                        name = al_arcane_inspiration
+                        value = flag:rewrite_spell_armagedon
+                    }
+                }
+            }
+            1 = {
+                custom_tooltip = {
+                    text = "gain_arcane_inspiration_genesis"
+                    send_interface_toast = {
+                        title = gain_arcane_inspiration_genesis
+                    }
+                    set_variable = {
+                        name = al_arcane_inspiration
+                        value = flag:rewrite_spell_genesis
+                    }
+                }
+            }
+        }
+    }
+}
+al_misc_events.1040 = { # Boredom
+    title = al_misc_events.1040.title
+    desc = al_misc_events.1040.desc
+    theme = mental_health
+    type = character_event
+    left_portrait = {
+        character = ROOT
+        animation = boredom 
+    }
+    option = { # Go outside
+        name = al_misc_events.1040.a
+        remove_character_modifier = mage_tower_main
+        add_character_modifier = { modifier = mage_tower_cooldown years = 5 }
+    }
+    option = { # Ignore 
+        name = al_misc_events.1040.b
+        add_stress = 75
+        custom_tooltip = {
+            text = "al_risking_depresion"
+            random_list = {
+                1 = {  trigger_event = { id = al_misc_events.1050 years = { 1 5} } }
+                9 = {}
+            }
+        }
+    }
+}
+al_misc_events.1050 = { # Depression
+    title = al_misc_events.1050.title
+    desc = al_misc_events.1050.desc
+    theme = mental_health
+    type = character_event
+    trigger = {
+        NOT = { has_trait = depressed_1 }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = boredom 
+    }
+    option = { # Uhh.
+        name = al_misc_events.1050.a
+        add_trait = depressed_1
+    }
+}
+################################################################
+al_misc_events.0010 = { # Wandering Mage in your domain
+    title = al_misc_events.0010.title
+    desc = al_misc_events.0010.desc
+    theme = realm
+    type = character_event
+    trigger = {
+        has_global_variable = magecraft_resurgance
+        
+		has_game_rule = NPC_allow_mage_yes
+    }
+    immediate = {
+        create_character = {
+			template = mage
+			location = root.capital_province
+			faith = root.faith
+			culture = root.culture
+			save_scope_as = mage
+		}
+    }
+    left_portrait = {
+        character = ROOT
+        animation = idle 
+    }
+    right_portrait = {
+        character = scope:mage
+        animation = idle 
+    }
+    option = { # Invite him
+        name = al_misc_events.0010.a
+        add_courtier = scope:mage
+    }
+    option = { # Ignore him
+        name = al_misc_events.0010.b
+        hidden_effect = {
+            scope:mage = {
+                death = {
+                    death_reason = death_disappearance
+                }
+            }
+        }
+    }
+    option = { # Catch him!
+        name = al_misc_events.0010.c
+        trigger = {
+			root.faith = {
+				OR = {
+					has_doctrine_parameter = magecraft_illegal
+					has_doctrine_parameter = magecraft_shunned
+				}
+			}
+			NOT = { has_trait = mage }
+			OR = {
+				has_trait = zealous
+				has_trait = wrathful
+				has_trait = sadistic
+				has_trait = callous
+			}
+		}
+		scope:mage = {
+			death = {
+				killer = root
+				death_reason = death_burned_witch
+			}
+		}
+		add_piety = minor_piety_gain
+		add_dread = minor_dread_gain
+		stress_impact = {
+			base = minor_stress_impact_gain
+			sadistic = medium_stress_impact_loss
+			zealous = minor_stress_impact_loss
+			wrathful = minor_stress_impact_loss
+			compassionate = major_stress_impact_gain
+		}
+    }
+}
+al_misc_events.0020 = { # Rouge Mage attacking your domain
+    title = al_misc_events.0020.title
+    desc = al_misc_events.0020.desc
+    theme = realm
+    type = character_event
+    trigger = {
+        NOT = { has_trait = mage }
+        is_independent_ruler = yes
+        is_ruler = yes
+        has_global_variable = magecraft_resurgance
+    }
+    immediate = {
+        create_character = {
+			template = mage
+			location = root.capital_province
+			faith = root.faith
+			culture = root.culture
+			save_scope_as = mage
+		}
+        random_realm_county = {
+            save_scope_as = targeted_county
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = shock 
+    }
+    right_portrait = {
+        character = scope:mage
+        animation = aggressive_spear 
+    }
+    option = { # Surrender
+        name = al_misc_events.0020.a
+        if = { 
+            limit = { exists = scope:targeted_county }
+            scope:mage = { 
+                get_title = scope:targeted_county
+                add_truce_both_ways = {
+                    character = ROOT
+                    days = 3650
+                    name = TRUCE_GRANT_INDEPENDENCE
+                }
+
+                create_title_and_vassal_change = {
+                    type = independency
+                    save_scope_as = change
+                    add_claim_on_loss = yes
+                }
+                becomes_independent = {
+                    change = scope:change
+                }
+
+                resolve_title_and_vassal_change = scope:change
+            }
+        }
+    }
+    option = { # Send Army
+        name = al_misc_events.0020.b
+        
+        every_realm_county = {
+            custom = custom.every_realm_county
+            random_list = { 
+                1 = {
+                     add_county_modifier = { modifier = rouge_mage_attack years = 5 }
+                }
+                2 =  {}
+            }
+        }
+        if = { 
+            limit = { exists = scope:targeted_county }
+            scope:targeted_county = { add_county_modifier = { modifier = rouge_mage_attack_base years = 20 } }
+        }
+    }
+    option = { # Compromise
+        name = al_misc_events.0020.c
+        trigger = {
+			diplomacy > 20
+		}
+        skill = diplomacy
+        if = { 
+            limit = { exists = scope:targeted_county }
+            scope:mage = { get_title = scope:targeted_county }
+            create_title_and_vassal_change = {
+                type = swear_fealty
+                save_scope_as = change
+            }
+            scope:mage = {
+                change_liege = {
+                    liege = scope:actor
+                    change = scope:change
+                }
+                add_opinion = {
+                    modifier = became_vassal
+                    target = scope:actor
+                    opinion = 10
+                }
+            }
+            resolve_title_and_vassal_change = scope:change
+
+            # Special terms for feudal contracts
+            scope:mage = {
+                if = {
+                    limit = {
+                        government_has_flag = government_is_feudal
+                    }
+                    hidden_effect = {
+                        if = {
+                            limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+                            vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 3 }
+                            vassal_contract_set_obligation_level = { type = feudal_government_levies level = 3 }
+                        }
+                    }
+                    custom_tooltip = high_obligations_taxes
+                    custom_tooltip = high_obligations_levies
+                }
+            }
+        }
+    }
+}
+al_misc_events.0030 = { # Newly discovered mage tower in your domain
+    title = al_misc_events.0030.title
+    desc = al_misc_events.0030.desc
+    theme = realm
+    type = character_event
+    immediate = {
+        debug_log = "New_Mage_Tower"
+        random_realm_province = {
+            limit = { has_special_building = no }
+            add_special_building = ruined_mage_tower
+        }
+        every_ruler = {
+            send_interface_message = {
+                title = new_mage_tower_message_title
+                #desc = new_mage_tower_message_desc
+            }
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = shock 
+    }
+    
+    option = { # Wow!
+        name = al_misc_events.0030.a
+    }
+}
+# TODO: 1.3.1
+# al_misc_events.0040 = { # Rumors about rouge mage prepering something
+#     title = al_misc_events.0040.title
+#     desc = al_misc_events.0040.desc
+#     theme = realm
+#     type = character_event
+#     trigger = {
+#         NOT = { has_trait = mage }
+#     }
+#     left_portrait = {
+#         character = ROOT
+#         animation = shock 
+#     }
+#     option = { # Use spies to get info
+#         name = al_misc_events.0040.a
+#         trigger = {
+#             intrigue > 20
+#         }
+#         skill = intrigue
+#         custom_tooltip = { 
+#             text = "al_misc_events.0040.send_without_pay"
+#             random_list = {
+#                 7 = {}
+#                 3 = { trigger_event = { id = al_misc_events.0043 years = { 1 3 } } }
+#             }
+#         }
+#     }
+#     option = { # Use high diplomacy
+#         name = al_misc_events.0040.a
+#         trigger = {
+#             diplomacy > 20
+#         }
+#         skill = diplomacy
+#         custom_tooltip = { 
+#             text = "al_misc_events.0040.send_without_pay"
+#             random_list = {
+#                 7 = {}
+#                 3 = { trigger_event = { id = al_misc_events.0043 years = { 1 3 } } }
+#             }
+#         }
+#     }
+#     option = { # Send people to find him
+#         name = al_misc_events.0040.a
+#         add_prestige = -500
+#         custom_tooltip = { 
+#             text = "al_misc_events.0040.send"
+#             random_list = {
+#                 7 = {}
+#                 3 = { trigger_event = { id = al_misc_events.0043 years = { 1 3 } } }
+#             }
+#         }
+#     }
+#     option = { # Ignore
+#         name = al_misc_events.0040.a
+#         custom_tooltip = { 
+#             text = "al_misc_events.0040.ignore"
+#             random_list = {
+#                 7 = {}
+#                 3 = { trigger_event = { id = al_misc_events.0041 years = { 1 3 } } }
+#             }
+#         }
+#     }
+# }
+# al_misc_events.0041 = { # Rumors about rouge mage prepering something - Rumors were true
+#     title = al_misc_events.0020.title
+#     desc = al_misc_events.0020.desc
+#     theme = realm
+#     type = character_event
+#     trigger = {
+#         NOT = { has_trait = mage }
+#         is_independent_ruler = yes
+#     }
+#     immediate = {
+#         create_character = {
+# 			template = mage
+# 			location = root.capital_province
+# 			faith = root.faith
+# 			culture = root.culture
+# 			save_scope_as = mage
+# 		}
+#         random_realm_county = {
+#             save_scope_as = targeted_county
+#         }
+#     }
+#     left_portrait = {
+#         character = ROOT
+#         animation = shock 
+#     }
+#     right_portrait = {
+#         character = scope:mage
+#         animation = aggressive_spear 
+#     }
+#     option = { # Surrender
+#         name = al_misc_events.0020.a
+#         scope:mage = { get_title = scope:targeted_county becomes_independent = { change = scope:change } }
+#     }
+#     option = { # Send Army
+#         name = al_misc_events.0020.b
+#         scope:targeted_county = { add_county_modifier = rouge_mage_attack }
+#     }
+#     option = { # Compromise
+#         name = al_misc_events.0020.c
+#         trigger = {
+# 			diplomacy > 20
+# 		}
+#         skill = diplomacy
+# 		scope:mage = { get_title = scope:targeted_county }
+#         create_title_and_vassal_change = {
+#             type = swear_fealty
+#             save_scope_as = change
+#         }
+#         scope:mage = {
+#             change_liege = {
+#                 liege = scope:actor
+#                 change = scope:change
+#             }
+#             add_opinion = {
+#                 modifier = became_vassal
+#                 target = scope:actor
+#                 opinion = 10
+#             }
+#         }
+#         resolve_title_and_vassal_change = scope:change
+
+#         # Special terms for feudal contracts
+#         scope:mage = {
+#             if = {
+#                 limit = {
+#                     government_has_flag = government_is_feudal
+#                 }
+#                 hidden_effect = {
+#                     if = {
+#                         limit = { is_independent_ruler = no } # To avoid errors during tooltip generation (prior to the contract being generated)
+#                         vassal_contract_set_obligation_level = { type = feudal_government_taxes level = 3 }
+#                         vassal_contract_set_obligation_level = { type = feudal_government_levies level = 3 }
+#                     }
+#                 }
+#                 custom_tooltip = high_obligations_taxes
+#                 custom_tooltip = high_obligations_levies
+#             }
+#         }
+#     }
+# }
+# al_misc_events.0050 = { # Rumors about mage hiding in your domain
+#     title = al_misc_events.0050.title
+#     desc = al_misc_events.0050.desc
+#     theme = realm
+#     type = character_event
+#     trigger = {
+#         always = no # TODO
+#     }
+#     left_portrait = {
+#         character = ROOT
+#         animation = shock 
+#     }
+#     option = { # Wow!
+#         name = al_misc_events.0050.a
+#     }
+# }
+al_misc_events.0060 = { # Your child became mage
+    title = al_misc_events.0060.title
+    desc = al_misc_events.0060.desc
+    theme = family 
+    type = character_event
+    trigger = {
+        any_child = {
+            NOT = { has_trait = mage }
+        }
+        has_global_variable = magecraft_resurgance
+		has_game_rule = NPC_allow_mage_yes
+    }
+    immediate = {
+        random_child = {
+            limit = { NOT = { has_trait = mage } }
+            add_trait = mage
+            save_scope_as = mage_child
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = shock 
+    }
+    right_portrait = {
+        character = scope:mage_child
+        animation = worry 
+    }
+    option = { # Religion allow mages - Acept decision
+        name = al_misc_events.0060.a
+        trigger = {
+            root.faith = {
+				NOR = {
+					has_doctrine_parameter = magecraft_illegal
+					has_doctrine_parameter = magecraft_shunned
+				}
+			}
+        }
+    }
+    option = { # Religion Don't allow mages - Acept decision
+        name = al_misc_events.0060.b
+        trigger = {
+            root.faith = {
+				OR = {
+					has_doctrine_parameter = magecraft_illegal
+					has_doctrine_parameter = magecraft_shunned
+				}
+			}
+        }
+        dynasty = {
+            add_dynasty_prestige = -150
+        }
+        scope:mage_child = {
+            add_piety_level = -1
+        }
+    }
+    option = { # Religion Don't allow mages - Try to convince child to change
+        name = al_misc_events.0060.c
+        trigger = {
+            root.faith = {
+				OR = {
+					has_doctrine_parameter = magecraft_illegal
+					has_doctrine_parameter = magecraft_shunned
+				}
+			}
+        }
+        duel ={
+            skill = diplomacy 
+            value = 20
+            10 = {
+				desc = al_misc_events.0060.a.succes
+				compare_modifier = { value = scope:duel_value }
+                scope:mage_child = { remove_trait = mage }
+			}
+            25 = { 
+				desc = al_misc_events.0060.a.fail
+				compare_modifier = { value = scope:duel_value multiplier = -1 }
+                dynasty = {
+                    add_dynasty_prestige = -250
+                }
+                scope:mage_child = {
+                    add_piety_level = -1
+                }
+                add_stress = 50
+			}
+        }
+    }
+}
+al_misc_events.0070 = { # Your courtier became mage
+    title = al_misc_events.0070.title
+    desc = al_misc_events.0070.desc
+    theme = realm
+    type = character_event
+    trigger = {
+        any_courtier = {
+            NOT = { is_child_of = ROOT has_trait = mage }
+        }
+        has_global_variable = magecraft_resurgance
+		has_game_rule = NPC_allow_mage_yes
+    }
+    immediate = {
+        random_courtier = {
+            limit = { NOT = { has_trait = mage } }
+            add_trait = mage
+            save_scope_as = mage_courtier
+        }
+    }
+    left_portrait = {
+        character = ROOT
+        animation = shock 
+    }
+    right_portrait = {
+        character = scope:mage_courtier
+        animation = idle 
+    }
+    option = { # Leave him
+        name = al_misc_events.0070.a
+    }
+    option = { # Arrest him
+        name = al_misc_events.0070.b
+        imprison = {
+            target = scope:mage_courtier
+            type = dungeon
+        }
+    }
+}

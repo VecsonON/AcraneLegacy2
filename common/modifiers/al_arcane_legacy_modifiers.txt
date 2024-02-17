@@ -127,3 +127,23 @@ apotheosis_ask_intelect = {
 	learning = 4
 	monthly_lifestyle_xp_gain_mult = 0.2
 }
+
+
+mage_tower_cooldown = {
+	icon = outdoors_positive
+}
+rouge_mage_attack = {
+	icon = county_modifier_control_negative
+	monthly_county_control_change_add = -2
+	county_opinion_add = -100
+	travel_danger = 25
+	build_speed = 0.5
+	
+}
+rouge_mage_attack_base = {
+	icon = county_modifier_control_negative
+	monthly_county_control_change_add = -10
+	county_opinion_add = -200
+	travel_danger = 100
+	build_speed = 1
+}

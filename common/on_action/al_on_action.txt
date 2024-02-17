@@ -4,11 +4,6 @@
 		al_dynasty_perks_gains
 	}
 }
-al_quarterly_playable_pulse = {
-	on_actions = {
-		arcane_mastery_mastery_lifestyle_progress_pulse
-	}
-}
 arcane_mastery_mastery_lifestyle_progress_pulse = { # Fires 4 times per year
 	trigger = {
 		has_focus = arcane_mastery_focus
@@ -23,7 +18,10 @@ arcane_mastery_mastery_lifestyle_progress_pulse = { # Fires 4 times per year
 		NOR = {
 			has_character_flag = had_recent_lifestyle_ongoing_event
 		}
-		has_global_variable = magecraft_resurgance
+		OR = {
+			has_global_variable = magecraft_resurgance
+			has_game_rule = NPC_allow_mage_no
+		}
 	}
 
 	first_valid_on_action = {
@@ -125,5 +123,58 @@ al_dynasty_perks_gains = {
 			add_perk = al_arcane_mastery_adept_ritual
 			add_perk = al_arcane_mastery_master
 		}
+	}
+}
+# yearly_global_pulse = {
+# 	on_actions = {
+# 		al_misc_events_pulse
+# 	}
+# }
+random_yearly_playable_pulse = {
+	on_actions = {
+		arcane_random_yearly_playable_pulse
+	}
+}
+arcane_random_yearly_playable_pulse = {
+	trigger = {
+		basic_is_valid_for_yearly_events_trigger = yes
+		has_game_rule = Al_allow_untested_things_yes
+	}
+	random_on_action = {
+		chance_of_no_event = {
+			value = 0
+			if = { limit = { is_ai = yes } add = 25 } # AI aren't particularly important
+		}
+		1 = on_arcane_events
+		1 = al_tower_arcane_events
+	}
+}
+on_arcane_events = {
+	random_events = {
+		100 = al_misc_events.0010 # Wandering Mage in your domain
+		10 = al_misc_events.0020 # Rouge Mage attacking your domain
+		1 = al_misc_events.0030 # Newly discovered mage tower in your domain
+		# 100 = al_misc_events.0040 # Rumors about rouge mage prepering something
+		# 100 = al_misc_events.0050 # Rumors about mage hiding in your domain
+		30  = al_misc_events.0060 # Your child became mage
+		40 = al_misc_events.0070 # Your courtier became mage
+
+		200 = 0
+		chance_to_happen = 25
+	}
+}
+al_tower_arcane_events = {
+	trigger = {
+		has_character_modifier = mage_tower_main
+	}
+	random_events = {
+		100 = al_misc_events.1010 # Spouse demands return to home
+		100 = al_misc_events.1020 # Random Council member demands return to home
+		100 = al_misc_events.1030 # Flash of inspiration
+		100 = al_misc_events.1040 # Boredom
+		10 = al_misc_events.1050 # Depression 
+
+		200 = 0
+		chance_to_happen = 50
 	}
 }

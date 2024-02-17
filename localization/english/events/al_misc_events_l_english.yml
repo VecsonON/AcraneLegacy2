@@ -1,0 +1,79 @@
+﻿l_english:
+ mage_tower_cooldown: "Mage tower Cooldown"
+ rouge_mage_attack: "Rouge Mage Attack"
+ rouge_mage_attack_base: "Rouge Mage main base"
+
+
+ al_misc_events.1010.title: "[spouse.GetShortUIName] Demands you returing home"
+ al_misc_events.1010.desc: "After spending over a year immersed in the arcane mysteries within the mage tower, you receive a demanding missive from [spouse.GetShortUIName]. The message carries the weight of longing and concern, urging you to abandon your studies and return home."
+ al_misc_events.1010.a: "Return home"
+ al_misc_events.1010.a.tooltip: "Choosing to heed your spouse's plea, you reluctantly bid farewell to the mage tower and return home. This decision prioritizes your relationship over your arcane pursuits, acknowledging the importance of nurturing your personal connections"
+ al_misc_events.1010.b: "Ignore the Demand"
+ al_misc_events.1010.b.tooltip: "Ignoring the demand from your spouse, you stubbornly continue your studies within the mage tower. This decision prioritizes your arcane aspirations over your relationship, risking strain and resentment in your marriage"
+ al_misc_events.1010.c: "Send an Explanation"
+ al_misc_events.1010.c.tooltip: "hoosing to send a detailed explanation to your spouse, you express the importance of your studies and the discoveries you've made. You attempt to bridge the gap between your arcane pursuits and your personal life, seeking understanding and support from your partner."
+
+
+ al_misc_events.1020.title: "[worried_councillor.GetShortUIName] Demands you returing home"
+ al_misc_events.1020.desc: "After spending over a year immersed in the arcane mysteries within the mage tower, you receive a demanding missive from [worried_councillor.GetShortUIName]. The message carries the weight of longing and concern, urging you to abandon your studies and return home."
+ al_misc_events.1020.a: "Return home"
+ al_misc_events.1020.a.tooltip: "Choosing to heed your spouse's plea, you reluctantly bid farewell to the mage tower and return home. This decision prioritizes your relationship over your arcane pursuits, acknowledging the importance of nurturing your personal connections"
+ al_misc_events.1020.b: "Ignore the Demand"
+ al_misc_events.1020.b.tooltip: "Ignoring the demand from your spouse, you stubbornly continue your studies within the mage tower. This decision prioritizes your arcane aspirations over your relationship"
+ al_misc_events.1020.c: "Send an Explanation"
+ al_misc_events.1020.c.tooltip: "hoosing to send a detailed explanation to your spouse, you express the importance of your studies and the discoveries you've made."
+
+
+ al_misc_events.1030.title: "Flash of inspiration"
+ al_misc_events.1030.desc: "In the solitude of your mage tower, surrounded by ancient tomes and crackling arcane energies, a moment of revelation strikes like lightning. A sudden, blinding flash of inspiration illuminates your mind, offering the tantalizing possibility of creating a world-changing rewrite spell."
+ al_misc_events.1030.a: "Go to study"
+ gain_arcane_inspiration_apotheosis: "You gain inspiration to create [rewriting_spell|E] $rewrite_spell_apotheosis_name$"
+ gain_arcane_inspiration_utopia: "You gain inspiration to create [rewriting_spell|E] $rewrite_spell_utopia_name$"
+ gain_arcane_inspiration_armagedon: "You gain inspiration to create [rewriting_spell|E] $rewrite_spell_armagedon_name$"
+ gain_arcane_inspiration_genesis: "You gain inspiration to create [rewriting_spell|E] $rewrite_spell_genesis_name$"
+
+
+ al_misc_events.1040.title: "Boredom"
+ al_misc_events.1040.desc: "After spending years secluded within the confines of your mage tower, the relentless passage of time begins to weigh heavily upon you. The once-fascinating pursuit of arcane knowledge has become routine, and the solitude that once fueled your studies now breeds a creeping sense of monotony"
+ al_misc_events.1040.a: "Go outside"
+ al_misc_events.1040.b: "Ignore"
+ al_risking_depresion: "#weak Taking this option risk getting depresion!#!"
+
+
+ al_misc_events.1050.title: "Depression"
+ al_misc_events.1050.desc: "As the years pass within the solitary confines of your mage tower, a heavy cloud of depression settles over your heart and mind. The relentless isolation, coupled with the weight of unfulfilled expectations and the ceaseless pursuit of arcane knowledge, begins to erode your sense of purpose and joy."
+ al_misc_events.1050.a: "Is there any sense to life?"
+
+
+ al_misc_events.0010.title: "Wandering Mage in your domain"
+ al_misc_events.0010.desc: "News spreads through your domain of a wandering mage who has been sighted on your lands. Whispers of their mysterious origins and formidable magical abilities ripple through the populace, stirring both curiosity and apprehension among your subjects. As the ruler of the realm, the presence of this enigmatic figure presents both opportunity and potential peril."
+ al_misc_events.0010.a: "Invite him"
+ al_misc_events.0010.b: "Ignore him"
+ al_misc_events.0010.c: "Catch him!"
+
+
+ al_misc_events.0020.title: "Rouge Mage attacking your domain"
+ al_misc_events.0020.desc: "A sudden and violent disturbance rocks the tranquility of your domain as reports flood in of a rogue mage launching brazen attacks on your lands. Chaos and fear grip your subjects as the mage's destructive magic wreaks havoc, threatening the safety and stability of your realm. As the ruler, you must act swiftly to protect your domain and quell the threat posed by this rogue practitioner of the arcane arts."
+ al_misc_events.0020.a: "Surrender giving them one county"
+ al_misc_events.0020.b: "Send army to defend"
+ custom.every_realm_county: "Every Realm County"
+ al_misc_events.0020.c: "Compromise"
+
+
+ al_misc_events.0030.title: "Newly discovered mage tower in your domain"
+ al_misc_events.0030.desc: "Whispers of intrigue and wonder spread throughout your domain as rumors emerge of a newly discovered mage tower hidden within the depths of your lands.
+ al_misc_events.0030.a: "Oh!?"
+ new_mage_tower_message_title: "Somewhere in the world new mage tower was discovered!"
+
+
+ al_misc_events.0060.title: "Your child became mage"
+ al_misc_events.0060.desc: "A profound revelation emerges within your household as your child unveils a latent talent for magecraft, signifying their initiation into the realm of magecraft. However, this development is not without its complications, particularly in the context of your faith, which may view the practice of magecraft as sinful or heretical."
+ al_misc_events.0060.a: "\"Oh, realy?\""
+ al_misc_events.0060.b: "\"Oh, realy? It can be problem though...\""
+ al_misc_events.0060.c: "\"Repent demon!?\""
+
+
+ al_misc_events.0070.title: "Your courtier became mage"
+ al_misc_events.0070.desc: "A significant development unfolds within your court as one of your trusted courtiers reveals themselves to possess magical abilities, marking their transformation into a mage. This revelation introduces a new dynamic to your realm, as the presence of a mage among your inner circle may evoke both admiration and concern among your subjects. As their liege, you are tasked with navigating the implications of this revelation and determining the appropriate course of action
+ al_misc_events.0070.a: "Leave him alone"
+ al_misc_events.0070.b: "Arrest him!"

@@ -19,7 +19,7 @@
  setting_PC_magic_level_random_desc:0 "Your affinity is random value between (0 - 50)"
  
  #Number of NPC that have Magical potential
- rule_NPC_magic_chance: "NPC arcana Affinity Chance"
+ rule_NPC_magic_chance: "NPC: arcana Affinity Chance"
  setting_NPC_magic_chance_0: "0%"
  setting_NPC_magic_chance_0_desc: "No NPC will start the game with high [arcana_affinity|E]"
  setting_NPC_magic_chance_0001: "0.1%"
@@ -34,7 +34,7 @@
  setting_NPC_magic_chance_1_desc: "NPCs will have 100% chance of starting the game with high [arcana_affinity|E]"
  
  #How high is highest game start arcana affinity
- rule_NPC_magic_level: "NPC Magic Potential"
+ rule_NPC_magic_level: "NPC: Magic Potential"
  setting_NPC_magic_level_random: "Random"
  setting_NPC_magic_level_random_desc: "NPCs who where given high arcana potential will each be given a random [arcana_affinity|E] weighted towards lower levels"
  setting_NPC_magic_level_0: "Mundane"
@@ -49,3 +49,15 @@
  setting_NPC_magic_level_4_desc: "NPCs generated with high [arcana_affinity|E], will have Transcendent level of [arcana_affinity|E]. (20 - 25)"
  setting_NPC_magic_level_5: "Demigod"
  setting_NPC_magic_level_5_desc: "NPCs generated with high [arcana_affinity|E], will have Demigod level of [arcana_affinity|E]. (25 - 30)"
+ 
+ rule_NPC_allow_mage: "NPC: Allow Mages (WORK ONLY WITH UNTESTED GAME RULE)"
+ setting_NPC_allow_mage_yes: "Yes"
+ setting_NPC_allow_mage_yes_desc: "Allow non-player characters to become mages."
+ setting_NPC_allow_mage_no: "No"
+ setting_NPC_allow_mage_no_desc: "Do not Allow Not non-player characters to become mages. It is posible to force NPC to become mage by teaching them. But AI will never ask someone to teach them"
+ 
+ rule_Al_allow_untested_things: "Allow unstested things"
+ setting_Al_allow_untested_things_yes: "Yes"
+ setting_Al_allow_untested_things_yes_desc: "Risk bugs"
+ setting_Al_allow_untested_things_no: "No"
+ setting_Al_allow_untested_things_no_desc: "Risk less bugs"
