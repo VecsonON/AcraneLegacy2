@@ -790,6 +790,8 @@ magecraft.0120 = {
 		name = magecraft.0120.a
         if = { limit = { is_male = yes } scope:god_child = { set_father = root } }
 		else = { scope:god_child = { set_mother = root } }
+		scope:god_child = { set_house = ROOT.house }
+
 	}
 	option = {
 		name = magecraft.0120.b
@@ -875,7 +877,6 @@ magecraft.1000 = {
 		if = {
 			limit = {
 				has_game_rule = NPC_allow_mage_yes
-				has_game_rule = Al_allow_untested_things_yes
 			}
 			trigger_event = {
 				id = magecraft.3000
@@ -906,7 +907,6 @@ magecraft.1000 = {
 		if = {
 			limit = {
 				has_game_rule = NPC_allow_mage_yes
-				has_game_rule = Al_allow_untested_things_yes
 			}
 			trigger_event = {
 				id = magecraft.3000

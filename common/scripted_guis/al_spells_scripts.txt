@@ -1385,7 +1385,7 @@ spell_fix_flesh_script = {
             remove_arcana = { VALUE = spell_fix_flesh_blind_setting_cost }
         }
         else_if = { limit = { scope:setting = flag:eunuch_setting } 
-            scope:target = { remove_trait = eunuch }
+            scope:target = { remove_trait = eunuch_1 }
             remove_arcana = { VALUE = spell_fix_flesh_eunuch_setting_cost }
         }
 		else_if = { limit = { scope:setting = flag:scarred_setting } 
@@ -1423,7 +1423,7 @@ spell_fix_flesh_script = {
 			have_arcana = { arcana = spell_fix_flesh_blind_setting_cost }
 		}
 		trigger_else_if = { limit = { scope:setting = flag:eunuch_setting }
-			scope:target = { has_trait = eunuch }
+			scope:target = { has_trait = eunuch_1 }
 			have_arcana = { arcana = spell_fix_flesh_eunuch_setting_cost }
 		}
 		trigger_else_if = { limit = { scope:setting = flag:scarred_setting }

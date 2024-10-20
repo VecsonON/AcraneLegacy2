@@ -56,7 +56,6 @@
  al_misc_events.0020.desc: "A sudden and violent disturbance rocks the tranquility of your domain as reports flood in of a rogue mage launching brazen attacks on your lands. Chaos and fear grip your subjects as the mage's destructive magic wreaks havoc, threatening the safety and stability of your realm. As the ruler, you must act swiftly to protect your domain and quell the threat posed by this rogue practitioner of the arcane arts."
  al_misc_events.0020.a: "Surrender giving them one county"
  al_misc_events.0020.b: "Send army to defend"
- custom.every_realm_county: "Every Realm County"
  al_misc_events.0020.c: "Compromise"
 
 

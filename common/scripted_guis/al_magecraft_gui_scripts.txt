@@ -1,7 +1,12 @@
 ﻿is_magecraft_window = {
-	scope = character
 	is_valid  = {
-		var:show_spells ?= 1
+		trigger_if = {
+			limit = { exists = faith }
+			var:show_spells ?= 1
+		}
+		trigger_else = {
+			always = no
+		}
 	}
 	effect = {
 		remove_variable = show_spells

@@ -8,9 +8,6 @@
 	is_valid = {
 		has_trait = mage
 	}
-
-	focus_id = 280 In Release for compatibility
-	# focus_id = 16 # For Development 
 }
 arcane_mastery_fast_focus = {
 	lifestyle = arcane_mastery_lifestyle
@@ -22,7 +19,4 @@ arcane_mastery_fast_focus = {
 	is_valid = {
 		has_trait = mage
 	}
-
-	focus_id = 281 In Release for compatibility
-	# focus_id = 17 # For Development 
 }

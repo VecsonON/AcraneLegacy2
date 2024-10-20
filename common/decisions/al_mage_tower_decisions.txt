@@ -1,5 +1,8 @@
 ﻿create_mage_tower = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = decisions
 	desc = create_mage_tower_desc
 
 	is_shown = {
@@ -23,7 +26,10 @@
 	ai_will_do = { base = 20 }
 }
 toggle_mage_tower_main_decision = {
-    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+   	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = decisions
 	desc = toggle_mage_tower_main_decision_desc
 	
 	is_shown = {
@@ -42,7 +48,10 @@ toggle_mage_tower_main_decision = {
 	ai_will_do = { base = 0 }
 }
 go_to_arcane_laboratories_decision = {
-    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = decisions
 	desc = go_to_arcane_laboratories_decision_desc
 	
 	is_shown = {
@@ -151,7 +160,10 @@ go_to_arcane_laboratories_decision = {
 	ai_will_do = { base = 0 }
 }
 go_to_mysthical_nexus_decision = {
-    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = decisions
 	desc = go_to_mysthical_nexus_decision_desc
 	
 	is_shown = {
@@ -174,7 +186,10 @@ go_to_mysthical_nexus_decision = {
 	ai_will_do = { base = 0 }
 }
 use_mage_towers_atmosphere_decision = {
-    picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+    picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = decisions
 	desc = use_mage_towers_atmosphere_decision_desc
 	
 	is_shown = {

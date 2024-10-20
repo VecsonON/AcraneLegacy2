@@ -48,3 +48,13 @@
  trait_al_perfect_human_character_desc:0 "[ROOT.GetCharacter.GetFirstName] is animated rock without mind. Very often golems are camouflage by spells and rituals to hide their identity"
 
  al_nick_the_ancient:0 "The Ancient"
+
+ trait_arcana_lifestyle_godly_arcane_studies: "Godly [arcane_studies|E]"
+ trait_arcana_lifestyle_godly_spell: "Godly [spell_casting|E]"
+ trait_arcana_lifestyle_godly_ritual: "Godly [ritual_creating|E]"
+ trait_arcana_lifestyle_godly_rewrite_spell: "Godly [worldweaving|E]"
+ TRAIT_FLAG_DESC_need_4_perk_points: "$need_4_perk_points$"
+ TRAIT_FLAG_DESC_add_10_percent_discount: "$add_10_percent_discount$"
+ TRAIT_FLAG_DESC_better_created_arcane_artifacts_desc: "$better_created_arcane_artifacts_desc$"
+
+ trait_arcana_lifestyle_reperk: "[arcane_mastery|E] Reperk"

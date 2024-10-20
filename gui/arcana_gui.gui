@@ -262,12 +262,12 @@ Types ArcaneLegacy
 container = {
 	name = "arcana_gui"
 	parentanchor = bottom|left
-	position = { 3 -110 }
+	position = { 45 -100 }
 	alwaystransparent = no
 	layer = windows_layer
 	visible = "[And(GetPlayer.IsValid, Not(GetVariableSystem.Exists('hide_bottom_left_HUD')))]"
 	widget = {
-		size = { 50 110 }
+		size = { 50 120 }
 		
 		using = tooltip_ne
 		tooltipwidget = {
@@ -278,8 +278,8 @@ container = {
 		visible = "[GetScriptedGui('show_arcana').IsValid( GuiScope.SetRoot(GetPlayer.MakeScope).End )]"
 
 		vbox = {
-			size = { 13 68 }
-			maximumsize = { 13 68 }
+			size = { 13 75 }
+			maximumsize = { 13 75 }
 			position = { 18 9 }
 
 			background = {
@@ -309,7 +309,7 @@ container = {
 			texture = "gfx/AL/arcane_gui.dds"
 			icon = {
 				parentanchor = vcenter
-				position = { 14 35 }
+				position = { 14 37 }
 				size = { 20 20 }
 
 				texture = "gfx/AL/ArcanaIcon.dds"

@@ -134,7 +134,7 @@ mage_tower_cooldown = {
 }
 rouge_mage_attack = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -2
+	monthly_county_control_decline_add = -2
 	county_opinion_add = -100
 	travel_danger = 25
 	build_speed = 0.5
@@ -142,7 +142,7 @@ rouge_mage_attack = {
 }
 rouge_mage_attack_base = {
 	icon = county_modifier_control_negative
-	monthly_county_control_change_add = -10
+	monthly_county_control_decline_add = -10
 	county_opinion_add = -200
 	travel_danger = 100
 	build_speed = 1

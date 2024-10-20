@@ -1,8 +1,9 @@
 ﻿gain_potential_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = major
 	
-	major = yes
-
 	ai_check_interval = 0
 	
 	is_shown = {
@@ -26,9 +27,11 @@
 	}
 }
 great_search_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = major
 	desc = great_search_decision_desc
-	major = yes
 	ai_check_interval = 12
 	is_shown = {
 		is_target_in_global_variable_list = {
@@ -41,7 +44,7 @@ great_search_decision = {
 		}
 	}
 	is_valid = {
-		
+		is_travelling = no
 	}
 	
 	effect = {
@@ -70,9 +73,11 @@ great_search_decision = {
 	}
 }
 al_become_mage_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = major
 	desc = al_become_mage_decision_desc
-	major = yes
 	ai_check_interval = 0
 	is_shown = {
 		NOT = { has_trait = mage }
@@ -99,7 +104,10 @@ al_become_mage_decision = {
 	}
 }
 recruit_mage = {
-	picture = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = decisions
 	
 	
 	is_shown = {
@@ -151,10 +159,11 @@ recruit_mage = {
 }
 # WHY ARE YOU DON'T SHOWING? | FIXED :D
 al_improve_magecraft_view = {
-	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = major
 	
-	major = yes
-
 	ai_check_interval = 0
 	
 	is_shown = {
@@ -194,9 +203,11 @@ al_improve_magecraft_view = {
 #1.3
 
 al_research = {
-	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	}	
+	decision_group_type = major
 	desc = al_research_decision_desc
-	major = yes
 
 	
 	ai_check_interval = 0
@@ -219,9 +230,11 @@ al_research = {
 	cooldown = { years = 1 }
 }
 al_learn_ancient_magicus = {
-	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}	
+	decision_group_type = major
 	desc = al_learn_ancient_magicus_decision_desc
-	major = yes
 
 	
 	ai_check_interval = 0
@@ -261,7 +274,10 @@ al_learn_ancient_magicus = {
 	}
 }
 gain_arcane_inspiraction = {
-	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	}	
+	decision_group_type = decisions
 	desc = gain_arcane_inspiraction_desc
 
 	
@@ -280,7 +296,10 @@ gain_arcane_inspiraction = {
 }
 
 ask_world_god_for_help = {
-	picture = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/fp1_decisons_hold_bolt.dds"
+	}	
+	decision_group_type = decisions
 	desc = ask_world_god_for_help_desc
 	ai_check_interval = 0
 	is_shown = {
@@ -294,7 +313,10 @@ ask_world_god_for_help = {
 	cooldown = { years = 10 }
 }
 create_arcane_artifact = {
-	picture = "gfx/interface/illustrations/decisions/decision_smith.dds"
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_smith.dds"
+	}	
+	decision_group_type = decisions
 	desc = create_arcane_artifact_desc
 	
 	ai_check_interval = 0

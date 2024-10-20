@@ -1,7 +1,7 @@
 ﻿al_mage_tower_searching = {
     is_shown = {
         highest_held_title_tier > tier_barony
-		is_landed = yes
+		is_playable_character = yes
 		is_adult = yes
 		has_trait = mage
     }
@@ -12,7 +12,7 @@
 	is_valid = {
 		scope:host = {
 			is_imprisoned = no
-			is_landed = yes 
+			is_playable_character = yes 
 			NOT = { is_incapable = yes }
 		}
 	}
@@ -20,7 +20,7 @@
     on_invalidated = {
 		if = {
 			limit = {
-				scope:host = { is_landed = no }
+				scope:host = { is_playable_character = no }
 			}
 			scope:activity = {
 				activity_type = { save_scope_as = activity_type }
@@ -68,7 +68,6 @@
 	# PARAMETERS
 	###################
 
-	is_grand_activity = yes
 
 	is_single_location = yes
 	wait_time_before_start = { days = 2 }
@@ -118,11 +117,13 @@
 				}
 			}
 			al_mage_tower_searching_time_mid = {
+				is_shown = { has_dlc_feature = advanced_activities }
 				ai_will_do = {
 					value = 1
 				}
 			}
 			al_mage_tower_searching_time_huge = {
+				is_shown = { has_dlc_feature = advanced_activities }
 				ai_will_do = {
 					value = 1
 				}

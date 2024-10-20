@@ -491,3 +491,26 @@ al_perfect_human = {
 # 	group = education_arcana
 # 	level = 5
 # }
+
+# WHY PARADOX? OR IN OTHER WORDS, HOW TO NOT MAKE THESE
+arcana_lifestyle_godly_arcane_studies = {
+	flag = need_4_perk_points
+	flag = add_10_percent_discount
+	flag = better_created_arcane_artifacts_desc
+	desc = arcane_studies_perk_desc
+}
+arcana_lifestyle_godly_spell = {
+	flag = need_4_perk_points
+	desc = spell_casting_perk_desc
+}
+arcana_lifestyle_godly_ritual = {
+	flag = need_4_perk_points
+	desc = ritual_creating_perk_desc
+}
+arcana_lifestyle_godly_rewrite_spell = {
+	flag = need_4_perk_points
+	desc = worldweaving_perk_desc
+}
+arcana_lifestyle_reperk = {
+	desc = trait_arcana_lifestyle_reperk
+}

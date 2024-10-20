@@ -149,13 +149,10 @@ al_research_events.0101 = { # inspiraction START
             var:al_arcane_inspiration = flag:rewrite_spell_apotheosis
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_apotheosis } }
         }
-        hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_apotheosis
-            }
-            remove_variable = al_arcane_inspiration
-        }
+        
+        set_variable = { name = research_spell value = flag:rewrite_spell_apotheosis }
+        remove_variable = al_arcane_inspiration
+        
         trigger_event = al_research_events.0002
 	}
     option = { # inspiraction - Utopia
@@ -165,13 +162,8 @@ al_research_events.0101 = { # inspiraction START
             var:al_arcane_inspiration = flag:rewrite_spell_utopia
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_utopia } }
         }
-        hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_utopia
-            }
+            set_variable = { name = research_spell value = flag:rewrite_spell_utopia }
             remove_variable = al_arcane_inspiration
-        }
         trigger_event = al_research_events.0002
 	}
     option = { # inspiraction - Armagedon
@@ -181,13 +173,8 @@ al_research_events.0101 = { # inspiraction START
             var:al_arcane_inspiration = flag:rewrite_spell_armagedon
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_armagedon } }
         }
-        hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_armagedon
-            }
+            set_variable = { name = research_spell value = flag:rewrite_spell_armagedon }
             remove_variable = al_arcane_inspiration
-        }
         trigger_event = al_research_events.0002
 	}
     option = { # inspiraction - Genesis
@@ -197,13 +184,8 @@ al_research_events.0101 = { # inspiraction START
             var:al_arcane_inspiration = flag:rewrite_spell_genesis
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_genesis } }
         }
-        hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_genesis
-            }
+            set_variable = { name = research_spell value = flag:rewrite_spell_genesis }
             remove_variable = al_arcane_inspiration
-        }
         trigger_event = al_research_events.0002
 	}
     option = { # inspiraction - Increase Arcana Affinity
@@ -212,13 +194,8 @@ al_research_events.0101 = { # inspiraction START
             has_variable = al_arcane_inspiration
             var:al_arcane_inspiration = flag:arcana_affinity
         }
-        hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:arcana_affinity
-            }
+            set_variable = { name = research_spell value = flag:arcana_affinity }
             remove_variable = al_arcane_inspiration
-        }
         trigger_event = al_research_events.0002
 	}
 }
@@ -359,10 +336,7 @@ al_research_events.0201 = { # book START
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_apotheosis } }
         }
         hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_apotheosis
-            }
+            set_variable = { name = research_spell value = flag:rewrite_spell_apotheosis }
             remove_variable = al_arcane_inspiration
         }
         trigger_event = al_research_events.0002
@@ -377,11 +351,7 @@ al_research_events.0201 = { # book START
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_utopia } }
         }
         hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_utopia
-            }
-            remove_variable = al_arcane_inspiration
+            set_variable = { name = research_spell value = flag:rewrite_spell_utopia }
         }
         trigger_event = al_research_events.0002
 	}
@@ -395,11 +365,7 @@ al_research_events.0201 = { # book START
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_armagedon } }
         }
         hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_armagedon
-            }
-            remove_variable = al_arcane_inspiration
+            set_variable = { name = research_spell value = flag:rewrite_spell_armagedon }
         }
         trigger_event = al_research_events.0002
 	}
@@ -413,11 +379,7 @@ al_research_events.0201 = { # book START
             NOT = { is_target_in_variable_list = { name = done_arcane_research target = flag:rewrite_spell_genesis } }
         }
         hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:rewrite_spell_genesis
-            }
-            remove_variable = al_arcane_inspiration
+            set_variable = { name = research_spell value = flag:rewrite_spell_genesis }
         }
         trigger_event = al_research_events.0002
 	}
@@ -429,11 +391,7 @@ al_research_events.0201 = { # book START
             }
         }
         hidden_effect = {
-            set_variable = {
-                name = research_spell
-                value = flag:arcana_affinity
-            }
-            remove_variable = al_arcane_inspiration
+            set_variable = { name = research_spell value = flag:arcana_affinity }
         }
         trigger_event = al_research_events.0002
 	}
@@ -657,7 +615,7 @@ al_research_events.2000 = {
         }
         set_variable = {
             name = al_arcane_inspiration
-            value = flag:rewrite_spell_apotheosis
+            value = flag:rewrite_spell_genesis
         }
         add_stress = 200
 	}

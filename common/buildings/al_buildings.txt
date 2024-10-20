@@ -22,7 +22,7 @@ basic_mage_tower = {
 		monthly_prestige = 2
 	}
 	county_modifier = {
-		monthly_county_control_change_factor = 0.2
+		monthly_county_control_growth_factor = 0.2
 		development_growth_factor = 0.1
 		development_growth = 0.15
 	}
@@ -52,7 +52,7 @@ mage_tower = {
 		monthly_lifestyle_xp_gain_mult = 0.2
 	}
 	county_modifier = {
-		monthly_county_control_change_factor = 0.4
+		monthly_county_control_growth_factor = 0.4
 		development_growth_factor = 0.2
 		development_growth = 0.3
 	}
@@ -92,7 +92,7 @@ advance_mage_tower = {
 	}
 	effect_desc = advance_mage_tower_effect_desc
 	county_modifier = {
-		monthly_county_control_change_factor = 0.8
+		monthly_county_control_growth_factor = 0.8
 		development_growth_factor = 0.4
 		development_growth = 0.6
 	}
@@ -126,7 +126,7 @@ super_mage_tower = {
 	}
 	
 	county_modifier = {
-		monthly_county_control_change_factor = 1
+		monthly_county_control_growth_factor = 1
 		development_growth_factor = 0.8
 		development_growth = 1
 	}

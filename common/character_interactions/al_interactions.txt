@@ -39,10 +39,7 @@ request_magecraft_teaching_interaction = {
 	send_options_exclusive = no
 	is_valid_showing_failures_only = {
 		scope:actor = {
-			can_start_scheme = {
-				type = magecraft_learn_scheme
-				target = scope:recipient
-			}
+			can_start_scheme = { type = magecraft_learn_scheme target_character = scope:recipient }
 		}
 	}
 	send_option = {
@@ -66,7 +63,12 @@ request_magecraft_teaching_interaction = {
 					title = request_magecraft_teaching_interaction_accept_toast
 					left_icon = scope:actor					
 					right_icon = scope:recipient
-					start_scheme = { type = magecraft_learn_scheme target = scope:recipient }
+
+					begin_scheme_basic_effect = {
+						SCHEME_TYPE = magecraft_learn_scheme
+						TARGET_TYPE = target_character
+						TARGET_SCOPE = scope:recipient
+					}
 				}
 			}
 		}
@@ -370,10 +372,7 @@ magecraft_teaching_interaction = {
 	}
 	is_valid_showing_failures_only = {
 		scope:recipient = {
-			can_start_scheme = {
-				type = magecraft_learn_scheme
-				target = scope:recipient
-			}
+			can_start_scheme = { type = magecraft_learn_scheme target_character = scope:actor }
 		}
 	}
 	scheme = magecraft_learn_scheme
@@ -385,7 +384,11 @@ magecraft_teaching_interaction = {
 					left_icon = scope:recipient					
 					right_icon = scope:actor
 					scope:recipient = {
-						start_scheme = { type = magecraft_learn_scheme target = scope:actor }
+						begin_scheme_basic_effect = {
+							SCHEME_TYPE = magecraft_learn_scheme
+							TARGET_TYPE = target_character
+							TARGET_SCOPE = scope:actor
+						}
 					}
 					
 				}

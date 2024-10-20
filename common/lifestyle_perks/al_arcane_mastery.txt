@@ -340,7 +340,7 @@ al_arcane_mastery_godly_arcane_studies = {
 	position = { 2 9 }
 	icon = ArcanaIcon
 	parent = al_arcane_mastery_godly
-	
+	trait = arcana_lifestyle_godly_arcane_studies
 	can_be_picked = {
 		arcane_mastery_lifestyle_perk_points > 3
 	}
@@ -361,6 +361,7 @@ al_arcane_mastery_godly_spell = {
 	position = { 0 9 }
 	icon = al_spell
 	parent = al_arcane_mastery_godly
+	trait = arcana_lifestyle_godly_spell
 	can_be_picked = {
 		arcane_mastery_lifestyle_perk_points > 3
 	}
@@ -380,6 +381,7 @@ al_arcane_mastery_godly_ritual = {
 	position = { 4 9 }
 	icon = al_ritual
 	parent = al_arcane_mastery_godly
+	trait = arcana_lifestyle_godly_ritual
 	can_be_picked = {
 		arcane_mastery_lifestyle_perk_points > 3
 	}
@@ -399,6 +401,7 @@ al_arcane_mastery_godly_rewrite_spell = {
 	position = { 6 9 }
 	icon = al_spell
 	parent = al_arcane_mastery_godly
+	trait = arcana_lifestyle_godly_rewrite_spell
 	can_be_picked = {
 		arcane_mastery_lifestyle_perk_points > 3
 	}
@@ -417,6 +420,7 @@ al_arcane_mastery_reperk = {
 	lifestyle = arcane_mastery_lifestyle
 	tree = arcane_mastery
 	position = { 3 10 }
+	trait = arcana_lifestyle_reperk
 	icon = ArcanaIcon
 	effect = {
 		hidden_effect = {
