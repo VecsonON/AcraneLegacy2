@@ -1,0 +1,108 @@
+﻿l_russian:
+ arcana_affinity_regen_desc: "Родство с арканой"
+ arcana_affinity_base_desc: "Врожденное сродство с арканой"
+ mage_arcana_bonus_desc: "[GetTrait('mage').GetName(GetNullCharacter)]"
+ al_god_value_desc: "[GetTrait('al_god').GetName(GetNullCharacter)]"
+ arcane_mastery_focus_value_desc: "[GetFocus('arcane_mastery_focus').GetName]"
+ apotheosis_house_modifier_value_desc: "[GetModifier('apotheosis_house_modifier').GetName]"
+
+ arcana_affinity_desc: "От [arcana_affinity|E]"
+ arcana_maximum_artifacts_value_desc: "Надетые магические артефакты"
+
+ casting_rewriting_spell_cost_desc: "Читается заклинание [rewriting_spell|E]"
+
+ al_experiment_arcana_5_value_desc: "[GetModifier('al_experiment_arcana_5').GetName]"
+ al_experiment_arcana_4_value_desc: "[GetModifier('al_experiment_arcana_4').GetName]"
+ al_experiment_arcana_3_value_desc: "[GetModifier('al_experiment_arcana_3').GetName]"
+ al_experiment_arcana_2_value_desc: "[GetModifier('al_experiment_arcana_2').GetName]"
+ al_experiment_arcana_1_value_desc: "[GetModifier('al_experiment_arcana_1').GetName]"
+
+ ritual_improve_intellect_level_0_cost_desc: "[GetModifier('ritual_improve_intellect_minor').GetName]"
+ ritual_improve_intellect_level_1_cost_desc: "[GetModifier('ritual_improve_intellect_normal').GetName]"
+ ritual_improve_intellect_level_2_cost_desc: "[GetModifier('ritual_improve_intellect_major').GetName]"
+ ritual_improve_intellect_level_3_cost_desc: "[GetModifier('ritual_improve_intellect_supreme').GetName]"
+
+ ritual_improve_body_health_level_0_cost_desc: "[GetModifier('ritual_improve_body_health_minor').GetName]"
+ ritual_improve_body_health_level_1_cost_desc: "[GetModifier('ritual_improve_body_health_normal').GetName]"
+ ritual_improve_body_health_level_2_cost_desc: "[GetModifier('ritual_improve_body_health_major').GetName]"
+ ritual_improve_body_health_level_3_cost_desc: "[GetModifier('ritual_improve_body_health_supreme').GetName]"
+
+ ritual_improve_fertility_level_0_cost_desc: "[GetModifier('ritual_improve_fertility_minor').GetName]"
+ ritual_improve_fertility_level_1_cost_desc: "[GetModifier('ritual_improve_fertility_normal').GetName]"
+ ritual_improve_fertility_level_2_cost_desc: "[GetModifier('ritual_improve_fertility_major').GetName]"
+ ritual_improve_fertility_level_3_cost_desc: "[GetModifier('ritual_improve_fertility_supreme').GetName]"
+
+ ritual_improve_body_prowess_level_0_cost_desc: "[GetModifier('ritual_improve_body_prowess_minor').GetName]"
+ ritual_improve_body_prowess_level_1_cost_desc: "[GetModifier('ritual_improve_body_prowess_normal').GetName]"
+ ritual_improve_body_prowess_level_2_cost_desc: "[GetModifier('ritual_improve_body_prowess_major').GetName]"
+ ritual_improve_body_prowess_level_3_cost_desc: "[GetModifier('ritual_improve_body_prowess_supreme').GetName]"
+
+ ritual_accelerate_level_0_cost_desc: "[GetModifier('ritual_accelerate_minor').GetName]"
+ ritual_accelerate_level_1_cost_desc: "[GetModifier('ritual_accelerate_normal').GetName]"
+ ritual_accelerate_level_2_cost_desc: "[GetModifier('ritual_accelerate_major').GetName]"
+ ritual_accelerate_level_3_cost_desc: "[GetModifier('ritual_accelerate_supreme').GetName]"
+
+ ritual_accelerate_army_level_0_cost_desc: "[GetModifier('ritual_accelerate_army_minor').GetName]"
+ ritual_accelerate_army_level_1_cost_desc: "[GetModifier('ritual_accelerate_army_normal').GetName]"
+ ritual_accelerate_army_level_2_cost_desc: "[GetModifier('ritual_accelerate_army_major').GetName]"
+ ritual_accelerate_army_level_3_cost_desc: "[GetModifier('ritual_accelerate_army_supreme').GetName]"
+
+ ritual_improve_army_bodies_level_0_cost_desc: "[GetModifier('ritual_improve_army_bodies_minor').GetName]"
+ ritual_improve_army_bodies_level_1_cost_desc: "[GetModifier('ritual_improve_army_bodies_normal').GetName]"
+ ritual_improve_army_bodies_level_2_cost_desc: "[GetModifier('ritual_improve_army_bodies_major').GetName]"
+ ritual_improve_army_bodies_level_3_cost_desc: "[GetModifier('ritual_improve_army_bodies_supreme').GetName]"
+
+ ritual_telekinesis_level_0_cost_desc: "[GetModifier('ritual_telekinesis_minor').GetName]"
+ ritual_telekinesis_level_1_cost_desc: "[GetModifier('ritual_telekinesis_normal').GetName]"
+ ritual_telekinesis_level_2_cost_desc: "[GetModifier('ritual_telekinesis_major').GetName]"
+ ritual_telekinesis_level_3_cost_desc: "[GetModifier('ritual_telekinesis_supreme').GetName]"
+
+ al_arcane_mastery_novice_desc: "[GetPerk('al_arcane_mastery_novice').GetName(GetNullCharacter)]"
+ al_arcane_mastery_adept_desc: "[GetPerk('al_arcane_mastery_adept').GetName(GetNullCharacter)]"
+ al_arcane_mastery_master_desc: "[GetPerk('al_arcane_mastery_master').GetName(GetNullCharacter)]"
+ al_arcane_mastery_archmage_desc: "[GetPerk('al_arcane_mastery_archmage').GetName(GetNullCharacter)]" 
+ al_arcane_mastery_godly_desc: "[GetPerk('al_arcane_mastery_godly').GetName(GetNullCharacter)]"
+
+ basic_mage_tower_desc: "[GetBuilding('basic_mage_tower').GetName]"
+ mage_tower_desc: "[GetBuilding('mage_tower').GetName]"
+ advance_mage_tower_desc: "[GetBuilding('advance_mage_tower').GetName]"
+ super_mage_tower_desc: "[GetBuilding('super_mage_tower').GetName]"
+
+ huge_arcane_affinity_boost_val_desc: "[GetModifier('huge_arcane_affinity_boost').GetName]"
+ huge_arcane_month_boost_val_desc: "[GetModifier('huge_arcane_month_boost').GetName]"
+
+ ritual_immortality_level_0_cost_desc: "[GetModifier('ritual_immortality_modifier').GetName]"
+
+ ritual_pyrokineis_level_0_cost_desc: "[GetModifier('ritual_pyrokineis_minor').GetName]"
+ ritual_pyrokineis_level_1_cost_desc: "[GetModifier('ritual_pyrokineis_normal').GetName]"
+ ritual_pyrokineis_level_2_cost_desc: "[GetModifier('ritual_pyrokineis_major').GetName]"
+ ritual_pyrokineis_level_3_cost_desc: "[GetModifier('ritual_pyrokineis_supreme').GetName]"
+
+ ritual_emotionless_level_0_time_cost_desc: "[GetModifier('ritual_emotionless_modifier').GetName]"
+
+
+ magecraft_legacy_1_value_desc: "[GetDynastyPerk('magecraft_legacy_1').GetName]"
+ magecraft_legacy_3_value_desc: "[GetDynastyPerk('magecraft_legacy_3').GetName]"
+
+ # DISCOUNTS 
+ spell_cost_base_value_desc: "Изначальная стоимость"
+ al_arcane_mastery_arcane_studies_values_desc: "[arcane_mastery_lifestyle|E] Perks#weak (-[GetPlayer.Custom('arcana_cost_discount_perks')]%)#!"
+ arcana_cost_discount_perks_all: "30"
+ arcana_cost_discount_perks_4: "20"
+ arcana_cost_discount_perks_3: "15"
+ arcana_cost_discount_perks_2: "10"
+ arcana_cost_discount_perks_1: "5"
+ magecraft_legacy_4_value_desc: "[GetDynastyPerk('magecraft_legacy_4').GetName]#weak (-20%)#!"
+ magecraft_legacy_5_value_desc: "[GetDynastyPerk('magecraft_legacy_5').GetName]#weak (-20%)#!"
+
+ affinity_gain_artifact_format: "+$VALUE$"
+ affinity_gain_format: "$KEY$: #P @arcana_affinity_icon!+$VALUE$#!"
+ affinity_loss_format: "$KEY$: #N @arcana_affinity_icon!-$VALUE$#!"
+
+ magecraft_upkeep_format: "$KEY$: #N @acrana_icon!$VALUE$#!"
+ magecraft_regen_format: "$KEY$: #P @acrana_icon!$VALUE$#!"
+ al_artifacts_discount_values_desc: "Надетые магические артефакты#weak (-[ROOT.ScriptValue('al_artifacts_discount_show')]%)#!"
+ arcana_affinity_artifacts_value_desc: "Надетые магические артефакты"
+ arcana_regen_artifact_value_desc: "Надетые магические артефакты"
+ al_artifact_arcana_affinity_gain_1_modifier_value_desc: "1"
+ al_artifact_arcana_affinity_gain_2_modifier_value_desc: "2"

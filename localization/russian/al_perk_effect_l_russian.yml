@@ -1,0 +1,7 @@
+﻿l_russian:
+ need_2_perk_points:0 "#X Этот [perk|E] стоит #!#R;bold 2 #!#X очка [perk|E]!#!"
+ need_3_perk_points:0 "#X Этот [perk|E] стоит #!#R;bold 3 #!#X очка [perk|E]!#!"
+ need_4_perk_points:0 "#X Этот [perk|E] стоит #!#R;bold 4 #!#X очка [perk|E]!#!"
+
+ add_5_percent_discount: "#P -5%#! [Concept('arcana','#E Arcana Cost')] на заклинания и Переписывание реальности\n#P -5%#! [Concept('arcana','#E Arcana Upkeep')] of Rituals"
+ add_10_percent_discount: "#P -10%#! [Concept('arcana','#E Arcana Cost')] на заклинания и Переписывание реальности\n#P -10%#! [Concept('arcana','#E Arcana Upkeep')] of Rituals"

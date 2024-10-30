@@ -1,0 +1,35 @@
+﻿l_russian:
+ arcane_mastery_lifestyle_name: "Мастерство магии"
+ arcane_mastery_lifestyle_desc: "Древо навыков Мастерство магии погружает в глубокое понимание основополагающих принципов Арканы, мистической силы, которая управляет реальностью. Маги, специализирующиеся на Мастерстве магии, стремятся разгадать самые глубокие тайны магии, получая непревзойденные знания и открывая мощные способности."
+
+ game_concept_arcane_mastery_lifestyle: "Мастерство магии"
+ game_concept_arcane_mastery_lifestyle_desc: "Древо навыков Мастерство магии погружает в глубокое понимание основополагающих принципов Арканы, мистической силы, которая управляет реальностью. Маги, специализирующиеся на Мастерстве магии, стремятся разгадать самые глубокие тайны магии, получая непревзойденные знания и открывая мощные способности."
+
+
+ arcane_mastery_name: "Мастерство магии"
+
+
+ arcane_mastery_focus: "Концентрация на Аркане"
+ arcane_mastery_focus_effect_desc: "Концентрация на Аркане\n[arcana_affinity|E]: @arcana_affinity_icon!#P +4#!"
+
+ arcane_mastery_fast_focus: "Концентрация на магическом мастерстве"
+ arcane_mastery_fast_focus_effect_desc: "Концентрация на магическом мастерстве"
+ arcane_mastery_fast_focus_modfifier: "Концентрация на магическом мастерстве"
+
+
+ rewrite_spell_change_genetics_perk_name: "[rewriting_spell|E]: Изменить генетику"
+
+
+ GAINS_ARCANE_MASTERY_LIFESTYLE_XP:1 "Получить $VALUE|V0$ опыта [arcane_mastery_lifestyle|E]"
+ GAINED_ARCANE_MASTERY_LIFESTYLE_XP:1 "Получено $VALUE|V0$ опыта [arcane_mastery_lifestyle|E]"
+ I_GAIN_ARCANE_MASTERY_LIFESTYLE_XP:1 "Вы получите $VALUE|V0$ опыта [arcane_mastery_lifestyle|E]"
+ I_GAINED_ARCANE_MASTERY_LIFESTYLE_XP:1 "Вы получили $VALUE|V0$ опыта [arcane_mastery_lifestyle|E]"
+ TARGET_GAINS_ARCANE_MASTERY_LIFESTYLE_XP:1 "[CHARACTER.GetShortUIName] получит $VALUE|V0$ опыта [arcane_mastery_lifestyle|E]"
+ TARGET_GAINED_ARCANE_MASTERY_LIFESTYLE_XP:1 "[CHARACTER.GetShortUIName] получил $VALUE|V0$ опыта [arcane_mastery_lifestyle|E]"
+
+ GAINS_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "Получить $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ GAINED_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "Получено $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ I_GAIN_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "Вы получите $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ I_GAINED_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "Вы получили $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ TARGET_GAINS_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "[CHARACTER.GetShortUIName] получит $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"
+ TARGET_GAINED_A_ARCANE_MASTERY_LIFESTYLE_PERKPOINT:1 "[CHARACTER.GetShortUIName] получил $VALUE|V0$ [arcane_mastery_lifestyle|E] [perk|E] Unlock"

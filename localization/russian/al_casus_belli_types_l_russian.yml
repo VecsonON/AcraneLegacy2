@@ -1,0 +1,5 @@
+﻿l_russian:
+ al_godly_invasion_war:0 "Божественное вторжение"
+ AL_GODLY_INVASION_CB_NAME:1 "Вторгнуться в [kingdom|E]"
+ AL_GODLY_INVASION_WAR_NAME:2 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjective] вторжение [TITLE.GetBaseName]"
+ AL_GODLY_INVASION_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"

@@ -1,0 +1,91 @@
+﻿l_russian:
+ al_arcana_affinity_bonus_t_advantage: "[arcana_affinity|E] @arcana_affinity_icon!"
+ al_artifact_arcana_monthly_gain_bonus_t_advantage: "[arcana|E] в месяц @acrana_icon!"
+ al_arcana_arcana_max_bonus_t_advantage: "[arcana|E] Максимум @acrana_icon!"
+ al_arcana_magecraft_cost_bonus_t_advantage: "[Concept('arcana','#E Arcana Cost')] of Spells (%) @acrana_icon!"
+
+ ######################################################################################
+
+ al_artifact_common_staff: "Обычный Посох"
+ al_artifact_common_staff_description: "Палка с выгравированными мистическими символами, помогающая с сотворением заклинаний"
+
+ al_artifact_arcane_staff: "[Concept('arcana','#E Arcane')] Посох"
+ al_artifact_arcane_staff_description: "Неплохой посох, помогающий с сотворением заклинаний"
+
+ al_artifact_greater_arcane_staff: "Великий [Concept('arcana','#E Arcane')] Посох"
+ al_artifact_greater_arcane_staff_description: "Великий посох, помогающий с сотворением заклинаний"
+
+ al_artifact_arhons_staff: "Посох Архона"
+ al_artifact_arhons_staff_description: "Посох Архона - одного из величайших магов былых времен"
+
+######################################################################################
+
+ ruined_mage_tower_found: "Здесь руины Магической Башни!"
+
+######################################################################################
+
+ al_artifact_small_arcane_battery: "Маленькая [Concept('arcana','#E Arcane')] Батарея"
+ al_artifact_small_arcane_battery_description: "Браслет с символами, предназначенный для хранения небольшого количества [arcana|E]"
+
+ al_artifact_arcane_battery: "[Concept('arcana','#E Arcane')] Батарея"
+ al_artifact_arcane_battery_description: "Браслет с символами, предназначенный для хранения небольшого количества [arcana|E]" 
+
+ al_artifact_huge_arcane_battery: "Огромная [Concept('arcana','#E Arcane')] Батарея"
+ al_artifact_huge_arcane_battery_description: "Браслет с символами, предназначенный для хранения небольшого количества [arcana|E]"
+
+######################################################################################
+
+ al_artifact_enchanted_branslet: "Зачарованный браслет"
+ al_artifact_enchanted_branslet_description: "Зачарованный браслет с символами, усиливающими [arcana_affinity|E] владельца"
+
+ al_artifact_enchanted_medallion: "Зачарованный Медальон"
+ al_artifact_enchanted_medallion_description: "Зачарованный медальон с символами, усиливающими [arcana_affinity|E] владельца"
+
+ al_artifact_enchanted_ring: "Зачарованное Кольцо"
+ al_artifact_enchanted_ring_description: "Зачарованное кольцо с символами, усиливающими [arcana_affinity|E] владельца"
+
+ al_artifact_arhons_amulet: "Амулет Архона"
+ al_artifact_arhons_amulet_description: "Амулет Архона - одного из величайших магов былых времен"
+
+######################################################################################
+
+ al_artifact_small_arcane_collector: "Малый [Concept('arcana','#E Arcane')] Накопитель"
+ al_artifact_small_arcane_collector_description: "Малый [Concept('arcana','#E Arcane')] Накопитель, помогающий владельцу получать [arcana|E] из воздуха"
+
+ al_artifact_arcane_collector: "[Concept('arcana','#E Arcane')] Накопитель"
+ al_artifact_arcane_collector_description: "[Concept('arcana','#E Arcane')] Накопитель, помогающий владельцу получать [arcana|E] из воздуха"
+
+ al_artifact_great_arcane_collector: "Великий [Concept('arcana','#E Arcane')] Накопитель"
+ al_artifact_great_arcane_collector_description: "Великий [Concept('arcana','#E Arcane')] Накопитель, помогающий владельцу получать [arcana|E] из воздуха"
+
+######################################################################################
+
+ al_ancient_tome: "Древняя Книга"
+ al_ancient_tome_description: "Древняя Книга, написанная мастером магии на древнем магике. [arcane_artifact.Custom('artifact_spell_loc')]"
+ artifact_spell_loc_has_apotheosis: "\nНадпись на первой странице 'О возможном способе достичь Божественности'"
+ artifact_spell_loc_has_armagedon: "\nНадпись на первой странице '100 способов уничтожить мир'"
+ artifact_spell_loc_has_genesis: "\nНадпись на первой странице 'Игра в Бога для самых маленьких'"
+ artifact_spell_loc_has_utopia: "\nНадпись на первой странице 'Лучший способ создать безопасный  дом для ваших детей'"
+
+ al_rare_ancient_tome: "Редкая Древняя Книга"
+ al_rare_ancient_tome_description: "Редкая Древняя Книга, написанная архимагом на древнем магике. [arcane_artifact.Custom('artifact_spell_loc')]"
+
+ al_great_ancient_tome: "Великая Древняя Книга"
+ al_great_ancient_tome_description: "Великая Древняя Книга написанная божественным магом на древнем магике. [arcane_artifact.Custom('artifact_spell_loc')]"
+
+ al_artifact_urah_tome: "Том Ураха"
+ al_artifact_urah_tome_description: "Древняя книга, написанная Урахом. Одним из величайших магов за все время"
+
+ ######################################################################################
+
+ al_artifact_custom_staff: "Самодельный Магический Посох"
+ al_artifact_custom_staff_description: "Самодельный Магический Посох"
+
+ al_artifact_custom_arcane_battery: "Самодельная Магическая Батарея"
+ al_artifact_custom_arcane_battery_description: "Самодельная Магическая Батарея"
+
+ al_artifact_custom_arcane_amplifier: "Самодельный Усилитель Арканы"
+ al_artifact_custom_arcane_amplifier_description: "Самодельный Усилитель Арканы"
+
+ al_artifact_custom_arcane_collector: "Самодельный Накопитель Арканы"
+ al_artifact_custom_arcane_collector_description: "Самодельный Накопитель Арканы"

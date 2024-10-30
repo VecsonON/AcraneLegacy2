@@ -1,0 +1,33 @@
+﻿l_russian:
+ al_mage_tower_searching: "Поиск Магической Башни"
+ al_mage_tower_searching_desc: "Отправиться обыскивать руины магических башен по всему свету"
+ al_mage_tower_searching_selection_tooltip: "Отправиться обыскивать руины магических башен по всему свету"
+ al_mage_tower_searching_host_desc: "$BULLET_WITH_TAB$@artifact_icon!Arcane Artifacts\n$BULLET_WITH_TAB$@gold_icon!Gold\n$BULLET_WITH_TAB$@acrana_icon!Обнаружить давно забытые знания"
+
+ great_search_intent: "Обыскать Магическую Башню" 
+ great_search_intent_desc: "Обыскать Магическую Башню"
+
+ al_mage_tower_searching_time: "Время обыска"
+ al_mage_tower_searching_province_desc: "В этой провинции Магическая Башня"
+ al_mage_tower_searching_destination_selection: "Вы можете выбрать провинцию с руинами магической башни"
+ al_mage_tower_searching_guest_desc: " "
+ al_mage_tower_searching_conclusion_desc: "Завершение обыска"
+ al_mage_tower_searching_litlle: "Малая длительность"
+ al_mage_tower_searching_litlle_desc: "Обыск продлится 1 месяц"
+ al_mage_tower_searching_time_mid: "Средняя длительность"
+ al_mage_tower_searching_time_mid_desc: "Обыск продлится 2 месяца"
+ al_mage_tower_searching_time_huge: "Серьезная длительность" 
+ al_mage_tower_searching_time_huge_desc: "Обыск продлится 3 месяца"
+
+ TRAVEL_NAME_FOR_al_mage_tower_searching: "Ваше путешествие к руинам магической башни"
+
+ al_readable_magical_experiments: "Магические документы, которые можно прочесть"
+ al_unreadable_magical_experiments: "Нечитабельные магические документы"
+ al_readable_magical_papers: "Магические документы, которые можно прочесть"
+ al_unreadable_magical_papers: "Нечитабельные магические документы"
+
+ al_great_libary_used: "Прочтенная Великая Библиотека"
+ old_arcane_books: "Старые магические книги"
+ al_understood_golem_factory: "Понятая фабрика големов"
+ al_semi_understood_golem_factory: "Частично понятая фабрика големов"
+ al_pending_research: "Проводящееся исследование"

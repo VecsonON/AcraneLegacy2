@@ -1,0 +1,46 @@
+﻿l_russian:
+ al_arcane_mastery_novice_name:0 "[arcane_mastery|E]: Новичок"
+ al_arcane_mastery_novice_arcane_studies_name:0 "[arcane_studies|E]: Новичок-арканист"
+ al_arcane_mastery_novice_spell_name:0 "[spell_casting|E]: Новичок-заклинатель"
+ al_arcane_mastery_novice_ritual_name:0 "[ritual_creating|E]: Новичок-ритуалист"
+
+ al_arcane_mastery_adept_name:0 "[arcane_mastery|E]: Адепт"
+ al_arcane_mastery_adept_arcane_studies_name:0 "[arcane_studies|E]: Адепт арканы"
+ al_arcane_mastery_adept_spell_name:0 "[spell_casting|E]: Адепт-заклинатель"
+ al_arcane_mastery_adept_ritual_name:0 "[ritual_creating|E]: Адепт-ритуалист"
+
+ al_arcane_mastery_master_name:0 "[arcane_mastery|E]: Мастер"
+ al_arcane_mastery_master_arcane_studies_name:0 "[arcane_studies|E]: Мастер Арканы"
+ al_arcane_mastery_master_spell_name:0 "[spell_casting|E]: Мастер заклинаний"
+ al_arcane_mastery_master_ritual_name:0 "[ritual_creating|E]: Мастер ритуалов"
+ al_arcane_mastery_master_rewrite_spell_name:0 "[worldweaving|E]: Адепт мироплетения"
+
+ al_arcane_mastery_archmage_name:0 "[arcane_mastery|E]: Архимаг"
+ al_arcane_mastery_archmage_arcane_studies_name:0 "[arcane_studies|E]: Архимаг Арканы"
+ al_arcane_mastery_archmage_spell_name:0 "[spell_casting|E]: Архимаг заклинатель"
+ al_arcane_mastery_archmage_ritual_name:0 "[ritual_creating|E]: Архимаг ритуалов" 
+ al_arcane_mastery_archmage_rewrite_spell_name:0 "[worldweaving|E]: Мастер мироплетения"
+
+ al_arcane_mastery_godly_name:0 "[arcane_mastery|E]: Божественный"
+ al_arcane_mastery_godly_arcane_studies_name:0 "[arcane_studies|E]: Арканист"
+ al_arcane_mastery_godly_spell_name:0 "[spell_casting|E]: Заклинатель"
+ al_arcane_mastery_godly_ritual_name:0 "[ritual_creating|E]: Ритуалист" 
+ al_arcane_mastery_godly_rewrite_spell_name:0 "[worldweaving|E]: Мировой Ткач"
+
+ al_arcane_mastery_reperk_name: "[arcane_mastery_lifestyle|E] Reperk"
+
+ arcane_studies_perk_desc: "\nУглубить знания об аркане, чтобы ускорить свое магическое развитие и улучшить контроль над арканой."
+ spell_casting_perk_desc: "Изучить новые заклинания и открыть возможности для старых."
+ ritual_creating_perk_desc: "Изучить новые ритуалы и открыть новые возможности старых"
+ worldweaving_perk_desc: "Разблокировать и изучить новые заклинания переписывания реальности и открыть новые варианты для старых"
+
+ add_2_arcane_affinity_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +2#!"
+ add_4_arcane_affinity_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +4#!"
+ add_6_arcane_affinity_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +6#!"
+ add_8_arcane_affinity_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +8#!"
+
+ monthly_arcane_mastery_lifestyle_xp_gain_mult: "Месячный прирост опыта [arcane_mastery_lifestyle|E]"
+
+ unlock_arcane_inspiraction_decision_desc: "Разблокирует решение получать мистическое вдохновление от личности заклинателя"
+ unlock_creaction_arcane_artifacts_desc: "Разблокирует решение создавать магические артефакты"
+ better_created_arcane_artifacts_desc: "Улучшает качество созданных магических артефактов"

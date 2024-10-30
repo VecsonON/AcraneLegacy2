@@ -1,0 +1,90 @@
+﻿l_russian:
+ gain_potential_decision: "Получить Потенциал"
+ gain_potential_decision_desc: "Решение, чтобы выбрать Вашу [arcana_affinity|E]"
+ gain_potential_decision_tooltip: "Получить Потенциал"
+ gain_potential_decision_confirm: "Получить Потенциал"
+
+ recruit_mage: "Завербовать [mage|E]"
+ recruit_mage_desc: "Начать поиски [mage|E], чтобы завербовать его в число ваших придворных"
+ recruit_mage_tooltip: "Завербовать [mage|E]"
+ recruit_mage_confirm: "Завербовать [mage|E]"
+
+ great_search_decision: "Великий Поиск"
+ great_search_decision_tooltip: "Великий Поиск"
+ great_search_decision_desc: "Многие считают [magecraft|E] мифами и сказками. Однако, я верю, что это правда и чтобы доказать это как себе, так и всем остальным, я собираюсь тщательно обыскать ближайшие руины Великой Башни, как их называют местные"
+ great_search_decision_confirm: "Начать Великий Поиск"
+ great_search_decision_effect: "Отправиться к ближайшим руинам магической башни"
+
+ al_become_mage_decision: "Разобраться с магическим наследнием"
+ al_become_mage_decision_tooltip: "Покопаться в магическом наследии"
+ al_become_mage_decision_desc: "Настало время покопаться в магическом наследии и узнать новое о [magecraft|E]"
+ al_become_mage_decision_confirm: "Покопаться в магическом наследии"
+
+ arcane_legacy_modifier: "Магическое наследие"
+ arcane_legacy_modifier_desc: "Собрание книг и свитков с магическими знаниями внутри"
+
+ great_arcane_loot: "Богатая магическая добыча"
+ great_arcane_loot_desc: "Огромный набор магических артефактов\nМожет быть использован после становления магом, чтобы получить опыт [arcane_mastery_lifestyle|E]"
+
+ arcane_loot: "Магическая добыча"
+ arcane_loot_desc: "Набор магических артефактов\nМожет быть использован после становления магом, чтобы получить опыт [arcane_mastery_lifestyle|E]"
+
+ small_arcane_loot: "Небольшая магическая добыча"
+ small_arcane_loot_desc: "Небольшой набор магических артефактов\nМожет быть использован после становления магом, чтобы получить опыт [arcane_mastery_lifestyle|E]"
+ 
+ al_improve_magecraft_view: "Улучшить общественное мнение о Магии"
+ al_improve_magecraft_view_tooltip: "Улучшить общественное мнение о Магии"
+ al_improve_magecraft_view_desc: "Улучшить общественное мнение о Магии"
+ al_improve_magecraft_view_confirm: "Улучшить общественное мнение о Магии"
+
+ al_arcana_ancient_magicus_learning_t_cancel_negative_supply: "Позволяет изучать древний магик"
+
+
+ have_inspiration_to_research_trigger: "Есть мистическое вдохновение"
+ have_arcane_book_artifact_tooltip: "Есть любая волшебная книга с записанным в ней заклинанием"
+
+ al_research: "Магические исследования"
+ al_research_tooltip: "Время исследовать волшебство"
+ al_research_decision_desc: "Настало время исследовать волшебство чтобы обнаружить тайны изаклинания, лежащие за гранью моего понимания!"
+ al_research_confirm: "Время пришло"
+
+ al_learn_ancient_magicus: "Изучить Древний Магик"
+ al_learn_ancient_magicus_tooltip: "Время учиться"
+ al_learn_ancient_magicus_decision_desc: "Добыв эти книги, я обнаружил, что они написаны на неизвестном мне языке. Может мне стоит попробовать освоить его?"
+ al_learn_ancient_magicus_confirm: "Изучить Древний Магик"
+ al_learn_ancient_magicus.succes: "Удачно"
+ al_learn_ancient_magicus.fail: "Провал"
+
+ gain_arcane_inspiraction: "Получить мистическое вдохновение"
+ gain_arcane_inspiraction_tooltip: "Используйте вашу личность для получения мистческого вдохновения"
+ gain_arcane_inspiraction_desc: "Благодаря моим серьезным познаниям в волшебстве у меня есть несколько идеек для заклинаний"
+ gain_arcane_inspiraction_confirm: "Получить мистическое вдохновение"
+
+ ask_world_god_for_help: "Просить мировое божество о помощи"
+ ask_world_god_for_help_tooltip: "Просить о помощи"
+ ask_world_god_for_help_desc: "Я знаю, что в моей династии есть человек, пропавший бесследно. Все, чьл мы о нем знаем, это что он собирался стать богом сам. Может стоить попробовать попросить этого возможного бога о даре?"
+ ask_world_god_for_help_confirm: "Просить мировое божество о помощи"
+
+ create_arcane_artifact: "Создать Волшебный Артефакт"
+ create_arcane_artifact_tooltip: "Создать Волшебный Артефакт"
+ create_arcane_artifact_desc: "С моим пониманием магии я обнаружил, что можно создавать предметы, покрытые ритуальными символами, способные хранить аркану, позволяющие колдовать более эффективно, получть больше арканы ежемесячно и даже усиливать мое [arcana_affinity|E]!"
+ create_arcane_artifact_confirm: "Создать Волшебный Артефакт"
+ create_arcane_artifact_second_button: "Выберите тип"
+
+ create_arcane_artifact_widget_label: "Выберите тип создаваемого артефакта"
+
+ create_arcane_artifact_staff_name: "Создать Волшебный Посох"
+ create_arcane_artifact_staff_tooltip: "Создать Волшебный Посох что, будучи надет снижает стоимость ваших заклинаний"
+ create_arcane_artifact_staff_desc: "Создать Волшебный Посох что, будучи надет снижает стоимость ваших заклинаний"
+
+ create_arcane_artifact_arcane_battery_name: "Создать Волшебную Батарею"
+ create_arcane_artifact_arcane_battery_tooltip: "Создать Волшебную Батарею, что позволяет хранить больше [arcana|E], будучи надетой"
+ create_arcane_artifact_arcane_battery_desc: "Создать Волшебную Батарею, что позволяет хранить больше [arcana|E], будучи надетой"
+
+ create_arcane_artifact_arcane_amplifier_name: "Создать Волшебный Усилитель"
+ create_arcane_artifact_arcane_amplifier_tooltip: "Создать Волшебный Усилитель, который усиливает ваше [arcana_affinity|E], будучи надетым"
+ create_arcane_artifact_arcane_amplifier_desc: "Создать Волшебный Усилитель, который усиливает ваше [arcana_affinity|E], будучи надетым"
+
+ create_arcane_artifact_arcane_collector_name: "Создать Волшебный Накопитель"
+ create_arcane_artifact_arcane_collector_tooltip: "Создать Волшебный Накопитель, улучшающий месячный прирост [arcana|E]"
+ create_arcane_artifact_arcane_collector_desc: "Создать Волшебный Накопитель, улучшающий месячный прирост[arcana|E]"

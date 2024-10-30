@@ -1,0 +1,46 @@
+﻿l_russian:
+ create_mage_tower: "Построить Магическую Башню в столице"
+ create_mage_tower_tooltip: "Построить Магическую Башню"
+ create_mage_tower_desc: "Приказать слугам начать строительство Магической Башни"
+ create_mage_tower_confirm: "Начать строительство"
+
+ toggle_mage_tower_main_decision: "Go#weak (Return)#! to#weak (From)#! Mage Tower"
+ toggle_mage_tower_main_decision_desc: "Я решил изменить свое основное место жительства"
+ toggle_mage_tower_main_decision_tooltip: "Отправиться в/Вернуться из Магической Башни"
+ toggle_mage_tower_main_decision_confirm: "Отправиться/Вернуться"
+
+ go_to_arcane_laboratories_decision: "Идти в лаборатории Арканы"
+ go_to_arcane_laboratories_decision_desc: "Идти в лаборатории Арканы, чтобы обменять золото на опыт [arcane_mastery_lifestyle|E]"
+ go_to_arcane_laboratories_decision_tooltip: "Идти в лаборатории Арканы"
+ go_to_arcane_laboratories_decision_confirm: "Идти в лаборатории Арканы"
+
+ CHOOSE_ARCANE_LAB_COST: "Выберите бюджет для экспериментов"
+ minor_arcane_lab_cost_name: "Малый"
+ minor_arcane_lab_cost_desc: "Выберите небольшое количество золота"
+ medium_arcane_lab_cost_name: "Средний"
+ medium_arcane_lab_cost_desc: "Выберите среднее количество золота"
+ major_arcane_lab_cost_name: "Значительный"
+ major_arcane_lab_cost_desc: "Выберите большое количество золота"
+ massive_arcane_lab_cost_name: "Огромный"
+ massive_arcane_lab_cost_desc: "Выберите огромное количество золота"
+ monumental_arcane_lab_cost_name: "Колоссальный"
+ monumental_arcane_lab_cost_desc: "Выберите колоссальное количество золота"
+
+ go_to_mysthical_nexus_decision: "Отправиться в Мистический Нексус"
+ go_to_mysthical_nexus_decision_desc: "Пойти в Мистический Нексус, чтобы получить временное огромное усиление  [arcana_affinity|E] "
+ go_to_mysthical_nexus_decision_tooltip: "Отправиться в Мистический Нексус"
+ go_to_mysthical_nexus_decision_confirm: "Отправиться в Мистический Нексус"
+ 
+ use_mage_towers_atmosphere_decision: "Использовать атмосферу Магической Башни"
+ use_mage_towers_atmosphere_decision_desc: "Использовать атмосферу Магической Башни, чтобы получить временное огромное усиление восстановления [arcana|e] в месяц"
+ use_mage_towers_atmosphere_decision_tooltip: "Использовать атмосферу Магической Башни"
+ use_mage_towers_atmosphere_decision_confirm: "Использовать атмосферу Магической Башни"
+
+ mage_tower_main: "Основное местонахождение: Магическая Башня"
+ mage_tower_main_desc: "Этот персонаж решил весь день находиться в его Магической Башне"
+
+ huge_arcane_affinity_boost: "Огромное усиление [arcana_affinity|E]"
+ huge_arcane_affinity_boost_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +8#!"
+
+ huge_arcane_month_boost: "Огромное усиление восстановления [arcana|E] в месяц"
+ huge_arcane_month_boost_desc: "[arcana|E] за месяц: @arcana_icon!#P +5#!"

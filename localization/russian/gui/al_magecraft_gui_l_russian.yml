@@ -1,0 +1,5 @@
+﻿l_russian:
+ arcana_cost_tooltip: "[GetPlayer.MakeScope.GetScriptValueDesc(Concatenate(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),GetVariableSystem.Get('selected_magecraft_setting')),'_cost'))]"
+ arcana_cost_tooltip_small: "[GetPlayer.MakeScope.GetScriptValueDesc(Concatenate(Scope.GetFlagName,'_level_0_cost'))]"
+ arcana_cost_per_month_tooltip: "[GetPlayer.MakeScope.GetScriptValueDesc(Concatenate(Concatenate(Concatenate(GetVariableSystem.Get('selected_magecraft'),'_'),GetVariableSystem.Get('selected_magecraft_setting')),'_time_cost'))]"
+ arcana_cost_per_month_tooltip_small: "[GetPlayer.MakeScope.GetScriptValueDesc(Concatenate(Scope.GetFlagName,'_level_0_time_cost'))]"

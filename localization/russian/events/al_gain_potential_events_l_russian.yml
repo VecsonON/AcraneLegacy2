@@ -1,0 +1,9 @@
+﻿l_russian:
+ al_gain_potential_events.0001.title: "Получить потенциал"
+ al_gain_potential_events.0001.desc: "Ваше текущее [arcana_affinity|E]: [ROOT.Var('base_arcana_affinity').GetValue|V1]"
+
+ al_gain_potential_events.0001.a: "Сбросить до 0"
+ al_gain_potential_events.0001.b: "Добавить 1"
+ al_gain_potential_events.0001.c: "Добавить 5"
+ al_gain_potential_events.0001.d: "Добавить 10"
+ al_gain_potential_events.0001.e: "Готово"

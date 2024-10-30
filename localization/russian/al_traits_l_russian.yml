@@ -1,0 +1,60 @@
+﻿l_russian:
+ trait_mage:0 "Маг"
+ trait_mage_desc:0 "[mage|E], человек, который может ощущать аркану в воздухе и, при достаточных усилиях, перемещать ее и использовать как топливо как для обычных процессов вроде зажигания огня, так и для того, чтобы переписывать реальность"
+ trait_mage_character_desc:0 "[mage|E] [ROOT.GetCharacter.GetFirstNameNoTooltip], может ощущать аркану в воздухе и, при достаточных усилиях, перемещать ее и использовать как топливо как для обычных процессов вроде зажигания огня, так и для того, чтобы переписывать реальность"
+ trait_track_mage_legacy:0 "Магическое Наследие"
+ trait_track_mage_legacy_desc:0 "Насколько мир воспринимает этого персонажа как великого мага. Впрочем, не имеет ничего общего с реальной силой"
+
+ TRAIT_FLAG_DESC_arcana_affinity_add_2: "[arcana_affinity|E]: @arcana_affinity_icon!#P +2#!"
+
+ al_magecraft_feared: "Все боятся"
+
+ trait_genetic_perfection:0 "Генетическое совершенство"
+ trait_genetic_perfection_desc:0 "Геном этого персонажа был улучшен"
+ trait_genetic_perfection_character_desc:0 "Геном [ROOT.GetCharacter.GetFirstName] был улучшен, превращая в сверхчеловека"
+ trait_track_genetic_perfection_track:0 "Процент измененного генома"
+ trait_track_genetic_perfection_track_desc:0 "Какая часть генома изменена. Или - насколько это сверхчеловек"
+
+ trait_magical_vampire:0 "#R Магический вампир#!"
+ trait_magical_vampire_desc:0 "Этот персонаж переписал реальность, став  #R магическим вампиром#!"
+ trait_magical_vampire_character_desc:0 "[ROOT.GetCharacter.GetFirstName] become #R магическим вампиром#! by rewriting reality"
+ trait_track_magical_vampire:0 "Голод"
+ trait_track_magical_vampire_desc:0 "Уровень Голода"
+ TRAIT_FLAG_DESC_magical_vampire_hunger: "Каждый месяц Голод будет уменьшаться на 1\nГолод может быть получен путем убийства других персонажей #weak (50 - их возраст)#!"
+ TRAIT_FLAG_DESC_magical_vampire_immortality: "#g Этот персонаж не может умереть каким-либо способом #!.НО когда персонаж должен был умереть - голод снизится на 25. Когда голод упадет до 0 - персонаж#R  УМРЕТ#!"
+
+ trait_al_god:0 "#G Бог Магии#!"
+ trait_al_god_desc:0 "#G Тело этого персонажа - воплощение его души и состоит полностью из арканы#!"
+ trait_al_god_character_desc:0 "Тело [ROOT.GetCharacter.GetFirstName] - воплощение его души и состоит полностью из арканы"
+ TRAIT_FLAG_DESC_arcana_affinity_add_100: "[arcana_affinity|E]: @arcana_affinity_icon!#P +100#!"
+ TRAIT_FLAG_DESC_al_god_children: "#i Не может обзавестись детьми стандартными способами. Единственный вариант - использовать Переписывающее реальность заклинание 'Генезис', которое можно открыть с помощью исследований #!"
+
+ trait_al_ancient:0 "#B Древний#!"
+ trait_al_ancient_desc:0 "Этот персонаж - древний маг старых эпох. Его сила превосходит силу всех, кто родился до и после него. Если где-то и есть бог, то он должен быть кем-то вроде него. Но он только легенда... или нет?"
+
+
+ trait_al_golem:0 "Голем"
+ trait_al_golem_desc:0 "Этот персонаж - оживший камень без мозгов.Довольно часто големов маскируют с помощью заклинаний и ритуалов, чтобы скрыть их личность"
+ trait_al_golem_character_desc:0 "[ROOT.GetCharacter.GetFirstName] - оживший камень без мозгов.Довольно часто големов маскируют с помощью заклинаний и ритуалов, чтобы скрыть их личность"
+
+ trait_al_homunculus:0 "Гомункул"
+ trait_al_homunculus_desc:0 "Этот персонаж - человек, созданный с помощью магии. Если гомункул низкого качества - он не может иметь детей..."
+ trait_al_homunculus_character_desc:0 "[ROOT.GetCharacter.GetFirstName] - человек, созданный с помощью магии. Если гомункул низкого качества - он не может иметь детей..."
+ trait_track_al_homunculus_track:0 "Качество гомункула"
+ trait_track_al_homunculus_track_desc:0 "Качество гомункула"
+
+ trait_al_perfect_human:0 "Сверхчеловек"
+ trait_al_perfect_human_desc:0 "Сверхлюди - обычные люди, улучшившие свое тело и сознание до такой степени, что их и людьми-то больше называть нельзя"
+ trait_al_perfect_human_character_desc:0 "[ROOT.GetCharacter.GetFirstName] сверхчеловек, превосходящий остальных обычных людей как физически, так и ментально"
+
+ al_nick_the_ancient:0 "Древний"
+
+ trait_arcana_lifestyle_godly_arcane_studies: "Божественные [arcane_studies|E]"
+ trait_arcana_lifestyle_godly_spell: "Божественное [spell_casting|E]"
+ trait_arcana_lifestyle_godly_ritual: "Божественное [ritual_creating|E]"
+ trait_arcana_lifestyle_godly_rewrite_spell: "Божественное [worldweaving|E]"
+ TRAIT_FLAG_DESC_need_4_perk_points: "$need_4_perk_points$"
+ TRAIT_FLAG_DESC_add_10_percent_discount: "$add_10_percent_discount$"
+ TRAIT_FLAG_DESC_better_created_arcane_artifacts_desc: "$better_created_arcane_artifacts_desc$"
+
+ trait_arcana_lifestyle_reperk: "[arcane_mastery|E] Reperk"

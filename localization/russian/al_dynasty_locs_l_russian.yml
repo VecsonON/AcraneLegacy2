@@ -1,0 +1,12 @@
+﻿l_russian:
+ magecraft_legacy_track_name: "Магическое наследие ([magecraft|E])"
+ magecraft_legacy_track_desc: "Семейные магические техники и магическая линия крови"
+ magecraft_legacy_1_name: "Семейные магические познания"
+ magecraft_legacy_1_desc: "[arcana_affinity|E]: @arcana_affinity_icon!#P +5#!"
+ magecraft_legacy_2_name: "Магия в крови"
+ magecraft_legacy_2_desc: "Улучшает [arcana_affinity|E]всех новорожденных"
+ magecraft_legacy_3_name: "Семейные магический разум"
+ magecraft_legacy_4_name: "Семейные техники управления [arcana|E]"
+ magecraft_legacy_4_desc: "#P -20%#! [Concept('arcana','#E Arcana Cost')] на заклинание и переписывание реальности\nВсе члены семьи начинают с [GetPerk('al_arcane_mastery_adept').GetName(GetNullCharacter)]"
+ magecraft_legacy_5_name: "Семейные техники контроля [arcana|E]"
+ magecraft_legacy_5_desc: "#P -20%#! [Concept('arcana','#E Arcana Upkeep')] ритуалов\nВсе члены семьи начинают с [GetPerk('al_arcane_mastery_master').GetName(GetNullCharacter)]"

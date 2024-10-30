@@ -1,0 +1,52 @@
+﻿l_russian:
+ magecraft_gui_interaction: "Открыть интерфейс Магии"
+ magecraft_gui_interaction_desc: "Открыть интерфейс Магии"
+ spell_caster_effect: "Применить заклинание"
+
+ request_magecraft_teaching_interaction: "Потребовать обучение Магии" 
+ request_magecraft_teaching_interaction_desc: "Запрос на обучение Магии"
+
+ request_magecraft_teaching_interaction_accept_toast: "Принято магическое обучение"
+ request_magecraft_teaching_interaction_decline_toast: "Предложение магического обучения отклонено"
+
+ HIRED_MAGE: "За этим меня и наняли"
+
+ magecraft_learn_scheme:1 "Изучать Магию"
+ magecraft_learn_scheme_action:0 "Изучать Магию с помощью"
+ magecraft_learn_scheme_desc:1 "Я попытаюсь изучать Магию"
+ magecraft_learn_scheme_success_message:0 "Изучена Магия"
+ magecraft_learn_scheme_failed_message:0 "Изучить Магию не удалось"
+ magecraft_learn_scheme_invalidated:0 "$magecraft_learn_scheme$ некорректна"
+ magecraft_learn_scheme_dead_desc:0 "[target.GetShortUIName|U] больше не существует. Больше не получится $magecraft_learn_scheme$ on [target.GetHerHim]."
+ magecraft_learn_scheme_desc_general: "Я попытаюсь изучать Магию"
+ teacher_mage: "Маг-наставник"
+ magecraft_teaching_interaction_recipient: "Начать изучение [magecraft|E]"
+ magecraft_learn_scheme_student_succes: "Вы - ученик [owner.GetShortUIName|U] #P succesfuly#! освоили Магию и стали [mage|E]!"
+ magecraft_learn_scheme_student_succes_desc: "Вы - ученик [owner.GetShortUIName|U] #P succesfuly#! освоили Магию и стали [mage|E]!"
+
+ magecraft_learn_scheme_student_fail: "Вы - ученик [owner.GetShortUIName|U] #N fail#! и не смогли освоить Магию и стать [mage|E]!"
+ magecraft_learn_scheme_student_fail_desc: "You student [owner.GetShortUIName|U] #N fail#! и не смогли освоить Магию и стать [mage|E]!"
+
+
+ magecraft_teaching_interaction: "Обучать Магии"
+ magecraft_teaching_interaction_desc: "Обучать Магии"
+
+ magecraft_teaching_interaction_accept_toast: "Обучение Магии принято"
+ magecraft_teaching_interaction_decline_toast: "Обучение Магии отклонено"
+
+ SCHEME_PAY_GOLD: "Заплатить 100 [gold_i] за согласие обучаться"
+ MAGE_IS_CRIMINAL_ZEALOUS_REASON: "Я считаю Магию преступлением: $VALUE|+=0$"
+ MAGE_IS_SHUNNED_ZEALOUS_REASON: "Я считаю Магию неестественным: $VALUE|+=0$"
+ I_AM_HEIR_OF_ACTOR_REASON: "[recipient.GetShortUIName|U] наследник [actor.GetShortUIName|U]: $VALUE|+=0$"
+ SCHEME_PAYED_GOLD: "Мне заплатили золото за согласие обучаться: $VALUE|+=0$"
+ #mentor_arcana_learning_interaction: "Magecraft Learning"
+ #mentor_arcana_learning_interaction_desc: "Magecraft Learning"
+
+ show_arcana_affinity: "Показать [arcana_affinity|E]"
+ show_arcana_affinity_desc: "[recipient.GetTitledFirstName]'s [arcana_affinity|E] is: [recipient.MakeScope.ScriptValue('arcana_affinity')|V0] #weak;italic ([recipient.Custom('arcana_affinity_level')])#! \n[recipient.MakeScope.GetScriptValueDesc('arcana_affinity')|0]\n\n#color_gray;bold;italic Effects:#!\n[arcana|E]: @acrana_icon!#P +[recipient.MakeScope.ScriptValue('arcana_affinity_divided')]#!/month #weak;italic ([arcana_affinity|E]/10)\n[arcana|E] Maximum: @acrana_icon!#P +[recipient.MakeScope.ScriptValue('arcana_maximum')] #weak;italic ([arcana_affinity|E]*10)"
+
+ teach_arcane_understanding_interaction: "Обучить пониманию Арканы"
+ teach_arcane_understanding_interaction_desc: "Обучить другого понимаю Арканы"
+
+ experiment_on_prisoner: "Экспериментировать над пленником"
+ experiment_on_prisoner_desc: "Экспериментировать над пленником"

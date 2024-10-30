@@ -1,0 +1,47 @@
+﻿l_russian:
+ arcana_add_loc: "Получить @acrana_icon!#P $VALUE$ [arcana|E]#!"
+ arcana_remove_loc: "Потерять @acrana_icon!#N $VALUE$ [arcana|E]#!"
+ arcana_remove_xp_gain_loc: "Получено $VALUE$ опыта [arcane_mastery_lifestyle|E]"
+ have_arcana_trigger: "Есть @acrana_icon!#N $VALUE$ [arcana|E]#!"
+
+ have_arcana_trigger_loc: "У вас #P ЕСТЬ#! достаточное количество @acrana_icon!$VALUE$ [arcana|E]#!"
+ NOT_have_arcana_trigger_loc: "У вас #N НЕТ#! достаточного количества @acrana_icon!$VALUE$ [arcana|E]#!"
+
+ target_caster_same: "Вы должны применять это заклинание на себя"
+
+ casting_rewriting_spell: "Произносится [rewriting_spell|E]"
+ casting_rewriting_spell_desc: "Персонаж полностью погружен в сотворение [rewriting_spell|E]. \n\nЕсли вы достигнете 0 [arcana|E], пока активен этот модификатор, #N Заклинание провалится\n#weak В зависимости от #color_gray [rewriting_spell]#!, #weak затраты of#! #color_gray [arcana]#! #weak в месяц будут различаться#!"
+
+ MAGIC_TITLE: "Магия"
+
+ MAGECRAFT_INFO: "Детали магии"
+ MAGECRAFT_LIST: "Список магии"
+
+ SPELL_TAB: "#E Заклинания#!"
+ CHOOSE_SPELL_TAB: "Показать доступные #E [Concept('spell','Spells')]#!"
+ REWRITE_SPELL_TAB: "#E Переписывание реальности#!"
+ CHOOSE_REWRITE_SPELL_TAB: "Показать доступные #E [Concept('rewriting_spell','Rewriting Spells')]#!"
+ RITUAL_TAB: "#E Ритуалы#!"
+ CHOOSE_RITUAL_TAB: "Показать доступные #E [Concept('ritual','Rituals')]#!"
+
+ after_casting: "\nПосле завершения заклинания:"
+
+ al_hurt: "Навредил"
+ al_helped: "Помог"
+
+ execute_loc: "Произнести"
+
+ target_loc: "Цель"
+ caster_loc: "Заклинатель"
+
+ target_caster_same_loc: "Цель и Заклинатель должны быть в одной локации"
+
+ spell_create_animals_name: "Создать животных"
+ spell_create_animals_level_0_loc: "Незначительно"
+
+ work_in_progress:"Работы еще ведутся"
+
+
+#AUTHORS
+ spell_author_vytarrus: "#weak Spell Idea Created by Vytarrus#!"
+ spell_author_tene: "#weak Spell Idea Created by Tene#!"
