@@ -167,10 +167,10 @@ spell_inflict_illness_script = {
 					}
 					25 = {
 						modifier = {
-							has_trait = gout_ridden
+							has_trait = dysentery
 							add = -25
 						}
-						add_trait = gout_ridden  
+						add_trait = dysentery  
 					}
 				}
 			}
@@ -199,6 +199,13 @@ spell_inflict_illness_script = {
 							add = -25
 						}
 						add_trait = bubonic_plague   
+					}
+					25 = {
+						modifier = {
+							has_trait = ergotism
+							add = -25
+						}
+						add_trait = ergotism  
 					}
 				}
 			}
@@ -381,6 +388,27 @@ spell_cure_script = {
 					}
 					remove_trait = infertile   
 				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = measles  }
+						add = -25
+					}
+					remove_trait = measles 
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = dysentery  }
+						add = -25
+					}
+					remove_trait = dysentery   
+				}
+				25 = {
+					modifier = {
+						NOT = { has_trait = ergotism  }
+						add = -25
+					}
+					remove_trait = ergotism   
+				}
 			}
 			if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
 			remove_arcana = { VALUE = spell_cure_level_0_cost }
@@ -409,6 +437,9 @@ spell_cure_script = {
 					has_trait = wheezing
 					has_trait = bleeder
 					has_trait = infertile
+					has_trait = measles
+					has_trait = dysentery
+					has_trait = ergotism
 				}
 			} 	
 		}
@@ -931,37 +962,37 @@ spell_domination_select = {
 }
 spell_domination_script = {
     effect = {
-        if = { limit = { scope:setting = flag:level_0 } 
-            add_hook = {
-                type = suggestion
-                years = 5
-                target = scope:target
-            }
-            remove_arcana = { VALUE = spell_domination_level_0_cost }
-        }
-        else_if = { limit = { scope:setting = flag:level_1 } 
-            add_hook = {
-                type = influance
-                years = 5
-                target = scope:target
-            }
-            remove_arcana = { VALUE = spell_domination_level_1_cost }
-        }
-        else = {
-            add_hook = {
-                type = pupet
-                target = scope:target
-            }
-            scope:target = {
-                add_opinion = { modifier = al_master target = prev }
-                add_character_modifier = al_pupet_modifier
-            }
-            remove_arcana = { VALUE = spell_domination_level_2_cost }
-        }
+	if = { limit = { scope:setting = flag:level_0 } 
+	    add_hook = {
+		type = suggestion
+		years = 5
+		target = scope:target
+	    }
+	    remove_arcana = { VALUE = spell_domination_level_0_cost }
+	}
+	else_if = { limit = { scope:setting = flag:level_1 } 
+	    add_hook = {
+		type = influance
+		years = 5
+		target = scope:target
+	    }
+	    remove_arcana = { VALUE = spell_domination_level_1_cost }
+	}
+	else = {
+	    add_hook = {
+		type = pupet
+		target = scope:target
+	    }
+	    scope:target = {
+		add_opinion = { modifier = al_master target = prev }
+		add_character_modifier = al_pupet_modifier
+	    }
+	    remove_arcana = { VALUE = spell_domination_level_2_cost }
+	}
 	}
 	is_valid = {
 		NOT = { scope:target = ROOT }
-        trigger_if = { limit = { scope:setting = flag:level_0 } 
+	trigger_if = { limit = { scope:setting = flag:level_0 } 
 			NOT = { has_hook_of_type = { target = scope:target type = suggestion } }
 			NOT = { has_hook_of_type = { target = scope:target type = influance } }
 			NOT = { has_hook_of_type = { target = scope:target type = pupet } }
@@ -993,22 +1024,22 @@ spell_calm_select = {
 }
 spell_calm_script = {
     effect = {
-        if = { limit = { scope:setting = flag:level_0 } 
-            scope:target = { add_stress = -25 }
-            remove_arcana = { VALUE = spell_calm_level_0_cost }
-        }
-        else_if = { limit = { scope:setting = flag:level_1 } 
-            scope:target = { add_stress = -50 }
-            remove_arcana = { VALUE = spell_calm_level_1_cost }
-        }
-        else = {
-            scope:target = { add_stress = -75 add_character_modifier = { modifier = al_calmed_modifier years = 5 } }
-            remove_arcana = { VALUE = spell_calm_level_2_cost }
-        }
+	if = { limit = { scope:setting = flag:level_0 } 
+	    scope:target = { add_stress = -25 }
+	    remove_arcana = { VALUE = spell_calm_level_0_cost }
+	}
+	else_if = { limit = { scope:setting = flag:level_1 } 
+	    scope:target = { add_stress = -50 }
+	    remove_arcana = { VALUE = spell_calm_level_1_cost }
+	}
+	else = {
+	    scope:target = { add_stress = -75 add_character_modifier = { modifier = al_calmed_modifier years = 5 } }
+	    remove_arcana = { VALUE = spell_calm_level_2_cost }
+	}
 		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
 	}
 	is_valid = {
-        trigger_if = { limit = { scope:setting = flag:level_0 } 
+	trigger_if = { limit = { scope:setting = flag:level_0 } 
 			have_arcana = { arcana = spell_calm_level_0_cost }
 			has_perk = al_arcane_mastery_novice_spell
 		}
@@ -1034,22 +1065,22 @@ spell_anger_select = {
 }
 spell_anger_script = {
     effect = {
-        if = { limit = { scope:setting = flag:level_0 } 
-            scope:target = { add_stress = 25 }
-            remove_arcana = { VALUE = spell_anger_level_0_cost }
-        }
-        else_if = { limit = { scope:setting = flag:level_1 } 
-            scope:target = { add_stress = 50 }
-            remove_arcana = { VALUE = spell_anger_level_1_cost }
-        }
-        else = {
-            scope:target = { add_stress = 75 add_character_modifier = { modifier = al_anger_modifier years = 5 } }
-            remove_arcana = { VALUE = spell_anger_level_2_cost }
-        }
+	if = { limit = { scope:setting = flag:level_0 } 
+	    scope:target = { add_stress = 25 }
+	    remove_arcana = { VALUE = spell_anger_level_0_cost }
+	}
+	else_if = { limit = { scope:setting = flag:level_1 } 
+	    scope:target = { add_stress = 50 }
+	    remove_arcana = { VALUE = spell_anger_level_1_cost }
+	}
+	else = {
+	    scope:target = { add_stress = 75 add_character_modifier = { modifier = al_anger_modifier years = 5 } }
+	    remove_arcana = { VALUE = spell_anger_level_2_cost }
+	}
 		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_hurt target = prev } } }
 	}
 	is_valid = {
-        trigger_if = { limit = { scope:setting = flag:level_0 } 
+	trigger_if = { limit = { scope:setting = flag:level_0 } 
 			have_arcana = { arcana = spell_anger_level_0_cost }
 			has_perk = al_arcane_mastery_novice_spell
 		}
@@ -1075,24 +1106,24 @@ spell_overcharge_mind_select = {
 }
 spell_overcharge_mind_script = {
     effect = {
-        if = { limit = { scope:setting = flag:level_0 } 
-            scope:target = { add_character_modifier = { modifier = overcharged_mind years = 5 } }
-            remove_arcana = { VALUE = spell_overcharge_mind_level_0_cost }
-        }
-        else_if = { limit = { scope:setting = flag:level_1 } 
-            scope:target = { add_character_modifier = { modifier = overcharged_mind years = 10 } }
-            remove_arcana = { VALUE = spell_overcharge_mind_level_1_cost }
-        }
-        else = {
-            scope:target = { add_character_modifier = { modifier = overcharged_mind years = 15 } }
-            remove_arcana = { VALUE = spell_overcharge_mind_level_2_cost }
-        }
+	if = { limit = { scope:setting = flag:level_0 } 
+	    scope:target = { add_character_modifier = { modifier = overcharged_mind years = 5 } }
+	    remove_arcana = { VALUE = spell_overcharge_mind_level_0_cost }
+	}
+	else_if = { limit = { scope:setting = flag:level_1 } 
+	    scope:target = { add_character_modifier = { modifier = overcharged_mind years = 10 } }
+	    remove_arcana = { VALUE = spell_overcharge_mind_level_1_cost }
+	}
+	else = {
+	    scope:target = { add_character_modifier = { modifier = overcharged_mind years = 15 } }
+	    remove_arcana = { VALUE = spell_overcharge_mind_level_2_cost }
+	}
 	}
 	is_valid = {
-        NOT = { has_character_modifier = overcharged_mind }
-        scope:target.location = root.location
+	NOT = { has_character_modifier = overcharged_mind }
+	scope:target.location = root.location
 		has_perk = al_arcane_mastery_master_spell
-        trigger_if = { limit = { scope:setting = flag:level_0 } 
+	trigger_if = { limit = { scope:setting = flag:level_0 } 
 			have_arcana = { arcana = spell_overcharge_mind_level_0_cost }
 		}
 		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
@@ -1115,24 +1146,24 @@ spell_overcharge_body_select = {
 }
 spell_overcharge_body_script = {
     effect = {
-        if = { limit = { scope:setting = flag:level_0 } 
-            scope:target = { add_character_modifier = { modifier = overcharged_body years = 5 } }
-            remove_arcana = { VALUE = spell_overcharge_body_level_0_cost }
-        }
-        else_if = { limit = { scope:setting = flag:level_1 } 
-            scope:target = { add_character_modifier = { modifier = overcharged_body years = 10 } }
-            remove_arcana = { VALUE = spell_overcharge_body_level_1_cost }
-        }
-        else = {
-            scope:target = { add_character_modifier = { modifier = overcharged_body years = 15 } }
-            remove_arcana = { VALUE = spell_overcharge_body_level_2_cost }
-        }
+	if = { limit = { scope:setting = flag:level_0 } 
+	    scope:target = { add_character_modifier = { modifier = overcharged_body years = 5 } }
+	    remove_arcana = { VALUE = spell_overcharge_body_level_0_cost }
+	}
+	else_if = { limit = { scope:setting = flag:level_1 } 
+	    scope:target = { add_character_modifier = { modifier = overcharged_body years = 10 } }
+	    remove_arcana = { VALUE = spell_overcharge_body_level_1_cost }
+	}
+	else = {
+	    scope:target = { add_character_modifier = { modifier = overcharged_body years = 15 } }
+	    remove_arcana = { VALUE = spell_overcharge_body_level_2_cost }
+	}
 	}
 	is_valid = {
-        NOT = { has_character_modifier = overcharged_body }
-        scope:target.location = root.location
+	NOT = { has_character_modifier = overcharged_body }
+	scope:target.location = root.location
 		has_perk = al_arcane_mastery_master_spell
-        trigger_if = { limit = { scope:setting = flag:level_0 } 
+	trigger_if = { limit = { scope:setting = flag:level_0 } 
 			have_arcana = { arcana = spell_overcharge_body_level_0_cost }
 		}
 		trigger_else_if = { limit = { scope:setting = flag:level_1 } 
@@ -1157,20 +1188,20 @@ spell_bad_vibes_select = {
 spell_bad_vibes_script = {
 	effect = {
 		if = { limit = { scope:setting = flag:level_0 } 
-            scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_0 years = 5 } }
-            remove_arcana = { VALUE = spell_bad_vibes_level_0_cost }
-        }
-        else_if = { limit = { scope:setting = flag:level_1 } 
-            scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_1 years = 5 } }
-            remove_arcana = { VALUE = spell_bad_vibes_level_1_cost }
-        }
+	    scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_0 years = 5 } }
+	    remove_arcana = { VALUE = spell_bad_vibes_level_0_cost }
+	}
+	else_if = { limit = { scope:setting = flag:level_1 } 
+	    scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_1 years = 5 } }
+	    remove_arcana = { VALUE = spell_bad_vibes_level_1_cost }
+	}
 		else_if = { limit = { scope:setting = flag:level_2 } 
-            scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_2 years = 5 } }
-            remove_arcana = { VALUE = spell_bad_vibes_level_2_cost }
-        }
+	    scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_2 years = 5 } }
+	    remove_arcana = { VALUE = spell_bad_vibes_level_2_cost }
+	}
 		else = {
 			scope:target = { add_character_modifier = { modifier = al_bad_vibes_level_3 years = 5 } }
-            remove_arcana = { VALUE = spell_bad_vibes_level_3_cost }
+	    remove_arcana = { VALUE = spell_bad_vibes_level_3_cost }
 		}
 		if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_hurt target = prev } } }
 		custom_tooltip = "spell_author_vytarrus"
@@ -1245,45 +1276,45 @@ spell_purify_physique_select = {
 spell_purify_physique_script = {
 	effect = {
 		if = { limit = { scope:setting = flag:clubfooted_setting } 
-            scope:target = { remove_trait = clubfooted }
-            remove_arcana = { VALUE = spell_purify_physique_clubfooted_setting_cost }
-        }
-        else_if = { limit = { scope:setting = flag:hunchbacked_setting } 
-            scope:target = { remove_trait = hunchbacked }
-            remove_arcana = { VALUE = spell_purify_physique_hunchbacked_setting_cost }
-        }
+	    scope:target = { remove_trait = clubfooted }
+	    remove_arcana = { VALUE = spell_purify_physique_clubfooted_setting_cost }
+	}
+	else_if = { limit = { scope:setting = flag:hunchbacked_setting } 
+	    scope:target = { remove_trait = hunchbacked }
+	    remove_arcana = { VALUE = spell_purify_physique_hunchbacked_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:lisping_setting } 
-            scope:target = { remove_trait = lisping }
-            remove_arcana = { VALUE = spell_purify_physique_lisping_setting_cost }
-        }
+	    scope:target = { remove_trait = lisping }
+	    remove_arcana = { VALUE = spell_purify_physique_lisping_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:stuttering_setting } 
-            scope:target = { remove_trait = stuttering }
-            remove_arcana = { VALUE = spell_purify_physique_stuttering_setting_cost }
-        }
+	    scope:target = { remove_trait = stuttering }
+	    remove_arcana = { VALUE = spell_purify_physique_stuttering_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:inbred_setting } 
-            scope:target = { remove_trait = inbred }
-            remove_arcana = { VALUE = spell_purify_physique_inbred_setting_cost }
-        }
+	    scope:target = { remove_trait = inbred }
+	    remove_arcana = { VALUE = spell_purify_physique_inbred_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:weak_setting } 
-            scope:target = { remove_trait = weak }
-            remove_arcana = { VALUE = spell_purify_physique_weak_setting_cost }
-        }
+	    scope:target = { remove_trait = weak }
+	    remove_arcana = { VALUE = spell_purify_physique_weak_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:dull_setting } 
-            scope:target = { remove_trait = dull }
-            remove_arcana = { VALUE = spell_purify_physique_dull_setting_cost }
-        }
+	    scope:target = { remove_trait = dull }
+	    remove_arcana = { VALUE = spell_purify_physique_dull_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:impotent_setting } 
-            scope:target = { remove_trait = impotent }
-            remove_arcana = { VALUE = spell_purify_physique_impotent_setting_cost }
-        }
+	    scope:target = { remove_trait = impotent }
+	    remove_arcana = { VALUE = spell_purify_physique_impotent_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:spindly_setting } 
-            scope:target = { remove_trait = spindly }
-            remove_arcana = { VALUE = spell_purify_physique_spindly_setting_cost }
-        }
+	    scope:target = { remove_trait = spindly }
+	    remove_arcana = { VALUE = spell_purify_physique_spindly_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:scaly_setting } 
-            scope:target = { remove_trait = scaly }
-            remove_arcana = { VALUE = spell_purify_physique_scaly_setting_cost }
-        }
+	    scope:target = { remove_trait = scaly }
+	    remove_arcana = { VALUE = spell_purify_physique_scaly_setting_cost }
+	}
 		else = {
 			custom_tooltip = "spell_purify_physique_info"
 		}
@@ -1381,33 +1412,33 @@ spell_fix_flesh_select = {
 spell_fix_flesh_script = {
 	effect = {
 		if = { limit = { scope:setting = flag:blind_setting } 
-            scope:target = { remove_trait = blind }
-            remove_arcana = { VALUE = spell_fix_flesh_blind_setting_cost }
-        }
-        else_if = { limit = { scope:setting = flag:eunuch_setting } 
-            scope:target = { remove_trait = eunuch_1 }
-            remove_arcana = { VALUE = spell_fix_flesh_eunuch_setting_cost }
-        }
+	    scope:target = { remove_trait = blind }
+	    remove_arcana = { VALUE = spell_fix_flesh_blind_setting_cost }
+	}
+	else_if = { limit = { scope:setting = flag:eunuch_setting } 
+	    scope:target = { remove_trait = eunuch_1 }
+	    remove_arcana = { VALUE = spell_fix_flesh_eunuch_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:scarred_setting } 
-            scope:target = { remove_trait = scarred }
-            remove_arcana = { VALUE = spell_fix_flesh_scarred_setting_cost }
-        }
+	    scope:target = { remove_trait = scarred }
+	    remove_arcana = { VALUE = spell_fix_flesh_scarred_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:disfigured_setting } 
-            scope:target = { remove_trait = disfigured }
-            remove_arcana = { VALUE = spell_fix_flesh_disfigured_setting_cost }
-        }
+	    scope:target = { remove_trait = disfigured }
+	    remove_arcana = { VALUE = spell_fix_flesh_disfigured_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:one_legged_setting } 
-            scope:target = { remove_trait = one_legged }
-            remove_arcana = { VALUE = spell_fix_flesh_one_legged_setting_cost }
-        }
+	    scope:target = { remove_trait = one_legged }
+	    remove_arcana = { VALUE = spell_fix_flesh_one_legged_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:one_eyed_setting } 
-            scope:target = { remove_trait = one_eyed }
-            remove_arcana = { VALUE = spell_fix_flesh_one_eyed_setting_cost }
-        }
+	    scope:target = { remove_trait = one_eyed }
+	    remove_arcana = { VALUE = spell_fix_flesh_one_eyed_setting_cost }
+	}
 		else_if = { limit = { scope:setting = flag:maimed_setting } 
-            scope:target = { remove_trait = maimed }
-            remove_arcana = { VALUE = spell_fix_flesh_maimed_setting_cost }
-        }
+	    scope:target = { remove_trait = maimed }
+	    remove_arcana = { VALUE = spell_fix_flesh_maimed_setting_cost }
+	}
 		else = {
 			custom_tooltip = "spell_fix_flesh_info"
 		}
