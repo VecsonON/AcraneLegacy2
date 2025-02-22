@@ -54,7 +54,7 @@
  setting_NPC_allow_mage_yes: "Yes"
  setting_NPC_allow_mage_yes_desc: "Allow non-player characters to become mages."
  setting_NPC_allow_mage_no: "No"
- setting_NPC_allow_mage_no_desc: "Do not Allow Not non-player characters to become mages. It is posible to force NPC to become mage by teaching them. But AI will never ask someone to teach them"
+ setting_NPC_allow_mage_no_desc: "Does not Allow non-player characters to become mages. It is posible to force NPCs to become mages by teaching them. But AI will never ask someone to teach them"
  
  rule_Al_allow_untested_things: "Allow unstested things"
  setting_Al_allow_untested_things_yes: "Yes"

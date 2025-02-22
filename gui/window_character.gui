@@ -2143,13 +2143,14 @@ window = {
 								blockoverride "header_text"
 								{
 									text = "[CharacterWindow.GetCharacter.GetDiarchTitle]"
+									max_width = 75									
 								}
 
 								blockoverride "expand_button" {}
 							}
 
 							### LOVERS 5 PORTRAITS
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "lovers_no_diarchy"
 								visible = "[And( CharacterWindow.GetCharacter.IsAdult, Not( CharacterWindow.GetCharacter.HasActiveDiarchy ) )]"
 								layoutpolicy_vertical = expanding
@@ -2182,7 +2183,7 @@ window = {
 							}
 
 							### LOVERS 4 PORTRAITS (FOR WHEN REGENT PORTRAIT IS VISIBLE)
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "lovers_diarchy"
 								visible = "[And( CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy )]"
 								layoutpolicy_vertical = expanding
@@ -2334,7 +2335,7 @@ window = {
 						scissor = yes
 
 						hbox = {
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "friends"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
@@ -2372,7 +2373,7 @@ window = {
 						scissor = yes
 
 						hbox = {
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "rivals"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
@@ -2398,7 +2399,7 @@ window = {
 								}
 							}
 
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "bullies"
 								visible = "[Not( CharacterWindow.GetCharacter.IsAdult )]"
 								layoutpolicy_vertical = expanding
@@ -2416,7 +2417,7 @@ window = {
 								blockoverride "expand_button" {}
 							}
 
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "victims"
 								visible = "[Not( CharacterWindow.GetCharacter.IsAdult )]"
 								layoutpolicy_vertical = expanding
@@ -2434,7 +2435,7 @@ window = {
 								blockoverride "expand_button" {}
 							}
 
-							vbox_character_row_item = {
+							vbox_character_row_relationship_item = {
 								name = "grudges"
 								visible = "[GreaterThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'grudge' ) )), '(int32)1')]"
 								layoutpolicy_vertical = expanding
@@ -2473,7 +2474,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "rivals"
 							margin_top = 10
 							spacing = 5
@@ -2505,7 +2506,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "friends"
 							margin_top = 10
 							spacing = 5
@@ -2537,7 +2538,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "friends"
 							margin_top = 10
 							spacing = 5
@@ -2568,7 +2569,7 @@ window = {
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						vbox_character_row_item = {
+						vbox_character_row_relationship_item = {
 							name = "grudges"
 							margin_top = 10
 							spacing = 5
@@ -3811,6 +3812,7 @@ types CharacterWindow
 					}
 
 					item = {
+						block "portrait_head_widget" {
 						portrait_head_small = {
 							blockoverride "portrait_button"
 							{
@@ -3819,6 +3821,7 @@ types CharacterWindow
 							blockoverride "glow_visible"
 							{
 								visible = no
+								}
 							}
 						}
 					}
@@ -3831,6 +3834,22 @@ types CharacterWindow
 		}
 
 		expand = {}
+	}
+
+	### Modified character row for relationship tab
+	type vbox_character_row_relationship_item = vbox_character_row_item {
+		blockoverride "portrait_head_widget" {
+			portrait_head_small_relationship = {
+				blockoverride "portrait_button"
+				{
+					using = tooltip_ne
+				}
+				blockoverride "glow_visible"
+				{
+					visible = no
+				}
+			}
+		}
 	}
 
 	type vbox_titles_claims_box = vbox {

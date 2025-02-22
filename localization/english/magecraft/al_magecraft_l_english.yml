@@ -10,7 +10,7 @@
  target_caster_same: "You must cast this spell on yourself"
 
  casting_rewriting_spell: "Casting [rewriting_spell|E]"
- casting_rewriting_spell_desc: "This character's focus is fully into castting [rewriting_spell|E]. \n\nif you ever reach 0 [arcana|E] with this modifier, #N Casting will fail\n#weak Depending on #color_gray [rewriting_spell]#!, #weak loss of#! #color_gray [arcana]#! #weak per month will differ#!"
+ casting_rewriting_spell_desc: "This character is fully focused on casting [rewriting_spell|E]. \n\nif you ever reach 0 [arcana|E] with this modifier, #N Casting will fail\n#weak Depending on #color_gray [rewriting_spell]#!, #weak loss of#! #color_gray [arcana]#! #weak per month will differ#!"
 
  MAGIC_TITLE: "Magecraft"
 

@@ -1,6 +1,6 @@
 ﻿l_english:
  # HOW?! i was testing mod and here i see duck as setting HOW?!
- ritual_clear: "Disable Sellected Ritual"
+ ritual_clear: "Disable the Selected Ritual"
 
  ritual_improve_intellect_name: "Improve Intellect"
  ritual_improve_intellect_clear_loc: "Disable"
@@ -17,13 +17,13 @@
  ritual_improve_intellect_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_improve_intellect_supreme').GetDescWithEffects]"
 
  ritual_improve_intellect_minor: "[ritual|E]: Improve Intellect Minor"
- ritual_improve_intellect_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's mental abilities"
+ ritual_improve_intellect_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their mental abilities"
  ritual_improve_intellect_normal: "[ritual|E]: Improve Intellect"
- ritual_improve_intellect_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's mental abilities"
+ ritual_improve_intellect_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their mental abilities"
  ritual_improve_intellect_major: "[ritual|E]: Improve Intellect Major"
- ritual_improve_intellect_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's mental abilities"
+ ritual_improve_intellect_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their mental abilities"
  ritual_improve_intellect_supreme: "[ritual|E]: Improve Intellect Supreme"
- ritual_improve_intellect_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's mental abilities"
+ ritual_improve_intellect_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their mental abilities"
 
  ritual_improve_body_health_name: "Improve Body Health"
  ritual_improve_body_health_clear_loc: "Disable"
@@ -39,13 +39,13 @@
  ritual_improve_body_health_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_improve_body_health_supreme').GetDescWithEffects]"
 
  ritual_improve_body_health_minor: "[ritual|E]: Improve Body Health Minor"
- ritual_improve_body_health_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's health"
+ ritual_improve_body_health_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their health"
  ritual_improve_body_health_normal: "[ritual|E]: Improve Body Health"
- ritual_improve_body_health_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's health"
+ ritual_improve_body_health_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their health"
  ritual_improve_body_health_major: "[ritual|E]: Improve Body Health Major"
- ritual_improve_body_health_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's health"
+ ritual_improve_body_health_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their health"
  ritual_improve_body_health_supreme: "[ritual|E]: Improve Body Health Supreme"
- ritual_improve_body_health_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's health"
+ ritual_improve_body_health_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their health"
 
  ritual_improve_fertility_name: "Improve Fertility"
  ritual_improve_fertility_clear_loc: "Disable"
@@ -61,13 +61,13 @@
  ritual_improve_fertility_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_improve_fertility_supreme').GetDescWithEffects]"
 
  ritual_improve_fertility_minor: "[ritual|E]: Improve Fertility Minor"
- ritual_improve_fertility_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's Fertility"
+ ritual_improve_fertility_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their fertility"
  ritual_improve_fertility_normal: "[ritual|E]: Improve Fertility"
- ritual_improve_fertility_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's Fertility"
+ ritual_improve_fertility_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their fertility"
  ritual_improve_fertility_major: "[ritual|E]: Improve Fertility Major"
- ritual_improve_fertility_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's Fertility"
+ ritual_improve_fertility_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their fertility"
  ritual_improve_fertility_supreme: "[ritual|E]: Improve Fertility Supreme"
- ritual_improve_fertility_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's Fertility"
+ ritual_improve_fertility_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their fertility"
 
  ritual_improve_body_prowess_name: "Improve Prowess"
  ritual_improve_body_prowess_clear_loc: "Disable"
@@ -83,13 +83,13 @@
  ritual_improve_body_prowess_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_improve_body_prowess_supreme').GetDescWithEffects]"
 
  ritual_improve_body_prowess_minor: "[ritual|E]: Improve Prowess Minor"
- ritual_improve_body_prowess_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's Prowess"
+ ritual_improve_body_prowess_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their Prowess"
  ritual_improve_body_prowess_normal: "[ritual|E]: Improve Prowess"
- ritual_improve_body_prowess_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's Prowess"
+ ritual_improve_body_prowess_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their Prowess"
  ritual_improve_body_prowess_major: "[ritual|E]: Improve Prowess Major"
- ritual_improve_body_prowess_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's Prowess"
+ ritual_improve_body_prowess_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their Prowess"
  ritual_improve_body_prowess_supreme: "[ritual|E]: Improve Prowess Supreme"
- ritual_improve_body_prowess_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's Prowess"
+ ritual_improve_body_prowess_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their Prowess"
 
  ritual_accelerate_name: "Accelerate"
  ritual_accelerate_clear_loc: "Disable"
@@ -105,13 +105,13 @@
  ritual_accelerate_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_accelerate_supreme').GetDescWithEffects]"
 
  ritual_accelerate_minor: "[ritual|E]: Accelerate Minor"
- ritual_accelerate_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's speed"
+ ritual_accelerate_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their speed"
  ritual_accelerate_normal: "[ritual|E]: Accelerate"
- ritual_accelerate_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's speed"
+ ritual_accelerate_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their speed"
  ritual_accelerate_major: "[ritual|E]: Accelerate Major"
- ritual_accelerate_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's speed"
+ ritual_accelerate_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their speed"
  ritual_accelerate_supreme: "[ritual|E]: Accelerate Supreme"
- ritual_accelerate_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's speed
+ ritual_accelerate_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their speed
 
  ritual_accelerate_army_name: "Accelerate Army"
  ritual_accelerate_army_clear_loc: "Disable"
@@ -127,13 +127,13 @@
  ritual_accelerate_army_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_accelerate_army_supreme').GetDescWithEffects]"
 
  ritual_accelerate_army_minor: "[ritual|E]: Accelerate Army Minor"
- ritual_accelerate_army_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's Army speed"
+ ritual_accelerate_army_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their army speed"
  ritual_accelerate_army_normal: "[ritual|E]: Accelerate Army"
- ritual_accelerate_army_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's Army speed"
+ ritual_accelerate_army_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their army speed"
  ritual_accelerate_army_major: "[ritual|E]: Accelerate Army Major"
- ritual_accelerate_army_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's Army speed"
+ ritual_accelerate_army_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their army speed"
  ritual_accelerate_army_supreme: "[ritual|E]: Accelerate Army Supreme"
- ritual_accelerate_army_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's Army speed"
+ ritual_accelerate_army_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their army speed"
 
  ritual_improve_army_bodies_name: "Improve Army"
  ritual_improve_army_bodies_clear_loc: "Disable"
@@ -149,13 +149,13 @@
  ritual_improve_army_bodies_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_improve_army_bodies_supreme').GetDescWithEffects]"
 
  ritual_improve_army_bodies_minor: "[ritual|E]: Improve Army Minor"
- ritual_improve_army_bodies_minor_desc: "Through the ritual, this character was able to semi-permanently enhance their's Armies"
+ ritual_improve_army_bodies_minor_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their armies"
  ritual_improve_army_bodies_normal: "[ritual|E]: Improve Army"
- ritual_improve_army_bodies_normal_desc: "Through the ritual, this character was able to semi-permanently enhance their's Armies"
+ ritual_improve_army_bodies_normal_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their armies"
  ritual_improve_army_bodies_major: "[ritual|E]: Improve Army Major"
- ritual_improve_army_bodies_major_desc: "Through the ritual, this character was able to semi-permanently enhance their's Armies"
+ ritual_improve_army_bodies_major_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their armies"
  ritual_improve_army_bodies_supreme: "[ritual|E]: Improve Army Supreme"
- ritual_improve_army_bodies_supreme_desc: "Through the ritual, this character was able to semi-permanently enhance their's Armies"
+ ritual_improve_army_bodies_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently enhance their armies"
 
  ritual_telekinesis_name: "Telekinesis"
  ritual_telekinesis_clear_loc: "Disable"
@@ -171,13 +171,13 @@
  ritual_telekinesis_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_telekinesis_supreme').GetDescWithEffects]"
 
  ritual_telekinesis_minor: "[ritual|E]: Telekinesis Minor"
- ritual_telekinesis_minor_desc: "Through the ritual, this character was able to semi-permanently allow them to control air"
+ ritual_telekinesis_minor_desc: "Through the use of a ritual, this character was able to semi-permanently allow them to control air"
  ritual_telekinesis_normal: "[ritual|E]: Telekinesis"
- ritual_telekinesis_normal_desc: "Through the ritual, this character was able to semi-permanently allow them to control air"
+ ritual_telekinesis_normal_desc: "Through the use of a ritual, this character was able to semi-permanently allow them to control air"
  ritual_telekinesis_major: "[ritual|E]: Telekinesis Major"
- ritual_telekinesis_major_desc: "Through the ritual, this character was able to semi-permanently allow them to control airs"
+ ritual_telekinesis_major_desc: "Through the use of a ritual, this character was able to semi-permanently allow them to control air"
  ritual_telekinesis_supreme: "[ritual|E]: Telekinesis Supreme"
- ritual_telekinesis_supreme_desc: "Through the ritual, this character was able to semi-permanently allow them to control air"
+ ritual_telekinesis_supreme_desc: "Through the use of a ritual, this character was able to semi-permanently allow them to control air"
 
  ritual_immortality_name: "Immortality"
  ritual_immortality_clear_loc: "Disable"
@@ -186,7 +186,7 @@
  ritual_immortality_duck_loc: " "
  ritual_immortality_level_0_tooltip: "Ritual provide:\n[GetModifier('ritual_immortality_modifier').GetDescWithEffects]"
  ritual_immortality_modifier: "[ritual|E]: Immortality"
- ritual_immortality_modifier_desc: "Through the ritual, this character was able to semi-permanently allow them to live forever\n#r If ever you reach 0 arcana while ritual is enabled, You #r;bold WILL DIE#!#!"
+ ritual_immortality_modifier_desc: "Through the use of a ritual, this character was able to semi-permanently allow them to live forever\n#r If ever you reach 0 arcana while ritual is enabled, You #r;bold WILL DIE#!#!"
 
  ritual_pyrokineis_name: "Pyrokinesis"
  ritual_pyrokineis_clear_loc: "Disable"
@@ -202,13 +202,13 @@
  ritual_pyrokineis_level_3_tooltip: "Ritual provide:\n[GetModifier('ritual_pyrokineis_supreme').GetDescWithEffects]"
 
  ritual_pyrokineis_minor: "[ritual|E]: Pyrokinesis Minor"
- ritual_pyrokineis_minor_desc: "Through the ritual, this character was able to semi-permanently allow them to control fire"
+ ritual_pyrokineis_minor_desc: "Through this ritual, this character was able to semi-permanently allow them to control fire"
  ritual_pyrokineis_normal: "[ritual|E]: Pyrokinesis"
- ritual_pyrokineis_normal_desc: "Through the ritual, this character was able to semi-permanently allow them to control fire"
+ ritual_pyrokineis_normal_desc: "Through this ritual, this character was able to semi-permanently allow them to control fire"
  ritual_pyrokineis_major: "[ritual|E]: Pyrokinesis Major"
- ritual_pyrokineis_major_desc: "Through the ritual, this character was able to semi-permanently allow them to control fire"
+ ritual_pyrokineis_major_desc: "Through this ritual, this character was able to semi-permanently allow them to control fire"
  ritual_pyrokineis_supreme: "[ritual|E]: Pyrokinesis Supreme"
- ritual_pyrokineis_supreme_desc: "Through the ritual, this character was able to semi-permanently allow them to control fire"
+ ritual_pyrokineis_supreme_desc: "Through this ritual, this character was able to semi-permanently allow them to control fire"
 
 
  ritual_emotionless_name: "Emotionless"
@@ -219,5 +219,5 @@
  ritual_emotionless_level_0_tooltip: "Ritual provide:\n[GetModifier('ritual_emotionless_modifier').GetDescWithEffects]"
 
  ritual_emotionless_modifier: "[ritual|E]: Emotionless"
- ritual_emotionless_modifier_desc: "Through the ritual, this character was able to semi-permanently remove any emotions"
+ ritual_emotionless_modifier_desc: "Through the use of a ritual, this character was able to semi-permanently remove any emotions"
  

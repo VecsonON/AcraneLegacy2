@@ -1,91 +1,91 @@
 ﻿l_english:
- al_arcana_affinity_bonus_t_advantage: "[arcana_affinity|E] @arcana_affinity_icon!"
- al_artifact_arcana_monthly_gain_bonus_t_advantage: "[arcana|E] per month @acrana_icon!"
- al_arcana_arcana_max_bonus_t_advantage: "[arcana|E] Max @acrana_icon!"
- al_arcana_magecraft_cost_bonus_t_advantage: "[Concept('arcana','#E Arcana Cost')] of Spells (%) @acrana_icon!"
+  al_arcana_affinity_bonus_t_advantage: "[arcana_affinity|E] @arcana_affinity_icon!"
+  al_artifact_arcana_monthly_gain_bonus_t_advantage: "[arcana|E] per month @acrana_icon!"
+  al_arcana_arcana_max_bonus_t_advantage: "[arcana|E] Max @acrana_icon!"
+  al_arcana_magecraft_cost_bonus_t_advantage: "[Concept('arcana','#E Arcana Cost')] of Spells (%) @acrana_icon!"
 
- ######################################################################################
+  ######################################################################################
 
- al_artifact_common_staff: "Common Staff"
- al_artifact_common_staff_description: "Stick with engreaved ritualitic symbols to help with casting spells"
+  al_artifact_common_staff: "Common Staff"
+  al_artifact_common_staff_description: "A stick with engraved ritualitic symbols that helps with casting spells"
 
- al_artifact_arcane_staff: "[Concept('arcana','#E Arcane')] Staff"
- al_artifact_arcane_staff_description: "Good made staff to help with casting spells"
+  al_artifact_arcane_staff: "[Concept('arcana','#E Arcane')] Staff"
+  al_artifact_arcane_staff_description: "A good staff that helps with casting spells"
 
- al_artifact_greater_arcane_staff: "Greater [Concept('arcana','#E Arcane')] Staff"
- al_artifact_greater_arcane_staff_description: "Great staff to help with casting spells"
+  al_artifact_greater_arcane_staff: "Greater [Concept('arcana','#E Arcane')] Staff"
+  al_artifact_greater_arcane_staff_description: "A great staff that helps with casting spells"
 
- al_artifact_arhons_staff: "Arhon's Staff"
- al_artifact_arhons_staff_description: "Staff of Arhon. One of the greatest mages of all the time"
+  al_artifact_arhons_staff: "Arhon's Staff"
+  al_artifact_arhons_staff_description: "Staff of Arhon. One of the greatest mages of all time"
 
-######################################################################################
+  ######################################################################################
 
- ruined_mage_tower_found: "There are ruins of mage tower!"
+  ruined_mage_tower_found: "There is a ruined mage tower here!"
 
-######################################################################################
+  ######################################################################################
 
- al_artifact_small_arcane_battery: "Small [Concept('arcana','#E Arcane')] Battery"
- al_artifact_small_arcane_battery_description: "Branslet with symbols to store small amount [arcana|E]"
+  al_artifact_small_arcane_battery: "Small [Concept('arcana','#E Arcane')] Battery"
+  al_artifact_small_arcane_battery_description: "Bracelet with arcane glyphs that stores a small amount of [arcana|E]"
 
- al_artifact_arcane_battery: "[Concept('arcana','#E Arcane')] Battery"
- al_artifact_arcane_battery_description: "Branslet with symbols to store medium amount [arcana|E]" 
+  al_artifact_arcane_battery: "[Concept('arcana','#E Arcane')] Battery"
+  al_artifact_arcane_battery_description: "Bracelet with arcane glyphs that stores a medium amount of [arcana|E]"
 
- al_artifact_huge_arcane_battery: "Huge [Concept('arcana','#E Arcane')] Battery"
- al_artifact_huge_arcane_battery_description: "Branslet with symbols to store huge amount [arcana|E]"
+  al_artifact_huge_arcane_battery: "Huge [Concept('arcana','#E Arcane')] Battery"
+  al_artifact_huge_arcane_battery_description: "Bracelet with arcane glyphs that stores a huge amount of [arcana|E]"
 
-######################################################################################
+  ######################################################################################
 
- al_artifact_enchanted_branslet: "Enchanted Branslet"
- al_artifact_enchanted_branslet_description: "Enchanted Branslet with symbols to increase [arcana_affinity|E] of user"
+  al_artifact_enchanted_branslet: "Enchanted Bracelet"
+  al_artifact_enchanted_branslet_description: "Enchanted bracelet with arcane glyphs that increases the [arcana_affinity|E] of the user"
 
- al_artifact_enchanted_medallion: "Enchanted Medallion"
- al_artifact_enchanted_medallion_description: "Enchanted Medallion with symbols to increase [arcana_affinity|E] of user"
+  al_artifact_enchanted_medallion: "Enchanted Medallion"
+  al_artifact_enchanted_medallion_description: "Enchanted Medallion with arcane glyphs that increases the [arcana_affinity|E] of the user"
 
- al_artifact_enchanted_ring: "Enchanted Ring"
- al_artifact_enchanted_ring_description: "Enchanted Ring with symbols to increase [arcana_affinity|E] of user"
+  al_artifact_enchanted_ring: "Enchanted Ring"
+  al_artifact_enchanted_ring_description: "Enchanted Ring with arcane glyphs that increases the [arcana_affinity|E] of the user"
 
- al_artifact_arhons_amulet: "Arhon's Amulet"
- al_artifact_arhons_amulet_description: "Amulet of Arhon. One of the greatest mage of all the time"
+  al_artifact_arhons_amulet: "Arhon's Amulet"
+  al_artifact_arhons_amulet_description: "Amulet of Arhon. One of the greatest mages of all time"
 
-######################################################################################
+  ######################################################################################
 
- al_artifact_small_arcane_collector: "Small [Concept('arcana','#E Arcane')] Collector"
- al_artifact_small_arcane_collector_description: "Small [Concept('arcana','#E Arcane')] Collector, to help it's user to collect [arcana|E] for air"
+  al_artifact_small_arcane_collector: "Small [Concept('arcana','#E Arcane')] Collector"
+  al_artifact_small_arcane_collector_description: "Small [Concept('arcana','#E Arcane')] collector, that helps it's user collect [arcana|E] from the air"
 
- al_artifact_arcane_collector: "[Concept('arcana','#E Arcane')] Collector"
- al_artifact_arcane_collector_description: "[Concept('arcana','#E Arcane')] Collector, to help it's user to collect [arcana|E] for air"
+  al_artifact_arcane_collector: "[Concept('arcana','#E Arcane')] Collector"
+  al_artifact_arcane_collector_description: "[Concept('arcana','#E Arcane')] collector, that helps it's user collect [arcana|E] from the air"
 
- al_artifact_great_arcane_collector: "Great [Concept('arcana','#E Arcane')] Collector"
- al_artifact_great_arcane_collector_description: "Great [Concept('arcana','#E Arcane')] Collector, to help it's user to collect [arcana|E] for air"
+  al_artifact_great_arcane_collector: "Great [Concept('arcana','#E Arcane')] Collector"
+  al_artifact_great_arcane_collector_description: "Great [Concept('arcana','#E Arcane')] collector, that helps it's user collect [arcana|E] from the air"
 
-######################################################################################
+  ######################################################################################
 
- al_ancient_tome: "Ancient Tome "
- al_ancient_tome_description: "Ancient Tome written by master mage in ancient magicus. [arcane_artifact.Custom('artifact_spell_loc')]"
- artifact_spell_loc_has_apotheosis: "\nWritten on the first page is 'About Possible way to achive godhood'"
- artifact_spell_loc_has_armagedon: "\nWritten on the first page is '100 Ways to destroy the World'"
- artifact_spell_loc_has_genesis: "\nWritten on the first page is 'How to play as god for dummies'"
- artifact_spell_loc_has_utopia: "\nWritten on the first page is 'Best way to create safe home for your kids'"
+  al_ancient_tome: "Ancient Tome "
+  al_ancient_tome_description: "Ancient Tome written by a master mage in ancient magicus. [arcane_artifact.Custom('artifact_spell_loc')]"
+  artifact_spell_loc_has_apotheosis: "\nWritten on the first page is 'Possible ways to achieve godhood'"
+  artifact_spell_loc_has_armagedon: "\nWritten on the first page is '100 Ways to destroy the World'"
+  artifact_spell_loc_has_genesis: "\nWritten on the first page is 'How to play as god for dummies'"
+  artifact_spell_loc_has_utopia: "\nWritten on the first page is 'Best way to create a safe home for your kids'"
 
- al_rare_ancient_tome: "Rare Ancient Tome"
- al_rare_ancient_tome_description: "Great Ancient Tome written by archmage in ancient magicus. [arcane_artifact.Custom('artifact_spell_loc')]"
+  al_rare_ancient_tome: "Rare Ancient Tome"
+  al_rare_ancient_tome_description: "Great Ancient Tome written by an archmage in ancient magicus. [arcane_artifact.Custom('artifact_spell_loc')]"
 
- al_great_ancient_tome: "Great Ancient Tome"
- al_great_ancient_tome_description: "Great Anncient Tome written by godly mage in ancient magicus. [arcane_artifact.Custom('artifact_spell_loc')]"
+  al_great_ancient_tome: "Great Ancient Tome"
+  al_great_ancient_tome_description: "Great Ancient Tome written by a godly mage in ancient magicus. [arcane_artifact.Custom('artifact_spell_loc')]"
 
- al_artifact_urah_tome: "Urah's Tome"
- al_artifact_urah_tome_description: "Ancient Tome written by Urah. One of the Greatest mage of all the time"
+  al_artifact_urah_tome: "Urah's Tome"
+  al_artifact_urah_tome_description: "Ancient Tome written by Urah. One of the Greatest mages of all time"
 
- ######################################################################################
+  ######################################################################################
 
- al_artifact_custom_staff: "Custom Made Arcane Staff"
- al_artifact_custom_staff_description: "Custom Made Arcane Staff"
+  al_artifact_custom_staff: "Custom Made Arcane Staff"
+  al_artifact_custom_staff_description: "Custom Made Arcane Staff"
 
- al_artifact_custom_arcane_battery: "Custom Made Arcane Battery"
- al_artifact_custom_arcane_battery_description: "Custom Made Arcane Battery"
+  al_artifact_custom_arcane_battery: "Custom Made Arcane Battery"
+  al_artifact_custom_arcane_battery_description: "Custom Made Arcane Battery"
 
- al_artifact_custom_arcane_amplifier: "Custom Made Arcane Amplifier"
- al_artifact_custom_arcane_amplifier_description: "Custom Made Arcane Amplifier"
+  al_artifact_custom_arcane_amplifier: "Custom Made Arcane Amplifier"
+  al_artifact_custom_arcane_amplifier_description: "Custom Made Arcane Amplifier"
 
- al_artifact_custom_arcane_collector: "Custom Made Arcane Collector"
- al_artifact_custom_arcane_collector_description: "Custom Made Arcane Collector"
+  al_artifact_custom_arcane_collector: "Custom Made Arcane Collector"
+  al_artifact_custom_arcane_collector_description: "Custom Made Arcane Collector"

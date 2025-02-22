@@ -12,7 +12,7 @@
  HIRED_MAGE: "I was hired for this"
 
  magecraft_learn_scheme:1 "Learn Magecraft"
- magecraft_learn_scheme_action:0 "Learn Magecraft with the help of"
+ magecraft_learn_scheme_action:0 "Magecraft tutoring with"
  magecraft_learn_scheme_desc:1 "I will attempt to learn a Magecraft"
  magecraft_learn_scheme_success_message:0 "Learned Magecraft"
  magecraft_learn_scheme_failed_message:0 "Failed to learn Magecraft"
@@ -21,11 +21,11 @@
  magecraft_learn_scheme_desc_general: "I will attempt to learn a Magecraft"
  teacher_mage: "Mage Teacher"
  magecraft_teaching_interaction_recipient: "Start Learing [magecraft|E]"
- magecraft_learn_scheme_student_succes: "You student [owner.GetShortUIName|U] #P succesfuly#! learned magecraft and became [mage|E]!"
- magecraft_learn_scheme_student_succes_desc: "You student [owner.GetShortUIName|U] #P succesfuly#! learned magecraft and became [mage|E]!"
+ magecraft_learn_scheme_student_succes: "Your student [owner.GetShortUIName|U] #P successfully#! learned magecraft and became a [mage|E]!"
+ magecraft_learn_scheme_student_succes_desc: "Your student [owner.GetShortUIName|U] #P successfully#! learned magecraft and became a [mage|E]!"
 
- magecraft_learn_scheme_student_fail: "You student [owner.GetShortUIName|U] #N fail#! and didn't learn magecraft and became [mage|E]!"
- magecraft_learn_scheme_student_fail_desc: "You student [owner.GetShortUIName|U] #N fail#! and didn't learn magecraft and became [mage|E]!"
+ magecraft_learn_scheme_student_fail: "Your student [owner.GetShortUIName|U] #N fail#! and didn't learn magecraft to become a [mage|E]!"
+ magecraft_learn_scheme_student_fail_desc: "Your student [owner.GetShortUIName|U] #N fail#! and didn't learn magecraft to and become a [mage|E]!"
 
 
  magecraft_teaching_interaction: "Teach magecraft"
@@ -34,11 +34,11 @@
  magecraft_teaching_interaction_accept_toast: "Teaching magecraft accepted"
  magecraft_teaching_interaction_decline_toast: "Teaching magecraft declined"
 
- SCHEME_PAY_GOLD: "Pay 100 [gold_i] to be teached"
+ SCHEME_PAY_GOLD: "Pay 100 [gold_i] to be taught"
  MAGE_IS_CRIMINAL_ZEALOUS_REASON: "I consider magecraft to be a crime: $VALUE|+=0$"
  MAGE_IS_SHUNNED_ZEALOUS_REASON: "I consider magecraft unnatural: $VALUE|+=0$"
  I_AM_HEIR_OF_ACTOR_REASON: "[recipient.GetShortUIName|U] is heir of [actor.GetShortUIName|U]: $VALUE|+=0$"
- SCHEME_PAYED_GOLD: "I payed gold to be teached: $VALUE|+=0$"
+ SCHEME_PAYED_GOLD: "I payed gold to be taught: $VALUE|+=0$"
  #mentor_arcana_learning_interaction: "Magecraft Learning"
  #mentor_arcana_learning_interaction_desc: "Magecraft Learning"
 
@@ -46,7 +46,7 @@
  show_arcana_affinity_desc: "[recipient.GetTitledFirstName]'s [arcana_affinity|E] is: [recipient.MakeScope.ScriptValue('arcana_affinity')|V0] #weak;italic ([recipient.Custom('arcana_affinity_level')])#! \n[recipient.MakeScope.GetScriptValueDesc('arcana_affinity')|0]\n\n#color_gray;bold;italic Effects:#!\n[arcana|E]: @acrana_icon!#P +[recipient.MakeScope.ScriptValue('arcana_affinity_divided')]#!/month #weak;italic ([arcana_affinity|E]/10)\n[arcana|E] Maximum: @acrana_icon!#P +[recipient.MakeScope.ScriptValue('arcana_maximum')] #weak;italic ([arcana_affinity|E]*10)"
 
  teach_arcane_understanding_interaction: "Teach Arcane Understanding"
- teach_arcane_understanding_interaction_desc: "Teach Arcane Understanding to other person"
+ teach_arcane_understanding_interaction_desc: "Teach Arcane Understanding to another person"
 
  experiment_on_prisoner: "Experiment On Prisoner"
  experiment_on_prisoner_desc: "Experiment On Prisoner"
