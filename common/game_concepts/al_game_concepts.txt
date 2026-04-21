@@ -53,7 +53,7 @@ rewriting_spell = {
 	texture = "gfx/AL/al_rewriting_spell.dds"
 
 }
-ritual = {
+al_ritual = {
 	texture = "gfx/AL/al_ritual.dds"
 }
 arcane_mastery_lifestyle = {

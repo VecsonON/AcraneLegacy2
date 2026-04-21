@@ -16,7 +16,7 @@
  al_activities_events.0011.desc: "Пройдя по секретному проходу, я добрался до тупика, где не было ничего интересного. Едва я собрался уходить, как услышал, как что-то под полом издало громкий "Крак"."
  al_activities_events.0011.a: "Попытаться уклониться от того, что сейчас произойдет"
  al_activities_events.0011.b: "Использовать телекинез, чтобы избежать того, что произойдет"
- al_activities_events.0011.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [ritual|E] телекинеза"
+ al_activities_events.0011.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [al_ritual|E] телекинеза"
  al_activities_events.0011.c: "Смириться с последствиями"
  
  al_activities_events.0021.title: "Секретный проход - Разрушенный Лабораториум!"
@@ -80,14 +80,14 @@
  al_activities_events.0142.desc: "Открыв ворота и зайдя внутрь, i discover that there is nothing to study or take. Only rubish. but as i was walking out from hall i heard loud *crack*"
  al_activities_events.0142.a: "Попытаться уклониться от того, что сейчас произойдет"
  al_activities_events.0142.b: "Использовать телекинез, чтобы избежать того, что произойдет"
- al_activities_events.0142.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [ritual|E] телекинеза"
+ al_activities_events.0142.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [al_ritual|E] телекинеза"
  al_activities_events.0142.c: "Смириться с последствиями"
  
  al_activities_events.0003.title: "Ловушка!"
  al_activities_events.0003.desc: "Пройдя по проходу я увидел тупик, где не было чего-либо интересного. Но как тоько я развернулся обратно - под полом раздался громкий "Крак!" под полом*."
  al_activities_events.0003.a: "Попытаться уклониться от того, что сейчас произойдет"
  al_activities_events.0003.b: "Использовать телекинез, чтобы избежать того, что произойдет"
- al_activities_events.0003.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [ritual|E] телекинеза"
+ al_activities_events.0003.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [al_ritual|E] телекинеза"
  al_activities_events.0003.c: "Смириться с последствиями"
  
  al_activities_events.0004.title: "Разрушенный проход"
@@ -145,7 +145,7 @@
  al_activities_events.0015.desc: "Пройдя по обнаруженному скрытому проходу, я довольно быстро уперся в тупик. Но едва я собрался возвращаться, как раздался громкий звук и я увидел целый шквал из светящихся стрел..."
  al_activities_events.0015.a: "Попытаться уклониться от того, что сейчас произойдет"
  al_activities_events.0015.b: "Использовать телекинез, чтобы избежать того, что произойдет"
- al_activities_events.0015.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [ritual|E] телекинеза"
+ al_activities_events.0015.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [al_ritual|E] телекинеза"
  al_activities_events.0015.c: "Смириться с последствиями"
  
  al_activities_events.0025.title: "Фальшивая стена - Библиотека"
@@ -195,7 +195,7 @@
  al_activities_events.0136.desc: "Стоило мне взять артефакт, как я услышал громкий щелчок"
  al_activities_events.0136.a: "Попытаться уклониться от того, что сейчас произойдет"
  al_activities_events.0136.b: "Использовать телекинез, чтобы избежать того, что произойдет"
- al_activities_events.0136.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [ritual|E] телекинеза"
+ al_activities_events.0136.skill.tooltip: "Эта опция доступна, потому что вы поддерживаете [al_ritual|E] телекинеза"
  al_activities_events.0136.c: "Смириться с последствиями"
  
  al_activities_events.0007.title: "Дыра"
@@ -206,7 +206,7 @@
  al_activities_events.0007.a.failiure: "ААА! МОЯ НОГА!"
  al_activities_events.0007.b: "Проигнорировать ее"
  al_activities_events.0007.ritual: "Применить телекинез, чтобы безопасно спуститься"
- al_activities_events.0007.ritual.tooltip: "Эта опция доступна благодаря тому, что вы поддерживаете [ritual|E] телекинеза"
+ al_activities_events.0007.ritual.tooltip: "Эта опция доступна благодаря тому, что вы поддерживаете [al_ritual|E] телекинеза"
  
  al_activities_events.0017.title: "Дыра - Огромная Лаборатория"
  al_activities_events.0017.desc: "После этого дурацкого решения я приземлился в комнате, похожей на лабораторию. Но куда важнее, что эта лаборатория в полном порядке! Я могу провести так много экспериментов! Поистине золотая жила!"

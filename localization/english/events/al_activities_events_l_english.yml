@@ -15,7 +15,7 @@
   al_activities_events.0011.desc: "As I am walking down the secret passage nothing of interest catches my eye, but suddenly when I am about to exit a *creak* can be heard from the floor. It's a spear trap!"
   al_activities_events.0011.a: "Try to dodge the spears to the best of your ability"
   al_activities_events.0011.b: "Use telekinesis to stop the spears dead in their tracks"
-  al_activities_events.0011.skill.tooltip: "This option is available because of your enabled telekinesis [ritual|E]"
+  al_activities_events.0011.skill.tooltip: "This option is available because of your enabled telekinesis [al_ritual|E]"
   al_activities_events.0011.c: "Accept your fate"
 
   al_activities_events.0021.title: "Secret Passage - Ruined Laboratory!"
@@ -79,14 +79,14 @@
   al_activities_events.0142.desc: "After opening the gate and walking inside, I can only find rubbish. While walking out from hall I hear a loud *crack* following by a loud rumble behind me, it's a huge boulder rolling straight towards me!"
   al_activities_events.0142.a: "Try to dodge the boulder to the best of your abilities"
   al_activities_events.0142.b: "Use telekinesis to stop the boulder before impact"
-  al_activities_events.0142.skill.tooltip: "This option is available because of your enabled telekinesis [ritual|E]"
+  al_activities_events.0142.skill.tooltip: "This option is available because of your enabled telekinesis [al_ritual|E]"
   al_activities_events.0142.c: "Lady luck, save me"
 
   al_activities_events.0003.title: "Trap!"
   al_activities_events.0003.desc: "As I am walking down the passage nothing of interest catches my eye, when I am about to exit I accidently trip a wire and notice a large blade falling down towards me."
   al_activities_events.0003.a: "Try to dodge the blade, anything can happen"
   al_activities_events.0003.b: "Use telekinesis to stop the blade"
-  al_activities_events.0003.skill.tooltip: "This option is available because of your enabled telekinesis [ritual|E]"
+  al_activities_events.0003.skill.tooltip: "This option is available because of your enabled telekinesis [al_ritual|E]"
   al_activities_events.0003.c: "Lady luck, save me"
 
   al_activities_events.0004.title: "Ruined Passage"
@@ -144,7 +144,7 @@
   al_activities_events.0015.desc: "As I follow the previously hidden passageway I quickly reach it's end, frustrated that I found nothing I make a quick turn and accidentally activate a pressure plate. Turning around I can see a barrage of arrows comming my way!"
   al_activities_events.0015.a: "Try to dodge, anything can happen"
   al_activities_events.0015.b: "Use telekinesis to stop the arrows in their tracks!"
-  al_activities_events.0015.skill.tooltip: "This option is available because of your enabled telekinesis [ritual|E]"
+  al_activities_events.0015.skill.tooltip: "This option is available because of your enabled telekinesis [al_ritual|E]"
   al_activities_events.0015.c: "Face the arrows head on!"
 
   al_activities_events.0025.title: "False Wall - Libary"
@@ -194,7 +194,7 @@
   al_activities_events.0136.desc: "As I take the artifact, I hear a pressure plate activate *click*. Looking up, I see debris falling quickly toward me!"
   al_activities_events.0136.a: "Try to dodge the debris as best you can"
   al_activities_events.0136.b: "Use telekinesis to float the debris a safe distance away"
-  al_activities_events.0136.skill.tooltip: "This option is available because of your enabled telekinesis [ritual|E]"
+  al_activities_events.0136.skill.tooltip: "This option is available because of your enabled telekinesis [al_ritual|E]"
   al_activities_events.0136.c: "Bet that your luck will keep you safe!"
 
   al_activities_events.0007.title: "Hole"
@@ -205,7 +205,7 @@
   al_activities_events.0007.a.failiure: "ARGG! MY LEG!"
   al_activities_events.0007.b: "Ignore it"
   al_activities_events.0007.ritual: "Use telekinesis to float yourself down safely"
-  al_activities_events.0007.ritual.tooltip: "This option is available because of your enabled telekinesis [ritual|E]"
+  al_activities_events.0007.ritual.tooltip: "This option is available because of your enabled telekinesis [al_ritual|E]"
 
   al_activities_events.0017.title: "Hole - Huge Laboratory"
   al_activities_events.0017.desc: "After my foolish decision to go down the hole I land in something looking like a laboratory. More importantly a laboratory of pristine quality! There are so many experiments I could perform here, truly a goldmine of knowledge!"

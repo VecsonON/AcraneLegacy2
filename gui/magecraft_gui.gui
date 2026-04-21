@@ -389,7 +389,7 @@
 												icon = {
 													visible = "[GetVariableSystem.HasValue('magic_tab','ritual')]"
 													size = { 30 30 }
-													tooltip = "[ritual|E]"
+													tooltip = "[al_ritual|E]"
 									
 													texture = "gfx/interface/icons/lifestyles_perks/al_ritual.dds"
 												}

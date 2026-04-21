@@ -409,6 +409,22 @@ spell_cure_script = {
 					}
 					remove_trait = ergotism   
 				}
+				25 = {
+					trigger = { has_trait = withering_mind }
+					remove_trait = withering_mind   
+				}
+				25 = {
+					trigger = { has_trait = clouded_eyes }
+					remove_trait = clouded_eyes   
+				}
+				25 = {
+					trigger = { has_trait = faltering_heart }
+					remove_trait = faltering_heart   
+				}
+				25 = {
+					trigger = { has_trait = fragile_bones }
+					remove_trait = fragile_bones   
+				}
 			}
 			if = { limit = { NOT = { scope:target = ROOT } } scope:target = { add_opinion = { modifier = al_helped target = prev } } }
 			remove_arcana = { VALUE = spell_cure_level_0_cost }
@@ -440,6 +456,10 @@ spell_cure_script = {
 					has_trait = measles
 					has_trait = dysentery
 					has_trait = ergotism
+					has_trait = withering_mind
+					has_trait = clouded_eyes
+					has_trait = faltering_heart
+					has_trait = fragile_bones
 				}
 			} 	
 		}
