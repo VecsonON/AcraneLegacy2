@@ -1,4 +1,7 @@
 ﻿doctrine_magecraft_mythical = {
+	doctrine_group_type = doctrine_magecraft
+	index = 0
+	divergence = 0
 	piety_cost = {
 		value = faith_doctrine_cost_high
 	}
@@ -7,6 +10,9 @@
 	}
 }
 doctrine_magecraft_popular_fear = {
+	doctrine_group_type = doctrine_magecraft
+	index = 1
+	divergence = 0
 	piety_cost = {
 		value = faith_doctrine_cost_high
 	}
@@ -16,6 +22,9 @@ doctrine_magecraft_popular_fear = {
 }
 
 doctrine_magecraft_crime = {
+	doctrine_group_type = doctrine_magecraft
+	index = 2
+	divergence = 0
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
@@ -33,6 +42,9 @@ doctrine_magecraft_crime = {
 }
 
 doctrine_magecraft_shunned = {
+	doctrine_group_type = doctrine_magecraft
+	index = 3
+	divergence = 5
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {
@@ -46,6 +58,9 @@ doctrine_magecraft_shunned = {
 }
 
 doctrine_magecraft_accepted = {
+	doctrine_group_type = doctrine_magecraft
+	index = 4
+	divergence = 15
 	piety_cost = {
 		value = faith_doctrine_cost_low
 		if = {

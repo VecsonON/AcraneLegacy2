@@ -294,6 +294,8 @@
 
 	map_entity = "building_western_hunt_01_entity"
 
+	header_background = "gfx/interface/illustrations/activity_header_backgrounds/activity_adult_education.dds"
+
 	# Travel
 	background = { # Bridge
 		trigger = {

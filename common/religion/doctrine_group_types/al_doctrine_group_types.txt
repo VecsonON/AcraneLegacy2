@@ -1,11 +1,3 @@
 ﻿doctrine_magecraft = {
 	category = "crimes"
-
-	doctrine_types = {
-		doctrine_magecraft_mythical
-		doctrine_magecraft_popular_fear
-		doctrine_magecraft_crime
-		doctrine_magecraft_shunned
-		doctrine_magecraft_accepted
-	}
 }

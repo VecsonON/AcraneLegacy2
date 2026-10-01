@@ -14,7 +14,7 @@
     trait = cynical
     trait = patient
     trait = eccentric
-    trait = scholar
+    trait = erudite
     trait = beauty_good_3
     trait = intellect_good_3 
     trait = physique_good_3
