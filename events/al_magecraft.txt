@@ -401,7 +401,7 @@ magecraft.0001 = {
 					modifier = apocalipse_modifier
 					years = 20
 				}
-				change_development_level = -100
+				change_prosperity_level = -20
 			}
 			death = { death_reason = death_brutally_despatched  }
 		}
@@ -420,7 +420,7 @@ magecraft.0001 = {
 				modifier = minor_meteorite
 				years = 10
 			}
-			change_development_level = -5
+			change_prosperity_level = -2
 		}
 		remove_variable = rewriting_cost
 		remove_variable = rewriting_name
@@ -436,7 +436,7 @@ magecraft.0001 = {
 				modifier = meteorite
 				years = 15
 			}
-			change_development_level = -10
+			change_prosperity_level = -5
 		}
 		remove_variable = rewriting_cost
 		remove_variable = rewriting_name
@@ -452,7 +452,7 @@ magecraft.0001 = {
 				modifier = major_meteorite
 				years = 20
 			}
-			change_development_level = -20
+			change_prosperity_level = -5
 		}
 		remove_variable = rewriting_cost
 		remove_variable = rewriting_name
@@ -564,7 +564,7 @@ magecraft.0001 = {
 				modifier = apocalipse_modifier
 			}
 			if = { limit = { has_county_modifier = utopia_county_modifier } remove_county_modifier = utopia_county_modifier }
-			change_development_level = -100
+			change_prosperity_level = -10
 		}
 		every_province = { 
 			custom = custom.every_province
@@ -899,7 +899,7 @@ magecraft.1000 = {
 		}
 		if = { limit = { exists = flag:Novice_Mage } } # TO DELETE CONSOLE SPAM...
 		root.capital_province = {
-			add_special_building = ruined_mage_tower
+			add_special_district = ruined_mage_tower_district
 		}
 		al_become_mage = yes
 		custom_tooltip = "info_about_magecraft_ai"

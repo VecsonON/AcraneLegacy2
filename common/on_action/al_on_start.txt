@@ -31,8 +31,8 @@ mage_tower_setup = {
 		every_empire = {
 			random_de_jure_county = {
 				random_county_province = {
-					limit = { has_special_building = no }
-					add_special_building = ruined_mage_tower
+					limit = { has_special_district = no }
+					add_special_district = ruined_mage_tower_district
 					change_local_variable = {
 						name = ruined_mage_tower_amount
 						add = 1
@@ -41,10 +41,10 @@ mage_tower_setup = {
 			}
 		}
 		if = { limit = { local_var:ruined_mage_tower_amount < 5 }
-			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
-			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
-			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
-			random_province = { limit = { exists = province_owner has_special_building = no } add_special_building = ruined_mage_tower }
+			random_province = { limit = { exists = province_owner has_special_district = no } add_special_district = ruined_mage_tower_district }
+			random_province = { limit = { exists = province_owner has_special_district = no } add_special_district = ruined_mage_tower_district }
+			random_province = { limit = { exists = province_owner has_special_district = no } add_special_district = ruined_mage_tower_district }
+			random_province = { limit = { exists = province_owner has_special_district = no } add_special_district = ruined_mage_tower_district }
 		}
 	}
 }

@@ -1,40 +1,40 @@
 ﻿change_topography_bad_2 = {
 	icon = rock_negative 
-	development_growth = -0.4
-	development_growth_factor = -0.2
+	prosperity_growth = -0.4
+	prosperity_growth_factor = -0.2
 	levy_size = -0.2
 }
 change_topography_bad_1 = {
 	icon = rock_negative 
-	development_growth = -0.2
-	development_growth_factor = -0.1
+	prosperity_growth = -0.2
+	prosperity_growth_factor = -0.1
 	levy_size = -0.1
 }
 change_topography_good_1 = {
 	icon = rock_positive
-	development_growth = 0.2
-	development_growth_factor = 0.1
+	prosperity_growth = 0.2
+	prosperity_growth_factor = 0.1
 	levy_size = 0.1
 }
 change_topography_good_2 = {
 	icon = rock_positive 
-	development_growth = 0.4
-	development_growth_factor = 0.2
+	prosperity_growth = 0.4
+	prosperity_growth_factor = 0.2
 	levy_size = 0.2
 }
 devastate_land_1 = {
 	icon = county_modifier_corruption_negative 
-	development_growth = -0.5
+	prosperity_growth = -0.5
 	levy_size = -0.5
 }
 devastate_land_2 = {
 	icon = county_modifier_corruption_negative
-	development_growth = -1
+	prosperity_growth = -1
 	levy_size = -0.8
 }
 devastate_land_3 = {
 	icon = county_modifier_corruption_negative 
-	development_growth = -1.5
+	prosperity_growth = -1.5
 	levy_size = -1
 }
 al_pupet_modifier = {
@@ -301,24 +301,24 @@ apocalipse_modifier = {
 	build_gold_cost = 1
 	build_piety_cost = 1
 	build_prestige_cost = 1
-	development_growth_factor = -5
+	prosperity_growth_factor = -5
 	levy_size = -5
 }
 
 
 minor_meteorite = {
 	icon = county_modifier_corruption_negative
-	development_growth_factor = -0.50
+	prosperity_growth_factor = -0.50
 	levy_size = -0.5
 }
 meteorite = {
 	icon = county_modifier_corruption_negative
-	development_growth_factor = -1
+	prosperity_growth_factor = -1
 	levy_size = -1
 }
 major_meteorite = {
 	icon = county_modifier_corruption_negative
-	development_growth_factor = -2
+	prosperity_growth_factor = -2
 	levy_size = -2
 }
 
@@ -337,7 +337,7 @@ al_bad_vibes_level_2 = {
 }
 al_bad_vibes_level_3 = {
 	icon = county_modifier_opinion_positive 
-	county_opinion_add = -75
+	popular_opinion_add = -75
 }
 ritual_emotionless_modifier = {
 	icon = stress_positive
@@ -346,12 +346,12 @@ ritual_emotionless_modifier = {
 }
 utopia_province_modifier = {
 	icon = county_modifier_corruption_negative
-	tax_mult = 0.5
+	all_tax_mult = 0.5
 }
 
 utopia_county_modifier = {
 	icon = county_modifier_corruption_negative
-	development_growth_factor = 0.5
+	prosperity_growth_factor = 0.5
 	travel_danger = -100
 	supply_limit = 2000
 	fort_level = 20

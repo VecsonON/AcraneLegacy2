@@ -51,8 +51,8 @@ arcana_affinity = {
 	if = { limit = { has_perk = al_arcane_mastery_archmage } add = { value = 2 desc = al_arcane_mastery_archmage_desc format = "affinity_gain_format" } }
 	if = { limit = { has_perk = al_arcane_mastery_godly } add = { value = 2 desc = al_arcane_mastery_godly_desc format = "affinity_gain_format" } }
 	if = { limit = { exists = capital_province } 
-		if = { limit = { root.capital_province = { has_building = advance_mage_tower } } add = { value = 2 desc = advance_mage_tower_desc format = "affinity_gain_format" } }
-		if = { limit = { root.capital_province = { has_building = super_mage_tower } } add = { value = 4 desc = super_mage_tower_desc format = "affinity_gain_format" } }
+		if = { limit = { root.capital_province = { has_building = advance_mage_tower } } add = { value = 2 desc = script_advance_mage_tower_desc format = "affinity_gain_format" } }
+		if = { limit = { root.capital_province = { has_building = super_mage_tower } } add = { value = 4 desc = script_super_mage_tower_desc format = "affinity_gain_format" } }
 	}
 
 	if = { limit = { has_character_modifier = huge_arcane_affinity_boost } add = { value = 8 desc = huge_arcane_affinity_boost_val_desc format = "affinity_gain_format" } }

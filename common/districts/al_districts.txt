@@ -1,0 +1,10 @@
+﻿ruined_mage_tower_district = {
+	primary_building = ruined_mage_tower
+	
+	#Fallback
+	background = {
+		reference = "gfx/interface/illustrations/holding_types/city_india.dds"
+	}
+
+	type = special
+}

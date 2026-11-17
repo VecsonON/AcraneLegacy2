@@ -63,10 +63,8 @@
  al_arcane_mastery_archmage_desc: "[GetPerk('al_arcane_mastery_archmage').GetName(GetNullCharacter)]" 
  al_arcane_mastery_godly_desc: "[GetPerk('al_arcane_mastery_godly').GetName(GetNullCharacter)]"
 
- basic_mage_tower_desc: "[GetBuilding('basic_mage_tower').GetName]"
- mage_tower_desc: "[GetBuilding('mage_tower').GetName]"
- advance_mage_tower_desc: "[GetBuilding('advance_mage_tower').GetName]"
- super_mage_tower_desc: "[GetBuilding('super_mage_tower').GetName]"
+ script_advance_mage_tower_desc: "[GetBuildingType('advance_mage_tower').GetName]"
+ script_super_mage_tower_desc: "[GetBuildingType('super_mage_tower').GetName]"
 
  huge_arcane_affinity_boost_val_desc: "[GetModifier('huge_arcane_affinity_boost').GetName]"
  huge_arcane_month_boost_val_desc: "[GetModifier('huge_arcane_month_boost').GetName]"

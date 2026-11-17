@@ -12,11 +12,14 @@
 
 	is_valid = {
 		has_perk = al_arcane_mastery_master
-		capital_province = { NOT = { has_special_building = yes } }
+		capital_province = { NOT = { has_special_district = yes } }
 	}
 	
 	effect = {
-		root.capital_province = { add_special_building = basic_mage_tower }
+		root.capital_province = { 
+			add_special_district = ruined_mage_tower_district
+			add_province_modifier = extra_building_slot
+		}
 	}	
 
 	cost = {
